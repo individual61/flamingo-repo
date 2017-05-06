@@ -9,6 +9,7 @@
 #include <ADXL345.h>
 #include <MPU6050.h>
 #include <math.h>
+#include <avr/pgmspace.h>
 
 #include <accel.h>
 #include <buttons.h>
@@ -20,9 +21,9 @@
 // Buttons
 #define BUTTON1 3
 #define BUTTON2 4
-#define DEBOUNCEDELAY 200
+#define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 5
+#define NUM_PROGRAMS 6
 #define BRIGHTNESS_COUNT 10
 
 // LED counts

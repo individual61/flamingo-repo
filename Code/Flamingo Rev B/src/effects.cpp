@@ -4,12 +4,26 @@
 
 uint32_t color = 0x106040;      // Flamingo Pink
 
+// FOR DHO_SineStripes
+const uint8_t sinTable[97] PROGMEM = {0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7,
+                    0, 7, 25, 50, 75, 93, 100, 93, 75, 50, 25, 7, 0};
+
+// For DHO_Blob
+const uint8_t gaussianTable[15] PROGMEM = {5, 11, 21, 37, 57, 78, 94, 100,
+                             94, 78, 57, 37, 21, 11, 5};
+
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void setPixelByIndex(int index, uint32_t color)
 {
   if ((index > 0) && (index < NUMPERSTRAND))
   {
-    int realindex = 0;
+    uint8_t realindex = 0;
     realindex = NUMPERSTRAND - index - 1;
     strip.setPixelColor(realindex, color);
     realindex = NUMPERSTRAND + index ;
@@ -121,6 +135,10 @@ for (int i = 0; i < NUMPERSTRAND; i++)
 strip.show();
 }
 
+
+
+
+
 void DHO_Blob(void)
 {
   float BallPosition = getBallPosition();
@@ -131,10 +149,10 @@ void DHO_Blob(void)
   }
   int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
   float attnFactor;
-  float gaussianTable[15] = {0.05, 0.11, 0.21, 0.37, 0.57, 0.78, 0.94, 1.00, 0.94, 0.78, 0.57, 0.37, 0.21, 0.11, 0.05};
+
   for (int k = -7; k <= 7; k++)
   {
-    attnFactor = gaussianTable[k + 7];
+    attnFactor = (float)((float)gaussianTable[k + 7]/100.0f);
   /*    Serial.print("attnFactor: ");
       Serial.println(attnFactor);
             Serial.print("k: ");
@@ -143,6 +161,9 @@ void DHO_Blob(void)
     }
     strip.show();
 }
+
+
+
 
 
 /////////////////// Program
@@ -156,18 +177,11 @@ for (int i = 0; i < NUMPERSTRAND; i++)
 }
 int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
 float attnFactor;
-float sinTable[97] = {0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07, 0.00
-                     };
+
+
 for (int k = -48; k <= 48; k++)
 {
-  attnFactor = sinTable[k + 48];
+  attnFactor = (float)(((float) pgm_read_byte_near(sinTable +k + 48))/100.0f);
   /*    Serial.print("attnFactor: ");
       Serial.println(attnFactor);
             Serial.print("k: ");
@@ -177,6 +191,11 @@ for (int k = -48; k <= 48; k++)
 }
 strip.show();
 }
+
+
+
+
+
 
 void Fire(void)
 {

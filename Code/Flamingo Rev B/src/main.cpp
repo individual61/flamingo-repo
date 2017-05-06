@@ -6,6 +6,7 @@
 #include <ADXL345.h>
 #include <MPU6050.h>
 #include <math.h>
+#include <avr/pgmspace.h>
 
 #include <accel.h>
 #include <buttons.h>
@@ -83,19 +84,12 @@ int freeRam ()
 }
 
 
-
-
-
-
-
-
-
 void setup() {
 
   // Initialize serial communication
   Serial.begin(115200);
 
-  Serial.print("Free SRAM:  ");
+  Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
 
   //////////////////////// BUTTONS /////////////////
@@ -107,43 +101,50 @@ void setup() {
   Wire.begin();
 
   // Initialize accel
-  Serial.print("Initializing ADXL345... ");
+  Serial.print(F("Initializing ADXL345... "));
   accel.initialize();
   Serial.println("Done.");
 
   // Verify connection
-  Serial.print("Testing ADXL345 connections...");
-  Serial.println(accel.testConnection() ? "\tADXL345 connection successful." : "\tADXL345 connection failed.");
+  Serial.print(F("Testing ADXL345 connections..."));
+  if(accel.testConnection())
+  {
+    Serial.println(F("\tADXL345 connection successful."));
+  }
+  else
+  {
+    Serial.println(F("\tADXL345 connection failed."));
+  }
   Serial.println("");
 
   // Set Y offset
-  Serial.print("Setting offset... ");
+  Serial.print(F("Setting offset... "));
   accel.setOffsetY(0);
   Serial.println("Done.");
 
   // Set accel range
-  Serial.print("Setting Range to 2... ");
+  Serial.print(F("Setting Range to 2... "));
   accel.setRange(2);
-  Serial.println("Done.");
+  Serial.println(F("Done."));
 
   // Measure 3 seconds of accelerometer values and averages to create offset.
-  Serial.print("Measuring 1 second of accelerometer values for zero value... ");
+  Serial.print(F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
-  Serial.println("Done.");
+  Serial.println(F("Done."));
 
   // Initialize lights
-  Serial.print("Initializing lights... ");
+  Serial.print(F("Initializing lights... "));
   strip.begin(); // Initialize pins for output
   strip.setBrightness(30);
   strip.clear();
   strip.show();
-  Serial.println("Done.");
+  Serial.println(F("Done."));
 
   Serial.println("");
-  Serial.println("Starting loop.");
+  Serial.println(F("Starting loop."));
   Serial.println("");
 
-  Serial.print("Free SRAM:  ");
+  Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
 
 }
@@ -158,7 +159,7 @@ void loop()
   if(counter==100)
   {
     counter = 0;
-    Serial.print("Free SRAM:  ");
+    Serial.print(F("Free SRAM:  "));
     Serial.println(freeRam());
   }
 
