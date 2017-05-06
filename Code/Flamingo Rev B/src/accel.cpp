@@ -28,10 +28,8 @@ void initAccelOffset(void)
   }
   g0y = g0y / ((float)accel_init_average_count);
 
-#ifndef PLOT
   Serial.print("Number of measurements: ");
   Serial.print(accel_init_average_count);
   Serial.print(".\tAvg gy:");
   Serial.println(g0y);
-#endif
 }

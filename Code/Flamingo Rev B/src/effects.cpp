@@ -123,26 +123,25 @@ strip.show();
 
 void DHO_Blob(void)
 {
-float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition();
 
-for (int i = 0; i < NUMPERSTRAND; i++)
-{
-  setPixelByIndex(i, 0);
-}
-int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
-float attnFactor;
-float gaussianTable[15] = {0.05, 0.11, 0.21, 0.37, 0.57, 0.78, 0.94, 1.00, 0.94, 0.78, 0.57, 0.37, 0.21, 0.11, 0.05};
-for (int k = -7; k <= 7; k++)
-{
-  attnFactor = gaussianTable[k + 7];
+  for (int i = 0; i < NUMPERSTRAND; i++)
+  {
+    setPixelByIndex(i, 0);
+  }
+  int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
+  float attnFactor;
+  float gaussianTable[15] = {0.05, 0.11, 0.21, 0.37, 0.57, 0.78, 0.94, 1.00, 0.94, 0.78, 0.57, 0.37, 0.21, 0.11, 0.05};
+  for (int k = -7; k <= 7; k++)
+  {
+    attnFactor = gaussianTable[k + 7];
   /*    Serial.print("attnFactor: ");
       Serial.println(attnFactor);
             Serial.print("k: ");
       Serial.println(k);*/
-  setPixelByIndex(centerindex + k, strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor), (int)(64 * attnFactor)));
-
-}
-strip.show();
+      setPixelByIndex(centerindex + k, strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor), (int)(64 * attnFactor)));
+    }
+    strip.show();
 }
 
 
@@ -160,7 +159,8 @@ float attnFactor;
 float sinTable[97] = {0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
                       0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
                       0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
-                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07, 0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
+                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
+                      0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
                       0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
                       0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07,
                       0.00, 0.07, 0.25, 0.50, 0.75, 0.93, 1.00, 0.93, 0.75, 0.50, 0.25, 0.07, 0.00

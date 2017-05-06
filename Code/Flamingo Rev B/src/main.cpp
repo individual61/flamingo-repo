@@ -19,34 +19,43 @@
 /*
  HOW TO CONNECT EVERYTHING
 
- ** ADXL345 - Adafruit Pro Trinket 5V w/ battery backpack:
- CS -> BAT
- SDO -> GND
- SDA ->A4
- SCL -> A5
- VCC -> BAT
- GND -> GND
+  ********* ADXL345 *********
+  Adafruit Pro Trinket 5V w/ battery backpack:
+  CS -> BAT
+  SDO -> GND
+  SDA -> A4 (I2C SDA)
+  SCL -> A5 (I2C SCL)
+  VCC -> BAT
+  GND -> GND
 
-  ** ADXL345 - Arduino Uno:
+  Arduino Uno:
   CS ->3V3
   SDO -> GND
-  SDA ->A4
-  SCL -> A5
+  SDA -> A4 (I2C SDA)
+  SCL -> A5 (I2C SCL)
   VCC ->3V3
   GND -> GND
   10k between VCC and SCL ??
   10k between VCC and SDA ??
 
-  Dotstars (Adafruit):
-  Green/data - 11
-  Yellow/clock - 13
-  Gnd to Gnd
-  Electrolytic cap across VCC and gnd
+  ********* Buttons *********
+  BAT -> Resistor -> (Button Pin) -> (Normally Open Button) -> GND
 
-  APA102C (chinese):
-  Physical location of data/clock wires are different
+  ********* Dotstars/APA102C *********
+  Electrolytic cap across VCC and GND
+
+  (Adafruit 144/m, on Flamingo Original stick):
+  VCC -> BAT
+  Green/data -> 11 (Hardware SPI MOSI)
+  Yellow/clock -> 13 (Hardware SPI CLOCK)
+  GND to GND
+
+  APA102C 144/m (chinese):
+  VCC -> BAT
+  Green/data -> 11 (Hardware SPI MOSI)
+  Red/clock -> 13 (Hardware SPI CLOCK)
+  GND to GND
 */
-
 
 //////////////////// DOTSTARS //////////////////
 // The last parameter is optional -- this is the color data order of the
@@ -58,8 +67,6 @@
 // (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
 Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 
-
-
 ////////////////////// ADXL345 /////////////////////////
 // class default I2C address is 0x53
 // specific I2C addresses may be passed as a parameter here
@@ -67,13 +74,31 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 // ALT high = 0x1D
 ADXL345 accel;
 
+
+int freeRam ()
+{
+  extern int __heap_start, *__brkval;
+  int v;
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
+}
+
+
+
+
+
+
+
+
+
 void setup() {
 
   // Initialize serial communication
   Serial.begin(115200);
 
-  //////////////////////// BUTTONS /////////////////
+  Serial.print("Free SRAM:  ");
+  Serial.println(freeRam());
 
+  //////////////////////// BUTTONS /////////////////
   pinMode(BUTTON1, INPUT);
   pinMode(BUTTON2, INPUT);
 
@@ -81,40 +106,62 @@ void setup() {
   // join I2C bus (I2Cdev library doesn't do this automatically)
   Wire.begin();
 
-  // initialize device
-
-  Serial.println("Initializing ADXL345...");
-
+  // Initialize accel
+  Serial.print("Initializing ADXL345... ");
   accel.initialize();
+  Serial.println("Done.");
 
   // Verify connection
-
   Serial.print("Testing ADXL345 connections...");
-  Serial.println(accel.testConnection() ? "\tADXL345 connection successful" : "\tADXL345 connection failed");
+  Serial.println(accel.testConnection() ? "\tADXL345 connection successful." : "\tADXL345 connection failed.");
   Serial.println("");
 
-  Serial.print("Setting offset: ");
+  // Set Y offset
+  Serial.print("Setting offset... ");
   accel.setOffsetY(0);
+  Serial.println("Done.");
 
-  Serial.print("Setting Range to 2");
+  // Set accel range
+  Serial.print("Setting Range to 2... ");
   accel.setRange(2);
-  Serial.println("");
+  Serial.println("Done.");
 
   // Measure 3 seconds of accelerometer values and averages to create offset.
+  Serial.print("Measuring 1 second of accelerometer values for zero value... ");
   initAccelOffset();
+  Serial.println("Done.");
 
-  //////////////////// DOTSTARS //////////////////////
+  // Initialize lights
+  Serial.print("Initializing lights... ");
   strip.begin(); // Initialize pins for output
   strip.setBrightness(30);
   strip.clear();
   strip.show();
+  Serial.println("Done.");
+
+  Serial.println("");
+  Serial.println("Starting loop.");
+  Serial.println("");
+
+  Serial.print("Free SRAM:  ");
+  Serial.println(freeRam());
 
 }
 
 //////////////////////// LOOP ///////////////////////////////////////////////
 
+unsigned int counter = 0;
+
 void loop()
 {
+  counter++;
+  if(counter==100)
+  {
+    counter = 0;
+    Serial.print("Free SRAM:  ");
+    Serial.println(freeRam());
+  }
+
 
   checkButton1();
   checkButton2();

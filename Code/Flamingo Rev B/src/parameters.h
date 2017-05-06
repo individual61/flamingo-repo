@@ -17,9 +17,13 @@
 #include <effects.h>
 
 
-// Pins for buttons
+// Buttons
 #define BUTTON1 3
 #define BUTTON2 4
+#define DEBOUNCEDELAY 200
+
+#define NUM_PROGRAMS 5
+#define BRIGHTNESS_COUNT 10
 
 // LED counts
 #define NUMPIXELS 144 // Number of LEDs in strip
@@ -30,8 +34,6 @@
 #define SPRINGCONSTANT 2
 #define DAMPING 0.4
 #define MAXRANGE 15.0
-
-
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -45,18 +47,15 @@ extern uint8_t button2state;
 extern uint8_t button1prevstate;
 extern uint8_t button2prevstate;
 
-extern unsigned long debounceDelay;
 extern unsigned long timeNowButton1;
 extern unsigned long timeNowButton2;
 extern unsigned long lastTimePressedButton1;
 extern unsigned long lastTimePressedButton2;
 
-extern int brightnessIndex;
-extern int brightnessCount;
-extern int brightness[10];
+extern uint8_t brightnessIndex;
+extern uint8_t brightness[BRIGHTNESS_COUNT];
 
-extern int programIndex; // start at 1
-extern int num_programs;
+extern uint8_t programIndex; // start at 1
 
 // Dotstar/APA102C variables
 extern Adafruit_DotStar strip;
