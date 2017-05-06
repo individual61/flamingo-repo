@@ -2,6 +2,8 @@
 #include <parameters.h>
 
 
+uint32_t color = 0x106040;      // Flamingo Pink
+
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void setPixelByIndex(int index, uint32_t color)
 {

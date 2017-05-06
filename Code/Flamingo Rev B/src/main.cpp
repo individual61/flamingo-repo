@@ -58,7 +58,7 @@
 // (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
 Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 
-uint32_t color = 0x106040;      // Flamingo Pink
+
 
 ////////////////////// ADXL345 /////////////////////////
 // class default I2C address is 0x53

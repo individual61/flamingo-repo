@@ -32,6 +32,7 @@
 #define MAXRANGE 15.0
 
 
+
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
 
