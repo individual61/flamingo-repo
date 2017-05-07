@@ -99,6 +99,7 @@ for (int i = 0; i < NUMPERSTRAND; i++)
 {
   setPixelByIndex(i, 0);
 }
+// These should be changed to fractions of the number of lights
 setPixelByIndex(48 - (24 + ballToStrandPosition(BallPosition)) - 1, color);
 strip.show();
 }
@@ -200,16 +201,13 @@ strip.show();
 void Fire(void)
 {
 //Fire(55, 120, 15);
-int Cooling = 55;
-int Sparking = 120;
-int SpeedDelay = 15;
 
 static byte heat[NUMPERSTRAND];
 int cooldown;
 // Step 1.  Cool down every cell a little
 for ( int i = 0; i < NUMPERSTRAND; i++)
 {
-  cooldown = random(0, ((Cooling * 10) / NUMPERSTRAND) + 2);
+  cooldown = random(0, (((GFIRE_COOLING) * 10) / NUMPERSTRAND) + 2);
   if (cooldown > heat[i]) {
     heat[i] = 0;
   }
@@ -224,7 +222,7 @@ for ( int k = NUMPERSTRAND - 1; k >= 2; k--)
   heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
 }
 // Step 3.  Randomly ignite new 'sparks' near the bottom
-if ( random(255) < Sparking )
+if ( random(255) < GFIRE_SPARKING )
 {
   int y = random(7);
   heat[y] = heat[y] + random(160, 255);
@@ -237,5 +235,5 @@ for ( int j = 0; j < NUMPERSTRAND; j++)
 }
 strip.show();
 strip.show();
-delay(SpeedDelay);
+delay(GFIRE_SPEEDDELAY);
 }

@@ -1,8 +1,6 @@
 #include <accel.h>
 #include <parameters.h>
 
-
-
 float g0y, gy;
 
 // Returns the accelerometer difference from 1 g in m/s^2
@@ -28,8 +26,8 @@ void initAccelOffset(void)
   }
   g0y = g0y / ((float)accel_init_average_count);
 
-  Serial.print("Number of measurements: ");
+  Serial.print(F("Number of measurements: "));
   Serial.print(accel_init_average_count);
-  Serial.print(".\tAvg gy:");
+  Serial.print(F(".\tAvg gy:"));
   Serial.println(g0y);
 }

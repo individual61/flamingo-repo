@@ -155,14 +155,14 @@ unsigned int counter = 0;
 
 void loop()
 {
-  counter++;
+/*  counter++;
   if(counter==100)
   {
     counter = 0;
     Serial.print(F("Free SRAM:  "));
     Serial.println(freeRam());
   }
-
+*/
 
   checkButton1();
   checkButton2();

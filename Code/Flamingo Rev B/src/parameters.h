@@ -36,6 +36,16 @@
 #define DAMPING 0.4
 #define MAXRANGE 15.0
 
+// Green Fire parameters
+#define GFIRE_COOLING 55
+#define GFIRE_SPARKING 120
+#define GFIRE_SPEEDDELAY 15
+
+
+
+
+
+
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
 
