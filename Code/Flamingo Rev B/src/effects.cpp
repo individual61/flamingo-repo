@@ -153,7 +153,7 @@ void DHO_Blob(void)
 
   for (int k = -7; k <= 7; k++)
   {
-    attnFactor = (float)((float)gaussianTable[k + 7]/100.0f);
+    attnFactor = (float)((float) pgm_read_byte_near(gaussianTable + k + 7) /100.0f);
   /*    Serial.print("attnFactor: ");
       Serial.println(attnFactor);
             Serial.print("k: ");
