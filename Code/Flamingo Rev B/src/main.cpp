@@ -1,18 +1,18 @@
-#include <Arduino.h>
+#include <ADXL345.h>
 #include <Adafruit_DotStar.h>
+#include <Arduino.h>
+#include <I2Cdev.h>
+#include <MPU6050.h>
 #include <SPI.h>
 #include <Wire.h>
-#include <I2Cdev.h>
-#include <ADXL345.h>
-#include <MPU6050.h>
-#include <math.h>
 #include <avr/pgmspace.h>
+#include <math.h>
 
 #include <accel.h>
 #include <buttons.h>
+#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
-#include <effects.h>
 
 // To use serial or not
 #define PLOT 1
@@ -75,17 +75,15 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 // ALT high = 0x1D
 ADXL345 accel;
 
-
-int freeRam ()
+int freeRam()
 {
   extern int __heap_start, *__brkval;
   int v;
-  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
+  return (int)&v - (__brkval == 0 ? (int)&__heap_start : (int)__brkval);
 }
 
-
-void setup() {
-
+void setup()
+{
   // Initialize serial communication
   Serial.begin(115200);
 
@@ -107,14 +105,14 @@ void setup() {
 
   // Verify connection
   Serial.print(F("Testing ADXL345 connections..."));
-  if(accel.testConnection())
-  {
-    Serial.println(F("\tADXL345 connection successful."));
-  }
+  if (accel.testConnection())
+    {
+      Serial.println(F("\tADXL345 connection successful."));
+    }
   else
-  {
-    Serial.println(F("\tADXL345 connection failed."));
-  }
+    {
+      Serial.println(F("\tADXL345 connection failed."));
+    }
   Serial.println("");
 
   // Set Y offset
@@ -128,13 +126,14 @@ void setup() {
   Serial.println(F("Done."));
 
   // Measure 3 seconds of accelerometer values and averages to create offset.
-  Serial.print(F("Measuring 1 second of accelerometer values for zero value... "));
+  Serial.print(
+      F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
   Serial.println(F("Done."));
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
-  strip.begin(); // Initialize pins for output
+  strip.begin();  // Initialize pins for output
   strip.setBrightness(30);
   strip.clear();
   strip.show();
@@ -146,7 +145,6 @@ void setup() {
 
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
-
 }
 
 //////////////////////// LOOP ///////////////////////////////////////////////
@@ -155,53 +153,51 @@ unsigned int counter = 0;
 
 void loop()
 {
-/*  counter++;
-  if(counter==100)
-  {
-    counter = 0;
-    Serial.print(F("Free SRAM:  "));
-    Serial.println(freeRam());
-  }
-*/
+  /*  counter++;
+    if(counter==100)
+    {
+      counter = 0;
+      Serial.print(F("Free SRAM:  "));
+      Serial.println(freeRam());
+    }
+  */
 
   checkButton1();
   checkButton2();
 
   //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
-  {
-    DHO_SinglePixel();
-  }
+    {
+      DHO_SinglePixel();
+    }
 
   //// Damped harmonic oscillator (blob).
   if (programIndex == 2)
-  {
-    DHO_Blob();
-  }
+    {
+      DHO_Blob();
+    }
 
   //// Rainbow(rainbow).
   if (programIndex == 3)
-  {
-    Rainbow();
-  }
+    {
+      Rainbow();
+    }
 
   //// Damped harmonic oscillator (rainbow).
   if (programIndex == 4)
-  {
+    {
       DHO_Rainbow();
-  }
+    }
 
-//// Damped harmonic oscillator (sine stripes).
+  //// Damped harmonic oscillator (sine stripes).
   if (programIndex == 5)
-  {
-    DHO_SineStripes();
-  }
+    {
+      DHO_SineStripes();
+    }
 
-//// Green fire
+  //// Green fire
   if (programIndex == 6)
-  {
-    Fire();
-  }
-
-
+    {
+      Fire();
+    }
 }
