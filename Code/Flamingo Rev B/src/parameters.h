@@ -51,13 +51,9 @@
 #define MAX_G_SPARKLEFIZZ 3.0f // acceleration in m/sˆ2 for max sparkle
 #define MAX_INTERVAL_SPARKLEFIZZ 500 // longest without a sparkle
 #define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
+#define ACC_MAX_DECAY_RATE 1000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
 
 
-// Average acceleration calculation variables
-extern uint16_t accArray[ACC_AVG_NUM];
-extern uint16_t acc_avg_timeold;
-extern uint16_t acc_avg_timenew;
-extern float acc_avg;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -95,5 +91,11 @@ extern bool first_iter;
 
 // Sparkle fizz variables
 extern uint16_t sparkleInterval;
+extern float acc_max; // Maximum acceleration, decay rate set by AVG_DECAY_RATE
+extern uint16_t acc_max_timeold;
+extern uint16_t acc_max_timenew;
+extern uint16_t sparkle_timeold;
+extern uint16_t sparkle_timenew;
+
 
 #endif

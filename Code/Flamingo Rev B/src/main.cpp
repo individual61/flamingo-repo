@@ -167,6 +167,7 @@ void loop()
     }
   */
 
+/*
   // Calculate rolling average of acceleration
   acc_avg_timenew = millis();
   // If the interval between avg acc measurements has passed
@@ -194,7 +195,7 @@ void loop()
       Serial.print(F("Now acc:  "));
       Serial.println(accArray[0]);
     }
-
+*/
   // Buttons
   checkButton1();
   checkButton2();
@@ -202,14 +203,7 @@ void loop()
   //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
     {
-      if (brightnessIndex == BRIGHTNESS_COUNT - 1)
-        {
-          strip.setBrightness(255);
-        }
-      else
-        {
-          strip.setBrightness(STANDARD_BRIGHTNESS);
-        }
+      setFullBrightnessOn10();
 
       DHO_SinglePixel();
     }
@@ -247,14 +241,7 @@ void loop()
   //// Sparkle
   if (programIndex == 7)
     {
-      if (brightnessIndex == BRIGHTNESS_COUNT - 1)
-        {
-          strip.setBrightness(255);
-        }
-      else
-        {
-          strip.setBrightness(STANDARD_BRIGHTNESS);
-        }
+      setFullBrightnessOn10();
 
       Sparkle(0xff, 0xff, 0xff, 20);
     }
@@ -262,14 +249,7 @@ void loop()
   //// Sparkle Pink
   if (programIndex == 8)
     {
-      if (brightnessIndex == BRIGHTNESS_COUNT - 1)
-        {
-          strip.setBrightness(255);
-        }
-      else
-        {
-          strip.setBrightness(STANDARD_BRIGHTNESS);
-        }
+      setFullBrightnessOn10();
 
       Sparkle(0x10, 0x60, 0x40, 20);
     }
@@ -277,14 +257,7 @@ void loop()
   //// Sparkle Pink Fizz
   if (programIndex == 9)
     {
-      if (brightnessIndex == BRIGHTNESS_COUNT - 1)
-        {
-          strip.setBrightness(255);
-        }
-      else
-        {
-          strip.setBrightness(STANDARD_BRIGHTNESS);
-        }
+      setFullBrightnessOn10();
 
       SparkleFizz(0x10, 0x60, 0x40, 20);
     }

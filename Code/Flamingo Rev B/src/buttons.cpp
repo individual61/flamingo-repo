@@ -76,3 +76,15 @@ void checkButton2(void)
     }
   }
 }
+
+void setFullBrightnessOn10(void)
+{
+if (brightnessIndex == BRIGHTNESS_COUNT - 1)
+  {
+    strip.setBrightness(255);
+  }
+else
+  {
+    strip.setBrightness(STANDARD_BRIGHTNESS);
+  }
+}
