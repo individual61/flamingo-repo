@@ -23,25 +23,31 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 6
+#define NUM_PROGRAMS 9
 #define BRIGHTNESS_COUNT 10
+
+// BRIGHTNESS
+#define STANDARD_BRIGHTNESS 30
 
 // LED counts
 #define NUMPIXELS 144 // Number of LEDs in strip
 #define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
 
 // Harmonic oscillator parameters
-#define GFACTOR 0.2 //-0.0654 // 9.81/150
+#define GFACTOR 0.2f //-0.0654 // 9.81/150
 #define SPRINGCONSTANT 2
-#define DAMPING 0.4
-#define MAXRANGE 15.0
+#define DAMPING 0.4f
+#define MAXRANGE 15.0f
 
 // Green Fire parameters
 #define GFIRE_COOLING 55
 #define GFIRE_SPARKING 120
 #define GFIRE_SPEEDDELAY 15
 
-
+// Sparkle Fizz
+#define MAX_G_SPARKLEFIZZ 4.0f // acceleration in m/sˆ2 for max sparkle
+#define MAX_INTERVAL_SPARKLEFIZZ 250 // longest without a sparkle
+#define JITTER_SPARKLEFIZZ 100  //random interval in ms to add to inter-sparkle time
 
 
 
@@ -63,6 +69,8 @@ extern unsigned long timeNowButton2;
 extern unsigned long lastTimePressedButton1;
 extern unsigned long lastTimePressedButton2;
 
+extern bool firstRun;
+
 extern uint8_t brightnessIndex;
 extern uint8_t brightness[BRIGHTNESS_COUNT];
 
@@ -77,5 +85,8 @@ extern float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
 extern float timenow_f, timestep_f, timestep_i;
 extern uint16_t timeold_i, timenow_i;
 extern bool first_iter;
+
+// Sparkle fizz variables
+extern uint16_t sparkleInterval;
 
 #endif

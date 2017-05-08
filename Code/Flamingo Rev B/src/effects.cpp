@@ -18,29 +18,61 @@ void setPixelByIndex(int index, uint32_t color)
     }
 }
 
+// Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
+void setPixelByIndex(int index, uint8_t r, uint8_t g, uint8_t b)
+{
+  if ((index > 0) && (index < NUMPERSTRAND))
+    {
+      uint8_t realindex = 0;
+      realindex = NUMPERSTRAND - index - 1;
+      strip.setPixelColor(realindex, r, g, b);
+      realindex = NUMPERSTRAND + index;
+      strip.setPixelColor(realindex, r, g, b);
+      realindex = 3 * NUMPERSTRAND - index - 1;
+      strip.setPixelColor(realindex, r, g, b);
+    }
+}
 
-////////////////////// PROGRAMS ///////////////////////
+////////////////////// PROGRAMS
+////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 1
-//////////// DHO SINGLE PIXEL ////////////
+//////////// DHO SINGLE PIXEL
+////////////////////////////////////////////////////////////////////////////////////////
 void DHO_SinglePixel(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   float BallPosition = getBallPosition();
 
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
       setPixelByIndex(i, 0);
     }
-  // These should be changed to fractions of the number of lights
+  // These should be changed to fractions of NUMPERSTRAND
   setPixelByIndex(48 - (24 + ballToStrandPosition(BallPosition)) - 1, color);
   strip.show();
 }
 
+// 2
+//////////// DHO Blob
+////////////////////////////////////////////////////////////////////////////////////////
 
-//2
-//////////// DHO Blob ////////////
+// For DHO_Blob
+const uint8_t gaussianTable[15] PROGMEM = {5,  11, 21, 37, 57, 78, 94, 100,
+                                           94, 78, 57, 37, 21, 11, 5};
+
 void DHO_Blob(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   float BallPosition = getBallPosition();
 
   for (int i = 0; i < NUMPERSTRAND; i++)
@@ -65,9 +97,9 @@ void DHO_Blob(void)
   strip.show();
 }
 
-
 // 3
-//////////// RAINBOW ////////////
+//////////// RAINBOW
+////////////////////////////////////////////////////////////////////////////////////////
 byte *c;
 uint16_t jrainbow = 0;
 byte *Wheel(byte WheelPos)
@@ -102,6 +134,11 @@ byte *Wheel(byte WheelPos)
 
 void Rainbow(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
       c = Wheel(((i * 256 / NUMPERSTRAND) + jrainbow) & 255);
@@ -117,9 +154,15 @@ void Rainbow(void)
 }
 
 // 4
-//////////// DHO Rainbow ////////////
+//////////// DHO Rainbow
+////////////////////////////////////////////////////////////////////////////////////////
 void DHO_Rainbow(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   float BallPosition = getBallPosition();
 
   int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
@@ -132,14 +175,9 @@ void DHO_Rainbow(void)
   strip.show();
 }
 
-// For DHO_Blob
-const uint8_t gaussianTable[15] PROGMEM = {5,  11, 21, 37, 57, 78, 94, 100,
-                                           94, 78, 57, 37, 21, 11, 5};
-
-
-
 // 5
-//////////// SINE STRIPES ////////////
+//////////// SINE STRIPES
+////////////////////////////////////////////////////////////////////////////////////////
 
 // FOR DHO_SineStripes
 const uint8_t sinTable[97] PROGMEM = {
@@ -152,6 +190,11 @@ const uint8_t sinTable[97] PROGMEM = {
 
 void DHO_SineStripes(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   float BallPosition = getBallPosition();
 
   for (int i = 0; i < NUMPERSTRAND; i++)
@@ -177,7 +220,8 @@ void DHO_SineStripes(void)
 }
 
 // 6
-//////////// GREEN FIRE ////////////
+//////////// GREEN FIRE
+////////////////////////////////////////////////////////////////////////////////////////
 
 void setPixelHeatColorgreen(int Pixel, byte temperature)
 {  // Scale 'heat' down from 0-255 to 0-191
@@ -205,6 +249,11 @@ void setPixelHeatColorgreen(int Pixel, byte temperature)
 
 void Fire(void)
 {
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
   // Fire(55, 120, 15);
 
   static byte heat[NUMPERSTRAND];
@@ -242,4 +291,67 @@ void Fire(void)
   strip.show();
   strip.show();
   delay(GFIRE_SPEEDDELAY);
+}
+
+// 7
+//////////// SPARKLE
+////////////////////////////////////////////////////////////////////////////////////////
+
+void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
+{
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
+  int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
+  setPixelByIndex(Pixel, red, green, blue);
+  strip.show();
+  delay(SpeedDelay);
+  setPixelByIndex(Pixel, 0, 0, 0);
+  strip.show();
+}
+
+// 8
+//////////// SPARKLE PINK
+////////////////////////////////////////////////////////////////////////////////////////
+
+// ditto
+
+// 9
+//////////// SPARKLE PINK FIZZ
+////////////////////////////////////////////////////////////////////////////////////////
+
+// The higher the average acceleration, the shorter the interval between flashes
+// Define: Max g, longest interval
+
+uint16_t sparkleInterval = 0;
+
+void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
+{
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
+
+  uint16_t sparkleInterval = 0;
+
+  float accel = fabs(getOffsetAccel());
+  sparkleInterval =
+      constrain((MAX_G_SPARKLEFIZZ - accel) / MAX_G_SPARKLEFIZZ, 0.0, 1.0) *
+      MAX_INTERVAL_SPARKLEFIZZ;
+
+  timenow_i = millis();
+  if (timenow_i - timeold_i >= constrain(sparkleInterval + random(-JITTER_SPARKLEFIZZ, JITTER_SPARKLEFIZZ), 0, 2*MAX_INTERVAL_SPARKLEFIZZ))
+    {
+      timeold_i = timenow_i;
+      int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
+      setPixelByIndex(Pixel, red, green, blue);
+      strip.show();
+      delay(SpeedDelay);
+      setPixelByIndex(Pixel, 0, 0, 0);
+      strip.show();
+    }
+
 }
