@@ -17,6 +17,9 @@
 #include <parameters.h>
 #include <effects.h>
 
+// Average acceleration calculation
+#define ACC_AVG_NUM 15
+#define ACC_AVG_INTERVAL 200
 
 // Buttons
 #define BUTTON1 3
@@ -45,12 +48,16 @@
 #define GFIRE_SPEEDDELAY 15
 
 // Sparkle Fizz
-#define MAX_G_SPARKLEFIZZ 4.0f // acceleration in m/sˆ2 for max sparkle
-#define MAX_INTERVAL_SPARKLEFIZZ 250 // longest without a sparkle
-#define JITTER_SPARKLEFIZZ 100  //random interval in ms to add to inter-sparkle time
+#define MAX_G_SPARKLEFIZZ 3.0f // acceleration in m/sˆ2 for max sparkle
+#define MAX_INTERVAL_SPARKLEFIZZ 500 // longest without a sparkle
+#define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
 
 
-
+// Average acceleration calculation variables
+extern uint16_t accArray[ACC_AVG_NUM];
+extern uint16_t acc_avg_timeold;
+extern uint16_t acc_avg_timenew;
+extern float acc_avg;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;

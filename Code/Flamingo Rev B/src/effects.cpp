@@ -325,7 +325,12 @@ void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 // The higher the average acceleration, the shorter the interval between flashes
 // Define: Max g, longest interval
 
-uint16_t sparkleInterval = 0;
+
+
+
+
+#define ACC_AVG_NUM 10
+#define ACC_AVG_INTERVAL 100
 
 void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 {
@@ -337,7 +342,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 
   uint16_t sparkleInterval = 0;
 
-  float accel = fabs(getOffsetAccel());
+  float accel = fabs(acc_avg);
   sparkleInterval =
       constrain((MAX_G_SPARKLEFIZZ - accel) / MAX_G_SPARKLEFIZZ, 0.0, 1.0) *
       MAX_INTERVAL_SPARKLEFIZZ;
