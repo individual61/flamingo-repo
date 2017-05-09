@@ -51,7 +51,7 @@ float getBallPosition(void)
     timestep_i = timenow_i - timeold_i;
     timestep_f = 0.01 * ((float)timestep_i);
 
-    acc_ext = getOffsetAccel();
+    acc_ext = getOffsetAccel(GFACTOR);
     vel1 = get_next_v(vel0, pos0, acc_ext);
     pos1 = get_next_x(vel0, pos0);
 
@@ -68,7 +68,7 @@ float getBallPosition(void)
     timestep_i = timenow_i - timeold_i;
     timestep_f = 0.01 * ((float)timestep_i);
 
-    acc_ext = getOffsetAccel();
+    acc_ext = getOffsetAccel(GFACTOR);
     vel1 = get_next_v(vel0, pos0, acc_ext);
     pos1 = get_next_x(vel0, pos0);
     vel0 = vel1;

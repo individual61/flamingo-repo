@@ -2,7 +2,9 @@
 #define ACCEL_H
 
 
-float getOffsetAccel(void);
+float getOffsetAccel(float gfactor);
+
+float getPhysicalAccelY(void);
 
 void initAccelOffset(void);
 

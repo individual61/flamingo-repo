@@ -1,3 +1,4 @@
+
 #ifndef EFFECTS_H
 #define EFFECTS_H
 
@@ -26,6 +27,8 @@ void Fire(void);
 void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay);
 
 void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay);
+
+void Acctest(void);
 
 
 

@@ -90,10 +90,9 @@ void DHO_Blob(void)
           Serial.println(attnFactor);
                 Serial.print("k: ");
           Serial.println(k);*/
-      setPixelByIndex(
-          centerindex + k,
-          strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor),
-                      (int)(64 * attnFactor)));
+      setPixelByIndex(centerindex + k, strip.Color((int)(16 * attnFactor),
+                                                   (int)(96 * attnFactor),
+                                                   (int)(64 * attnFactor)));
     }
   strip.show();
 }
@@ -213,10 +212,9 @@ void DHO_SineStripes(void)
           Serial.println(attnFactor);
                 Serial.print("k: ");
           Serial.println(k);*/
-      setPixelByIndex(
-          centerindex + k,
-          strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor),
-                      (int)(64 * attnFactor)));
+      setPixelByIndex(centerindex + k, strip.Color((int)(16 * attnFactor),
+                                                   (int)(96 * attnFactor),
+                                                   (int)(64 * attnFactor)));
     }
   strip.show();
 }
@@ -352,21 +350,28 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   // This way the exponential decay is undisturbed if there is no new max.
   acc_max_timenew = millis();
 
-  float acc_decayed =
-      acc_max *
-      exp(-((float)(acc_max_timenew - acc_max_timeold)) * ACC_MAX_DECAY_RATE);
+  float arg = -((float)(acc_max_timenew - acc_max_timeold))/ ACC_MAX_DECAY_RATE;
+  float acc_decayed = acc_max * exp(arg);  
   //  If the acceleration magnitude now is higher than the decayed acceleration
-  float acc_now = fabs(getOffsetAccel());
+  float acc_now = fabs(1.0 - getPhysicalAccelY());
   if (acc_decayed < acc_now)
     {
       // Current acc is new max and decay time is reset
       acc_max = acc_now;
       acc_max_timeold = acc_max_timenew;
     }
-  else  // current acceleration does not beat the decayed max
-    {
-      acc_max = acc_decayed;  // decay the max acceleration
-    }
+
+
+  Serial.print(acc_now);
+    Serial.print(F("\t"));
+  Serial.print(acc_max);
+  Serial.print(F("\t"));
+    Serial.println(acc_decayed);
+/*  Serial.print(F("\t"));
+  Serial.println(
+    -((float)(acc_max_timenew - acc_max_timeold)));*/
+
+
 
   // We now have a decaying maximum value for acceleration.
   // This needs to be converted into an inter-sparkle interval
@@ -388,16 +393,28 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       setPixelByIndex(Pixel, 0, 0, 0);
       strip.show();
 
-      // Now choose a new random sparkle interval based on acc_max
+      // Now choose a new random sparkle interval based on acc_decayed
       // The interval between sparkles is a random number
       // That goes between 0 if acc_max is >= MAX_G_SPARKLEFIZZ
       // and MAX_INTERVAL_SPARKLEFIZZ if acc_max is 0.0
       uint16_t sparkleInterval_max;
       sparkleInterval_max =
           (uint16_t)(MAX_INTERVAL_SPARKLEFIZZ *
-                     (1.0 - constrain(acc_max / MAX_G_SPARKLEFIZZ, 0.0, 1.0)));
+                     (1.0 - constrain(acc_decayed / MAX_G_SPARKLEFIZZ, 0.0, 1.0)));
       sparkleInterval = random(0, sparkleInterval_max);
       // sparkleinterval now contains the amount of time to wait for another
       // sparkle
     }
+}
+
+void Acctest(void)
+{
+  Serial.print(F("acc_now: "));
+  int16_t acc;
+  acc = accel.getAccelerationY();
+  Serial.print(acc);
+  float realacc = (((float)acc) + 25.5) / 72.5;
+  Serial.print(F("\t\tacc_real: "));
+  Serial.println(realacc);
+  delay(50);
 }

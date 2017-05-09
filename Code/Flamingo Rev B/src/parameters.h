@@ -17,6 +17,15 @@
 #include <parameters.h>
 #include <effects.h>
 
+// Accelerometer defs
+// NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
+// +/-1gRawReading come from holding acc upright and upsidedown
+// acc_real = (accel.readAccelY() - A_OFFSET)/A_GAIN
+// acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
+#define A_OFFSET -25.5f// 0.5*( +1gRawReading + -1gRawReading)
+#define A_GAIN  72.5f// 0.5*( +1gRawReading - -1gRawReading)
+
+
 // Average acceleration calculation
 #define ACC_AVG_NUM 15
 #define ACC_AVG_INTERVAL 200
@@ -26,7 +35,7 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 9
+#define NUM_PROGRAMS 10
 #define BRIGHTNESS_COUNT 10
 
 // BRIGHTNESS
@@ -48,8 +57,8 @@
 #define GFIRE_SPEEDDELAY 15
 
 // Sparkle Fizz
-#define MAX_G_SPARKLEFIZZ 3.0f // acceleration in m/sˆ2 for max sparkle
-#define MAX_INTERVAL_SPARKLEFIZZ 500 // longest without a sparkle
+#define MAX_G_SPARKLEFIZZ 0.5f // acceleration in m/sˆ2 for max sparkle
+#define MAX_INTERVAL_SPARKLEFIZZ 1000 // longest without a sparkle
 #define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
 #define ACC_MAX_DECAY_RATE 1000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
 

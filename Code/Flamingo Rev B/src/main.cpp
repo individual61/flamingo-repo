@@ -183,7 +183,7 @@ void loop()
           acc_avg = accArray[i + 1] + acc_avg;
           accArray[i + 1] = accArray[i];
         }
-      accArray[0] = ((int)100 * fabs(getOffsetAccel()));
+      accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
       acc_avg = acc_avg + accArray[0];
 // At this point acc_avg is the sum of all 100*acc values.
 // Divide by 100 and the number of measurements
@@ -259,6 +259,12 @@ void loop()
     {
       setFullBrightnessOn10();
 
-      SparkleFizz(0x10, 0x60, 0x40, 20);
+      SparkleFizz(0x10, 0x60, 0x40, 50);
     }
+
+    if (programIndex == 10)
+      {
+        Acctest();
+      }
+
 }

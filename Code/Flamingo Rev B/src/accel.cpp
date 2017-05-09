@@ -4,12 +4,22 @@
 float g0y, gy;
 
 // Returns the accelerometer difference from 1 g in m/s^2
-float getOffsetAccel(void)
+float getOffsetAccel(float gfactor)
 {
   //g0y was set via initAccelOffset()
-  float acc = GFACTOR * (g0y - accel.getAccelerationY());
+  float acc = gfactor * (g0y - accel.getAccelerationY());
   return acc;
 }
+
+// Returns
+float getPhysicalAccelY(void)
+{
+int16_t acc;
+acc = accel.getAccelerationY();
+return (((float)acc) - A_OFFSET)/A_GAIN;
+}
+
+
 
 // Measures 1 second of accelerometer values and averages to create offset.
 void initAccelOffset(void)
