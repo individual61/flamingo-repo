@@ -243,7 +243,7 @@ void loop()
     {
       setFullBrightnessOn10();
 
-      Sparkle(0xff, 0xff, 0xff, 20);
+      Sparkle(0xff, 0xff, 0xff, 10);
     }
 
   //// Sparkle Pink
@@ -251,7 +251,7 @@ void loop()
     {
       setFullBrightnessOn10();
 
-      Sparkle(0x10, 0x60, 0x40, 20);
+      Sparkle(0x10, 0x60, 0x40, 10);
     }
 
   //// Sparkle Pink Fizz
@@ -259,7 +259,7 @@ void loop()
     {
       setFullBrightnessOn10();
 
-      SparkleFizz(0x10, 0x60, 0x40, 50);
+      SparkleFizz(0x10, 0x60, 0x40, 10);
     }
 
     if (programIndex == 10)

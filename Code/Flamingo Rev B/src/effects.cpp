@@ -350,8 +350,18 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   // This way the exponential decay is undisturbed if there is no new max.
   acc_max_timenew = millis();
 
-  float arg = -((float)(acc_max_timenew - acc_max_timeold))/ ACC_MAX_DECAY_RATE;
-  float acc_decayed = acc_max * exp(arg);  
+  float arg = ((float)(acc_max_timenew - acc_max_timeold));
+  //  float acc_decayed = acc_max * exp(-arg/ACC_MAX_DECAY_RATE); // exp() is
+  //  rather expensive. Instead...
+
+  // 1/(1 + (x/a)ˆ2)ˆ2
+  arg = arg / ACC_MAX_DECAY_RATE;
+  arg = arg * arg;
+  arg = 1.0 + arg;
+  arg = arg * arg;
+  arg = 1.0 / arg;
+  float acc_decayed = acc_max * arg;
+
   //  If the acceleration magnitude now is higher than the decayed acceleration
   float acc_now = fabs(1.0 - getPhysicalAccelY());
   if (acc_decayed < acc_now)
@@ -361,17 +371,9 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       acc_max_timeold = acc_max_timenew;
     }
 
-
-  Serial.print(acc_now);
-    Serial.print(F("\t"));
-  Serial.print(acc_max);
-  Serial.print(F("\t"));
-    Serial.println(acc_decayed);
-/*  Serial.print(F("\t"));
-  Serial.println(
-    -((float)(acc_max_timenew - acc_max_timeold)));*/
-
-
+  /*  Serial.print(F("\t"));
+    Serial.println(
+      -((float)(acc_max_timenew - acc_max_timeold)));*/
 
   // We now have a decaying maximum value for acceleration.
   // This needs to be converted into an inter-sparkle interval
@@ -380,6 +382,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   // Sparkle interval should max out at some value.
 
   sparkle_timenew = millis();
+  uint16_t sparkleInterval_max;
   if (sparkle_timenew - sparkle_timeold > sparkleInterval)
     {
       // If it's time for a sparkle, reset sparkle timer
@@ -397,14 +400,29 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       // The interval between sparkles is a random number
       // That goes between 0 if acc_max is >= MAX_G_SPARKLEFIZZ
       // and MAX_INTERVAL_SPARKLEFIZZ if acc_max is 0.0
-      uint16_t sparkleInterval_max;
-      sparkleInterval_max =
-          (uint16_t)(MAX_INTERVAL_SPARKLEFIZZ *
-                     (1.0 - constrain(acc_decayed / MAX_G_SPARKLEFIZZ, 0.0, 1.0)));
+
+      sparkleInterval_max = (uint16_t)(
+          MAX_INTERVAL_SPARKLEFIZZ *
+          (1.0 - constrain(acc_decayed / MAX_G_SPARKLEFIZZ, 0.0, 1.0)));
       sparkleInterval = random(0, sparkleInterval_max);
       // sparkleinterval now contains the amount of time to wait for another
       // sparkle
     }
+
+  Serial.print(acc_now);
+  Serial.print(F("\t"));
+  Serial.print(acc_max);
+  Serial.print(F("\t"));
+  Serial.print(acc_decayed);
+  Serial.print(F("\t"));
+  Serial.print(sparkleInterval);
+  Serial.print(F("\t"));
+  Serial.print(sparkleInterval_max);
+  Serial.print(F("\t"));
+  Serial.print((uint16_t)(MAX_INTERVAL_SPARKLEFIZZ*(1.0 - constrain(acc_decayed / MAX_G_SPARKLEFIZZ, 0.0, 1.0))));
+  Serial.print(F("\t"));
+  Serial.println(random(0, sparkleInterval_max));
+
 }
 
 void Acctest(void)
