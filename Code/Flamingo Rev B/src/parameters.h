@@ -57,10 +57,10 @@
 #define GFIRE_SPEEDDELAY 15
 
 // Sparkle Fizz
-#define MAX_G_SPARKLEFIZZ 0.4f // acceleration in m/sˆ2 for max sparkle
+#define MAX_G_SPARKLEFIZZ 2.0f // acceleration in m/sˆ2 for max sparkle
 #define MAX_INTERVAL_SPARKLEFIZZ 1300 // longest without a sparkle
 #define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
-#define ACC_MAX_DECAY_RATE 2000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
+#define ACC_MAX_DECAY_RATE 4000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
 
 
 
@@ -105,6 +105,7 @@ extern uint16_t acc_max_timeold;
 extern uint16_t acc_max_timenew;
 extern uint16_t sparkle_timeold;
 extern uint16_t sparkle_timenew;
+extern uint16_t sparkleInterval_max;
 
 
 #endif
