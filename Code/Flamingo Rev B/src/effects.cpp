@@ -356,30 +356,20 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   acc_max_timenew = millis();
 
   float arg = ((float)(acc_max_timenew - acc_max_timeold));
-   float acc_decayed =
+  float acc_decayed =
       acc_max * (1.0 - constrain((arg / ACC_MAX_DECAY_RATE), 0.0, 1.0));
-//  float acc_decayed = acc_max * exp(-arg/ACC_MAX_DECAY_RATE);
-
-  // exp() is rather expensive. Instead...
-  // 1/(1 + (x/a)ˆ2)ˆ2
-  /*arg = arg / ACC_MAX_DECAY_RATE;
-  arg = arg * arg;
-  arg = 1.0 + arg;
-  arg = arg * arg;
-  arg = 1.0 / arg;
-  float acc_decayed = acc_max * arg;
-  */
+  //  float acc_decayed = acc_max * exp(-arg/ACC_MAX_DECAY_RATE);
 
   float acc_now = fabs(1.0 - getPhysicalAccelY());
 
   // This avoids the problem of being stuck on max sparkle rate for a time that
   // depends on how big the acceleration was. This way there is a max sparkle
-  // rate momentarily and everything is lower than that. Worried about exp being too
-  // fast a decay? Choose a slow decay and keep shaking, bitch.
+  // rate momentarily and everything is lower than that. Worried about exp being
+  // too fast a decay? Choose a slow decay and keep shaking, bitch.
   if (acc_now >= MAX_G_SPARKLEFIZZ)
     {
       acc_now = MAX_G_SPARKLEFIZZ;
-      //Force sparkle for a hard jerk
+      // Force sparkle for a hard jerk
       sparkleInterval = 0;
     }
 
@@ -391,7 +381,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       acc_max_timeold = acc_max_timenew;
     }
 
-
+  // Uncomment for a time in ms every time SparkleFizz is called.
   /*  Serial.print(F("\t"));
     Serial.println(
       -((float)(acc_max_timenew - acc_max_timeold)));*/
@@ -403,8 +393,8 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   // Sparkle interval should max out at some value.
 
   sparkle_timenew = millis();
-//  Serial.print(sparkle_timenew - t0);
-//  Serial.print(F("\t"));
+  //  Serial.print(sparkle_timenew - t0);
+  //  Serial.print(F("\t"));
 
   if (sparkle_timenew - sparkle_timeold > sparkleInterval)
     {
@@ -440,6 +430,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       Serial.print(F("\t"));
     }
 
+  // Debugging output
   Serial.print(acc_now);
   Serial.print(F("\t"));
   Serial.print(acc_max);

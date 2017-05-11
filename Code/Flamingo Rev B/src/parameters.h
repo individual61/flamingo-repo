@@ -60,7 +60,7 @@
 #define MAX_G_SPARKLEFIZZ 1.0f // acceleration in m/sˆ2 for max sparkle
 #define MAX_INTERVAL_SPARKLEFIZZ 1300 // longest without a sparkle
 #define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
-#define ACC_MAX_DECAY_RATE 8000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
+#define ACC_MAX_DECAY_RATE 16000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
 
 
 
