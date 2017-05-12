@@ -19,6 +19,7 @@ uint8_t brightness[BRIGHTNESS_COUNT] = {10, 15, 20, 40, 60, 100, 140, 180, 220, 
 
 uint8_t programIndex = 1; // start at 1
 
+bool firstRun = 1;
 
 void button1PressAction(void)
 {
@@ -34,6 +35,7 @@ void button1PressAction(void)
 
 void button2PressAction(void)
 {
+  firstRun = 1;
   pos0 = vel0 = pos1 = vel1 = 0.0;
   strip.setBrightness(brightness[0]);
   brightnessIndex = 0;
@@ -72,5 +74,17 @@ void checkButton2(void)
       button2PressAction();
       lastTimePressedButton2 = timeNowButton2;
     }
+  }
+}
+
+void setFullBrightnessOn10(void)
+{
+if (brightnessIndex == BRIGHTNESS_COUNT - 1)
+  {
+    strip.setBrightness(255);
+  }
+else
+  {
+    strip.setBrightness(STANDARD_BRIGHTNESS);
   }
 }

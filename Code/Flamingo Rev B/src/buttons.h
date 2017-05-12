@@ -9,6 +9,6 @@ void checkButton1(void);
 
 void checkButton2(void);
 
-
+void setFullBrightnessOn10(void);
 
 #endif
