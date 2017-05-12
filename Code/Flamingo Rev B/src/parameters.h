@@ -1,30 +1,29 @@
 #ifndef PARAMETERS_H
 #define PARAMETERS_H
 
-#include <Arduino.h>
+#include <ADXL345.h>
 #include <Adafruit_DotStar.h>
+#include <Arduino.h>
+#include <I2Cdev.h>
+#include <MPU6050.h>
 #include <SPI.h>
 #include <Wire.h>
-#include <I2Cdev.h>
-#include <ADXL345.h>
-#include <MPU6050.h>
-#include <math.h>
 #include <avr/pgmspace.h>
+#include <math.h>
 
 #include <accel.h>
 #include <buttons.h>
+#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
-#include <effects.h>
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
 // +/-1gRawReading come from holding acc upright and upsidedown
 // acc_real = (accel.readAccelY() - A_OFFSET)/A_GAIN
 // acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
-#define A_OFFSET -25.5f// 0.5*( +1gRawReading + -1gRawReading)
-#define A_GAIN  72.5f// 0.5*( +1gRawReading - -1gRawReading)
-
+#define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
+#define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
 
 // Average acceleration calculation
 #define ACC_AVG_NUM 15
@@ -35,21 +34,25 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 9
+#define NUM_PROGRAMS 1
 #define BRIGHTNESS_COUNT 10
 
 // BRIGHTNESS
 #define STANDARD_BRIGHTNESS 30
 
 // LED counts
-#define NUMPIXELS 144 // Number of LEDs in strip
-#define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
+#define NUMPIXELS 144    // Number of LEDs in strip
+#define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
 
 // Harmonic oscillator parameters
-#define GFACTOR 0.2f //-0.0654 // 9.81/150
+#define GFACTOR 0.2f  //-0.0654 // 9.81/150
 #define SPRINGCONSTANT 2
 #define DAMPING 0.4f
 #define MAXRANGE 15.0f
+#define MAXRANGE_REAL 1.0f
+#define SPRINGCONSTANT_REAL 1.0
+#define DAMPING_REAL 0.5f
+#define MASS_REAL 1.0f
 
 // Green Fire parameters
 #define GFIRE_COOLING 55
@@ -57,12 +60,13 @@
 #define GFIRE_SPEEDDELAY 15
 
 // Sparkle Fizz
-#define MAX_G_SPARKLEFIZZ 1.0f // acceleration in m/sˆ2 for max sparkle
-#define MAX_INTERVAL_SPARKLEFIZZ 1300 // longest without a sparkle
-#define JITTER_SPARKLEFIZZ 200  //random interval in ms to add to inter-sparkle time
-#define ACC_MAX_DECAY_RATE 20000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of acceleration max
-
-
+#define MAX_G_SPARKLEFIZZ 1.0f         // acceleration in m/sˆ2 for max sparkle
+#define MAX_INTERVAL_SPARKLEFIZZ 1300  // longest without a sparkle
+#define JITTER_SPARKLEFIZZ \
+  200  // random interval in ms to add to inter-sparkle time
+#define ACC_MAX_DECAY_RATE \
+  20000.0f  // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of
+            // acceleration max
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -86,7 +90,7 @@ extern bool firstRun;
 extern uint8_t brightnessIndex;
 extern uint8_t brightness[BRIGHTNESS_COUNT];
 
-extern uint8_t programIndex; // start at 1
+extern uint8_t programIndex;  // start at 1
 
 // Dotstar/APA102C variables
 extern Adafruit_DotStar strip;
@@ -100,12 +104,11 @@ extern bool first_iter;
 
 // Sparkle fizz variables
 extern uint16_t sparkleInterval;
-extern float acc_max; // Maximum acceleration, decay rate set by AVG_DECAY_RATE
+extern float acc_max;  // Maximum acceleration, decay rate set by AVG_DECAY_RATE
 extern uint16_t acc_max_timeold;
 extern uint16_t acc_max_timenew;
 extern uint16_t sparkle_timeold;
 extern uint16_t sparkle_timenew;
 extern uint16_t sparkleInterval_max;
-
 
 #endif

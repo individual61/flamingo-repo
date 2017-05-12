@@ -134,6 +134,7 @@ void setup()
   Serial.print(
       F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
+  initAccelOffsetReal();
   Serial.println(F("Done."));
 
   // Initialize lights
@@ -167,116 +168,113 @@ void loop()
     }
   */
 
-/*
-  // Calculate rolling average of acceleration
-  acc_avg_timenew = millis();
-  // If the interval between avg acc measurements has passed
-  if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
-    {
-      acc_avg_timeold = acc_avg_timenew;
-      // Reset acc average
-      acc_avg = 0.0;
-      // Add up all acc_avg[] array values, and shift the array down one.
-      for (int i = 0; i < ACC_AVG_NUM - 1; i++)
-        {
-          // The array is uints, the average is a float
-          acc_avg = accArray[i + 1] + acc_avg;
-          accArray[i + 1] = accArray[i];
-        }
-      accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
-      acc_avg = acc_avg + accArray[0];
-// At this point acc_avg is the sum of all 100*acc values.
-// Divide by 100 and the number of measurements
+  /*
+    // Calculate rolling average of acceleration
+    acc_avg_timenew = millis();
+    // If the interval between avg acc measurements has passed
+    if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
+      {
+        acc_avg_timeold = acc_avg_timenew;
+        // Reset acc average
+        acc_avg = 0.0;
+        // Add up all acc_avg[] array values, and shift the array down one.
+        for (int i = 0; i < ACC_AVG_NUM - 1; i++)
+          {
+            // The array is uints, the average is a float
+            acc_avg = accArray[i + 1] + acc_avg;
+            accArray[i + 1] = accArray[i];
+          }
+        accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
+        acc_avg = acc_avg + accArray[0];
+  // At this point acc_avg is the sum of all 100*acc values.
+  // Divide by 100 and the number of measurements
 
 
-      acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
-      Serial.print(F("Avg acc:  "));
-      Serial.println(acc_avg);
-      Serial.print(F("Now acc:  "));
-      Serial.println(accArray[0]);
-    }
-*/
+        acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
+        Serial.print(F("Avg acc:  "));
+        Serial.println(acc_avg);
+        Serial.print(F("Now acc:  "));
+        Serial.println(accArray[0]);
+      }
+  */
   // Buttons
   checkButton1();
   checkButton2();
 
-
-
-  //// Damped harmonic oscillator (single pixel).
-  if (programIndex == 1)
-    {
-      setFullBrightnessOn10();
-
-      DHO_SinglePixel();
-    }
-
-  //// Damped harmonic oscillator (blob).
-  if (programIndex == 2)
-    {
-      DHO_Blob();
-    }
-
-  //// Rainbow(rainbow).
-  if (programIndex == 3)
-    {
-      Rainbow();
-    }
-
-  //// Damped harmonic oscillator (rainbow).
-  if (programIndex == 4)
-    {
-      DHO_Rainbow();
-    }
-
-  //// Damped harmonic oscillator (sine stripes).
-  if (programIndex == 5)
-    {
-      DHO_SineStripes();
-    }
-
-  //// Green fire
-  if (programIndex == 6)
-    {
-      Fire();
-    }
-
-  //// Sparkle
-  if (programIndex == 7)
-    {
-      setFullBrightnessOn10();
-
-      Sparkle(0xff, 0xff, 0xff, 10);
-    }
-
-  //// Sparkle Pink
-  if (programIndex == 8)
-    {
-      setFullBrightnessOn10();
-
-      Sparkle(0x10, 0x60, 0x40, 10);
-    }
-
-
-  //// Sparkle Pink Fizz
-  if (programIndex == 9)
-    {
-      setFullBrightnessOn10();
-
-      SparkleFizz(0x10, 0x60, 0x40, 10);
-    }
-
-/*
-    if (programIndex == 10)
+  /*
+    //// Damped harmonic oscillator (single pixel).
+    if (programIndex == 1)
       {
-        ();
-      }*/
+        setFullBrightnessOn10();
 
-/*
-    if (programIndex == 11)
-      {
-        Acctest();
+        DHO_SinglePixel();
       }
 
-      */
+    //// Damped harmonic oscillator (blob).
+    if (programIndex == 2)
+      {
+        DHO_Blob();
+      }
 
+    //// Rainbow(rainbow).
+    if (programIndex == 3)
+      {
+        Rainbow();
+      }
+
+    //// Damped harmonic oscillator (rainbow).
+    if (programIndex == 4)
+      {
+        DHO_Rainbow();
+      }
+
+    //// Damped harmonic oscillator (sine stripes).
+    if (programIndex == 5)
+      {
+        DHO_SineStripes();
+      }
+
+    //// Green fire
+    if (programIndex == 6)
+      {
+        Fire();
+      }
+
+    //// Sparkle
+    if (programIndex == 7)
+      {
+        setFullBrightnessOn10();
+
+        Sparkle(0xff, 0xff, 0xff, 10);
+      }
+
+    //// Sparkle Pink
+    if (programIndex == 8)
+      {
+        setFullBrightnessOn10();
+
+        Sparkle(0x10, 0x60, 0x40, 10);
+      }
+
+
+    //// Sparkle Pink Fizz
+    if (programIndex == 9)
+      {
+        setFullBrightnessOn10();
+
+        SparkleFizz(0x10, 0x60, 0x40, 10);
+      }
+  */
+  if (programIndex == 1)
+    {
+      DHO_Comet();
+    }
+
+  /*
+      if (programIndex == 11)
+        {
+          Acctest();
+        }
+
+        */
 }

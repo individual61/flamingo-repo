@@ -457,5 +457,24 @@ void Acctest(void)
   Serial.println(realacc);
   delay(50);
 }
-
 */
+
+void DHO_Comet()
+{
+  if (firstRun)
+    {
+      strip.clear();
+      firstRun = 0;
+    }
+  float BallPosition = getBallPositionReal();
+
+  for (int i = 0; i < NUMPERSTRAND; i++)
+    {
+      setPixelByIndex(i, 0);
+    }
+  // These should be changed to fractions of NUMPERSTRAND
+  uint16_t temp =
+      ((float)NUMPERSTRAND / 2.0) + BallPosition * ((float)NUMPERSTRAND / 2.0);
+  setPixelByIndex((int)temp, color);
+  strip.show();
+}

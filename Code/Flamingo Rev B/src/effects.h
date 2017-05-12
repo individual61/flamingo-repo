@@ -2,11 +2,10 @@
 #ifndef EFFECTS_H
 #define EFFECTS_H
 
-#include <Arduino.h>
 #include <Adafruit_DotStar.h>
+#include <Arduino.h>
 
-
-byte * Wheel(byte WheelPos);
+byte* Wheel(byte WheelPos);
 
 void setPixelByIndex(int index, uint32_t color);
 
@@ -30,8 +29,6 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay);
 
 void Acctest(void);
 
-
-
-
+void DHO_Comet();
 
 #endif
