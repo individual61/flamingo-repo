@@ -445,6 +445,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   //  Serial.print(F("\t"));
 }
 
+/*
 void Acctest(void)
 {
   Serial.print(F("acc_now: "));
@@ -456,3 +457,5 @@ void Acctest(void)
   Serial.println(realacc);
   delay(50);
 }
+
+*/

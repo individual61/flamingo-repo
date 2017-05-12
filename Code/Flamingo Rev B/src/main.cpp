@@ -201,7 +201,7 @@ void loop()
   checkButton2();
 
 
-/*
+
   //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
     {
@@ -256,18 +256,27 @@ void loop()
       Sparkle(0x10, 0x60, 0x40, 10);
     }
 
-*/
+
   //// Sparkle Pink Fizz
-  if (programIndex == 1)
+  if (programIndex == 9)
     {
       setFullBrightnessOn10();
 
       SparkleFizz(0x10, 0x60, 0x40, 10);
     }
 
-    if (programIndex == 2)
+/*
+    if (programIndex == 10)
+      {
+        ();
+      }*/
+
+/*
+    if (programIndex == 11)
       {
         Acctest();
       }
+
+      */
 
 }
