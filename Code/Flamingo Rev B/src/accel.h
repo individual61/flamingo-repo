@@ -1,14 +1,24 @@
 #ifndef ACCEL_H
 #define ACCEL_H
 
+///// legacy
+void initAccelOffset(void);
 float getOffsetAccel(float gfactor);
+/////
 
-float getPhysicalOffsetAccel(void);
+void initPhyisicalOffsetAccelY(void);
+
+float getPhysicalOffsetAccelY(void);
 
 float getPhysicalAccelY(void);
 
-void initAccelOffset(void);
+float getNormalizedAccelY(void);
 
-void initAccelOffsetReal(void);
+float getNormalizedOffsetAccelY(void);
+
+
+
+
+
 
 #endif
