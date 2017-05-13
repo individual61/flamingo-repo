@@ -23,13 +23,7 @@ void setPixelByIndex(int index, uint8_t r, uint8_t g, uint8_t b)
 {
   if ((index > 0) && (index < NUMPERSTRAND))
     {
-      uint8_t realindex = 0;
-      realindex = NUMPERSTRAND - index - 1;
-      strip.setPixelColor(realindex, r, g, b);
-      realindex = NUMPERSTRAND + index;
-      strip.setPixelColor(realindex, r, g, b);
-      realindex = 3 * NUMPERSTRAND - index - 1;
-      strip.setPixelColor(realindex, r, g, b);
+      setPixelByIndex(index, strip.Color(r, g, b));
     }
 }
 
@@ -40,7 +34,8 @@ void setPixelByIndex(int index, uint8_t r, uint8_t g, uint8_t b)
 // 1
 //////////// DHO SINGLE PIXEL
 ////////////////////////////////////////////////////////////////////////////////////////
-void DHO_SinglePixel(void)
+
+void DHO_SinglePixel()
 {
   if (firstRun)
     {
@@ -53,8 +48,13 @@ void DHO_SinglePixel(void)
     {
       setPixelByIndex(i, 0);
     }
-  // These should be changed to fractions of NUMPERSTRAND
-  setPixelByIndex(48 - (24 + ballToStrandPosition(BallPosition)) - 1, color);
+
+  setPixelByIndex(ballToStrandPosition(BallPosition), color);
+  /*  Serial.print("\tBallPosiition:\t");
+    Serial.print(BallPosition);
+    Serial.print("\tPixel Index:\t");
+    Serial.println(temp);
+    */
   strip.show();
 }
 
@@ -79,7 +79,8 @@ void DHO_Blob(void)
     {
       setPixelByIndex(i, 0);
     }
-  int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
+  int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
+                     BallPosition * ((float)NUMPERSTRAND / 2.0));
   float attnFactor;
 
   for (int k = -7; k <= 7; k++)
@@ -165,7 +166,8 @@ void DHO_Rainbow(void)
     }
   float BallPosition = getBallPosition();
 
-  int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
+  int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
+                     BallPosition * ((float)NUMPERSTRAND / 2.0));
 
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
@@ -360,7 +362,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       acc_max * (1.0 - constrain((arg / ACC_MAX_DECAY_RATE), 0.0, 1.0));
   //  float acc_decayed = acc_max * exp(-arg/ACC_MAX_DECAY_RATE);
 
-  float acc_now = fabs(1.0 - getPhysicalAccelY());
+  float acc_now = fabs(getNormalizedOffsetAccelY());
 
   // This avoids the problem of being stuck on max sparkle rate for a time that
   // depends on how big the acceleration was. This way there is a max sparkle
@@ -429,13 +431,15 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       Serial.print(0);
       Serial.print(F("\t"));
     }
+  /*
+    // Debugging output
+    Serial.print(acc_now);
+    Serial.print(F("\t"));
+    Serial.print(acc_max);
+    Serial.print(F("\t"));
+    Serial.println(acc_decayed);
 
-  // Debugging output
-  Serial.print(acc_now);
-  Serial.print(F("\t"));
-  Serial.print(acc_max);
-  Serial.print(F("\t"));
-  Serial.println(acc_decayed);
+    */
   /*  Serial.print(F("\t"));
    Serial.print(sparkleInterval);
     Serial.print(F("\t"));
@@ -445,36 +449,11 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   //  Serial.print(F("\t"));
 }
 
-/*
 void Acctest(void)
 {
-  Serial.print(F("acc_now: "));
-  int16_t acc;
-  acc = accel.getAccelerationY();
-  Serial.print(acc);
-  float realacc = (((float)acc) + 25.5) / 72.5;
-  Serial.print(F("\t\tacc_real: "));
-  Serial.println(realacc);
+  Serial.print(F("\tgetNormalizedOffsetAccelY: "));
+  Serial.println(getNormalizedOffsetAccelY());
   delay(50);
 }
-*/
 
-void DHO_Comet()
-{
-  if (firstRun)
-    {
-      strip.clear();
-      firstRun = 0;
-    }
-  float BallPosition = getBallPositionReal();
-
-  for (int i = 0; i < NUMPERSTRAND; i++)
-    {
-      setPixelByIndex(i, 0);
-    }
-  // These should be changed to fractions of NUMPERSTRAND
-  uint16_t temp =
-      ((float)NUMPERSTRAND / 2.0) + BallPosition * ((float)NUMPERSTRAND / 2.0);
-  setPixelByIndex((int)temp, color);
-  strip.show();
-}
+void DHO_Comet() {}

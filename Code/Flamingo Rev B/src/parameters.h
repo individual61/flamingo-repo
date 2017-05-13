@@ -24,6 +24,8 @@
 // acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
 #define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
 #define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
+#define G_ACC -9.81f
+#define G_ACC_MAGNITUDE 9.81f
 
 // Average acceleration calculation
 #define ACC_AVG_NUM 15
@@ -34,7 +36,7 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 1
+#define NUM_PROGRAMS 11
 #define BRIGHTNESS_COUNT 10
 
 // BRIGHTNESS
@@ -50,9 +52,9 @@
 #define DAMPING 0.4f
 #define MAXRANGE 15.0f
 #define MAXRANGE_REAL 1.0f
-#define SPRINGCONSTANT_REAL 1.0
-#define DAMPING_REAL 0.5f
-#define MASS_REAL 1.0f
+#define SPRINGCONSTANT_REAL 1.0f
+#define DAMPING_REAL 0.3f
+#define MASS_REAL 4.0f
 
 // Green Fire parameters
 #define GFIRE_COOLING 55
@@ -72,7 +74,7 @@
 extern ADXL345 accel;
 
 extern int16_t ay;
-extern float g0y, gy;
+extern float g0y, gy, acc_offset_normalized;
 
 // Button variables
 extern uint8_t button1state;

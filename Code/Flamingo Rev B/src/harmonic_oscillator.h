@@ -4,10 +4,10 @@
 #include <Arduino.h>
 
 float eval_v_func(float v, float x, float acc_ext, float damping,
-                  float springconstant);
+                  float springconstant, float mass);
 
 float get_next_v(float oldv, float oldx, float acc_ext, float damping,
-                 float springconstant);
+                 float springconstant, float mass);
 
 float get_next_x(float oldv, float oldx);
 

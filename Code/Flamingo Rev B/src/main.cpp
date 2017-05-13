@@ -134,7 +134,6 @@ void setup()
   Serial.print(
       F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
-  initAccelOffsetReal();
   Serial.println(F("Done."));
 
   // Initialize lights
@@ -201,80 +200,75 @@ void loop()
   checkButton1();
   checkButton2();
 
-  /*
-    //// Damped harmonic oscillator (single pixel).
-    if (programIndex == 1)
-      {
-        setFullBrightnessOn10();
-
-        DHO_SinglePixel();
-      }
-
-    //// Damped harmonic oscillator (blob).
-    if (programIndex == 2)
-      {
-        DHO_Blob();
-      }
-
-    //// Rainbow(rainbow).
-    if (programIndex == 3)
-      {
-        Rainbow();
-      }
-
-    //// Damped harmonic oscillator (rainbow).
-    if (programIndex == 4)
-      {
-        DHO_Rainbow();
-      }
-
-    //// Damped harmonic oscillator (sine stripes).
-    if (programIndex == 5)
-      {
-        DHO_SineStripes();
-      }
-
-    //// Green fire
-    if (programIndex == 6)
-      {
-        Fire();
-      }
-
-    //// Sparkle
-    if (programIndex == 7)
-      {
-        setFullBrightnessOn10();
-
-        Sparkle(0xff, 0xff, 0xff, 10);
-      }
-
-    //// Sparkle Pink
-    if (programIndex == 8)
-      {
-        setFullBrightnessOn10();
-
-        Sparkle(0x10, 0x60, 0x40, 10);
-      }
-
-
-    //// Sparkle Pink Fizz
-    if (programIndex == 9)
-      {
-        setFullBrightnessOn10();
-
-        SparkleFizz(0x10, 0x60, 0x40, 10);
-      }
-  */
+  //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
+    {
+      setFullBrightnessOn10();
+
+      DHO_SinglePixel();
+    }
+
+  //// Damped harmonic oscillator (blob).
+  if (programIndex == 2)
+    {
+      DHO_Blob();
+    }
+
+  //// Rainbow(rainbow).
+  if (programIndex == 3)
+    {
+      Rainbow();
+    }
+
+  //// Damped harmonic oscillator (rainbow).
+  if (programIndex == 4)
+    {
+      DHO_Rainbow();
+    }
+
+  //// Damped harmonic oscillator (sine stripes).
+  if (programIndex == 5)
+    {
+      DHO_SineStripes();
+    }
+
+  //// Green fire
+  if (programIndex == 6)
+    {
+      Fire();
+    }
+
+  //// Sparkle
+  if (programIndex == 7)
+    {
+      setFullBrightnessOn10();
+
+      Sparkle(0xff, 0xff, 0xff, 10);
+    }
+
+  //// Sparkle Pink
+  if (programIndex == 8)
+    {
+      setFullBrightnessOn10();
+
+      Sparkle(0x10, 0x60, 0x40, 10);
+    }
+
+  //// Sparkle Pink Fizz
+  if (programIndex == 9)
+    {
+      setFullBrightnessOn10();
+
+      SparkleFizz(0x10, 0x60, 0x40, 10);
+    }
+
+  if (programIndex == 10)
     {
       DHO_Comet();
     }
 
-  /*
-      if (programIndex == 11)
-        {
-          Acctest();
-        }
-
-        */
+  if (programIndex == 11)
+    {
+      Acctest();
+    }
 }
