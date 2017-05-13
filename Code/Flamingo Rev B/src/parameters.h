@@ -24,7 +24,6 @@
 // acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
 #define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
 #define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
-#define G_ACC -9.81f
 #define G_ACC_MAGNITUDE 9.81f
 
 // Average acceleration calculation
@@ -47,7 +46,6 @@
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
 
 // Harmonic oscillator parameters
-#define GFACTOR 0.2f  //-0.0654 // 9.81/150
 #define SPRINGCONSTANT 2
 #define DAMPING 0.4f
 #define MAXRANGE 15.0f

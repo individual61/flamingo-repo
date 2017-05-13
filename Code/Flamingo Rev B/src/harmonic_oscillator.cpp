@@ -19,8 +19,9 @@ float eval_v_func(float v, float x, float acc_ext, float damping,
                   float springconstant, float mass)
 {
   // acc_ext is generally negative when Flamingo is upright.
+  // m x'' = - k x - c v + F_ext
+  // with F_ext = m acc_ext
   return -damping * v - springconstant * x + mass * acc_ext;
-  // return (-c*v -sin(x) + F*cos(w*t));
 }
 
 // Integrates acceleration to get velocity
@@ -63,7 +64,8 @@ float getBallPosition(void)
       timestep_i = timenow_i - timeold_i;
       timestep_f = 0.01 * ((float)timestep_i);
 
-      acc_ext = G_ACC * getNormalizedAccelY();
+      // getNormalizedAccelY() is negative when Flamingo is upright.
+      acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
       vel1 = get_next_v(vel0, pos0, acc_ext, DAMPING_REAL, SPRINGCONSTANT_REAL,
                         MASS_REAL);
       pos1 = get_next_x(vel0, pos0);
@@ -104,10 +106,9 @@ float getBallPosition(void)
               (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) +
               1.0);
           Serial.print(F("\tPixel Index:\t"));
-          Serial.print(
-              ((float)NUMPERSTRAND / 2.0) +
-              (pos1 / (MASS_REAL * G_ACC / SPRINGCONSTANT_REAL) - 1.0) *
-                  ((float)NUMPERSTRAND / 2.0));
+          Serial.print(ballToStrandPosition(
+              (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) +
+              1.0));
           Serial.print(F("\tgetNormalizedAccelY:\t"));
           Serial.print(getNormalizedAccelY());
           Serial.print(F("\tgetNormalizedOffsetAccelY:\t"));

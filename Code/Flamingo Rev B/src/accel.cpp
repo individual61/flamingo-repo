@@ -2,35 +2,7 @@
 #include <parameters.h>
 
 float acc_offset_normalized;
-// float  g0y, g0yphysical, ;
 
-/*
-//will delete
-// Returns physical acc in m/sˆ2
-// Right side up:   9.81
-// Upside Down:     -9.81
-float getPhysicalAccelY(void)
-{
-  int16_t acc;
-  acc = accel.getAccelerationY();
-  return 9.81 * (((float)acc) - A_OFFSET) / A_GAIN;
-}
-*/
-
-/*
-//willdelete
-// Returns the accelerometer difference from initial acc in m/s^2
-// Right side up: 0.0
-// Upside Down:   - 2*9.81
-float getPhysicalOffsetAccelY(void)
-{
-  // g0y was set via initAccelOffset()
-  float acc = (getPhysicalAccelY() - g0yphysical);
-  return acc;
-}
-*/
-
-// this one stays
 // Returns normalized acc in units of g
 // Right side up: 1.0
 // Upside Down:   -1.0
@@ -43,19 +15,18 @@ float getNormalizedAccelY(void)
   return -(((float)((acc)-A_OFFSET)) / A_GAIN);
 }
 
-// this one stays
-// Returns the accelerometer difference from initial acc in m/s^2
+// Returns the accelerometer difference from initial acc in units of |g|
 // Right side up: 0.0
-// Upside Down:
+// Upside Down:   -2.0
 float getNormalizedOffsetAccelY(void)
 {
-  // g0y was set via initAccelOffset()
+  // acc_offset_normalized was set via initAccelOffset()
   float acc = (getNormalizedAccelY() - acc_offset_normalized);
   return acc;
 }
 
 // Measures 1 second of physical accelerometer values and averages to create
-// offset.
+// normalized offset.
 void initAccelOffset(void)
 {
   unsigned long accel_init_start_time;
