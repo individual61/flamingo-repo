@@ -47,7 +47,7 @@ float get_next_x(float oldv, float oldx)
 
 int ballToStrandPosition(float ballPos)
 {
-  return ((float)NUMPERSTRAND / 2.0) + ballPos * ((float)NUMPERSTRAND / 2.0);
+  return (NUMPERSTRAND / 2) + ballPos * (NUMPERSTRAND / 2);
 };
 
 // DAMPED HARMONIC OSCILLATOR, real physical units. Returns object position as a
@@ -94,28 +94,28 @@ float getBallPosition(void)
       pos0 = pos1;
       timeold_i = timenow_i;
 
-      uint16_t timet = millis();
-      if (timet - sendTime > 100)
-        {
-          Serial.print(F("Time:\t"));
-          Serial.print(timet);
-          Serial.print(F("\tpos1:\t"));
-          Serial.print((pos1));
-          Serial.print(F("\tBallPosition:\t"));
-          Serial.print(
-              (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) +
-              1.0);
-          Serial.print(F("\tPixel Index:\t"));
-          Serial.print(ballToStrandPosition(
-              (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) +
-              1.0));
-          Serial.print(F("\tgetNormalizedAccelY:\t"));
-          Serial.print(getNormalizedAccelY());
-          Serial.print(F("\tgetNormalizedOffsetAccelY:\t"));
-          Serial.println(getNormalizedOffsetAccelY());
+      /*
+            uint16_t timet = millis();
+            if (timet - sendTime > 100)
+              {
+                Serial.print(F("Time:\t"));
+                Serial.print(timet);
+                Serial.print(F("\tpos1:\t"));
+                Serial.print((pos1));
+                Serial.print(F("\tBallPosition:\t"));
+                Serial.print(
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
+         + 1.0); Serial.print(F("\tPixel Index:\t"));
+                Serial.print(ballToStrandPosition(
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
+         + 1.0)); Serial.print(F("\tgetNormalizedAccelY:\t"));
+                Serial.print(getNormalizedAccelY());
+                Serial.print(F("\tgetNormalizedOffsetAccelY:\t"));
+                Serial.println(getNormalizedOffsetAccelY());
 
-          sendTime = timet;
-        }
+                sendTime = timet;
+              }
+      */
     }
   // Resting location is at 0.0
   return (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) + 1.0;

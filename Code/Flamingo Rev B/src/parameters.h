@@ -16,6 +16,7 @@
 #include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <utils.h>
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -50,9 +51,9 @@
 #define DAMPING 0.4f
 #define MAXRANGE 15.0f
 #define MAXRANGE_REAL 1.0f
-#define SPRINGCONSTANT_REAL 1.0f
-#define DAMPING_REAL 0.3f
-#define MASS_REAL 4.0f
+#define SPRINGCONSTANT_REAL 1.0f  // 1.0
+#define DAMPING_REAL 0.3f         // 0.3
+#define MASS_REAL 4.0f            // 4.0
 
 // Green Fire parameters
 #define GFIRE_COOLING 55
@@ -67,6 +68,15 @@
 #define ACC_MAX_DECAY_RATE \
   20000.0f  // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of
             // acceleration max
+
+// DHO_Comet
+#define NUM_HISTORY 100
+
+// DHO_Fade
+#define FADE_COEF 0.95f
+
+// General variables
+extern uint8_t counter;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -110,5 +120,7 @@ extern uint16_t acc_max_timenew;
 extern uint16_t sparkle_timeold;
 extern uint16_t sparkle_timenew;
 extern uint16_t sparkleInterval_max;
+
+// DHO_Comet variables
 
 #endif

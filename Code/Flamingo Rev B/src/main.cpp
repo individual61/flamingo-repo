@@ -13,6 +13,7 @@
 #include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <utils.h>
 
 // To use serial or not
 #define PLOT 1
@@ -74,13 +75,6 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 // ALT low = 0x53 (default for SparkFun 6DOF board)
 // ALT high = 0x1D
 ADXL345 accel;
-
-int freeRam()
-{
-  extern int __heap_start, *__brkval;
-  int v;
-  return (int)&v - (__brkval == 0 ? (int)&__heap_start : (int)__brkval);
-}
 
 uint16_t accArray[ACC_AVG_NUM];
 uint16_t acc_avg_timeold;
@@ -154,18 +148,18 @@ void setup()
 
 //////////////////////// LOOP ///////////////////////////////////////////////
 
-unsigned int counter = 0;
+uint8_t counter = 0;
 
 void loop()
 {
-  /*  counter++;
-    if(counter==100)
-    {
-      counter = 0;
-      Serial.print(F("Free SRAM:  "));
-      Serial.println(freeRam());
-    }
-  */
+  counter++;
+  /*  if (counter == 100)
+      {
+        counter = 0;
+        Serial.print(F("Free SRAM:  "));
+        Serial.println(freeRam());
+      }
+      */
 
   /*
     // Calculate rolling average of acceleration
@@ -269,6 +263,13 @@ void loop()
 
   if (programIndex == 11)
     {
-      Acctest();
+      DHO_Fade();
     }
+  /*
+    if (programIndex == 11)
+      {
+        Acctest();
+      }
+
+      */
 }
