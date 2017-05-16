@@ -118,5 +118,13 @@ float getBallPosition(void)
       */
     }
   // Resting location is at 0.0
-  return (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) + 1.0;
+  float temp =
+      (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) + 1.0;
+  if (counter == 100)
+    {
+      Serial.print("getBallPosition time: ");
+      Serial.println((millis() - timenow_i));
+    }
+
+  return temp;
 }
