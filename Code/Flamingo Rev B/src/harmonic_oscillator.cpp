@@ -59,9 +59,10 @@ float getBallPosition(void)
     {
       pos0 = 0.0;
       vel0 = 0.0;
-      timeold_i = 0;
       timenow_i = 0;
       timestep_i = timenow_i - timeold_i;
+      timeold_i = millis();  // why is this timeold and not timenow? I moved
+                             // this from below btw
       timestep_f = 0.01 * ((float)timestep_i);
 
       // getNormalizedAccelY() is negative when Flamingo is upright.
@@ -75,7 +76,6 @@ float getBallPosition(void)
       vel0 = vel1;
 
       first_iter = 0;
-      timeold_i = millis();
     }
   else
     {
@@ -120,11 +120,6 @@ float getBallPosition(void)
   // Resting location is at 0.0
   float temp =
       (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) + 1.0;
-  if (counter == 100)
-    {
-      Serial.print("getBallPosition time: ");
-      Serial.println((millis() - timenow_i));
-    }
 
   return temp;
 }
