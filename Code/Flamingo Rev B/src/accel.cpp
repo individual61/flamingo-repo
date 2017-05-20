@@ -1,43 +1,48 @@
 #include <accel.h>
 #include <parameters.h>
 
-float g0y, gy;
+float acc_offset_normalized;
 
-// Returns the accelerometer difference from 1 g in m/s^2
-float getOffsetAccel(float gfactor)
+// Returns normalized acc in units of g
+// Right side up: 1.0
+// Upside Down:   -1.0
+float getNormalizedAccelY(void)
 {
-  //g0y was set via initAccelOffset()
-  float acc = gfactor * (g0y - accel.getAccelerationY());
+  int16_t acc;
+  acc = accel.getAccelerationY();
+  //  Serial.print("getNormalizedAccelY():\t");
+  //  Serial.print(-(((float)((acc)-A_OFFSET)) / A_GAIN));
+  return -(((float)((acc)-A_OFFSET)) / A_GAIN);
+}
+
+// Returns the accelerometer difference from initial acc in units of |g|
+// Right side up: 0.0
+// Upside Down:   -2.0
+float getNormalizedOffsetAccelY(void)
+{
+  // acc_offset_normalized was set via initAccelOffset()
+  float acc = (getNormalizedAccelY() - acc_offset_normalized);
   return acc;
 }
 
-// Returns
-float getPhysicalAccelY(void)
-{
-int16_t acc;
-acc = accel.getAccelerationY();
-return (((float)acc) - A_OFFSET)/A_GAIN;
-}
-
-
-
-// Measures 1 second of accelerometer values and averages to create offset.
+// Measures 1 second of physical accelerometer values and averages to create
+// normalized offset.
 void initAccelOffset(void)
 {
   unsigned long accel_init_start_time;
   uint16_t accel_init_average_count = 0;
   accel_init_start_time = millis();
-  g0y = 0;
-  gy = 0;
+  acc_offset_normalized = 0;
   while (millis() - accel_init_start_time < 1000)
-  {
-    g0y = g0y + accel.getAccelerationY();
-    accel_init_average_count++;
-  }
-  g0y = g0y / ((float)accel_init_average_count);
+    {
+      acc_offset_normalized = acc_offset_normalized + getNormalizedAccelY();
+      accel_init_average_count++;
+    }
+  acc_offset_normalized =
+      acc_offset_normalized / ((float)accel_init_average_count);
 
   Serial.print(F("Number of measurements: "));
   Serial.print(accel_init_average_count);
-  Serial.print(F(".\tAvg gy:"));
-  Serial.println(g0y);
+  Serial.print(F(".\tAvg acc_offset_normalized:"));
+  Serial.println(acc_offset_normalized);
 }

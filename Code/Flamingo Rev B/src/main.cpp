@@ -13,6 +13,7 @@
 #include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <utils.h>
 
 // To use serial or not
 #define PLOT 1
@@ -58,6 +59,14 @@
   GND to GND
 */
 
+/////// GENERAL ////
+//
+//
+//
+
+uint16_t timer = 0;
+uint8_t counter = 0;
+
 //////////////////// DOTSTARS //////////////////
 // The last parameter is optional -- this is the color data order of the
 // DotStar strip, which has changed over time in different production runs.
@@ -74,13 +83,6 @@ Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 // ALT low = 0x53 (default for SparkFun 6DOF board)
 // ALT high = 0x1D
 ADXL345 accel;
-
-int freeRam()
-{
-  extern int __heap_start, *__brkval;
-  int v;
-  return (int)&v - (__brkval == 0 ? (int)&__heap_start : (int)__brkval);
-}
 
 uint16_t accArray[ACC_AVG_NUM];
 uint16_t acc_avg_timeold;
@@ -150,57 +152,55 @@ void setup()
 
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
+
+  timer = millis();
 }
 
 //////////////////////// LOOP ///////////////////////////////////////////////
 
-unsigned int counter = 0;
-
 void loop()
 {
-  /*  counter++;
-    if(counter==100)
-    {
-      counter = 0;
-      Serial.print(F("Free SRAM:  "));
-      Serial.println(freeRam());
-    }
+  counter++;
+  /*  if (counter == 100)
+      {
+        counter = 0;
+        Serial.print(F("Free SRAM:  "));
+        Serial.println(freeRam());
+      }
+      */
+
+  /*
+    // Calculate rolling average of acceleration
+    acc_avg_timenew = millis();
+    // If the interval between avg acc measurements has passed
+    if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
+      {
+        acc_avg_timeold = acc_avg_timenew;
+        // Reset acc average
+        acc_avg = 0.0;
+        // Add up all acc_avg[] array values, and shift the array down one.
+        for (int i = 0; i < ACC_AVG_NUM - 1; i++)
+          {
+            // The array is uints, the average is a float
+            acc_avg = accArray[i + 1] + acc_avg;
+            accArray[i + 1] = accArray[i];
+          }
+        accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
+        acc_avg = acc_avg + accArray[0];
+  // At this point acc_avg is the sum of all 100*acc values.
+  // Divide by 100 and the number of measurements
+
+
+        acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
+        Serial.print(F("Avg acc:  "));
+        Serial.println(acc_avg);
+        Serial.print(F("Now acc:  "));
+        Serial.println(accArray[0]);
+      }
   */
-
-/*
-  // Calculate rolling average of acceleration
-  acc_avg_timenew = millis();
-  // If the interval between avg acc measurements has passed
-  if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
-    {
-      acc_avg_timeold = acc_avg_timenew;
-      // Reset acc average
-      acc_avg = 0.0;
-      // Add up all acc_avg[] array values, and shift the array down one.
-      for (int i = 0; i < ACC_AVG_NUM - 1; i++)
-        {
-          // The array is uints, the average is a float
-          acc_avg = accArray[i + 1] + acc_avg;
-          accArray[i + 1] = accArray[i];
-        }
-      accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
-      acc_avg = acc_avg + accArray[0];
-// At this point acc_avg is the sum of all 100*acc values.
-// Divide by 100 and the number of measurements
-
-
-      acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
-      Serial.print(F("Avg acc:  "));
-      Serial.println(acc_avg);
-      Serial.print(F("Now acc:  "));
-      Serial.println(accArray[0]);
-    }
-*/
   // Buttons
   checkButton1();
   checkButton2();
-
-
 
   //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
@@ -256,7 +256,6 @@ void loop()
       Sparkle(0x10, 0x60, 0x40, 10);
     }
 
-
   //// Sparkle Pink Fizz
   if (programIndex == 9)
     {
@@ -265,18 +264,31 @@ void loop()
       SparkleFizz(0x10, 0x60, 0x40, 10);
     }
 
-/*
-    if (programIndex == 10)
-      {
-        ();
-      }*/
+  if (programIndex == 10)
+    {
+      DHO_Comet();
+    }
 
-/*
+  if (programIndex == 11)
+    {
+      /*    if (counter == 100)
+        {
+          Serial.print("loop() time: ");
+          Serial.println((millis() - timer));
+        }
+  */ DHO_Fade();
+      /*      if (counter == 100)
+        {
+          Serial.print("DHO_Fade time: ");
+          Serial.println((millis() - timer));
+        }
+*/ timer = millis();
+    }
+  /*
     if (programIndex == 11)
       {
         Acctest();
       }
 
       */
-
 }
