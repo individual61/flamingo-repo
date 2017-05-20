@@ -59,6 +59,14 @@
   GND to GND
 */
 
+/////// GENERAL ////
+//
+//
+//
+
+uint16_t timer = 0;
+uint8_t counter = 0;
+
 //////////////////// DOTSTARS //////////////////
 // The last parameter is optional -- this is the color data order of the
 // DotStar strip, which has changed over time in different production runs.
@@ -144,11 +152,11 @@ void setup()
 
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
+
+  timer = millis();
 }
 
 //////////////////////// LOOP ///////////////////////////////////////////////
-
-uint8_t counter = 0;
 
 void loop()
 {
@@ -263,7 +271,18 @@ void loop()
 
   if (programIndex == 11)
     {
-      DHO_Fade();
+      /*    if (counter == 100)
+        {
+          Serial.print("loop() time: ");
+          Serial.println((millis() - timer));
+        }
+  */ DHO_Fade();
+      /*      if (counter == 100)
+        {
+          Serial.print("DHO_Fade time: ");
+          Serial.println((millis() - timer));
+        }
+*/ timer = millis();
     }
   /*
     if (programIndex == 11)

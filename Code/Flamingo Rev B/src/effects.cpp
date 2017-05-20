@@ -574,20 +574,21 @@ void DHO_Fade()
       Serial.println(freeRam());
     }
 
-  uint32_t temp = millis();
+  // about 1 to 2 ms
   float BallPosition = getBallPosition();
-  if (counter == 100)
-    {
-      Serial.print("getBallPosition time: ");
-      Serial.println((millis() - temp));
-    }
+
+  // about 7 ms
   fadeWholeStrip(FADE_COEF);
 
+  // < 0 ms
   setPixelByStrandIndex(ballToStrandPosition(BallPosition), color);
+
   /*  Serial.print("\tBallPosiition:\t");
     Serial.print(BallPosition);
     Serial.print("\tPixel Index:\t");
     Serial.println(temp);
     */
+
+  // about 1 ms
   strip.show();
 }
