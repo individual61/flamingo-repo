@@ -48,7 +48,9 @@
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
 #define CLOCK_PIN 13
 #define DATA_PIN 11
-#define COLOR_ORDER BGR
+#define COLOR_ORDER GRB
+//#define CORRECTION TypicalLEDStrip
+#define CORRECTION UncorrectedColor
 
 // Harmonic oscillator parameters
 #define SPRINGCONSTANT 2
@@ -81,7 +83,7 @@
 
 // General variables
 extern uint8_t counter;
-extern uint16_t timer;
+extern uint32_t timer;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;

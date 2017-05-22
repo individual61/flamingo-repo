@@ -181,7 +181,7 @@ void Rainbow(void)
       setPixelByStrandIndex(i, CRGB(*c, *(c + 1), *(c + 2)));
     }
   FastLED.show();
-  delay(20);
+  FastLED.delay(20);
   jrainbow++;
   if (jrainbow == 256 * 5)
     {
@@ -348,7 +348,7 @@ void Fire(void)
       setPixelHeatColorgreen(j, heat[j]);
     }
   FastLED.show();
-  delay(GFIRE_SPEEDDELAY);
+  FastLED.delay(GFIRE_SPEEDDELAY);
 }
 
 // 7
@@ -368,7 +368,7 @@ void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
   int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
   setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
   FastLED.show();
-  delay(SpeedDelay);
+  FastLED.delay(SpeedDelay);
   setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
   FastLED.show();
 }
@@ -464,7 +464,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
       setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
       FastLED.show();
-      delay(SpeedDelay);
+      FastLED.delay(SpeedDelay);
       setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
       FastLED.show();
 

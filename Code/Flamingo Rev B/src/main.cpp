@@ -65,7 +65,7 @@
 //
 //
 
-uint16_t timer = 0;
+uint32_t timer = 0;
 uint8_t counter = 0;
 
 //////////////////// DOTSTARS //////////////////
@@ -76,7 +76,7 @@ uint8_t counter = 0;
 
 // Hardware SPI is a little faster, but must be wired to specific pins
 // (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
-Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
+// Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
 CRGB leds[NUMPIXELS];
 
 ////////////////////// ADXL345 /////////////////////////
@@ -142,15 +142,12 @@ void setup()
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
-  FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS);
+  FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
+      .setCorrection(CORRECTION);
 
-  FastLED.setBrightness(STANDARD_BRIGHTNESS);
+  FastLED.setBrightness(brightness[0]);
   FastLED.clear();
   FastLED.show();
-  //  strip.begin();  // Initialize pins for output
-  //  strip.setBrightness(STANDARD_BRIGHTNESS);
-  //  strip.clear();
-  //  strip.show();
   Serial.println(F("Done."));
 
   Serial.println("");
@@ -273,7 +270,13 @@ void loop()
 
   if (programIndex == 10)
     {
+      timer = millis();
       DHO_Comet();
+      if (counter == 100)
+        {
+          Serial.print("DHO_Comet time: ");
+          Serial.println((millis() - timer));
+        }
     }
 
   if (programIndex == 11)
@@ -283,13 +286,14 @@ void loop()
           Serial.print("loop() time: ");
           Serial.println((millis() - timer));
         }
-  */ DHO_Fade();
-      /*      if (counter == 100)
+  */
+      timer = millis();
+      DHO_Fade();
+      if (counter == 100)
         {
           Serial.print("DHO_Fade time: ");
           Serial.println((millis() - timer));
         }
-*/ timer = millis();
     }
   /*
     if (programIndex == 11)
