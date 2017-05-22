@@ -4,16 +4,17 @@
 
 #include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 
 byte* Wheel(byte WheelPos);
 
-void setPixelByStrandIndex(int index, uint32_t color);
+void setPixelByStrandIndex(int index, CRGB color);
 
 void setPixelByStrandIndex(int n, uint8_t r, uint8_t g, uint8_t b);
 
 void getPixelColorAsArray(uint16_t index, uint8_t* pixel);
 
-void fadeWholeStrip(float fade_coef);
+void fadeWholeStrip(uint8_t fade_coef);
 
 void DHO_Rainbow(void);
 

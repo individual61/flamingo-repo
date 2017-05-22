@@ -1,47 +1,54 @@
 #include <effects.h>
 #include <parameters.h>
 
-uint32_t color = 0x106040;  // Flamingo Pink
+CRGB color = 0x106040;  // Flamingo Pink
+// uint32_t color = 0x106040;  // Flamingo Pink
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
-void setPixelByStrandIndex(int index, uint32_t color)
+void setPixelByStrandIndex(int index, CRGB color)
 {
   if ((index >= 0) && (index < NUMPERSTRAND))
     {
+      // index goes from 0 to NUMPERSTRAND - 1
       uint8_t realindex = 0;
+
+      // Should go
+      // NUMPERSTRAND - 1
+      // 0
       realindex = NUMPERSTRAND - index - 1;
-      strip.setPixelColor(realindex, color);
+      leds[realindex] = color;
+      // strip.setPixelColor(realindex, color);
+
+      // Should go
+      // NUMPERSTRAND
+      // 2*NUMPERSTRAND - 1
       realindex = NUMPERSTRAND + index;
-      strip.setPixelColor(realindex, color);
+      leds[realindex] = color;
+      // strip.setPixelColor(realindex, color);
+
+      // Should go
+      // 3*NUMPERSTRAND - 1
+      // 2*NUMPERSTRAND
       realindex = 3 * NUMPERSTRAND - index - 1;
-      strip.setPixelColor(realindex, color);
+      leds[realindex] = color;
+      // strip.setPixelColor(realindex, color);
     }
 }
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void setPixelByStrandIndex(int index, uint8_t r, uint8_t g, uint8_t b)
 {
-  setPixelByStrandIndex(index, strip.Color(r, g, b));
+  setPixelByStrandIndex(index, CRGB(r, g, b));
 }
 
-void getPixelColorAsArray(uint16_t index, uint8_t *pixel)
+// Fade whole strip. fadecoef goes from 0 to 255.
+void fadeWholeStrip(uint8_t fade_coef)
 {
-  uint32_t tempcolor = strip.getPixelColor(index);
-  pixel[0] = (uint8_t)(tempcolor >> 16);
-  pixel[1] = (uint8_t)(tempcolor >> 8);
-  pixel[2] = (uint8_t)tempcolor;
-}
-
-// Fade whole strip
-void fadeWholeStrip(float fade_coef)
-{
-  uint8_t pixel[3];
   for (uint16_t i = 0; i < NUMPIXELS; i++)
     {
-      getPixelColorAsArray(i, pixel);
-      strip.setPixelColor(i, (uint8_t)(fade_coef * pixel[0]),
-                          (uint8_t)(fade_coef * pixel[1]),
-                          (uint8_t)(fade_coef * pixel[2]));
+      leds[i].r = scale8(leds[i].r, fade_coef);
+      leds[i].g = scale8(leds[i].g, fade_coef);
+      leds[i].b = scale8(leds[i].b, fade_coef);
     }
 }
 
@@ -57,7 +64,7 @@ void DHO_SinglePixel()
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tDHO_SinglePixel"));
       Serial.print(F("Free SRAM:  "));
@@ -66,10 +73,7 @@ void DHO_SinglePixel()
 
   float BallPosition = getBallPosition();
 
-  for (int i = 0; i < NUMPERSTRAND; i++)
-    {
-      setPixelByStrandIndex(i, 0);
-    }
+  FastLED.clear();
 
   setPixelByStrandIndex(ballToStrandPosition(BallPosition), color);
   /*  Serial.print("\tBallPosiition:\t");
@@ -77,7 +81,7 @@ void DHO_SinglePixel()
     Serial.print("\tPixel Index:\t");
     Serial.println(temp);
     */
-  strip.show();
+  FastLED.show();
 }
 
 // 2
@@ -85,14 +89,15 @@ void DHO_SinglePixel()
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // For DHO_Blob
-const uint8_t gaussianTable[15] PROGMEM = {5,  11, 21, 37, 57, 78, 94, 100,
-                                           94, 78, 57, 37, 21, 11, 5};
+const uint8_t gaussianTable[19] PROGMEM = {2,   5,   12,  27,  53,  94,  145,
+                                           199, 240, 255, 240, 199, 145, 94,
+                                           53,  27,  12,  5,   2};
 
 void DHO_Blob(void)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tDHO_Blob"));
       Serial.print(F("Free SRAM:  "));
@@ -111,17 +116,15 @@ void DHO_Blob(void)
   for (int k = -7; k <= 7; k++)
     {
       attnFactor =
-          (float)((float)pgm_read_byte_near(gaussianTable + k + 7) / 100.0f);
+          (uint8_t)((uint8_t)pgm_read_byte_near(gaussianTable + k + 7));
       /*    Serial.print("attnFactor: ");
           Serial.println(attnFactor);
                 Serial.print("k: ");
           Serial.println(k);*/
-      setPixelByStrandIndex(
-          centerindex + k,
-          strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor),
-                      (int)(64 * attnFactor)));
+      setPixelByStrandIndex(centerindex + k, scale8(16, attnFactor),
+                            scale8(96, attnFactor), scale8(64, attnFactor));
     }
-  strip.show();
+  FastLED.show();
 }
 
 // 3
@@ -163,18 +166,21 @@ void Rainbow(void)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tRainbow"));
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
+
+  //////////////// do same here //////////////
+
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
       c = Wheel(((i * 256 / NUMPERSTRAND) + jrainbow) & 255);
-      setPixelByStrandIndex(i, strip.Color(*c, *(c + 1), *(c + 2)));
+      setPixelByStrandIndex(i, CRGB(*c, *(c + 1), *(c + 2)));
     }
-  strip.show();
+  FastLED.show();
   delay(20);
   jrainbow++;
   if (jrainbow == 256 * 5)
@@ -190,7 +196,7 @@ void DHO_Rainbow(void)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tDHO_Rainbow"));
       Serial.print(F("Free SRAM:  "));
@@ -204,9 +210,9 @@ void DHO_Rainbow(void)
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
       c = Wheel(((i * 256 / NUMPERSTRAND) + 2 * centerindex) & 255);
-      setPixelByStrandIndex(i, strip.Color(*c, *(c + 1), *(c + 2)));
+      setPixelByStrandIndex(i, CRGB(*c, *(c + 1), *(c + 2)));
     }
-  strip.show();
+  FastLED.show();
 }
 
 // 5
@@ -214,19 +220,29 @@ void DHO_Rainbow(void)
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // FOR DHO_SineStripes
-const uint8_t sinTable[97] PROGMEM = {
+/*const uint8_t sinTable[97] PROGMEM = {
     0,  7,   25, 50,  75, 93,  100, 93, 75,  50, 25,  7,  0,  7,   25, 50,  75,
     93, 100, 93, 75,  50, 25,  7,   0,  7,   25, 50,  75, 93, 100, 93, 75,  50,
     25, 7,   0,  7,   25, 50,  75,  93, 100, 93, 75,  50, 25, 7,   0,  7,   25,
     50, 75,  93, 100, 93, 75,  50,  25, 7,   0,  7,   25, 50, 75,  93, 100, 93,
     75, 50,  25, 7,   0,  7,   25,  50, 75,  93, 100, 93, 75, 50,  25, 7,   0,
     7,  25,  50, 75,  93, 100, 93,  75, 50,  25, 7,   0};
+    */
+
+const uint8_t sinTable[97] PROGMEM = {
+    0,   17,  64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0,   17,
+    64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0,   17,  64,  128,
+    191, 238, 255, 238, 191, 128, 64,  17,  0,   17,  64,  128, 191, 238,
+    255, 238, 191, 128, 64,  17,  0,   17,  64,  128, 191, 238, 255, 238,
+    191, 128, 64,  17,  0,   17,  64,  128, 191, 238, 255, 238, 191, 128,
+    64,  17,  0,   17,  64,  128, 191, 238, 255, 238, 191, 128, 64,  17,
+    0,   17,  64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0};
 
 void DHO_SineStripes(void)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tDHO_SineStripes"));
       Serial.print(F("Free SRAM:  "));
@@ -238,23 +254,24 @@ void DHO_SineStripes(void)
     {
       setPixelByStrandIndex(i, 0);
     }
-  int centerindex = 48 - (24 + ballToStrandPosition(BallPosition)) - 1;
+  int centerindex = NUMPERSTRAND -
+                    (NUMPERSTRAND / 2.0f + ballToStrandPosition(BallPosition)) -
+                    1;
   float attnFactor;
 
-  for (int k = -48; k <= 48; k++)
+  for (int k = -NUMPERSTRAND; k <= NUMPERSTRAND; k++)
     {
       attnFactor =
-          (float)(((float)pgm_read_byte_near(sinTable + k + 48)) / 100.0f);
+          (float)(((float)pgm_read_byte_near(sinTable + k + NUMPERSTRAND)));
       /*    Serial.print("attnFactor: ");
           Serial.println(attnFactor);
                 Serial.print("k: ");
           Serial.println(k);*/
-      setPixelByStrandIndex(
-          centerindex + k,
-          strip.Color((int)(16 * attnFactor), (int)(96 * attnFactor),
-                      (int)(64 * attnFactor)));
+
+      setPixelByStrandIndex(centerindex + k, scale8(16, attnFactor),
+                            scale8(96, attnFactor), scale8(64, attnFactor));
     }
-  strip.show();
+  FastLED.show();
 }
 
 // 6
@@ -272,15 +289,15 @@ void setPixelHeatColorgreen(int Pixel, byte temperature)
   // figure out which third of the spectrum we're in:
   if (t192 > 0x80)
     {  // hottest
-      setPixelByStrandIndex(Pixel, strip.Color(255, 255, heatramp));
+      setPixelByStrandIndex(Pixel, CRGB(255, 255, heatramp));
     }
   else if (t192 > 0x40)
     {  // middle
-      setPixelByStrandIndex(Pixel, strip.Color(255, heatramp, 0));
+      setPixelByStrandIndex(Pixel, CRGB(255, heatramp, 0));
     }
   else
     {  // coolest
-      setPixelByStrandIndex(Pixel, strip.Color(heatramp, 0, 0));
+      setPixelByStrandIndex(Pixel, CRGB(heatramp, 0, 0));
     }
 }
 
@@ -290,7 +307,7 @@ void Fire(void)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tFire"));
       Serial.print(F("Free SRAM:  "));
@@ -330,7 +347,7 @@ void Fire(void)
     {
       setPixelHeatColorgreen(j, heat[j]);
     }
-  strip.show();
+  FastLED.show();
   delay(GFIRE_SPEEDDELAY);
 }
 
@@ -342,18 +359,18 @@ void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tSparkle"));
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
   int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
-  setPixelByStrandIndex(Pixel, red, green, blue);
-  strip.show();
+  setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
+  FastLED.show();
   delay(SpeedDelay);
-  setPixelByStrandIndex(Pixel, 0, 0, 0);
-  strip.show();
+  setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
+  FastLED.show();
 }
 
 // 8
@@ -382,7 +399,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       acc_max = 0;
       firstRun = 0;
       sparkleInterval = 0;
@@ -445,11 +462,11 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
 
       // Make the sparkle
       int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
-      setPixelByStrandIndex(Pixel, red, green, blue);
-      strip.show();
+      setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
+      FastLED.show();
       delay(SpeedDelay);
-      setPixelByStrandIndex(Pixel, 0, 0, 0);
-      strip.show();
+      setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
+      FastLED.show();
 
       // Now choose a new random sparkle interval based on acc_decayed
       // The interval between sparkles is a random number
@@ -499,11 +516,8 @@ void DHO_Comet()
 {
   if (firstRun)
     {
-      strip.clear();
-      for (int i = 0; i < NUMPERSTRAND; i++)
-        {
-          setPixelByStrandIndex(i, 0);
-        }
+      FastLED.clear();
+
       firstRun = 0;
       for (int i = 0; i < NUM_HISTORY; i++)
         {
@@ -528,7 +542,7 @@ void DHO_Comet()
   //  Serial.print("pos_history: ");
 
   // Clear strip of all previous values
-  strip.clear();
+  FastLED.clear();
 
   // Brightness of last value in pos_history array should be zero.
   // Draw from tail to head.
@@ -541,9 +555,8 @@ void DHO_Comet()
       fade = 1.0 - ((float)i) / ((float)(NUM_HISTORY - 1));
 
       setPixelByStrandIndex(
-          pos_history[i],
-          strip.Color((uint8_t)(fade * 10.0f), (uint8_t)(fade * 60.0f),
-                      (uint8_t)(fade * 40.0f)));
+          pos_history[i], CRGB((uint8_t)(fade * 10.0f), (uint8_t)(fade * 60.0f),
+                               (uint8_t)(fade * 40.0f)));
       /*  if (counter == 0)
           {
             Serial.print(pos_history[i]);
@@ -560,14 +573,14 @@ void DHO_Comet()
         Serial.println("");
       }
       */
-  strip.show();
+  FastLED.show();
 }
 
 void DHO_Fade()
 {
   if (firstRun)
     {
-      strip.clear();
+      FastLED.clear();
       firstRun = 0;
       Serial.println(F("Starting Program:\tDHO_Fade"));
       Serial.print(F("Free SRAM:  "));
@@ -578,7 +591,7 @@ void DHO_Fade()
   float BallPosition = getBallPosition();
 
   // about 7 ms
-  fadeWholeStrip(FADE_COEF);
+  fadeWholeStrip((uint8_t)FADE_COEF);
 
   // < 0 ms
   setPixelByStrandIndex(ballToStrandPosition(BallPosition), color);
@@ -590,5 +603,5 @@ void DHO_Fade()
     */
 
   // about 1 ms
-  strip.show();
+  FastLED.show();
 }

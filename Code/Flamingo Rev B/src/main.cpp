@@ -1,6 +1,7 @@
 #include <ADXL345.h>
 #include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
@@ -76,6 +77,7 @@ uint8_t counter = 0;
 // Hardware SPI is a little faster, but must be wired to specific pins
 // (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
 Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
+CRGB leds[NUMPIXELS];
 
 ////////////////////// ADXL345 /////////////////////////
 // class default I2C address is 0x53
@@ -140,10 +142,15 @@ void setup()
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
-  strip.begin();  // Initialize pins for output
-  strip.setBrightness(STANDARD_BRIGHTNESS);
-  strip.clear();
-  strip.show();
+  FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS);
+
+  FastLED.setBrightness(STANDARD_BRIGHTNESS);
+  FastLED.clear();
+  FastLED.show();
+  //  strip.begin();  // Initialize pins for output
+  //  strip.setBrightness(STANDARD_BRIGHTNESS);
+  //  strip.clear();
+  //  strip.show();
   Serial.println(F("Done."));
 
   Serial.println("");
