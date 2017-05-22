@@ -8,13 +8,15 @@
 
 byte* Wheel(byte WheelPos);
 
-void setPixelByStrandIndex(int index, CRGB color);
+void setPixelByStrandIndex(uint16_t index, CRGB color);
 
-void setPixelByStrandIndex(int n, uint8_t r, uint8_t g, uint8_t b);
+void setPixelByStrandIndex(uint16_t n, uint8_t r, uint8_t g, uint8_t b);
 
 void getPixelColorAsArray(uint16_t index, uint8_t* pixel);
 
 void fadeWholeStrip(uint8_t fade_coef);
+
+void fadePixelByStrandIndex(uint16_t index, uint8_t fade);
 
 void DHO_Rainbow(void);
 
@@ -26,7 +28,7 @@ void DHO_Blob(void);
 
 void DHO_SineStripes(void);
 
-void setPixelHeatColorgreen(int Pixel, byte temperature);
+void setPixelHeatColorgreen(uint16_t Pixel, byte temperature);
 
 void Fire(void);
 

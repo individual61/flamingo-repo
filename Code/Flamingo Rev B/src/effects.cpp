@@ -1,42 +1,36 @@
 #include <effects.h>
 #include <parameters.h>
 
-CRGB color = 0x106040;  // Flamingo Pink
-// uint32_t color = 0x106040;  // Flamingo Pink
+CRGB color = 0x106040;  // Flamingo Pink for dotstars
+// uint32_t color = 0x106040;  // Flamingo Pink for dotstars
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
-void setPixelByStrandIndex(int index, CRGB color)
+void setPixelByStrandIndex(uint16_t index, CRGB color)
 {
   if ((index >= 0) && (index < NUMPERSTRAND))
     {
       // index goes from 0 to NUMPERSTRAND - 1
       uint8_t realindex = 0;
 
-      // Should go
       // NUMPERSTRAND - 1
       // 0
       realindex = NUMPERSTRAND - index - 1;
       leds[realindex] = color;
-      // strip.setPixelColor(realindex, color);
 
-      // Should go
       // NUMPERSTRAND
       // 2*NUMPERSTRAND - 1
       realindex = NUMPERSTRAND + index;
       leds[realindex] = color;
-      // strip.setPixelColor(realindex, color);
 
-      // Should go
       // 3*NUMPERSTRAND - 1
       // 2*NUMPERSTRAND
       realindex = 3 * NUMPERSTRAND - index - 1;
       leds[realindex] = color;
-      // strip.setPixelColor(realindex, color);
     }
 }
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
-void setPixelByStrandIndex(int index, uint8_t r, uint8_t g, uint8_t b)
+void setPixelByStrandIndex(uint16_t index, uint8_t r, uint8_t g, uint8_t b)
 {
   setPixelByStrandIndex(index, CRGB(r, g, b));
 }
@@ -49,6 +43,27 @@ void fadeWholeStrip(uint8_t fade_coef)
       leds[i].r = scale8(leds[i].r, fade_coef);
       leds[i].g = scale8(leds[i].g, fade_coef);
       leds[i].b = scale8(leds[i].b, fade_coef);
+    }
+}
+
+void fadePixelByStrandIndex(uint16_t index, uint8_t fade)
+{
+  if ((index >= 0) && (index < NUMPERSTRAND))
+    {
+      // index goes from 0 to NUMPERSTRAND - 1
+      uint8_t realindex = 0;
+
+      // NUMPERSTRAND - 1 to 0
+      realindex = NUMPERSTRAND - index - 1;
+      leds[realindex].fadeToBlackBy(fade);
+
+      // NUMPERSTRAND to 2*NUMPERSTRAND - 1
+      realindex = NUMPERSTRAND + index;
+      leds[realindex].fadeToBlackBy(fade);
+
+      // 3*NUMPERSTRAND - 1 to 2*NUMPERSTRAND
+      realindex = 3 * NUMPERSTRAND - index - 1;
+      leds[realindex].fadeToBlackBy(fade);
     }
 }
 
@@ -105,22 +120,20 @@ void DHO_Blob(void)
     }
   float BallPosition = getBallPosition();
 
-  for (int i = 0; i < NUMPERSTRAND; i++)
-    {
-      setPixelByStrandIndex(i, 0);
-    }
+  FastLED.clear();
   int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
                      BallPosition * ((float)NUMPERSTRAND / 2.0));
   float attnFactor;
 
-  for (int k = -7; k <= 7; k++)
+  for (int k = -9; k <= 9; k++)
     {
       attnFactor =
-          (uint8_t)((uint8_t)pgm_read_byte_near(gaussianTable + k + 7));
+          (uint8_t)((uint8_t)pgm_read_byte_near(gaussianTable + k + 9));
       /*    Serial.print("attnFactor: ");
           Serial.println(attnFactor);
                 Serial.print("k: ");
           Serial.println(k);*/
+
       setPixelByStrandIndex(centerindex + k, scale8(16, attnFactor),
                             scale8(96, attnFactor), scale8(64, attnFactor));
     }
@@ -220,14 +233,6 @@ void DHO_Rainbow(void)
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // FOR DHO_SineStripes
-/*const uint8_t sinTable[97] PROGMEM = {
-    0,  7,   25, 50,  75, 93,  100, 93, 75,  50, 25,  7,  0,  7,   25, 50,  75,
-    93, 100, 93, 75,  50, 25,  7,   0,  7,   25, 50,  75, 93, 100, 93, 75,  50,
-    25, 7,   0,  7,   25, 50,  75,  93, 100, 93, 75,  50, 25, 7,   0,  7,   25,
-    50, 75,  93, 100, 93, 75,  50,  25, 7,   0,  7,   25, 50, 75,  93, 100, 93,
-    75, 50,  25, 7,   0,  7,   25,  50, 75,  93, 100, 93, 75, 50,  25, 7,   0,
-    7,  25,  50, 75,  93, 100, 93,  75, 50,  25, 7,   0};
-    */
 
 const uint8_t sinTable[97] PROGMEM = {
     0,   17,  64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0,   17,
@@ -250,10 +255,7 @@ void DHO_SineStripes(void)
     }
   float BallPosition = getBallPosition();
 
-  for (int i = 0; i < NUMPERSTRAND; i++)
-    {
-      setPixelByStrandIndex(i, 0);
-    }
+  FastLED.clear();
   int centerindex = NUMPERSTRAND -
                     (NUMPERSTRAND / 2.0f + ballToStrandPosition(BallPosition)) -
                     1;
@@ -278,7 +280,7 @@ void DHO_SineStripes(void)
 //////////// GREEN FIRE
 ////////////////////////////////////////////////////////////////////////////////////////
 
-void setPixelHeatColorgreen(int Pixel, byte temperature)
+void setPixelHeatColorgreen(uint16_t Pixel, byte temperature)
 {  // Scale 'heat' down from 0-255 to 0-191
   byte t192 = round((temperature / 255.0) * 191);
   // calculate ramp up from
@@ -542,21 +544,19 @@ void DHO_Comet()
   //  Serial.print("pos_history: ");
 
   // Clear strip of all previous values
-  FastLED.clear();
+  // FastLED.clear();
 
   // Brightness of last value in pos_history array should be zero.
   // Draw from tail to head.
-  float fade = 0.0;
+  uint8_t fade = 0;
 
   for (int i = NUM_HISTORY - 1; i > -1; i--)
     {
       // fade is 1.0 when i is 0 and 0.0 when i is NUM_HISTORY -1.
       // Here function is linear but could be something else.
-      fade = 1.0 - ((float)i) / ((float)(NUM_HISTORY - 1));
+      fade = (uint8_t)(255.0 * (1.0 - ((float)i) / ((float)(NUM_HISTORY - 1))));
 
-      setPixelByStrandIndex(
-          pos_history[i], CRGB((uint8_t)(fade * 10.0f), (uint8_t)(fade * 60.0f),
-                               (uint8_t)(fade * 40.0f)));
+      fadePixelByStrandIndex(pos_history[i], fade);
       /*  if (counter == 0)
           {
             Serial.print(pos_history[i]);

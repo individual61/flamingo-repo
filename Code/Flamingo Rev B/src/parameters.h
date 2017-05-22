@@ -40,17 +40,14 @@
 #define NUM_PROGRAMS 11
 #define BRIGHTNESS_COUNT 10
 
-// BRIGHTNESS
-#define STANDARD_BRIGHTNESS 30
-
 // FastLED stuff
 #define NUMPIXELS 144    // Number of LEDs in strip
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
 #define CLOCK_PIN 13
 #define DATA_PIN 11
-#define COLOR_ORDER GRB
-//#define CORRECTION TypicalLEDStrip
-#define CORRECTION UncorrectedColor
+#define COLOR_ORDER BRG
+#define CORRECTION TypicalLEDStrip
+//#define CORRECTION UncorrectedColor
 
 // Harmonic oscillator parameters
 #define SPRINGCONSTANT 2
