@@ -357,7 +357,7 @@ void Fire(void)
 //////////// SPARKLE
 ////////////////////////////////////////////////////////////////////////////////////////
 
-void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
+void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
 {
   if (firstRun)
     {
@@ -367,10 +367,11 @@ void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
-  int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
+    // FastLED random8(N, M) is from N to M-1
+  uint8_t Pixel = random8(0, NUMPERSTRAND);  // (...]
   setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
   FastLED.show();
-  FastLED.delay(SpeedDelay);
+  FastLED.delay(duration);
   setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
   FastLED.show();
 }
@@ -394,10 +395,9 @@ uint16_t acc_max_timeold;
 uint16_t acc_max_timenew;
 uint16_t sparkle_timeold;
 uint16_t sparkle_timenew;
-
 uint16_t sparkleInterval_max;
 
-void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
+void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
 {
   if (firstRun)
     {
@@ -463,10 +463,10 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       */
 
       // Make the sparkle
-      int Pixel = random(1, NUMPERSTRAND + 1);  // (...]
+      int Pixel = random8(0, NUMPERSTRAND);  // (...]
       setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
       FastLED.show();
-      FastLED.delay(SpeedDelay);
+      FastLED.delay(duration);
       setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
       FastLED.show();
 
@@ -477,7 +477,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay)
       sparkleInterval_max = (uint16_t)(
           MAX_INTERVAL_SPARKLEFIZZ *
           (1.0 - constrain(acc_decayed / MAX_G_SPARKLEFIZZ, 0.0, 1.0)));
-      sparkleInterval = random(sparkleInterval_max);
+      sparkleInterval = random16(sparkleInterval_max);
       // sparkleinterval now contains the amount of time to wait for another
       // sparkle
     }

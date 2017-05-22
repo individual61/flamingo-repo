@@ -2,7 +2,7 @@
 #ifndef EFFECTS_H
 #define EFFECTS_H
 
-#include <Adafruit_DotStar.h>
+
 #include <Arduino.h>
 #include <FastLED.h>
 
@@ -32,9 +32,9 @@ void setPixelHeatColorgreen(uint16_t Pixel, byte temperature);
 
 void Fire(void);
 
-void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay);
+void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
 
-void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t SpeedDelay);
+void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
 
 void Acctest(void);
 

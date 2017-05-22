@@ -2,7 +2,6 @@
 #define PARAMETERS_H
 
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
 #include <FastLED.h>
 #include <I2Cdev.h>
@@ -107,7 +106,6 @@ extern uint8_t brightness[BRIGHTNESS_COUNT];
 extern uint8_t programIndex;  // start at 1
 
 // FastLED/Dotstar/APA102C variables
-extern Adafruit_DotStar strip;
 // extern uint32_t color;
 extern CRGB color;
 extern CRGB leds[NUMPIXELS];

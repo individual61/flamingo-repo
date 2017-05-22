@@ -1,5 +1,4 @@
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
 #include <FastLED.h>
 #include <I2Cdev.h>
