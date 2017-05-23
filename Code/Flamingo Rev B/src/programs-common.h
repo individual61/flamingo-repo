@@ -29,7 +29,9 @@ void DHO_SineStripes(void);
 
 void setPixelHeatColorgreen(uint16_t Pixel, byte temperature);
 
-void Fire(void);
+// void GreenFireOriginal(void);
+
+void Fire2012WithPalette(void);
 
 void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
 
@@ -37,8 +39,10 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
 
 void Acctest(void);
 
-void DHO_Comet(void);
+// void DHO_Comet(void);
 
 void DHO_Fade(void);
+
+void Test(void);
 
 #endif

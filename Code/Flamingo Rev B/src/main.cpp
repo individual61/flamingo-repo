@@ -170,8 +170,19 @@ void loop()
   checkButton1();
   checkButton2();
 
-  //// Damped harmonic oscillator (single pixel).
+  ////
   if (programIndex == 1)
+    {
+      Fire2012WithPalette();
+    }
+
+  if (programIndex == 2)
+    {
+      Test();
+    }
+
+  //// Damped harmonic oscillator (single pixel).
+  if (programIndex == 13)
     {
       setFullBrightnessOn10();
 
@@ -205,7 +216,7 @@ void loop()
   //// Green fire
   if (programIndex == 6)
     {
-      Fire();
+      //  GreenFireOriginal();
     }
 
   //// Sparkle
@@ -240,13 +251,13 @@ void loop()
           Serial.println((millis() - timer));
         }
   */
-      timer = millis();
+      //  timer = millis();
       DHO_Fade();
-      if (counter == 100)
-        {
-          Serial.print("DHO_Fade time: ");
-          Serial.println((millis() - timer));
-        }
+      //    if (counter == 100)
+      //      {
+      //        Serial.print("DHO_Fade time: ");
+      //        Serial.println((millis() - timer));
+      //      }
     }
   /*
     if (programIndex == 11)

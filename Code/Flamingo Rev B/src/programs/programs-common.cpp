@@ -70,3 +70,24 @@ void fadePixelByStrandIndex(uint16_t index, uint8_t fade)
 ////////////////////// PROGRAMS
 ////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void Test()
+{
+  if (firstRun)
+    {
+      FastLED.clear();
+      firstRun = 0;
+      Serial.println(F("Starting Program:\tTestRGB"));
+      Serial.print(F("Free SRAM:  "));
+      Serial.println(freeRam());
+    }
+
+  leds[0] = CRGB(255, 0, 0);
+  leds[1] = CRGB(0, 255, 0);
+  leds[2] = CRGB(0, 255, 0);
+  leds[3] = CRGB(0, 0, 255);
+  leds[4] = CRGB(0, 0, 255);
+  leds[5] = CRGB(0, 0, 255);
+  FastLED.show();
+  FastLED.delay(1000);
+}

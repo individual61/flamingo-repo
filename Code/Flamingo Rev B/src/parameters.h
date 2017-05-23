@@ -18,7 +18,7 @@
 #include <programs-common.h>
 #include <utils.h>
 
-#define NUM_PROGRAMS 10
+#define NUM_PROGRAMS 1
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -45,7 +45,7 @@
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
 #define CLOCK_PIN 13
 #define DATA_PIN 11
-#define COLOR_ORDER BRG
+#define COLOR_ORDER BGR  // my strip is BGR
 #define CORRECTION TypicalLEDStrip
 //#define CORRECTION UncorrectedColor
 
@@ -62,6 +62,10 @@
 #define GFIRE_COOLING 55
 #define GFIRE_SPARKING 120
 #define GFIRE_SPEEDDELAY 15
+
+// Fire W PALLETTE parameters
+#define FIRE_PALLETTE_COOLING 70
+#define FIRE_PALLETTE_SPARKING 120
 
 // Sparkle Fizz
 #define MAX_G_SPARKLEFIZZ 1.0f         // acceleration in m/sˆ2 for max sparkle
@@ -126,6 +130,7 @@ extern uint16_t sparkle_timeold;
 extern uint16_t sparkle_timenew;
 extern uint16_t sparkleInterval_max;
 
-// DHO_Comet variables
+// Fire with Pallette variables
+extern CRGBPalette16 gPal;
 
 #endif
