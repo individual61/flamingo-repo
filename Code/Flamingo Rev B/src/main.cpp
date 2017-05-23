@@ -157,7 +157,7 @@ void setup()
 
 void loop()
 {
-  counter++;
+  counter++;  // do not reset, let it roll over!
   /*  if (counter == 100)
       {
         counter = 0;
@@ -216,7 +216,7 @@ void loop()
   //// Green fire
   if (programIndex == 6)
     {
-      //  GreenFireOriginal();
+      GreenFireOriginal();
     }
 
   //// Sparkle

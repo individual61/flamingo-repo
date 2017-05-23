@@ -29,7 +29,7 @@ void DHO_SineStripes(void);
 
 void setPixelHeatColorgreen(uint16_t Pixel, byte temperature);
 
-// void GreenFireOriginal(void);
+void GreenFireOriginal(void);
 
 void Fire2012WithPalette(void);
 
