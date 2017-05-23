@@ -1,6 +1,6 @@
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
@@ -10,9 +10,9 @@
 
 #include <accel.h>
 #include <buttons.h>
-#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <programs-common.h>
 #include <utils.h>
 
 // To use serial or not
@@ -64,18 +64,13 @@
 //
 //
 
-uint16_t timer = 0;
+uint32_t timer = 0;
 uint8_t counter = 0;
 
-//////////////////// DOTSTARS //////////////////
-// The last parameter is optional -- this is the color data order of the
-// DotStar strip, which has changed over time in different production runs.
-// Your code just uses R,G,B colors, the library then reassigns as needed.
-// Default is DOTSTAR_BRG, so change this if you have an earlier strip.
+////////////////////   FastLED / APA102C   //////////////////
+//
 
-// Hardware SPI is a little faster, but must be wired to specific pins
-// (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
-Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
+CRGB leds[NUMPIXELS];
 
 ////////////////////// ADXL345 /////////////////////////
 // class default I2C address is 0x53
@@ -140,10 +135,12 @@ void setup()
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
-  strip.begin();  // Initialize pins for output
-  strip.setBrightness(STANDARD_BRIGHTNESS);
-  strip.clear();
-  strip.show();
+  FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
+      .setCorrection(CORRECTION);
+
+  FastLED.setBrightness(brightness[0]);
+  FastLED.clear();
+  FastLED.show();
   Serial.println(F("Done."));
 
   Serial.println("");
@@ -169,35 +166,6 @@ void loop()
       }
       */
 
-  /*
-    // Calculate rolling average of acceleration
-    acc_avg_timenew = millis();
-    // If the interval between avg acc measurements has passed
-    if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
-      {
-        acc_avg_timeold = acc_avg_timenew;
-        // Reset acc average
-        acc_avg = 0.0;
-        // Add up all acc_avg[] array values, and shift the array down one.
-        for (int i = 0; i < ACC_AVG_NUM - 1; i++)
-          {
-            // The array is uints, the average is a float
-            acc_avg = accArray[i + 1] + acc_avg;
-            accArray[i + 1] = accArray[i];
-          }
-        accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
-        acc_avg = acc_avg + accArray[0];
-  // At this point acc_avg is the sum of all 100*acc values.
-  // Divide by 100 and the number of measurements
-
-
-        acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
-        Serial.print(F("Avg acc:  "));
-        Serial.println(acc_avg);
-        Serial.print(F("Now acc:  "));
-        Serial.println(accArray[0]);
-      }
-  */
   // Buttons
   checkButton1();
   checkButton2();
@@ -266,23 +234,19 @@ void loop()
 
   if (programIndex == 10)
     {
-      DHO_Comet();
-    }
-
-  if (programIndex == 11)
-    {
       /*    if (counter == 100)
         {
           Serial.print("loop() time: ");
           Serial.println((millis() - timer));
         }
-  */ DHO_Fade();
-      /*      if (counter == 100)
+  */
+      timer = millis();
+      DHO_Fade();
+      if (counter == 100)
         {
           Serial.print("DHO_Fade time: ");
           Serial.println((millis() - timer));
         }
-*/ timer = millis();
     }
   /*
     if (programIndex == 11)

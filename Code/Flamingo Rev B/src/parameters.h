@@ -2,8 +2,8 @@
 #define PARAMETERS_H
 
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
@@ -13,10 +13,12 @@
 
 #include <accel.h>
 #include <buttons.h>
-#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <programs-common.h>
 #include <utils.h>
+
+#define NUM_PROGRAMS 10
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -36,15 +38,16 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 11
-#define BRIGHTNESS_COUNT 10
+#define BRIGHTNESS_COUNT 10  // Number of brightness levels
 
-// BRIGHTNESS
-#define STANDARD_BRIGHTNESS 30
-
-// LED counts
+// FastLED stuff
 #define NUMPIXELS 144    // Number of LEDs in strip
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
+#define CLOCK_PIN 13
+#define DATA_PIN 11
+#define COLOR_ORDER BRG
+#define CORRECTION TypicalLEDStrip
+//#define CORRECTION UncorrectedColor
 
 // Harmonic oscillator parameters
 #define SPRINGCONSTANT 2
@@ -73,11 +76,11 @@
 #define NUM_HISTORY 100
 
 // DHO_Fade
-#define FADE_COEF 0.95f
+#define FADE_COEF 240
 
 // General variables
 extern uint8_t counter;
-extern uint16_t timer;
+extern uint32_t timer;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -103,9 +106,10 @@ extern uint8_t brightness[BRIGHTNESS_COUNT];
 
 extern uint8_t programIndex;  // start at 1
 
-// Dotstar/APA102C variables
-extern Adafruit_DotStar strip;
-extern uint32_t color;
+// FastLED/Dotstar/APA102C variables
+// extern uint32_t color;
+extern CRGB color;
+extern CRGB leds[NUMPIXELS];
 
 // Harmonic oscillator variables
 extern float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
