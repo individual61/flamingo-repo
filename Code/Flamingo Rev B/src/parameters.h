@@ -13,10 +13,12 @@
 
 #include <accel.h>
 #include <buttons.h>
-#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <programs-common.h>
 #include <utils.h>
+
+#define NUM_PROGRAMS 10
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -36,8 +38,7 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 11
-#define BRIGHTNESS_COUNT 10
+#define BRIGHTNESS_COUNT 10  // Number of brightness levels
 
 // FastLED stuff
 #define NUMPIXELS 144    // Number of LEDs in strip

@@ -1,7 +1,6 @@
 
-#ifndef EFFECTS_H
-#define EFFECTS_H
-
+#ifndef PROGRAMSCOMMON_H
+#define PROGRAMSCOMMON_H
 
 #include <Arduino.h>
 #include <FastLED.h>
