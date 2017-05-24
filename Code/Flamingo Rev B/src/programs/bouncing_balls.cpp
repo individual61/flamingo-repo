@@ -48,7 +48,8 @@ void updateBallPosition_BB(bouncingball* theBall, float damping)
       // getNormalizedAccelY() returns normalized acc in units of g
       // Right side up: 1.0
       // Upside Down:   -1.0
-      acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
+      acc_ext =
+          G_ACC_MAGNITUDE_BB * getNormalizedAccelY();  // lowered g as a kluge
       vel1 = get_next_v_BB(theBall->velocity, theBall->position, acc_ext,
                            damping, theBall->mass);
       pos1 = get_next_x(theBall->velocity, theBall->position);
@@ -67,8 +68,8 @@ void updateBallPosition_BB(bouncingball* theBall, float damping)
 
       // acc_ext is generally negative because getNormalizedAccelY() returns
       // negative when Flamingo is upright.
-      // G_ACC_MAGNITUDE is positive.
-      acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
+      // G_ACC_MAGNITUDE_BB is positive.
+      acc_ext = G_ACC_MAGNITUDE_BB * getNormalizedAccelY();
       vel1 = get_next_v_BB(theBall->velocity, theBall->position, acc_ext,
                            damping, theBall->mass);
       pos1 = get_next_x(theBall->velocity, theBall->position);
@@ -86,11 +87,12 @@ void updateBallPosition_BB(bouncingball* theBall, float damping)
                 Serial.print((pos1));
                 Serial.print(F("\tBallPosition:\t"));
                 Serial.print(
-                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
-         + 1.0); Serial.print(F("\tPixel Index:\t"));
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE_BB /
+         SPRINGCONSTANT_REAL)) + 1.0); Serial.print(F("\tPixel Index:\t"));
                 Serial.print(ballToStrandPosition(
-                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
-         + 1.0)); Serial.print(F("\tgetNormalizedAccelY:\t"));
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE_BB /
+         SPRINGCONSTANT_REAL)) + 1.0));
+         Serial.print(F("\tgetNormalizedAccelY:\t"));
                 Serial.print(getNormalizedAccelY());
                 Serial.print(F("\tgetNormalizedOffsetAccelY:\t"));
                 Serial.println(getNormalizedOffsetAccelY());
@@ -112,14 +114,19 @@ void Bouncing_Balls()
       Serial.println(freeRam());
 
       balls[0].position = 0.0;
-      balls[0].mass = 1.0;
+      balls[0].mass = 2;
       balls[0].velocity = 0.0;
       balls[0].colour = CRGB(255, 0, 0);
 
       balls[1].position = 1.0;
-      balls[1].mass = 1.0;
+      balls[1].mass = 2;
       balls[1].velocity = 0.0;
       balls[1].colour = CRGB(0, 0, 255);
+
+      balls[2].position = 1.0;
+      balls[2].mass = 2;
+      balls[2].velocity = 0.0;
+      balls[2].colour = CRGB(0, 255, 0);
     }
 
   FastLED.clear();
@@ -136,12 +143,13 @@ void Bouncing_Balls()
                                     // ball gets placed way below 0.0 and this
                                     // returns it there.
           balls[i].velocity =
+              0.8 *
               fabs(balls[i].velocity);  // none of that sign change stuff. Don't
                                         // want to risk that position is
                                         // negative two iterations in a row.
         }
 
-      setPixelByStrandIndex(ballToStrandPosition_DHO(balls[i].position),
+      setPixelByStrandIndex(ballToStrandPosition_BB(balls[i].position),
                             balls[i].colour);
 
     }  // all ball positions and strands have been updated

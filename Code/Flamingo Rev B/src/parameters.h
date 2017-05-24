@@ -84,8 +84,9 @@
 #define FADE_COEF 240
 
 // Bouncy Balls
-#define NUM_BOUNCYBALLS 2
-#define BB_DAMPING 0.3f
+#define NUM_BOUNCYBALLS 3
+#define BB_DAMPING 0.01f
+#define G_ACC_MAGNITUDE_BB 0.5 * 9.81
 
 // General variables
 extern uint8_t counter;
