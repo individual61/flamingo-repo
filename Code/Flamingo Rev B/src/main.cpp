@@ -171,7 +171,13 @@ void loop()
   checkButton2();
 
   ////
+
   if (programIndex == 1)
+    {
+      Bouncing_Balls();
+    }
+
+  if (programIndex == 21)
     {
       Fire2012WithPalette();
     }

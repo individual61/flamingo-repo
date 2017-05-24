@@ -16,8 +16,8 @@ uint16_t sendTime = 0;  // currently in a commented out section
 
 //////// DAMPED HARMONIC OSCILLATOR FUNCTIONS ///////////////
 
-float eval_v_func(float v, float x, float acc_ext, float damping,
-                  float springconstant, float mass)
+float eval_v_func_DHO(float v, float x, float acc_ext, float damping,
+                      float springconstant, float mass)
 {
   // acc_ext is generally negative when Flamingo is upright.
   // m x'' = - k x - c v + F_ext
@@ -25,17 +25,17 @@ float eval_v_func(float v, float x, float acc_ext, float damping,
   return -damping * v - springconstant * x + mass * acc_ext;
 }
 
-// Integrates acceleration to get velocity
-float get_next_v(float oldv, float oldx, float acc_ext, float damping,
-                 float springconstant, float mass)
+// Integrates acceleration to get velocity for DHO
+float get_next_v_DHO(float oldv, float oldx, float acc_ext, float damping,
+                     float springconstant, float mass)
 {
   float k1, k2, k3, k4;
-  k1 = eval_v_func(oldv, oldx, acc_ext, damping, springconstant, mass);
-  k2 = eval_v_func(oldv + 0.5 * k1, oldx, acc_ext, damping, springconstant,
-                   mass);
-  k3 = eval_v_func(oldv + 0.5 * k2, oldx, acc_ext, damping, springconstant,
-                   mass);
-  k4 = eval_v_func(oldv + k3, oldx, acc_ext, damping, springconstant, mass);
+  k1 = eval_v_func_DHO(oldv, oldx, acc_ext, damping, springconstant, mass);
+  k2 = eval_v_func_DHO(oldv + 0.5 * k1, oldx, acc_ext, damping, springconstant,
+                       mass);
+  k3 = eval_v_func_DHO(oldv + 0.5 * k2, oldx, acc_ext, damping, springconstant,
+                       mass);
+  k4 = eval_v_func_DHO(oldv + k3, oldx, acc_ext, damping, springconstant, mass);
   return (float)(oldv + timestep_f * ((k1 / 6.0) + (k2 / 3.0) + (k3 / 3.0) +
                                       (k4 / 6.0)));
 }
@@ -46,15 +46,15 @@ float get_next_x(float oldv, float oldx)
   return (float)(oldx + timestep_f * oldv);
 }
 
-int ballToStrandPosition(float ballPos)
+int ballToStrandPosition_DHO(float ballPos_DHO)
 {
-  return (NUMPERSTRAND / 2) + ballPos * (NUMPERSTRAND / 2);
+  return (NUMPERSTRAND / 2) + ballPos_DHO * (NUMPERSTRAND / 2);
 };
 
 // DAMPED HARMONIC OSCILLATOR, real physical units. Returns object position as a
-// fraction of max range, centered on 0, so maxrange is half the length of the
-// strip
-float getBallPosition(void)
+// float, centered on 0, so maxrange is half the length of the strip.  Resting
+// location is at 0.0
+float getBallPosition_DHO(void)
 {
   if (first_iter == 1)  // first iteration
     {
@@ -67,9 +67,12 @@ float getBallPosition(void)
       timestep_f = 0.01 * ((float)timestep_i);
 
       // getNormalizedAccelY() is negative when Flamingo is upright.
+      // getNormalizedAccelY() returns normalized acc in units of g
+      // Right side up: 1.0
+      // Upside Down:   -1.0
       acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
-      vel1 = get_next_v(vel0, pos0, acc_ext, DAMPING_REAL, SPRINGCONSTANT_REAL,
-                        MASS_REAL);
+      vel1 = get_next_v_DHO(vel0, pos0, acc_ext, DAMPING_REAL,
+                            SPRINGCONSTANT_REAL, MASS_REAL);
       pos1 = get_next_x(vel0, pos0);
 
       timeold_i = timenow_i;
@@ -88,8 +91,8 @@ float getBallPosition(void)
       // negative when Flamingo is upright.
       // G_ACC_MAGNITUDE is positive.
       acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
-      vel1 = get_next_v(vel0, pos0, acc_ext, DAMPING_REAL, SPRINGCONSTANT_REAL,
-                        MASS_REAL);
+      vel1 = get_next_v_DHO(vel0, pos0, acc_ext, DAMPING_REAL,
+                            SPRINGCONSTANT_REAL, MASS_REAL);
       pos1 = get_next_x(vel0, pos0);
       vel0 = vel1;
       pos0 = pos1;
@@ -140,11 +143,11 @@ void DHO_SinglePixel()
       Serial.println(freeRam());
     }
 
-  float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition_DHO();
 
   FastLED.clear();
 
-  setPixelByStrandIndex(ballToStrandPosition(BallPosition), color);
+  setPixelByStrandIndex(ballToStrandPosition_DHO(BallPosition), color);
   /*  Serial.print("\tBallPosiition:\t");
     Serial.print(BallPosition);
     Serial.print("\tPixel Index:\t");
@@ -172,7 +175,7 @@ void DHO_Blob(void)
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
-  float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition_DHO();
 
   FastLED.clear();
   int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
@@ -269,7 +272,7 @@ void DHO_Rainbow(void)
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
-  float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition_DHO();
 
   int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
                      BallPosition * ((float)NUMPERSTRAND / 2.0));
@@ -307,12 +310,12 @@ void DHO_SineStripes(void)
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
-  float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition_DHO();
 
   FastLED.clear();
-  int centerindex = NUMPERSTRAND -
-                    (NUMPERSTRAND / 2.0f + ballToStrandPosition(BallPosition)) -
-                    1;
+  int centerindex =
+      NUMPERSTRAND -
+      (NUMPERSTRAND / 2.0f + ballToStrandPosition_DHO(BallPosition)) - 1;
   float attnFactor;
 
   for (int k = -NUMPERSTRAND; k <= NUMPERSTRAND; k++)
@@ -356,7 +359,7 @@ void DHO_Comet()
     }
 
   // New current position
-  pos_history[0] = ballToStrandPosition(getBallPosition());
+  pos_history[0] = ballToStrandPosition_DHO(getBallPosition_DHO());
   //  Serial.print("Position: ");
   //  Serial.print(pos_history[0]);
   //  Serial.print("\t");
@@ -410,13 +413,13 @@ void DHO_Fade()
     }
 
   // about 1 to 2 ms
-  float BallPosition = getBallPosition();
+  float BallPosition = getBallPosition_DHO();
 
   // about 7 ms
   fadeWholeStrip((uint8_t)FADE_COEF);
 
   // < 0 ms
-  setPixelByStrandIndex(ballToStrandPosition(BallPosition), color);
+  setPixelByStrandIndex(ballToStrandPosition_DHO(BallPosition), color);
 
   /*  Serial.print("\tBallPosiition:\t");
     Serial.print(BallPosition);

@@ -7,6 +7,8 @@
 
 byte* Wheel(byte WheelPos);
 
+void setPixelByIndex(int index, uint32_t color);
+
 void setPixelByStrandIndex(uint16_t index, CRGB color);
 
 void setPixelByStrandIndex(uint16_t n, uint8_t r, uint8_t g, uint8_t b);
@@ -44,5 +46,7 @@ void Acctest(void);
 void DHO_Fade(void);
 
 void Test(void);
+
+void Bouncing_Balls(void);
 
 #endif

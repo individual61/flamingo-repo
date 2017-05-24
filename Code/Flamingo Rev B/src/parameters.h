@@ -12,6 +12,7 @@
 #include <math.h>
 
 #include <accel.h>
+#include <bouncing_balls.h>
 #include <buttons.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
@@ -81,6 +82,10 @@
 
 // DHO_Fade
 #define FADE_COEF 240
+
+// Bouncy Balls
+#define NUM_BOUNCYBALLS 2
+#define BB_DAMPING 0.3f
 
 // General variables
 extern uint8_t counter;
