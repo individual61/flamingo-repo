@@ -41,7 +41,7 @@ float get_next_v_DHO(float oldv, float oldx, float acc_ext, float damping,
 }
 
 // integrates velocity to get position
-float get_next_x(float oldv, float oldx)
+float get_next_x_DHO(float oldv, float oldx)
 {
   return (float)(oldx + timestep_f * oldv);
 }
@@ -73,7 +73,7 @@ float getBallPosition_DHO(void)
       acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
       vel1 = get_next_v_DHO(vel0, pos0, acc_ext, DAMPING_REAL,
                             SPRINGCONSTANT_REAL, MASS_REAL);
-      pos1 = get_next_x(vel0, pos0);
+      pos1 = get_next_x_DHO(vel0, pos0);
 
       timeold_i = timenow_i;
       pos0 = pos1;
@@ -93,7 +93,7 @@ float getBallPosition_DHO(void)
       acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
       vel1 = get_next_v_DHO(vel0, pos0, acc_ext, DAMPING_REAL,
                             SPRINGCONSTANT_REAL, MASS_REAL);
-      pos1 = get_next_x(vel0, pos0);
+      pos1 = get_next_x_DHO(vel0, pos0);
       vel0 = vel1;
       pos0 = pos1;
       timeold_i = timenow_i;

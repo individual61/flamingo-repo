@@ -9,7 +9,7 @@ float eval_v_func_DHO(float v, float x, float acc_ext, float damping,
 float get_next_v_DHO(float oldv, float oldx, float acc_ext, float damping,
                      float springconstant, float mass);
 
-float get_next_x(float oldv, float oldx);
+float get_next_x_DHO(float oldv, float oldx);
 
 float getBallPosition_DHO(void);
 

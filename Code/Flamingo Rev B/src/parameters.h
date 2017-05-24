@@ -86,7 +86,7 @@
 // Bouncy Balls
 #define NUM_BOUNCYBALLS 3
 #define BB_DAMPING 0.01f
-#define G_ACC_MAGNITUDE_BB 0.5 * 9.81
+#define G_ACC_MAGNITUDE_BB 9.81
 
 // General variables
 extern uint8_t counter;
