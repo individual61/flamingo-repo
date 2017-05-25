@@ -1,6 +1,14 @@
 #include <parameters.h>
 #include <programs-common.h>
 
+typedef struct spark
+{
+  uint8_t pixels_to_live = 0;
+  uint8_t rate = 0;
+  uint16_t position = 0;
+} spark;
+spark sparks[5];
+
 // 6
 //////////// GREEN FIRE
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -21,11 +29,11 @@ void setPixelHeatColorgreen(uint16_t Pixel, byte temperature)
     }
   else if (t192 > 0x40)
     {  // middle
-      setPixelByStrandIndex(Pixel, CRGB(255, heatramp, 0));
+      setPixelByStrandIndex(Pixel, CRGB(heatramp, 255, 0));
     }
   else
     {  // coolest
-      setPixelByStrandIndex(Pixel, CRGB(heatramp, 0, 0));
+      setPixelByStrandIndex(Pixel, CRGB(0, heatramp, 0));
     }
 }
 
@@ -38,7 +46,7 @@ void GreenFireOriginal(void)
     {
       FastLED.clear();
       firstRun = 0;
-      Serial.println(F("Starting Program:\tFire"));
+      Serial.println(F("Starting Program:\tGreen Fire Original"));
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
     }
@@ -76,6 +84,48 @@ void GreenFireOriginal(void)
     {
       setPixelHeatColorgreen(j, heat[j]);
     }
+
+  for (int i = 0; i < 5; i++)
+    {
+      if (sparks[i].position >= NUMPERSTRAND - 1)
+        {
+          sparks[i].pixels_to_live =
+              0;  // We're at the end, so it's time to die
+        }
+      // for sparks that are alive
+      if (sparks[i].pixels_to_live > 0)
+        {
+          // This spark is alive, so if it is time to move up
+          // Move up
+          sparks[i].position += sparks[i].rate;
+          // Decrease life
+          sparks[i].pixels_to_live -= sparks[i].rate;
+
+          // show the spark
+          if (sparks[i].position < NUMPERSTRAND)
+            {
+              setPixelByStrandIndex(sparks[i].position, CRGB(255, 255, 0));
+            }
+        }
+      else  // this spark is not alive. There is a chance a new one could be
+            // born!
+        {
+          if (random8() < 2)
+            {
+              // Make a new spark
+              sparks[i].position =
+                  random8(0, NUMPERSTRAND / 2);  // It could appear anywhere
+                                                 // near the base of the strand
+              sparks[i].pixels_to_live =
+                  random8(4, (NUMPERSTRAND / 2) -
+                                 sparks[i].position);  // It could last as
+                                                       // distance it has yet
+                                                       // to cover
+              sparks[i].rate = random8(2, 3);
+            }
+        }
+    }
+
   FastLED.show();
   FastLED.delay(GFIRE_SPEEDDELAY);
 }
@@ -148,15 +198,7 @@ void GreenFireOriginal(void)
 //   CRGB lightcolor = CHSV(hue,128,255); // half 'whitened', full brightness
 //   gPal = CRGBPalette16( CRGB::Black, darkcolor, lightcolor, CRGB::White);
 
-CRGBPalette16 gPal;
-typedef struct spark
-{
-  uint8_t pixels_to_live = 0;
-  uint8_t rate = 0;
-  uint16_t position = 0;
-} spark;
-spark sparks[5];
-void Fire2012WithPalette()
+void Fire2012RainbowRotate(void)
 {
   static uint8_t hue = 0;
   static uint8_t every = 0;
@@ -164,7 +206,7 @@ void Fire2012WithPalette()
     {
       FastLED.clear();
       firstRun = 0;
-      Serial.println(F("Starting Program:\tFire With Palette"));
+      Serial.println(F("Starting Program:\tFire With Rainbow Rotate"));
       Serial.print(F("Free SRAM:  "));
       Serial.println(freeRam());
 
@@ -173,13 +215,14 @@ void Fire2012WithPalette()
     }
 
   // Set up pallette
-  if (every++ == 5)
+  if (every++ == 15)
     {
       every = 0;
       hue++;
     }
   CRGB darkcolor = CHSV(hue, 255, 192);   // pure hue, three-quarters brightness
   CRGB lightcolor = CHSV(hue, 128, 255);  // half 'whitened', full brightness
+  CRGBPalette16 gPal;
   gPal = CRGBPalette16(CRGB::Black, darkcolor, lightcolor, CRGB::White);
   //
 
@@ -215,8 +258,8 @@ void Fire2012WithPalette()
       // Scale the heat value from 0-255 down to 0-240
       // for best results with color palettes.
       byte colorindex = scale8(heat[j], 100);  // was 240
-      CRGB color = ColorFromPalette(gPal, colorindex);
-      leds[j] = color;
+      CRGB acolor = ColorFromPalette(gPal, colorindex);
+      setPixelByStrandIndex(j, acolor);
       //      Serial.print(color.r);
       //      Serial.print("\t");
       //      Serial.print(color.g);
@@ -251,7 +294,128 @@ void Fire2012WithPalette()
 
           if (sparks[i].position < NUMPERSTRAND)
             {
-              leds[sparks[i].position] = CRGB(255, 255, 255);
+              setPixelByStrandIndex(sparks[i].position, CRGB(255, 255, 255));
+            }
+        }
+      else  // this spark is not alive. There is a chance a new one could be
+            // born!
+        {
+          if (random8() < 2)
+            {
+              // Make a new spark
+              sparks[i].position =
+                  random8(0, NUMPERSTRAND / 2);  // It could appear anywhere
+                                                 // near the base of the strand
+              sparks[i].pixels_to_live =
+                  random8(4, (NUMPERSTRAND / 2) -
+                                 sparks[i].position);  // It could last as
+                                                       // distance it has yet
+                                                       // to cover
+              sparks[i].rate = random8(2, 3);
+            }
+        }
+    }
+
+  FastLED.show();            // display this frame
+  FastLED.delay(1000 / 60);  // 60 fps
+}
+
+///////////////
+
+void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat)
+{
+  if (firstRun)
+    {
+      FastLED.clear();
+      firstRun = 0;
+      Serial.println(F("Starting Program:\tFire With Palette"));
+      Serial.print(F("Free SRAM:  "));
+      Serial.println(freeRam());
+
+      // gPal = HeatColors_p;
+      // gPal = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
+    }
+
+  //
+
+  // Add entropy to random number generator; we use a lot of it.
+  random16_add_entropy(random());
+  // Array of temperature readings at each simulation cell
+  static byte heat[NUMPERSTRAND];
+
+  // Step 1.  Cool down every cell a little
+  for (int i = 0; i < NUMPERSTRAND; i++)
+    {
+      heat[i] =
+          qsub8(heat[i],
+                random8(0, ((FIRE_PALLETTE_COOLING * 10) / NUMPERSTRAND) + 2));
+    }
+
+  // Step 2.  Heat from each cell drifts 'up' and diffuses a little
+  for (int k = NUMPERSTRAND - 1; k >= 2; k--)
+    {
+      heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
+    }
+
+  // Step 3.  Randomly ignite new 'sparks' of heat near the bottom
+  if (random8() < FIRE_PALLETTE_SPARKING)
+    {
+      int y = random8(7);
+      heat[y] = qadd8(heat[y], random8(160, 255));
+    }
+
+  // Step 4.  Map from heat cells to LED colors
+  byte colorindex;
+  for (int j = 0; j < NUMPERSTRAND; j++)
+    {
+      // Scale the heat value from 0-255 down to 0-240
+      // for best results with color palettes.
+
+      if (scaleHeat == 1)
+        {
+          colorindex = scale8(heat[j], 100);  // was 240
+        }
+      else
+        {
+          colorindex = heat[j];
+        }
+      CRGB acolor = ColorFromPalette(firepal, colorindex);
+      setPixelByStrandIndex(j, acolor);
+      //      Serial.print(color.r);
+      //      Serial.print("\t");
+      //      Serial.print(color.g);
+      //      Serial.print("\t");
+      //      Serial.println(color.b);
+    }
+
+  // Add sparks here
+
+  // No more than N sparks at a time, N could be around 5
+  // Random interval before birth
+  // Sparks ascend at constant different and random rate
+  // Sparks can die before reaching the top. They are born with "pixels to live"
+  // Sparks die when reaching the top
+  // Spark properties are time to live, where the spark is, speed
+
+  for (int i = 0; i < 5; i++)
+    {
+      if (sparks[i].position >= NUMPERSTRAND - 1)
+        {
+          sparks[i].pixels_to_live =
+              0;  // We're at the end, so it's time to die
+        }
+      // for sparks that are alive
+      if (sparks[i].pixels_to_live > 0)
+        {
+          // This spark is alive, so if it is time to move up
+          // Move up
+          sparks[i].position += sparks[i].rate;
+          // Decrease life
+          sparks[i].pixels_to_live -= sparks[i].rate;
+
+          if (sparks[i].position < NUMPERSTRAND)
+            {
+              setPixelByStrandIndex(sparks[i].position, sparkcolor);
             }
         }
       else  // this spark is not alive. There is a chance a new one could be

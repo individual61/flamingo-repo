@@ -161,9 +161,9 @@ void DHO_SinglePixel()
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // For DHO_Blob
-const uint8_t gaussianTable[19] PROGMEM = {2,   5,   12,  27,  53,  94,  145,
+const uint8_t gaussianTable[19] PROGMEM = {0,   5,   12,  27,  53,  94,  145,
                                            199, 240, 255, 240, 199, 145, 94,
-                                           53,  27,  12,  5,   2};
+                                           53,  27,  12,  5,   0};
 
 void DHO_Blob(void)
 {
@@ -198,68 +198,6 @@ void DHO_Blob(void)
   FastLED.show();
 }
 
-// 3
-//////////// RAINBOW
-////////////////////////////////////////////////////////////////////////////////////////
-byte *c;
-uint16_t jrainbow = 0;
-byte *Wheel(byte WheelPos)
-{
-  static byte c[3];
-  if (WheelPos < 85)
-    {
-      c[0] = WheelPos * 3;
-      c[1] = 255 - WheelPos * 3;
-      c[2] = 0;
-    }
-  else if (WheelPos < 170)
-    {
-      WheelPos -= 85;
-      c[0] = 255 - WheelPos * 3;
-      c[1] = 0;
-      c[2] = WheelPos * 3;
-    }
-  else
-    {
-      WheelPos -= 170;
-      c[0] = 0;
-      c[1] = WheelPos * 3;
-      c[2] = 255 - WheelPos * 3;
-    }
-  for (int i = 0; i < 3; i++)
-    {
-      c[i] = (int)c[i] * 0.4;
-    }
-  return c;
-}
-
-void Rainbow(void)
-{
-  if (firstRun)
-    {
-      FastLED.clear();
-      firstRun = 0;
-      Serial.println(F("Starting Program:\tRainbow"));
-      Serial.print(F("Free SRAM:  "));
-      Serial.println(freeRam());
-    }
-
-  //////////////// do same here //////////////
-
-  for (int i = 0; i < NUMPERSTRAND; i++)
-    {
-      c = Wheel(((i * 256 / NUMPERSTRAND) + jrainbow) & 255);
-      setPixelByStrandIndex(i, CRGB(*c, *(c + 1), *(c + 2)));
-    }
-  FastLED.show();
-  FastLED.delay(20);
-  jrainbow++;
-  if (jrainbow == 256 * 5)
-    {
-      jrainbow = 0;
-    }
-}
-
 // 4
 //////////// DHO Rainbow
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -278,20 +216,62 @@ void DHO_Rainbow(void)
   int centerindex = (uint16_t((float)NUMPERSTRAND / 2.0) +
                      BallPosition * ((float)NUMPERSTRAND / 2.0));
 
+  CRGB rainbowhue;
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
-      c = Wheel(((i * 256 / NUMPERSTRAND) + 2 * centerindex) & 255);
-      setPixelByStrandIndex(i, CRGB(*c, *(c + 1), *(c + 2)));
+      rainbowhue =
+          CHSV(2 * centerindex + 255 * (i / ((float)NUMPERSTRAND)), 255, 255);
+      setPixelByStrandIndex(i, rainbowhue);
     }
   FastLED.show();
 }
+
+///////////////////////////////////////////////////////
+// DHO FADE
+void DHO_Fade()
+{
+  if (firstRun)
+    {
+      FastLED.clear();
+      firstRun = 0;
+      Serial.println(F("Starting Program:\tDHO_Fade"));
+      Serial.print(F("Free SRAM:  "));
+      Serial.println(freeRam());
+    }
+
+  // about 1 to 2 ms
+  float BallPosition = getBallPosition_DHO();
+
+  // about 7 ms
+  fadeWholeStrip((uint8_t)FADE_COEF);
+
+  // < 0 ms
+  setPixelByStrandIndex(ballToStrandPosition_DHO(BallPosition), color);
+
+  /*  Serial.print("\tBallPosiition:\t");
+    Serial.print(BallPosition);
+    Serial.print("\tPixel Index:\t");
+    Serial.println(temp);
+    */
+
+  // about 1 ms
+  FastLED.show();
+}
+
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
+////////////// UNUSED /////////////////
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
 
 // 5
 //////////// DHO SINE STRIPES
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // FOR DHO_SineStripes
-
+/*
 const uint8_t sinTable[97] PROGMEM = {
     0,   17,  64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0,   17,
     64,  128, 191, 238, 255, 238, 191, 128, 64,  17,  0,   17,  64,  128,
@@ -323,10 +303,10 @@ void DHO_SineStripes(void)
     {
       attnFactor =
           (float)(((float)pgm_read_byte_near(sinTable + k + NUMPERSTRAND)));
-      /*    Serial.print("attnFactor: ");
+          Serial.print("attnFactor: ");
           Serial.println(attnFactor);
                 Serial.print("k: ");
-          Serial.println(k);*/
+          Serial.println(k);*
 
       setPixelByStrandIndex(centerindex + k, scale8(color.r, attnFactor),
                             scale8(color.g, attnFactor),
@@ -334,9 +314,12 @@ void DHO_SineStripes(void)
     }
   FastLED.show();
 }
+*/
+
+/*
 
 //////////////// DHO COMET (not currently working)
-/*
+
 int8_t pos_history[NUM_HISTORY];
 void DHO_Comet()
 {
@@ -400,35 +383,3 @@ void DHO_Comet()
   FastLED.show();
 }
 */
-
-///////////////////////////////////////////////////////
-// DHO FADE
-void DHO_Fade()
-{
-  if (firstRun)
-    {
-      FastLED.clear();
-      firstRun = 0;
-      Serial.println(F("Starting Program:\tDHO_Fade"));
-      Serial.print(F("Free SRAM:  "));
-      Serial.println(freeRam());
-    }
-
-  // about 1 to 2 ms
-  float BallPosition = getBallPosition_DHO();
-
-  // about 7 ms
-  fadeWholeStrip((uint8_t)FADE_COEF);
-
-  // < 0 ms
-  setPixelByStrandIndex(ballToStrandPosition_DHO(BallPosition), color);
-
-  /*  Serial.print("\tBallPosiition:\t");
-    Serial.print(BallPosition);
-    Serial.print("\tPixel Index:\t");
-    Serial.println(temp);
-    */
-
-  // about 1 ms
-  FastLED.show();
-}

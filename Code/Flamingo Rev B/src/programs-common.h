@@ -21,7 +21,10 @@ void fadePixelByStrandIndex(uint16_t index, uint8_t fade);
 
 void DHO_Rainbow(void);
 
+byte* Wheel(byte WheelPos);
 void Rainbow(void);
+
+void Rainbow_FastLED(void);
 
 void DHO_SinglePixel(void);
 
@@ -33,7 +36,10 @@ void setPixelHeatColorgreen(uint16_t Pixel, byte temperature);
 
 void GreenFireOriginal(void);
 
-void Fire2012WithPalette(void);
+void Fire2012RainbowRotate(void);
+
+void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor,
+                         bool scaleHeat);
 
 void Sparkle(CRGB thecolor, uint8_t duration);
 

@@ -190,13 +190,14 @@ void loop()
       DHO_Rainbow();
     }
 
-  //// Damped harmonic oscillator (sine stripes).
+  //////////// BOUNCING BALL GROUP ///////////////////////////////
+
   if (programIndex == 5)
     {
-      DHO_SineStripes();
+      setFullBrightnessOn10();
+      // no fade
+      Bouncing_Balls(0);
     }
-
-  //////////// BOUNCING BALL GROUP ///////////////////////////////
 
   if (programIndex == 6)
     {
@@ -205,30 +206,45 @@ void loop()
       Bouncing_Balls(1);
     }
 
-  if (programIndex == 7)
-    {
-      setFullBrightnessOn10();
-      // no fade
-      Bouncing_Balls(0);
-    }
-
   /////////////////// FIRE GROUP  ///////////////////////////////
 
   //// Green fire
+  if (programIndex == 7)
+    {
+      // Added yellow sparks.
+      GreenFireOriginal();
+    }
+
   if (programIndex == 8)
     {
-      GreenFireOriginal();
+      // pink fire
+      CRGBPalette16 firepal, sparkpal;
+      firepal =
+          CRGBPalette16(CRGB(0, 0, 0),
+                        CRGB(scale8(96, 100), scale8(16, 100), scale8(40, 100)),
+                        scale8(CRGB(96, 16, 40), 255), CRGB(255, 255, 255));
+      CRGB sparkcolor = CHSV(230, 71, 200);
+      Fire2012WithPalette(firepal, sparkcolor, 1);
     }
 
   if (programIndex == 9)
     {
-      Fire2012WithPalette();
+      // rainbow fire
+      CRGBPalette16 firepal, sparkpal;
+      firepal = RainbowColors_p;
+      CRGB sparkcolor = CRGB(255, 255, 255);
+      Fire2012WithPalette(firepal, sparkcolor, 0);
+    }
+
+  if (programIndex == 10)
+    {
+      Fire2012RainbowRotate();
     }
 
   ///////////////////   SPARKLE GROUP ///////////////////
 
   //// Sparkle White
-  if (programIndex == 10)
+  if (programIndex == 11)
     {
       setFullBrightnessOn10();
 
@@ -236,7 +252,7 @@ void loop()
     }
 
   //// Sparkle Pink
-  if (programIndex == 11)
+  if (programIndex == 12)
     {
       setFullBrightnessOn10();
 
@@ -244,7 +260,7 @@ void loop()
     }
 
   //// Sparkle Pink Fizz
-  if (programIndex == 12)
+  if (programIndex == 13)
     {
       setFullBrightnessOn10();
 
@@ -254,15 +270,8 @@ void loop()
   ///////////////////  RAINBOW NON-ACC ///////////////////
 
   //// Rainbow(rainbow).
-  if (programIndex == 13)
+  if (programIndex == 14)
     {
-      Rainbow();
+      Rainbow_FastLED();
     }
-
-  /*
-if (programIndex == 24)
-  {
-    Test();
-  }
-*/
 }

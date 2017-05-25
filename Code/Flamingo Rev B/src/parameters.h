@@ -20,7 +20,7 @@
 #include <programs-common.h>
 #include <utils.h>
 
-#define NUM_PROGRAMS 13
+#define NUM_PROGRAMS 14
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -138,6 +138,9 @@ extern uint16_t sparkle_timenew;
 extern uint16_t sparkleInterval_max;
 
 // Fire with Pallette variables
-extern CRGBPalette16 gPal;
+
+// Rainbow variables
+extern byte *c;
+extern uint16_t jrainbow;
 
 #endif
