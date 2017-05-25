@@ -89,8 +89,18 @@ void setup()
   // Initialize serial communication
   Serial.begin(115200);
 
+  Serial.println(F("FLAMINGO REV B"));
+  Serial.println(F("by Paul Blackburn"));
+  Serial.println(F("paulwb@gmail.com"));
+  Serial.println(F(
+      "If you find this please let me know—it means it has been stolen. Thank "
+      "you!"));
+  Serial.println(F(""));
+  Serial.println(F(""));
+
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
+  Serial.println(F(""));
 
   //////////////////////// BUTTONS /////////////////
   pinMode(BUTTON1, INPUT);
@@ -103,7 +113,7 @@ void setup()
   // Initialize accel
   Serial.print(F("Initializing ADXL345... "));
   accel.initialize();
-  Serial.println("Done.");
+  Serial.println(F("Done."));
 
   // Verify connection
   Serial.print(F("Testing ADXL345 connections..."));
@@ -132,6 +142,7 @@ void setup()
       F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
   Serial.println(F("Done."));
+  Serial.println(F(""));
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
@@ -143,9 +154,9 @@ void setup()
   FastLED.show();
   Serial.println(F("Done."));
 
-  Serial.println("");
+  Serial.println(F(""));
   Serial.println(F("Starting loop."));
-  Serial.println("");
+  Serial.println(F(""));
 
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
