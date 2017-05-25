@@ -35,9 +35,9 @@ void GreenFireOriginal(void);
 
 void Fire2012WithPalette(void);
 
-void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
+void Sparkle(CRGB thecolor, uint8_t duration);
 
-void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration);
+void SparkleFizz(CRGB thecolor, uint8_t duration);
 
 void Acctest(void);
 
@@ -47,6 +47,6 @@ void DHO_Fade(void);
 
 void Test(void);
 
-void Bouncing_Balls(void);
+void Bouncing_Balls(bool BB_fade);
 
 #endif

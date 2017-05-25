@@ -7,6 +7,7 @@
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
+
 #include <Wire.h>
 #include <avr/pgmspace.h>
 #include <math.h>
@@ -19,7 +20,7 @@
 #include <programs-common.h>
 #include <utils.h>
 
-#define NUM_PROGRAMS 1
+#define NUM_PROGRAMS 13
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -84,9 +85,9 @@
 #define FADE_COEF 240
 
 // Bouncy Balls
-#define NUM_BOUNCYBALLS 3
-#define BB_DAMPING 0.01f
-#define G_ACC_MAGNITUDE_BB 9.81
+#define NUM_BOUNCYBALLS 1
+#define BB_DAMPING 0.2f
+#define G_ACC_MAGNITUDE_BB 1412.64  // 9.81
 
 // General variables
 extern uint8_t counter;

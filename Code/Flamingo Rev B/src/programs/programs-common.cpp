@@ -1,7 +1,7 @@
 #include <parameters.h>
 #include <programs-common.h>
 
-CRGB color = 0x106040;  // Flamingo Pink for dotstars
+CRGB color = 0x601040;  // Flamingo Pink for dotstars
 // uint32_t color = 0x106040;  // Flamingo Pink for dotstars
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.

@@ -5,7 +5,7 @@
 //////////// SPARKLE
 ////////////////////////////////////////////////////////////////////////////////////////
 
-void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
+void Sparkle(CRGB thecolor, uint8_t duration)
 {
   if (firstRun)
     {
@@ -17,7 +17,7 @@ void Sparkle(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
     }
   // FastLED random8(N, M) is from N to M-1
   uint8_t Pixel = random8(0, NUMPERSTRAND);  // (...]
-  setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
+  setPixelByStrandIndex(Pixel, thecolor);
   FastLED.show();
   FastLED.delay(duration);
   setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
@@ -45,7 +45,7 @@ uint16_t sparkle_timeold;
 uint16_t sparkle_timenew;
 uint16_t sparkleInterval_max;
 
-void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
+void SparkleFizz(CRGB thecolor, uint8_t duration)
 {
   if (firstRun)
     {
@@ -112,7 +112,7 @@ void SparkleFizz(uint8_t red, uint8_t green, uint8_t blue, uint8_t duration)
 
       // Make the sparkle
       int Pixel = random8(0, NUMPERSTRAND);  // (...]
-      setPixelByStrandIndex(Pixel, CRGB(red, green, blue));
+      setPixelByStrandIndex(Pixel, thecolor);
       FastLED.show();
       FastLED.delay(duration);
       setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));

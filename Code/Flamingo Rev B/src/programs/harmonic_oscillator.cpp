@@ -191,8 +191,9 @@ void DHO_Blob(void)
                 Serial.print("k: ");
           Serial.println(k);*/
 
-      setPixelByStrandIndex(centerindex + k, scale8(16, attnFactor),
-                            scale8(96, attnFactor), scale8(64, attnFactor));
+      setPixelByStrandIndex(centerindex + k, scale8(color.r, attnFactor),
+                            scale8(color.g, attnFactor),
+                            scale8(color.b, attnFactor));
     }
   FastLED.show();
 }
@@ -327,8 +328,9 @@ void DHO_SineStripes(void)
                 Serial.print("k: ");
           Serial.println(k);*/
 
-      setPixelByStrandIndex(centerindex + k, scale8(16, attnFactor),
-                            scale8(96, attnFactor), scale8(64, attnFactor));
+      setPixelByStrandIndex(centerindex + k, scale8(color.r, attnFactor),
+                            scale8(color.g, attnFactor),
+                            scale8(color.b, attnFactor));
     }
   FastLED.show();
 }

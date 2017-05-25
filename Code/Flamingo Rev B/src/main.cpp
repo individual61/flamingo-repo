@@ -158,53 +158,30 @@ void setup()
 void loop()
 {
   counter++;  // do not reset, let it roll over!
-  /*  if (counter == 100)
-      {
-        counter = 0;
-        Serial.print(F("Free SRAM:  "));
-        Serial.println(freeRam());
-      }
-      */
 
   // Buttons
   checkButton1();
   checkButton2();
 
-  ////
-
-  if (programIndex == 1)
-    {
-      Bouncing_Balls();
-    }
-
-  if (programIndex == 21)
-    {
-      Fire2012WithPalette();
-    }
-
-  if (programIndex == 2)
-    {
-      Test();
-    }
+  /////////////// DHO GROUP    ///////////////////////////////
 
   //// Damped harmonic oscillator (single pixel).
-  if (programIndex == 13)
+  if (programIndex == 1)
     {
       setFullBrightnessOn10();
 
       DHO_SinglePixel();
     }
 
-  //// Damped harmonic oscillator (blob).
   if (programIndex == 2)
     {
-      DHO_Blob();
+      DHO_Fade();
     }
 
-  //// Rainbow(rainbow).
+  //// Damped harmonic oscillator (blob).
   if (programIndex == 3)
     {
-      Rainbow();
+      DHO_Blob();
     }
 
   //// Damped harmonic oscillator (rainbow).
@@ -219,57 +196,73 @@ void loop()
       DHO_SineStripes();
     }
 
-  //// Green fire
+  //////////// BOUNCING BALL GROUP ///////////////////////////////
+
   if (programIndex == 6)
+    {
+      setFullBrightnessOn10();
+      // fade
+      Bouncing_Balls(1);
+    }
+
+  if (programIndex == 7)
+    {
+      setFullBrightnessOn10();
+      // no fade
+      Bouncing_Balls(0);
+    }
+
+  /////////////////// FIRE GROUP  ///////////////////////////////
+
+  //// Green fire
+  if (programIndex == 8)
     {
       GreenFireOriginal();
     }
 
-  //// Sparkle
-  if (programIndex == 7)
+  if (programIndex == 9)
+    {
+      Fire2012WithPalette();
+    }
+
+  ///////////////////   SPARKLE GROUP ///////////////////
+
+  //// Sparkle White
+  if (programIndex == 10)
     {
       setFullBrightnessOn10();
 
-      Sparkle(0xff, 0xff, 0xff, 10);
+      Sparkle(CRGB(255, 255, 255), 10);
     }
 
   //// Sparkle Pink
-  if (programIndex == 8)
+  if (programIndex == 11)
     {
       setFullBrightnessOn10();
 
-      Sparkle(0x10, 0x60, 0x40, 10);
+      Sparkle(color, 10);
     }
 
   //// Sparkle Pink Fizz
-  if (programIndex == 9)
+  if (programIndex == 12)
     {
       setFullBrightnessOn10();
 
-      SparkleFizz(0x10, 0x60, 0x40, 10);
+      SparkleFizz(color, 10);
     }
 
-  if (programIndex == 10)
+  ///////////////////  RAINBOW NON-ACC ///////////////////
+
+  //// Rainbow(rainbow).
+  if (programIndex == 13)
     {
-      /*    if (counter == 100)
-        {
-          Serial.print("loop() time: ");
-          Serial.println((millis() - timer));
-        }
-  */
-      //  timer = millis();
-      DHO_Fade();
-      //    if (counter == 100)
-      //      {
-      //        Serial.print("DHO_Fade time: ");
-      //        Serial.println((millis() - timer));
-      //      }
+      Rainbow();
     }
-  /*
-    if (programIndex == 11)
-      {
-        Acctest();
-      }
 
-      */
+  /*
+if (programIndex == 24)
+  {
+    Test();
+  }
+*/
 }
