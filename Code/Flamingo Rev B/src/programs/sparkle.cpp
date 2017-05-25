@@ -16,11 +16,11 @@ void Sparkle(CRGB thecolor, uint8_t duration)
       Serial.println(freeRam());
     }
   // FastLED random8(N, M) is from N to M-1
-  uint8_t Pixel = random8(0, NUMPERSTRAND);  // (...]
-  setPixelByStrandIndex(Pixel, thecolor);
+  uint8_t Pixel = random8(0, NUMPIXELS);  // (...]
+  leds[Pixel] = thecolor;
   FastLED.show();
   FastLED.delay(duration);
-  setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
+  leds[Pixel] = CRGB(0, 0, 0);
   FastLED.show();
 }
 
@@ -111,11 +111,11 @@ void SparkleFizz(CRGB thecolor, uint8_t duration)
       */
 
       // Make the sparkle
-      int Pixel = random8(0, NUMPERSTRAND);  // (...]
-      setPixelByStrandIndex(Pixel, thecolor);
+      int Pixel = random8(0, NUMPIXELS);  // (...]
+      leds[Pixel] = thecolor;
       FastLED.show();
       FastLED.delay(duration);
-      setPixelByStrandIndex(Pixel, CRGB(0, 0, 0));
+      leds[Pixel] = CRGB(0, 0, 0);
       FastLED.show();
 
       // Now choose a new random sparkle interval based on acc_decayed
