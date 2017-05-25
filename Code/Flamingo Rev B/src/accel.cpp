@@ -12,7 +12,14 @@ float getNormalizedAccelY(void)
   acc = accel.getAccelerationY();
   //  Serial.print("getNormalizedAccelY():\t");
   //  Serial.print(-(((float)((acc)-A_OFFSET)) / A_GAIN));
-  return -(((float)((acc)-A_OFFSET)) / A_GAIN);
+  if (RUN_ON_TOTEM == 1)
+    {
+      return (((float)((acc)-A_OFFSET)) / A_GAIN);
+    }
+  else
+    {
+      return -(((float)((acc)-A_OFFSET)) / A_GAIN);
+    }
 }
 
 // Returns the accelerometer difference from initial acc in units of |g|

@@ -21,6 +21,7 @@
 #include <utils.h>
 
 #define NUM_PROGRAMS 14
+#define RUN_ON_TOTEM 0  // accelerometer is upside down on totem
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!

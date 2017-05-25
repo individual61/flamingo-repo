@@ -1,11 +1,12 @@
 #include <parameters.h>
 #include <programs-common.h>
 
+uint16_t jrainbow = 0;
 // 3
 //////////// RAINBOW
 ////////////////////////////////////////////////////////////////////////////////////////
-byte *c;
-uint16_t jrainbow = 0;
+/*byte *c;
+
 byte *Wheel(byte WheelPos)
 {
   static byte c[3];
@@ -35,7 +36,8 @@ byte *Wheel(byte WheelPos)
     }
   return c;
 }
-
+*/
+/*
 void Rainbow(void)
 {
   if (firstRun)
@@ -61,7 +63,7 @@ void Rainbow(void)
     {
       jrainbow = 0;
     }
-}
+}*/
 
 void Rainbow_FastLED(void)
 {
@@ -80,7 +82,7 @@ void Rainbow_FastLED(void)
   CRGB rainbowhue;
   for (int i = 0; i < NUMPERSTRAND; i++)
     {
-      rainbowhue = CHSV(jrainbow + 255 * (i / ((float)NUMPERSTRAND)), 255, 255);
+      rainbowhue = CHSV(jrainbow - 255 * (i / ((float)NUMPERSTRAND)), 255, 255);
       setPixelByStrandIndex(i, rainbowhue);
     }
   FastLED.show();
