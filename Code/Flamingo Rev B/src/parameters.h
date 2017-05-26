@@ -21,7 +21,7 @@
 #include <utils.h>
 
 #define NUM_PROGRAMS 14
-#define RUN_ON_TOTEM 1  // accelerometer is upside down on totem
+//#define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -29,13 +29,15 @@
 // acc_real = (accel.readAccelY() - A_OFFSET)/A_GAIN
 // acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
 
-// For testbed:
-//#define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
-//#define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
-
 // For Totem:
+#ifdef RUN_ON_TOTEM
 #define A_OFFSET 9.0f  // 0.5*( +1gRawReading + -1gRawReading)
 #define A_GAIN -77.0f  // 0.5*( +1gRawReading - -1gRawReading)
+#else
+// for testbed
+#define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
+#define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
+#endif
 
 #define G_ACC_MAGNITUDE 9.81f
 
