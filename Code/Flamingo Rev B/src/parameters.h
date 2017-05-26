@@ -21,7 +21,7 @@
 #include <utils.h>
 
 #define NUM_PROGRAMS 14
-//#define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
+#define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
