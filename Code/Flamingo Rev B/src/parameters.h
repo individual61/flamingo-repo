@@ -102,6 +102,7 @@
 // General variables
 extern uint8_t counter;
 extern uint32_t timer;
+extern uint8_t counter_every_10_8;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;

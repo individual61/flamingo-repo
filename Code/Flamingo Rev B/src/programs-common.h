@@ -38,8 +38,8 @@ void GreenFireOriginal(void);
 
 void Fire2012RainbowRotate(void);
 
-void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor,
-                         bool scaleHeat);
+void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,
+                         bool rotate);
 
 void Sparkle(CRGB thecolor, uint8_t duration);
 

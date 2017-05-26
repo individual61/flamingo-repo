@@ -66,6 +66,8 @@
 
 uint32_t timer = 0;
 uint8_t counter = 0;
+uint16_t counter16 = 0;
+uint8_t counter_every_10_8 = 0;
 
 ////////////////////   FastLED / APA102C   //////////////////
 //
@@ -168,8 +170,12 @@ void setup()
 
 void loop()
 {
-  counter++;  // do not reset, let it roll over!
-
+  counter++;    // do not reset, let it roll over!
+  counter16++;  // do not reset, let it roll over!
+  if (counter % 10 == 0)
+    {
+      counter_every_10_8++;
+    }
   // Buttons
   checkButton1();
   checkButton2();
@@ -235,7 +241,7 @@ void loop()
                         CRGB(scale8(96, 100), scale8(16, 100), scale8(40, 100)),
                         scale8(CRGB(96, 16, 40), 255), CRGB(255, 255, 255));
       CRGB sparkcolor = CHSV(230, 71, 200);
-      Fire2012WithPalette(firepal, sparkcolor, 1);
+      Fire2012WithPalette(firepal, sparkcolor, 1, 0);
     }
 
   if (programIndex == 9)
@@ -244,7 +250,8 @@ void loop()
       CRGBPalette16 firepal, sparkpal;
       firepal = RainbowColors_p;
       CRGB sparkcolor = CRGB(255, 255, 255);
-      Fire2012WithPalette(firepal, sparkcolor, 0);
+      bool rotate = 1;
+      Fire2012WithPalette(firepal, sparkcolor, 0, rotate);
     }
 
   if (programIndex == 10)

@@ -322,7 +322,8 @@ void Fire2012RainbowRotate(void)
 
 ///////////////
 
-void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat)
+void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,
+                         bool rotate)
 {
   if (firstRun)
     {
@@ -379,7 +380,19 @@ void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat)
         {
           colorindex = heat[j];
         }
-      CRGB acolor = ColorFromPalette(firepal, colorindex);
+
+      uint8_t pallette_offset;
+      if (rotate == 1)
+        {
+          pallette_offset = counter_every_10_8;
+        }
+      else
+        {
+          pallette_offset = 0;
+        }
+      CRGB acolor =
+          ColorFromPalette(firepal, colorindex + sin8_avr(pallette_offset));
+
       setPixelByStrandIndex(j, acolor);
       //      Serial.print(color.r);
       //      Serial.print("\t");
