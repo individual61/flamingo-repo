@@ -1,6 +1,6 @@
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
@@ -10,9 +10,9 @@
 
 #include <accel.h>
 #include <buttons.h>
-#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <programs-common.h>
 #include <utils.h>
 
 // To use serial or not
@@ -64,18 +64,15 @@
 //
 //
 
-uint16_t timer = 0;
+uint32_t timer = 0;
 uint8_t counter = 0;
+uint16_t counter16 = 0;
+uint8_t counter_every_10_8 = 0;
 
-//////////////////// DOTSTARS //////////////////
-// The last parameter is optional -- this is the color data order of the
-// DotStar strip, which has changed over time in different production runs.
-// Your code just uses R,G,B colors, the library then reassigns as needed.
-// Default is DOTSTAR_BRG, so change this if you have an earlier strip.
+////////////////////   FastLED / APA102C   //////////////////
+//
 
-// Hardware SPI is a little faster, but must be wired to specific pins
-// (Arduino Uno = pin 11 for data, 13 for clock, other boards are different).
-Adafruit_DotStar strip = Adafruit_DotStar(NUMPIXELS, DOTSTAR_BRG);
+CRGB leds[NUMPIXELS];
 
 ////////////////////// ADXL345 /////////////////////////
 // class default I2C address is 0x53
@@ -94,8 +91,18 @@ void setup()
   // Initialize serial communication
   Serial.begin(115200);
 
+  Serial.println(F("FLAMINGO REV B"));
+  Serial.println(F("by Paul Blackburn"));
+  Serial.println(F("paulwb@gmail.com"));
+  Serial.println(F(
+      "If you find this please let me know—it means it has been stolen. Thank "
+      "you!"));
+  Serial.println(F(""));
+  Serial.println(F(""));
+
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
+  Serial.println(F(""));
 
   //////////////////////// BUTTONS /////////////////
   pinMode(BUTTON1, INPUT);
@@ -108,7 +115,7 @@ void setup()
   // Initialize accel
   Serial.print(F("Initializing ADXL345... "));
   accel.initialize();
-  Serial.println("Done.");
+  Serial.println(F("Done."));
 
   // Verify connection
   Serial.print(F("Testing ADXL345 connections..."));
@@ -137,18 +144,21 @@ void setup()
       F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
   Serial.println(F("Done."));
+  Serial.println(F(""));
 
   // Initialize lights
   Serial.print(F("Initializing lights... "));
-  strip.begin();  // Initialize pins for output
-  strip.setBrightness(STANDARD_BRIGHTNESS);
-  strip.clear();
-  strip.show();
+  FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
+      .setCorrection(CORRECTION);
+
+  FastLED.setBrightness(brightness[0]);
+  FastLED.clear();
+  FastLED.show();
   Serial.println(F("Done."));
 
-  Serial.println("");
+  Serial.println(F(""));
   Serial.println(F("Starting loop."));
-  Serial.println("");
+  Serial.println(F(""));
 
   Serial.print(F("Free SRAM:  "));
   Serial.println(freeRam());
@@ -160,47 +170,17 @@ void setup()
 
 void loop()
 {
-  counter++;
-  /*  if (counter == 100)
-      {
-        counter = 0;
-        Serial.print(F("Free SRAM:  "));
-        Serial.println(freeRam());
-      }
-      */
-
-  /*
-    // Calculate rolling average of acceleration
-    acc_avg_timenew = millis();
-    // If the interval between avg acc measurements has passed
-    if (acc_avg_timenew - acc_avg_timeold > ACC_AVG_INTERVAL)
-      {
-        acc_avg_timeold = acc_avg_timenew;
-        // Reset acc average
-        acc_avg = 0.0;
-        // Add up all acc_avg[] array values, and shift the array down one.
-        for (int i = 0; i < ACC_AVG_NUM - 1; i++)
-          {
-            // The array is uints, the average is a float
-            acc_avg = accArray[i + 1] + acc_avg;
-            accArray[i + 1] = accArray[i];
-          }
-        accArray[0] = ((int)100 * fabs(getOffsetAccel(GFACTOR)));
-        acc_avg = acc_avg + accArray[0];
-  // At this point acc_avg is the sum of all 100*acc values.
-  // Divide by 100 and the number of measurements
-
-
-        acc_avg =    ((float)(accArray[0])) / (100.0f*((float)ACC_AVG_NUM));
-        Serial.print(F("Avg acc:  "));
-        Serial.println(acc_avg);
-        Serial.print(F("Now acc:  "));
-        Serial.println(accArray[0]);
-      }
-  */
+  counter++;    // do not reset, let it roll over!
+  counter16++;  // do not reset, let it roll over!
+  if (counter % 10 == 0)
+    {
+      counter_every_10_8++;
+    }
   // Buttons
   checkButton1();
   checkButton2();
+
+  /////////////// DHO GROUP    ///////////////////////////////
 
   //// Damped harmonic oscillator (single pixel).
   if (programIndex == 1)
@@ -210,16 +190,15 @@ void loop()
       DHO_SinglePixel();
     }
 
-  //// Damped harmonic oscillator (blob).
   if (programIndex == 2)
     {
-      DHO_Blob();
+      DHO_Fade();
     }
 
-  //// Rainbow(rainbow).
+  //// Damped harmonic oscillator (blob).
   if (programIndex == 3)
     {
-      Rainbow();
+      DHO_Blob();
     }
 
   //// Damped harmonic oscillator (rainbow).
@@ -228,67 +207,95 @@ void loop()
       DHO_Rainbow();
     }
 
-  //// Damped harmonic oscillator (sine stripes).
+  //////////// BOUNCING BALL GROUP ///////////////////////////////
+
   if (programIndex == 5)
     {
-      DHO_SineStripes();
+      setFullBrightnessOn10();
+      // no fade
+      Bouncing_Balls(0);
     }
 
-  //// Green fire
   if (programIndex == 6)
     {
-      Fire();
+      setFullBrightnessOn10();
+      // fade
+      Bouncing_Balls(1);
     }
 
-  //// Sparkle
+  /////////////////// FIRE GROUP  ///////////////////////////////
+
+  //// Green fire
   if (programIndex == 7)
     {
-      setFullBrightnessOn10();
-
-      Sparkle(0xff, 0xff, 0xff, 10);
+      // Added yellow sparks.
+      GreenFireOriginal();
     }
 
-  //// Sparkle Pink
   if (programIndex == 8)
     {
-      setFullBrightnessOn10();
-
-      Sparkle(0x10, 0x60, 0x40, 10);
+      // pink fire
+      CRGBPalette16 firepal, sparkpal;
+      firepal =
+          CRGBPalette16(CRGB(0, 0, 0),
+                        CRGB(scale8(96, 100), scale8(16, 100), scale8(40, 100)),
+                        scale8(CRGB(96, 16, 40), 255), CRGB(255, 255, 255));
+      CRGB sparkcolor = CHSV(230, 71, 200);
+      Fire2012WithPalette(firepal, sparkcolor, 1, 0);
     }
 
-  //// Sparkle Pink Fizz
   if (programIndex == 9)
     {
-      setFullBrightnessOn10();
-
-      SparkleFizz(0x10, 0x60, 0x40, 10);
+      // rainbow fire
+      CRGBPalette16 firepal, sparkpal;
+      firepal = RainbowColors_p;
+      CRGB sparkcolor = CRGB(255, 255, 255);
+      bool rotate = 1;
+      Fire2012WithPalette(firepal, sparkcolor, 0, rotate);
     }
 
   if (programIndex == 10)
     {
-      DHO_Comet();
+      Fire2012RainbowRotate();
     }
 
+  ///////////////////   SPARKLE GROUP ///////////////////
+
+  //// Sparkle White
   if (programIndex == 11)
     {
-      /*    if (counter == 100)
-        {
-          Serial.print("loop() time: ");
-          Serial.println((millis() - timer));
-        }
-  */ DHO_Fade();
-      /*      if (counter == 100)
-        {
-          Serial.print("DHO_Fade time: ");
-          Serial.println((millis() - timer));
-        }
-*/ timer = millis();
-    }
-  /*
-    if (programIndex == 11)
-      {
-        Acctest();
-      }
+      setFullBrightnessOn10();
 
-      */
+      Sparkle(CRGB(255, 255, 255), 10);
+    }
+
+  //// Sparkle Pink
+  if (programIndex == 12)
+    {
+      setFullBrightnessOn10();
+
+      Sparkle(color, 10);
+    }
+
+  //// Sparkle Pink Fizz
+  if (programIndex == 13)
+    {
+      setFullBrightnessOn10();
+
+      SparkleFizz(color, 10);
+    }
+
+  ///////////////////  RAINBOW NON-ACC ///////////////////
+
+  //// Rainbow(rainbow).
+  if (programIndex == 14)
+    {
+      Rainbow_FastLED();
+    }
+
+  ////
+  //  if (programIndex == 15)
+  //  {
+  //    Test();
+  //  }
 }

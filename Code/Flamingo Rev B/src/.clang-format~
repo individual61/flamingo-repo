@@ -1,4 +1,0 @@
-AlwaysBreakAfterDefinitionReturnType: false
-BasedOnStyle: Google
-BreakBeforeBraces: GNU
-PenaltyReturnTypeOnItsOwnLine: 1000

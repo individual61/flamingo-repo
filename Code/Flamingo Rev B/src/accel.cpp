@@ -12,6 +12,7 @@ float getNormalizedAccelY(void)
   acc = accel.getAccelerationY();
   //  Serial.print("getNormalizedAccelY():\t");
   //  Serial.print(-(((float)((acc)-A_OFFSET)) / A_GAIN));
+
   return -(((float)((acc)-A_OFFSET)) / A_GAIN);
 }
 

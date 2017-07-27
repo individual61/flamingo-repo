@@ -3,20 +3,18 @@
 
 #include <Arduino.h>
 
-float eval_v_func(float v, float x, float acc_ext, float damping,
-                  float springconstant, float mass);
+float eval_v_func_DHO(float v, float x, float acc_ext, float damping,
+                      float springconstant, float mass);
 
-float get_next_v(float oldv, float oldx, float acc_ext, float damping,
-                 float springconstant, float mass);
+float get_next_v_DHO(float oldv, float oldx, float acc_ext, float damping,
+                     float springconstant, float mass);
 
-float get_next_x(float oldv, float oldx);
+float get_next_x_DHO(float oldv, float oldx);
 
-float getBallPosition(void);
+float getBallPosition_DHO(void);
 
 float getBallPositionReal(void);
 
-int ballToStrandPosition(float ballPos);
-
-void setPixelByIndex(int index, uint32_t color);
+int ballToStrandPosition_DHO(float ballPos_DHO);
 
 #endif

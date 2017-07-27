@@ -2,29 +2,43 @@
 #define PARAMETERS_H
 
 #include <ADXL345.h>
-#include <Adafruit_DotStar.h>
 #include <Arduino.h>
+#include <FastLED.h>
 #include <I2Cdev.h>
 #include <MPU6050.h>
 #include <SPI.h>
+
 #include <Wire.h>
 #include <avr/pgmspace.h>
 #include <math.h>
 
 #include <accel.h>
+#include <bouncing_balls.h>
 #include <buttons.h>
-#include <effects.h>
 #include <harmonic_oscillator.h>
 #include <parameters.h>
+#include <programs-common.h>
 #include <utils.h>
+
+#define NUM_PROGRAMS 14
+#define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
 // +/-1gRawReading come from holding acc upright and upsidedown
 // acc_real = (accel.readAccelY() - A_OFFSET)/A_GAIN
 // acc_real is factor of g, i.e. 1.0 is 9.81 m/sˆ2
+
+// For Totem:
+#ifdef RUN_ON_TOTEM
+#define A_OFFSET 9.0f  // 0.5*( +1gRawReading + -1gRawReading)
+#define A_GAIN -77.0f  // 0.5*( +1gRawReading - -1gRawReading)
+#else
+// for testbed
 #define A_OFFSET -25.5f  // 0.5*( +1gRawReading + -1gRawReading)
 #define A_GAIN 72.5f     // 0.5*( +1gRawReading - -1gRawReading)
+#endif
+
 #define G_ACC_MAGNITUDE 9.81f
 
 // Average acceleration calculation
@@ -36,15 +50,16 @@
 #define BUTTON2 4
 #define DEBOUNCEDELAY 300
 
-#define NUM_PROGRAMS 11
-#define BRIGHTNESS_COUNT 10
+#define BRIGHTNESS_COUNT 10  // Number of brightness levels
 
-// BRIGHTNESS
-#define STANDARD_BRIGHTNESS 30
-
-// LED counts
+// FastLED stuff
 #define NUMPIXELS 144    // Number of LEDs in strip
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
+#define CLOCK_PIN 13
+#define DATA_PIN 11
+#define COLOR_ORDER BGR  // my strip is BGR
+#define CORRECTION TypicalLEDStrip
+//#define CORRECTION UncorrectedColor
 
 // Harmonic oscillator parameters
 #define SPRINGCONSTANT 2
@@ -60,6 +75,10 @@
 #define GFIRE_SPARKING 120
 #define GFIRE_SPEEDDELAY 15
 
+// Fire W PALLETTE parameters
+#define FIRE_PALLETTE_COOLING 70
+#define FIRE_PALLETTE_SPARKING 120
+
 // Sparkle Fizz
 #define MAX_G_SPARKLEFIZZ 1.0f         // acceleration in m/sˆ2 for max sparkle
 #define MAX_INTERVAL_SPARKLEFIZZ 1300  // longest without a sparkle
@@ -73,11 +92,17 @@
 #define NUM_HISTORY 100
 
 // DHO_Fade
-#define FADE_COEF 0.95f
+#define FADE_COEF 240
+
+// Bouncy Balls
+#define NUM_BOUNCYBALLS 1
+#define BB_DAMPING 0.2f
+#define G_ACC_MAGNITUDE_BB 1412.64  // 9.81
 
 // General variables
 extern uint8_t counter;
-extern uint16_t timer;
+extern uint32_t timer;
+extern uint8_t counter_every_10_8;
 
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
@@ -103,9 +128,10 @@ extern uint8_t brightness[BRIGHTNESS_COUNT];
 
 extern uint8_t programIndex;  // start at 1
 
-// Dotstar/APA102C variables
-extern Adafruit_DotStar strip;
-extern uint32_t color;
+// FastLED/Dotstar/APA102C variables
+// extern uint32_t color;
+extern CRGB color;
+extern CRGB leds[NUMPIXELS];
 
 // Harmonic oscillator variables
 extern float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
@@ -122,6 +148,10 @@ extern uint16_t sparkle_timeold;
 extern uint16_t sparkle_timenew;
 extern uint16_t sparkleInterval_max;
 
-// DHO_Comet variables
+// Fire with Pallette variables
+
+// Rainbow variables
+extern byte *c;
+extern uint16_t jrainbow;
 
 #endif
