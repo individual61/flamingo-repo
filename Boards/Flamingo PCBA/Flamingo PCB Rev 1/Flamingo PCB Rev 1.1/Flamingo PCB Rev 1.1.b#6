@@ -671,20 +671,20 @@ design rules under a new name.</description>
 </autorouter>
 <elements>
 <element name="FRAME1" library="SparkFun-Aesthetics" library_urn="urn:adsk.eagle:library:507" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="21.59" y="-7.62"/>
-<element name="C1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="E5-6" value="" x="53.34" y="36.83"/>
-<element name="JP4" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X08-CLEANBIG" value="" x="49.53" y="16.51" rot="R180"/>
-<element name="R1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="AXIAL-0.3" value="2K2" x="44.45" y="38.1">
-<attribute name="PROD_ID" value=" " x="44.45" y="38.1" size="1.778" layer="27" display="off"/>
+<element name="C1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="E5-6" value="" x="78.74" y="34.29" rot="R270"/>
+<element name="JP4" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="1X08-CLEANBIG" value="" x="46.99" y="16.51" rot="R180"/>
+<element name="R1" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="AXIAL-0.3" value="2K2" x="43.18" y="24.13" rot="R180">
+<attribute name="PROD_ID" value=" " x="43.18" y="24.13" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="AXIAL-0.3" value="2K2" x="44.45" y="35.56">
-<attribute name="PROD_ID" value=" " x="44.45" y="35.56" size="1.778" layer="27" display="off"/>
+<element name="R2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" package="AXIAL-0.3" value="2K2" x="43.18" y="26.67" rot="R180">
+<attribute name="PROD_ID" value=" " x="43.18" y="26.67" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X04" value="" x="40.64" y="31.75">
-<attribute name="PROD_ID" value="CONN-09696" x="40.64" y="31.75" size="1.778" layer="27" display="off"/>
+<element name="J1" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X04" value="" x="40.64" y="36.83">
+<attribute name="PROD_ID" value="CONN-09696" x="40.64" y="36.83" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="PROTRINKET" value="PRO_TRINKET" x="48.26" y="49.53"/>
-<element name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X05" value="" x="57.984203125" y="32.584203125" rot="R225"/>
-<element name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02" value="" x="58.42" y="38.1" rot="R270"/>
+<element name="J2" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X05" value="" x="1.27" y="-19.05"/>
+<element name="J3" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" package="1X02" value="" x="1.27" y="-38.1"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -696,47 +696,47 @@ design rules under a new name.</description>
 <contactref element="C1" pad="-"/>
 <contactref element="U$1" pad="GND"/>
 <contactref element="J2" pad="5"/>
-<wire x1="40.64" y1="31.75" x2="55.88" y2="70.231" width="0" layer="19" extent="1-1"/>
-<wire x1="40.64" y1="35.56" x2="40.64" y2="31.75" width="0" layer="19" extent="1-1"/>
-<wire x1="40.64" y1="38.1" x2="40.64" y2="35.56" width="0" layer="19" extent="1-1"/>
-<wire x1="53.34" y1="16.51" x2="40.64" y2="38.1" width="0" layer="19" extent="1-1"/>
-<wire x1="40.64" y1="16.51" x2="40.64" y2="38.1" width="0" layer="19" extent="1-1"/>
-<wire x1="55.88" y1="36.83" x2="53.34" y2="16.51" width="0" layer="19" extent="1-1"/>
-<wire x1="50.799996875" y1="25.399996875" x2="40.64" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="36.83" x2="55.88" y2="70.231" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="26.67" x2="40.64" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="24.13" x2="46.99" y2="26.67" width="0" layer="19" extent="1-1"/>
+<wire x1="50.8" y1="16.51" x2="46.99" y2="24.13" width="0" layer="19" extent="1-1"/>
+<wire x1="38.1" y1="16.51" x2="46.99" y2="24.13" width="0" layer="19" extent="1-1"/>
+<wire x1="78.74" y1="31.75" x2="50.8" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="11.43" y1="-19.05" x2="38.1" y2="16.51" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BTN2PROG">
 <contactref element="R2" pad="P$2"/>
 <contactref element="U$1" pad="4"/>
 <contactref element="J2" pad="3"/>
-<wire x1="48.26" y1="35.56" x2="55.88" y2="54.991" width="0" layer="19" extent="1-1"/>
-<wire x1="54.3921" y1="28.9921" x2="48.26" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="26.67" x2="55.88" y2="54.991" width="0" layer="19" extent="1-1"/>
+<wire x1="6.35" y1="-19.05" x2="39.37" y2="26.67" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BTN1BRIGHT">
 <contactref element="R1" pad="P$2"/>
 <contactref element="U$1" pad="3"/>
 <contactref element="J2" pad="4"/>
-<wire x1="48.26" y1="38.1" x2="55.88" y2="52.451" width="0" layer="19" extent="1-1"/>
-<wire x1="52.596046875" y1="27.196046875" x2="48.26" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="24.13" x2="55.88" y2="52.451" width="0" layer="19" extent="1-1"/>
+<wire x1="8.89" y1="-19.05" x2="39.37" y2="24.13" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CLK_LIGHT">
 <contactref element="J1" pad="2"/>
 <contactref element="U$1" pad="13"/>
-<wire x1="40.64" y1="62.611" x2="43.18" y2="31.75" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="62.611" x2="43.18" y2="36.83" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SDA_ACC">
 <contactref element="JP4" pad="2"/>
 <contactref element="U$1" pad="A4"/>
-<wire x1="40.64" y1="47.371" x2="55.88" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="47.371" x2="53.34" y2="16.51" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SCL_ACC">
 <contactref element="JP4" pad="1"/>
 <contactref element="U$1" pad="A5"/>
-<wire x1="40.64" y1="44.831" x2="58.42" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="44.831" x2="55.88" y2="16.51" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MOSI_LIGHT">
 <contactref element="J1" pad="3"/>
 <contactref element="U$1" pad="11"/>
-<wire x1="40.64" y1="67.691" x2="45.72" y2="31.75" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="67.691" x2="45.72" y2="36.83" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="BAT+">
 <contactref element="U$1" pad="BAT+"/>
@@ -744,10 +744,10 @@ design rules under a new name.</description>
 <contactref element="JP4" pad="6"/>
 <contactref element="J1" pad="4"/>
 <contactref element="C1" pad="+"/>
-<wire x1="48.26" y1="31.75" x2="50.8" y2="36.83" width="0" layer="19" extent="1-1"/>
-<wire x1="43.18" y1="16.51" x2="48.26" y2="31.75" width="0" layer="19" extent="1-1"/>
-<wire x1="45.72" y1="16.51" x2="43.18" y2="16.51" width="0" layer="19" extent="1-1"/>
-<wire x1="55.88" y1="72.771" x2="48.26" y2="31.75" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="36.83" x2="78.74" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="40.64" y1="16.51" x2="48.26" y2="36.83" width="0" layer="19" extent="1-1"/>
+<wire x1="43.18" y1="16.51" x2="40.64" y2="16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="55.88" y1="72.771" x2="48.26" y2="36.83" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USB">
 <contactref element="U$1" pad="USB"/>
@@ -758,20 +758,12 @@ design rules under a new name.</description>
 <signal name="SWITCHB">
 <contactref element="J3" pad="1"/>
 <contactref element="J2" pad="2"/>
-<wire x1="56.18815" y1="30.78815" x2="58.42" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="3.81" y1="-19.05" x2="1.27" y2="-38.1" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SWITCHA">
 <contactref element="J3" pad="2"/>
 <contactref element="J2" pad="1"/>
-<wire x1="57.984203125" y1="32.584203125" x2="58.42" y2="35.56" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$1">
-<polygon width="0.1524" layer="1">
-<vertex x="39.37" y="16.51"/>
-<vertex x="59.69" y="16.51"/>
-<vertex x="59.69" y="8.89"/>
-<vertex x="39.37" y="8.89"/>
-</polygon>
+<wire x1="1.27" y1="-19.05" x2="3.81" y2="-38.1" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
