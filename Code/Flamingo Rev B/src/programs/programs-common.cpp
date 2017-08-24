@@ -7,25 +7,38 @@ CRGB color = 0x601040;  // Flamingo Pink for dotstars
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void setPixelByStrandIndex(uint16_t index, CRGB color)
 {
-  if ((index >= 0) && (index < NUMPERSTRAND))
+  if (THREESTRANDS == 1)
     {
-      // index goes from 0 to NUMPERSTRAND - 1
-      uint8_t realindex = 0;
+      if ((index >= 0) && (index < NUMPERSTRAND))
+        {
+          // index goes from
+          // 0 to
+          // NUMPERSTRAND - 1
+          uint8_t realindex = 0;
 
-      // NUMPERSTRAND - 1
-      // 0
-      realindex = NUMPERSTRAND - index - 1;
-      leds[realindex] = color;
+          // NUMPERSTRAND - 1
+          // 0
+          realindex = NUMPERSTRAND - index - 1;
+          leds[realindex] = color;
 
-      // NUMPERSTRAND
-      // 2*NUMPERSTRAND - 1
-      realindex = NUMPERSTRAND + index;
-      leds[realindex] = color;
+          // NUMPERSTRAND
+          // 2*NUMPERSTRAND - 1
+          realindex = NUMPERSTRAND + index;
+          leds[realindex] = color;
 
-      // 3*NUMPERSTRAND - 1
-      // 2*NUMPERSTRAND
-      realindex = 3 * NUMPERSTRAND - index - 1;
-      leds[realindex] = color;
+          // 3*NUMPERSTRAND - 1
+          // 2*NUMPERSTRAND
+          realindex = 3 * NUMPERSTRAND - index - 1;
+          leds[realindex] = color;
+        }
+    };
+
+  if (THREESTRANDS == 0)
+    {
+      if ((index >= 0) && (index < NUMPERSTRAND))
+        {
+          leds[index] = color;
+        }
     }
 }
 

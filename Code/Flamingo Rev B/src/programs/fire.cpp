@@ -128,6 +128,7 @@ void GreenFireOriginal(void)
 
   FastLED.show();
   FastLED.delay(GFIRE_SPEEDDELAY);
+  // FastLED.delay(GFIRE_SPEEDDELAY);
 }
 
 ///////////////////////

@@ -21,7 +21,17 @@
 #include <utils.h>
 
 #define NUM_PROGRAMS 14
-#define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
+// #define RUN_ON_TOTEM    // COmment out if running on bike or testbed.
+#define THREESTRANDS 0  // 1 is Flamingo-style, 0 is for bike.
+
+// FastLED stuff
+#define NUMPIXELS 144     // Number of LEDs in strip
+#define NUMPERSTRAND 144  // 3 Flamingo strands: 48. Bike: 144.
+#define CLOCK_PIN 13
+#define DATA_PIN 11
+#define COLOR_ORDER BGR  // my strip is BGR
+#define CORRECTION TypicalLEDStrip
+//#define CORRECTION UncorrectedColor
 
 // Accelerometer defs
 // NEEDS TO BE SET FOR EACH INDIVIDUAL BOARD!
@@ -52,17 +62,8 @@
 
 #define BRIGHTNESS_COUNT 10  // Number of brightness levels
 
-// FastLED stuff
-#define NUMPIXELS 144    // Number of LEDs in strip
-#define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
-#define CLOCK_PIN 13
-#define DATA_PIN 11
-#define COLOR_ORDER BGR  // my strip is BGR
-#define CORRECTION TypicalLEDStrip
-//#define CORRECTION UncorrectedColor
-
 // Harmonic oscillator parameters
-#define SPRINGCONSTANT 2
+#define SPRINGCONSTANT 2.2  // 2.0 was a little too soft.
 #define DAMPING 0.4f
 #define MAXRANGE 15.0f
 #define MAXRANGE_REAL 1.0f
