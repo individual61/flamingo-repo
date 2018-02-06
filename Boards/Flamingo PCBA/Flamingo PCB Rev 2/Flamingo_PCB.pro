@@ -1,4 +1,4 @@
-update=Sunday, February 04, 2018 'PMt' 07:40:34 PM
+update=Monday, February 05, 2018 'PMt' 07:49:47 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -63,3 +63,4 @@ LibName31=MyResistors
 LibName32=MyConnectors
 LibName33=MyCapacitors
 LibName34=MyLEDs
+LibName35=MyICs
