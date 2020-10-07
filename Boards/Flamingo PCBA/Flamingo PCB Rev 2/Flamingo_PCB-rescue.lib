@@ -1,31 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Device_CP1_Small
+# ATMEGA328P-MU
 #
-DEF Device_CP1_Small C 0 10 N N 1 F N
-F0 "C" 10 70 50 H V L CNN
-F1 "Device_CP1_Small" 10 -80 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- CP_*
-$ENDFPLIST
-DRAW
-A 0 -140 125 1186 614 0 1 12 N -60 -30 60 -30
-P 2 0 1 12 -60 20 60 20 N
-P 2 0 1 0 -50 60 -30 60 N
-P 2 0 1 0 -40 50 -40 70 N
-X ~ 1 0 100 80 D 50 50 1 1 P
-X ~ 2 0 -100 80 U 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# Flamingo_PCB-rescue_ATMEGA328P-MU
-#
-DEF Flamingo_PCB-rescue_ATMEGA328P-MU U 0 40 Y Y 1 F N
+DEF ATMEGA328P-MU U 0 40 Y Y 1 F N
 F0 "U" -750 1250 50 H V L BNN
-F1 "Flamingo_PCB-rescue_ATMEGA328P-MU" 400 -1400 50 H V L BNN
+F1 "ATMEGA328P-MU" 400 -1400 50 H V L BNN
 F2 "MLF/QFN32" 0 0 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -65,11 +45,11 @@ X (PCINT21/OC0B/T1)PD5 9 1000 -1000 150 L 40 40 1 1 B
 ENDDRAW
 ENDDEF
 #
-# Flamingo_PCB-rescue_Conn_01x02
+# Conn_01x02
 #
-DEF Flamingo_PCB-rescue_Conn_01x02 J 0 40 Y N 1 F N
+DEF Conn_01x02 J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "Flamingo_PCB-rescue_Conn_01x02" 0 -200 50 H V C CNN
+F1 "Conn_01x02" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -89,11 +69,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Flamingo_PCB-rescue_LED_ALT_vert
+# LED_ALT_vert
 #
-DEF Flamingo_PCB-rescue_LED_ALT_vert D 0 40 Y N 1 F N
+DEF LED_ALT_vert D 0 40 Y N 1 F N
 F0 "D" 200 100 50 H V C CNN
-F1 "Flamingo_PCB-rescue_LED_ALT_vert" 150 0 50 H V L CNN
+F1 "LED_ALT_vert" 150 0 50 H V L CNN
 F2 "" 100 0 50 H I C CNN
 F3 "" 200 100 50 H I C CNN
 F4 "XXXX" 150 -100 50 H V L CNN "Package Size"
@@ -111,11 +91,11 @@ X A 2 0 150 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Flamingo_PCB-rescue_MCP73831_2
+# MCP73831_2
 #
-DEF Flamingo_PCB-rescue_MCP73831_2 U 0 40 Y Y 1 F N
+DEF MCP73831_2 U 0 40 Y Y 1 F N
 F0 "U" 50 300 60 H V C CNN
-F1 "Flamingo_PCB-rescue_MCP73831_2" 300 -300 60 H V C CNN
+F1 "MCP73831_2" 300 -300 60 H V C CNN
 F2 "" 400 0 60 H I C CNN
 F3 "" 400 0 60 H I C CNN
 DRAW
@@ -128,11 +108,11 @@ X PROG 5 950 0 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# Flamingo_PCB-rescue_R_vert
+# R_vert
 #
-DEF Flamingo_PCB-rescue_R_vert R 0 0 N Y 1 F N
+DEF R_vert R 0 0 N Y 1 F N
 F0 "R" 100 100 50 H V L CNN
-F1 "Flamingo_PCB-rescue_R_vert" 100 0 50 H V L CNN
+F1 "R_vert" 100 0 50 H V L CNN
 F2 "" 55 -50 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 F4 "XXXX" 100 -100 50 H V L CNN
@@ -147,44 +127,6 @@ P 2 0 1 12 0 75 0 100 N
 P 8 0 1 12 0 75 50 50 -50 25 50 0 -50 -25 50 -50 -50 -75 0 -100 N
 X ~ 1 0 150 50 D 50 50 1 1 P
 X ~ 2 0 -200 50 U 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# MyConnectors_01x02_Connector
-#
-DEF MyConnectors_01x02_Connector J 0 40 Y N 1 F N
-F0 "J" 100 50 50 H V L CNN
-F1 "MyConnectors_01x02_Connector" 100 -50 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-F4 "MFR P/N" 100 -150 50 H V L CNN "MFR P/N"
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 50 50 -150 1 1 10 f
-X Pin_1 1 -200 0 150 R 50 50 1 1 P
-X Pin_2 2 -200 -100 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
-# power_GND
-#
-DEF power_GND #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power_GND" 0 -150 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 6 0 1 0 0 0 0 -50 50 -50 0 -100 -50 -50 0 -50 N
-X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #

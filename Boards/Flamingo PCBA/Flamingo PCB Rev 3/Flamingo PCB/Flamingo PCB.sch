@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title "Flamingo PCB"
 Date "2020-09-29"
 Rev "3"
@@ -24,6 +24,8 @@ S 4000 1500 1950 1400
 U 5F780D75
 F0 "Battery Charger" 50
 F1 "Flamingo PCB - Battery Charger.sch" 50
+F2 "V_BAT" U R 5950 2350 50 
+F3 "V_BUS" U R 5950 2100 50 
 $EndSheet
 $Sheet
 S 6500 1500 2000 1400

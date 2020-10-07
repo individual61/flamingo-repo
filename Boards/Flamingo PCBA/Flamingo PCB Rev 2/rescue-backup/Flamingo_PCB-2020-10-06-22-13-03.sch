@@ -1,5 +1,41 @@
-EESchema Schematic File Version 4
-EELAYER 30 0
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:MySwitchesButtons
+LIBS:MyResistors
+LIBS:MyConnectors
+LIBS:MyCapacitors
+LIBS:MyLEDs
+LIBS:MyICs
+LIBS:Flamingo_PCB-cache
+EELAYER 25 0
 EELAYER END
 $Descr B 17000 11000
 encoding utf-8
@@ -14,7 +50,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Flamingo_PCB-rescue:ATMEGA328P-MU U?
+L ATMEGA328P-MU U?
 U 1 1 5A7688F4
 P 6400 1950
 F 0 "U?" H 5650 3200 50  0000 L BNN
@@ -25,7 +61,7 @@ F 3 "" H 6400 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MyConnectors:01x02_Connector J?
+L Conn_01x02 J?
 U 1 1 5A77CDB7
 P 5450 4400
 F 0 "J?" H 5600 4400 50  0000 C CNN
@@ -36,7 +72,7 @@ F 3 "" H 5450 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:Conn_01x02 J?
+L Conn_01x02 J?
 U 1 1 5A77D1BC
 P 4750 4000
 F 0 "J?" H 4750 4100 50  0000 C CNN
@@ -49,7 +85,7 @@ $EndComp
 Text GLabel 5300 4200 2    60   UnSpc ~ 0
 VBAT
 $Comp
-L Device:CP1_Small C?
+L CP1_Small C?
 U 1 1 5A77D42F
 P 4750 4750
 F 0 "C?" H 4760 4820 50  0000 L CNN
@@ -60,7 +96,7 @@ F 3 "" H 4750 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A77D475
 P 4750 5050
 F 0 "#PWR?" H 4750 4800 50  0001 C CNN
@@ -71,7 +107,7 @@ F 3 "" H 4750 5050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A7922B1
 P 5250 5050
 F 0 "#PWR?" H 5250 4800 50  0001 C CNN
@@ -82,7 +118,7 @@ F 3 "" H 5250 5050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:MCP73831_2 U?
+L MCP73831/2 U?
 U 1 1 5A792A79
 P 2850 4550
 F 0 "U?" H 2900 4850 60  0000 C CNN
@@ -93,7 +129,7 @@ F 3 "" H 3250 4550 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A792C1C
 P 4200 5050
 F 0 "#PWR?" H 4200 4800 50  0001 C CNN
@@ -104,7 +140,7 @@ F 3 "" H 4200 5050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:R_vert R?
+L R_vert R?
 U 1 1 5A792EFA
 P 4200 4750
 F 0 "R?" H 4300 4850 50  0000 L CNN
@@ -116,7 +152,7 @@ F 4 "0603" H 4300 4650 50  0000 L CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A793A9E
 P 3800 5050
 F 0 "#PWR?" H 3800 4800 50  0001 C CNN
@@ -129,7 +165,7 @@ $EndComp
 Text Notes 3750 5900 0    60   ~ 0
 Batt charging rate:\n10k = 100mA\n5.0k = 200 mA\n2.0k = 500 mA\n1.0k = 1000mA
 $Comp
-L Flamingo_PCB-rescue:R_vert R?
+L R_vert R?
 U 1 1 5A793D58
 P 1600 5500
 F 0 "R?" H 1700 5600 50  0000 L CNN
@@ -141,7 +177,7 @@ F 4 "0603" H 1700 5400 50  0000 L CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:R_vert R?
+L R_vert R?
 U 1 1 5A793E4E
 P 1600 5050
 F 0 "R?" H 1700 5150 50  0000 L CNN
@@ -153,7 +189,7 @@ F 4 "0603" H 1700 4950 50  0000 L CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:LED_ALT_vert D?
+L LED_ALT_vert D?
 U 1 1 5A793EFD
 P 1600 4600
 F 0 "D?" H 1800 4700 50  0000 C CNN
@@ -165,7 +201,7 @@ F 4 "XXXX" H 1750 4500 50  0000 L CNN "Package Size"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Flamingo_PCB-rescue:LED_ALT_vert D?
+L LED_ALT_vert D?
 U 1 1 5A7942CC
 P 1600 5950
 F 0 "D?" H 1800 6050 50  0000 C CNN
@@ -177,7 +213,7 @@ F 4 "XXXX" H 1750 5850 50  0000 L CNN "Package Size"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A794321
 P 1600 6200
 F 0 "#PWR?" H 1600 5950 50  0001 C CNN
@@ -190,7 +226,7 @@ $EndComp
 Text Notes 1400 4100 0    60   Italic 0
 TODO\nChange resistor values\nFind green resistor
 $Comp
-L Device:CP1_Small C?
+L CP1_Small C?
 U 1 1 5A7948BF
 P 1000 4750
 F 0 "C?" H 1010 4820 50  0000 L CNN
@@ -201,7 +237,7 @@ F 3 "" H 1000 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L GND #PWR?
 U 1 1 5A7949E9
 P 1000 5100
 F 0 "#PWR?" H 1000 4850 50  0001 C CNN

@@ -25,7 +25,7 @@ F 3 "" H 6400 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MyConnectors:01x02_Connector J?
+L Flamingo_PCB-rescue:Conn_01x02 J?
 U 1 1 5A77CDB7
 P 5450 4400
 F 0 "J?" H 5600 4400 50  0000 C CNN
