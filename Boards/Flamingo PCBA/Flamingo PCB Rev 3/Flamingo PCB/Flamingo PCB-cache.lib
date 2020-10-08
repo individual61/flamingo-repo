@@ -19,13 +19,44 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_CP1_Small
+# Jumper_SolderJumper_2_Open
 #
-DEF Device_CP1_Small C 0 10 N N 1 F N
-F0 "C" 10 70 50 H V L CNN
-F1 "Device_CP1_Small" 10 -80 50 H V L CNN
+DEF Jumper_SolderJumper_2_Open JP 0 0 Y N 1 F N
+F0 "JP" 0 80 50 H V C CNN
+F1 "Jumper_SolderJumper_2_Open" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
+$FPLIST
+ SolderJumper*Open*
+$ENDFPLIST
+DRAW
+A -10 0 40 901 -901 0 1 0 N -10 40 -10 -40
+A -10 0 40 901 -901 0 1 0 F -10 40 -10 -40
+A 10 0 40 -899 899 0 1 0 N 10 -40 10 40
+A 10 0 40 -899 899 0 1 0 F 10 -40 10 40
+P 2 0 1 0 -10 40 -10 -40 N
+P 2 0 1 0 10 40 10 -40 N
+X A 1 -150 0 100 R 50 50 1 1 P
+X B 2 150 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# MyCapacitors_CP1_Small_vert
+#
+DEF MyCapacitors_CP1_Small_vert C 0 10 N N 1 F N
+F0 "C" 100 150 50 H V L CNN
+F1 "MyCapacitors_CP1_Small_vert" 100 50 50 H V L CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 10 70 50 H I C CNN
+F4 "Voltage" 100 -50 50 H V L CNN "Voltage Rating"
+F5 "XXXX" 100 -150 50 H V L CNN "Package Size"
+F6 "MFR P/N" 100 -250 50 H V L CNN "MFR P/N"
+F7 "MFR P/N" 100 -250 50 H V L CNN "MPN"
+F8 "-" 100 -250 50 H V L CNN "Digi-Key_PN"
+F9 "C" 100 -250 50 H V L CNN "Prefix"
+F10 "-" 100 -250 50 H V L CNN "Website"
+F11 "-" 100 -250 50 H V L CNN "Description"
+F12 "-" 100 -250 50 H V L CNN "Manufacturer"
 $FPLIST
  CP_*
 $ENDFPLIST
@@ -39,38 +70,20 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# MyConnectors_01x02_Connector
-#
-DEF MyConnectors_01x02_Connector J 0 40 Y N 1 F N
-F0 "J" 100 50 50 H V L CNN
-F1 "MyConnectors_01x02_Connector" 100 -50 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-F4 "MFR P/N" 100 -150 50 H V L CNN "MFR P/N"
-$FPLIST
- Connector*:*_??x*mm*
- Connector*:*1x??x*mm*
- Pin?Header?Straight?1X*
- Pin?Header?Angled?1X*
- Socket?Strip?Straight?1X*
- Socket?Strip?Angled?1X*
-$ENDFPLIST
-DRAW
-S -50 -95 0 -105 1 1 6 N
-S -50 5 0 -5 1 1 6 N
-S -50 50 50 -150 1 1 10 f
-X Pin_1 1 -200 0 150 R 50 50 1 1 P
-X Pin_2 2 -200 -100 150 R 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
 # MyICs_ATMEGA328P-MU
 #
-DEF MyICs_ATMEGA328P-MU U 0 40 Y Y 1 F N
-F0 "U" -750 1250 50 H V L BNN
+DEF MyICs_ATMEGA328P-MU U? 0 40 Y Y 1 F N
+F0 "U?" -750 1250 50 H V L BNN
 F1 "MyICs_ATMEGA328P-MU" 400 -1400 50 H V L BNN
-F2 "MLF/QFN32" 0 0 50 H I C CIN
+F2 "" 0 0 50 H I C CIN
 F3 "" 0 0 50 H I C CNN
+F4 "MFR P/N" 0 0 50 H I C CNN "MPN"
+F5 "-" 0 0 50 H I C CNN "Digi-Key_PN"
+F6 "MLF/QFN32" 0 0 50 H I C CNN "Footprint"
+F7 "U" 0 0 50 H I C CNN "Prefix"
+F8 "-" 0 0 50 H I C CNN "Website"
+F9 "-" 0 0 50 H I C CNN "Description"
+F10 "-" 0 0 50 H I C CNN "Manufacturer"
 DRAW
 S -750 1200 850 -1300 0 1 10 f
 X (PCINT19/OC2B/INT1)PD3 1 1000 -800 150 L 40 40 1 1 B
@@ -116,7 +129,13 @@ F1 "MyLEDs_LED_ALT_vert" 150 0 50 H V L CNN
 F2 "" 100 0 50 H I C CNN
 F3 "" 200 100 50 H I C CNN
 F4 "XXXX" 150 -100 50 H V L CNN "Package Size"
-F5 "MFR P/N" 150 -200 50 H V L CNN "MFR P/N"
+F5 "-" 150 -200 50 H V L CNN "MPN"
+F6 "-" 0 0 50 H V C CNN "Digi-Key_PN"
+F7 "D" 0 0 50 H V C CNN "Prefix"
+F8 "LED_ALT_vert" 0 0 50 H V C CNN "Value"
+F9 "-" 0 0 50 H V C CNN "Manufacturer"
+F10 "-" 0 0 50 H V C CNN "Website"
+F11 "-" 0 0 50 H V C CNN "Description"
 $FPLIST
  LED*
 $ENDFPLIST
@@ -140,6 +159,12 @@ F2 "" 55 -50 50 V I C CNN
 F3 "" 0 0 50 H I C CNN
 F4 "XXXX" 100 -100 50 H V L CNN "Package Size"
 F5 "MFR P/N" 300 300 50 H V C CNN "MFR P/N"
+F6 "MFR P/N" 300 300 50 H V C CNN "MPN"
+F7 "-" 300 300 50 H V C CNN "Digi-Key_PN"
+F8 "R" 300 300 50 H V C CNN "Prefix"
+F9 "-" 300 300 50 H V C CNN "Website"
+F10 "-" 300 300 50 H V C CNN "Description"
+F11 "-" 300 300 50 H V C CNN "Manufacturer"
 $FPLIST
  R_*
  R_*
@@ -177,6 +202,31 @@ X VSS 2 0 -400 100 U 50 50 1 1 W
 X VBAT 3 400 0 100 L 50 50 1 1 w
 X VDD 4 0 200 100 D 50 50 1 1 W
 X PROG 5 -400 -100 100 R 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# dk_Rectangular-Connectors-Headers-Male-Pins_S2B-PH-K-S_LF__SN_
+#
+DEF dk_Rectangular-Connectors-Headers-Male-Pins_S2B-PH-K-S_LF__SN_ J 0 40 Y Y 1 F N
+F0 "J" -100 -50 50 H V R CNN
+F1 "dk_Rectangular-Connectors-Headers-Male-Pins_S2B-PH-K-S_LF__SN_" 50 -150 50 H V C CNN
+F2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" 200 200 60 H I L CNN
+F3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" 200 300 60 H I L CNN
+F4 "455-1719-ND" 200 400 60 H I L CNN "Digi-Key_PN"
+F5 "S2B-PH-K-S(LF)(SN)" 200 500 60 H I L CNN "MPN"
+F6 "Connectors, Interconnects" 200 600 60 H I L CNN "Category"
+F7 "Rectangular Connectors - Headers, Male Pins" 200 700 60 H I L CNN "Family"
+F8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" 200 800 60 H I L CNN "DK_Datasheet_Link"
+F9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" 200 900 60 H I L CNN "DK_Detail_Page"
+F10 "CONN HEADER R/A 2POS 2MM" 200 1000 60 H I L CNN "Description"
+F11 "JST Sales America Inc." 200 1100 60 H I L CNN "Manufacturer"
+F12 "Active" 200 1200 60 H I L CNN "Status"
+DRAW
+S -50 0 150 -100 1 1 0 f
+S -10 -45 10 -65 1 1 0 F
+S 90 -45 110 -65 1 1 0 F
+X ~ 1 0 100 100 D 50 50 1 1 P
+X ~ 2 100 100 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
