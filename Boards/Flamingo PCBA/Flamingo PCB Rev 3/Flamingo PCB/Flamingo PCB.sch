@@ -20,12 +20,12 @@ F0 "Arduino" 50
 F1 "Flamingo PCB - Arduinosch.sch" 50
 $EndSheet
 $Sheet
-S 4000 1500 1950 1400
+S 3900 1500 1950 1400
 U 5F780D75
 F0 "Battery Charger" 50
 F1 "Flamingo PCB - Battery Charger.sch" 50
-F2 "V_BAT" U R 5950 2350 50 
-F3 "V_BUS" U R 5950 2100 50 
+F2 "V_BAT" U R 5850 2200 50 
+F3 "V_BUS" U L 3900 2200 50 
 $EndSheet
 $Sheet
 S 6500 1500 2000 1400

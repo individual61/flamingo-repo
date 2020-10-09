@@ -147,4 +147,26 @@ Wire Wire Line
 	1700 3000 2150 3000
 Text Notes -3700 950  0    50   ~ 0
 ATmega328-AU Surface mount (Low/Thin Profile Plastic Quad Flat Package)\nATmega328-AUR Same thing on a tape reel for automatic pick and place machines\n\nATmega328-MU Surface mount (very thin fine pitch quad flat, no lead package)\nATmega328-MUR Same thing on a tape reel for automatic pick and place machines\n\nATmega328-PU  28-pin DIP\n\n(Same also for ATmega328P)
+Text Notes -3750 1900 0    50   ~ 0
+The -PU and -AU suffixes indicate packaging and temperature range\n\n -P indicates a DIP, \n-A indicates a TQFP, and \n-M is a QFN.  \n\nU means "industrial" temperature range.
+$Comp
+L dk_Embedded-Microcontrollers:ATMEGA328P-AU U?
+U 1 1 5F81C685
+P 5400 2900
+F 0 "U?" H 5728 3003 60  0000 L CNN
+F 1 "ATMEGA328P-AU" H 5728 2897 60  0000 L CNN
+F 2 "digikey-footprints:TQFP-32_7x7mm" H 5600 3100 60  0001 L CNN
+F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en608326" H 5600 3200 60  0001 L CNN
+F 4 "ATMEGA328P-AU-ND" H 5600 3300 60  0001 L CNN "Digi-Key_PN"
+F 5 "ATMEGA328P-AU" H 5600 3400 60  0001 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 5600 3500 60  0001 L CNN "Category"
+F 7 "Embedded - Microcontrollers" H 5600 3600 60  0001 L CNN "Family"
+F 8 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en608326" H 5600 3700 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/microchip-technology/ATMEGA328P-AU/ATMEGA328P-AU-ND/1832260" H 5600 3800 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC MCU 8BIT 32KB FLASH 32TQFP" H 5600 3900 60  0001 L CNN "Description"
+F 11 "Microchip Technology" H 5600 4000 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5600 4100 60  0001 L CNN "Status"
+	1    5400 2900
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
