@@ -16,34 +16,14 @@ $EndDescr
 Text Notes 600  7700 0    39   ~ 0
 --------FLOW CHART--------\n\n###SHUTDOWN MODE\nVDD < VUVLO\nVDD < VBAT\nor\nPROG > 200 k\nSTAT = High Z\n\n###PRECONDITIONING \nCharge Current = IPREG\nSTAT = LOW\n\n###FAST CHARGE \nAlso get here if VBAT > VPTH from SHUTDOWN    \nor   \nVBAT < VRTH  from CHARGE COMPLETE\n\nCharge Current = IREG\nSTAT = LOW\n\n###CONSTANT VOLTAGE \nCharge Voltage = VREG\nSTAT = LOW\n\n###CHARGE MODE \nSTAT = HIGH (MCP73831)\nSTAT = High Z (MCP73832)\n\n--------PART NUMBER BREAKDOWN--------\n\nMCP73831T - 2 * * * _ OT\n\n(T) Tape and reel\n(2) 4.20 V regulated\n(OT) SMall Outline Transistor SOT23 T-Lead\n\n#######\n\nMCP73831T - 2 A C I _ OT\n(AT) Ipreg/Ireg = 10%\n        Iterm/Ireg = 7.5%\n\nMCP73831T - 2 A T I _ OT\n(AT) Ipreg/Ireg = 10%\n        Iterm/Ireg = 20%\n\nMCP73831T - 2 D C I _ OT\n(DC) Ipreg/Ireg = 100%\n        Iterm/Ireg = 7.5%
 $Comp
-L dk_PMIC-Battery-Chargers:MCP73831T-2ATI_OT U301
-U 1 1 5F7DB625
-P 7050 2250
-F 0 "U301" H 7050 2653 60  0000 C CNN
-F 1 "MCP73831T-2ATI_OT" H 7050 2547 60  0000 C CNN
-F 2 "digikey-footprints:SOT-753" H 7250 2450 60  0001 L CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 7250 2550 60  0001 L CNN
-F 4 "MCP73831T-2ATI/OTCT-ND" H 7250 2650 60  0001 L CNN "Digi-Key_PN"
-F 5 "MCP73831T-2ATI/OT" H 7250 2750 60  0001 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 7250 2850 60  0001 L CNN "Category"
-F 7 "PMIC - Battery Chargers" H 7250 2950 60  0001 L CNN "Family"
-F 8 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 7250 3050 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/microchip-technology/MCP73831T-2ATI-OT/MCP73831T-2ATI-OTCT-ND/1979803" H 7250 3150 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC CONTROLLR LI-ION 4.2V SOT23-5" H 7250 3250 60  0001 L CNN "Description"
-F 11 "Microchip Technology" H 7250 3350 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 7250 3450 60  0001 L CNN "Status"
-	1    7050 2250
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0303
 U 1 1 5F7DD8CE
-P 7050 2650
-F 0 "#PWR0303" H 7050 2400 50  0001 C CNN
-F 1 "GND" H 7055 2477 50  0000 C CNN
-F 2 "" H 7050 2650 50  0001 C CNN
-F 3 "" H 7050 2650 50  0001 C CNN
-	1    7050 2650
+P 7100 2700
+F 0 "#PWR0303" H 7100 2450 50  0001 C CNN
+F 1 "GND" H 7105 2527 50  0000 C CNN
+F 2 "" H 7100 2700 50  0001 C CNN
+F 3 "" H 7100 2700 50  0001 C CNN
+	1    7100 2700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -89,136 +69,130 @@ Wire Wire Line
 Text HLabel 9900 1900 2    50   UnSpc ~ 10
 V_BAT
 Wire Wire Line
-	7450 2350 7650 2350
-Connection ~ 3550 2050
+	7500 2450 7650 2450
 $Comp
 L power:GND #PWR0301
 U 1 1 5F7ED2F5
-P 3550 2550
-F 0 "#PWR0301" H 3550 2300 50  0001 C CNN
-F 1 "GND" H 3555 2377 50  0000 C CNN
-F 2 "" H 3550 2550 50  0001 C CNN
-F 3 "" H 3550 2550 50  0001 C CNN
-	1    3550 2550
+P 3550 2900
+F 0 "#PWR0301" H 3550 2650 50  0001 C CNN
+F 1 "GND" H 3555 2727 50  0000 C CNN
+F 2 "" H 3550 2900 50  0001 C CNN
+F 3 "" H 3550 2900 50  0001 C CNN
+	1    3550 2900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 4300 4950 4500
+	4950 4500 4950 4700
 $Comp
 L power:GND #PWR0302
 U 1 1 5F7EC089
-P 4950 4500
-F 0 "#PWR0302" H 4950 4250 50  0001 C CNN
-F 1 "GND" H 4955 4327 50  0000 C CNN
-F 2 "" H 4950 4500 50  0001 C CNN
-F 3 "" H 4950 4500 50  0001 C CNN
-	1    4950 4500
+P 4950 4700
+F 0 "#PWR0302" H 4950 4450 50  0001 C CNN
+F 1 "GND" H 4955 4527 50  0000 C CNN
+F 2 "" H 4950 4700 50  0001 C CNN
+F 3 "" H 4950 4700 50  0001 C CNN
+	1    4950 4700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 3850 4950 4000
+	4950 4050 4950 4200
 Wire Wire Line
-	4950 2500 4950 2750
+	4950 2700 4950 2950
 $Comp
 L MyLEDs:LED_ALT_vert D301
 U 1 1 5F7EA956
-P 4950 2350
-F 0 "D301" H 5068 2480 50  0000 L CNN
-F 1 "Red/Charging" H 5068 2389 50  0000 L CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 5050 2350 50  0001 C CNN
-F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493517/LS%20L29K.pdf" H 5150 2450 50  0001 C CNN
-F 4 "0603" H 5068 2298 50  0000 L CNN "Package Size"
-F 5 "LS L29K-G1J2-1-Z" H 5068 2207 50  0000 L CNN "MFR P/N"
-F 6 "LED RED DIFFUSED 0603 SMD" H 4950 2350 50  0001 C CNN "Description"
-F 7 "OSRAM Opto Semiconductors Inc." H 4950 2350 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LS-L29K-G1J2-1-Z/1802633" H 4950 2350 50  0001 C CNN "Website"
-F 9 "475-2506-1-ND" H 4950 2350 50  0001 C CNN "Digi-Key_PN"
-	1    4950 2350
+P 4950 2550
+F 0 "D301" H 5068 2680 50  0000 L CNN
+F 1 "Red/Charging" H 5068 2589 50  0000 L CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 5050 2550 50  0001 C CNN
+F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493517/LS%20L29K.pdf" H 5150 2650 50  0001 C CNN
+F 4 "0603" H 5068 2498 50  0000 L CNN "Package Size"
+F 5 "LS L29K-G1J2-1-Z" H 5068 2407 50  0000 L CNN "MFR P/N"
+F 6 "LED RED DIFFUSED 0603 SMD" H 4950 2550 50  0001 C CNN "Description"
+F 7 "OSRAM Opto Semiconductors Inc." H 4950 2550 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LS-L29K-G1J2-1-Z/1802633" H 4950 2550 50  0001 C CNN "Website"
+F 9 "475-2506-1-ND" H 4950 2550 50  0001 C CNN "Digi-Key_PN"
+	1    4950 2550
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyResistors:R_vert R301
 U 1 1 5F7EA095
-P 4950 2900
-F 0 "R301" H 5031 3012 50  0000 L CNN
-F 1 "1.5k" H 5031 2921 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5005 2850 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4950 2900 50  0001 C CNN
-F 4 "0603" H 5031 2830 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-071K5L" H 5031 2739 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 4950 2900 50  0001 C CNN "Description"
-F 7 "Yageo" H 4950 2900 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 4950 2900 50  0001 C CNN "Website"
-F 9 "311-1.50KHRCT-ND" H 4950 2900 50  0001 C CNN "Digi-Key_PN"
-	1    4950 2900
+P 4950 3100
+F 0 "R301" H 5031 3212 50  0000 L CNN
+F 1 "1.5k" H 5031 3121 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 5005 3050 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4950 3100 50  0001 C CNN
+F 4 "0603" H 5031 3030 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-071K5L" H 5031 2939 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 4950 3100 50  0001 C CNN "Description"
+F 7 "Yageo" H 4950 3100 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 4950 3100 50  0001 C CNN "Website"
+F 9 "311-1.50KHRCT-ND" H 4950 3100 50  0001 C CNN "Digi-Key_PN"
+	1    4950 3100
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyLEDs:LED_ALT_vert D302
 U 1 1 5F7E8AF6
-P 4950 4150
-F 0 "D302" H 5067 4280 50  0000 L CNN
-F 1 "Green/Done" H 5067 4189 50  0000 L CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 5050 4150 50  0001 C CNN
-F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493945/LG%20L29K.pdf" H 5150 4250 50  0001 C CNN
-F 4 "0603" H 5067 4098 50  0000 L CNN "Package Size"
-F 5 "LG L29K-F2J1-24-Z" H 5067 4007 50  0000 L CNN "MFR P/N"
-F 6 "LED GREEN DIFFUSED 0603 SMD" H 4950 4150 50  0001 C CNN "Description"
-F 7 "OSRAM Opto Semiconductors Inc." H 4950 4150 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LG-L29K-F2J1-24-Z/2513791" H 4950 4150 50  0001 C CNN "Website"
-F 9 "475-3118-1-ND" H 4950 4150 50  0001 C CNN "Digi-Key_PN"
-	1    4950 4150
+P 4950 4350
+F 0 "D302" H 5067 4480 50  0000 L CNN
+F 1 "Green/Done" H 5067 4389 50  0000 L CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 5050 4350 50  0001 C CNN
+F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493945/LG%20L29K.pdf" H 5150 4450 50  0001 C CNN
+F 4 "0603" H 5067 4298 50  0000 L CNN "Package Size"
+F 5 "LG L29K-F2J1-24-Z" H 5067 4207 50  0000 L CNN "MFR P/N"
+F 6 "LED GREEN DIFFUSED 0603 SMD" H 4950 4350 50  0001 C CNN "Description"
+F 7 "OSRAM Opto Semiconductors Inc." H 4950 4350 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LG-L29K-F2J1-24-Z/2513791" H 4950 4350 50  0001 C CNN "Website"
+F 9 "475-3118-1-ND" H 4950 4350 50  0001 C CNN "Digi-Key_PN"
+	1    4950 4350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 3100 4950 3350
-Connection ~ 4950 3350
+	4950 3300 4950 3550
+Connection ~ 4950 3550
 Wire Wire Line
-	4950 3350 4950 3500
-Text HLabel 2600 2050 0    50   UnSpc ~ 10
+	4950 3550 4950 3700
+Text HLabel 2600 2250 0    50   UnSpc ~ 10
 V_BUS
 Wire Wire Line
-	2600 2050 3000 2050
-Wire Wire Line
-	3550 2200 3550 2050
-Wire Wire Line
-	4950 2200 4950 2050
+	2600 2250 3000 2250
 $Comp
 L power:PWR_FLAG #FLG0301
 U 1 1 5F839ABA
-P 3000 2050
-F 0 "#FLG0301" H 3000 2125 50  0001 C CNN
-F 1 "PWR_FLAG" H 3000 2223 50  0000 C CNN
-F 2 "" H 3000 2050 50  0001 C CNN
-F 3 "~" H 3000 2050 50  0001 C CNN
-	1    3000 2050
+P 3000 2250
+F 0 "#FLG0301" H 3000 2325 50  0001 C CNN
+F 1 "PWR_FLAG" H 3000 2423 50  0000 C CNN
+F 2 "" H 3000 2250 50  0001 C CNN
+F 3 "~" H 3000 2250 50  0001 C CNN
+	1    3000 2250
 	1    0    0    -1  
 $EndComp
-Text Notes 4050 3050 0    50   ~ 0
+Text Notes 4050 3250 0    50   ~ 0
 Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
-Connection ~ 4950 2050
-Text Notes 5050 3300 0    50   ~ 0
+Text Notes 5050 3500 0    50   ~ 0
 HIGH when charging is done
 Text Notes 350  -300 0    50   ~ 0
 A search for 0603 OSRAM leds\n\nhttps://www.digikey.com/short/zwdccj\nBlue\nGreen\norange\nRed\nWhite\nWhite Cool\nYellow
 $Comp
 L MyResistors:R_vert R302
 U 1 1 5F7F1D0C
-P 4950 3650
-F 0 "R302" H 5031 3762 50  0000 L CNN
-F 1 "1.5k" H 5031 3671 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5005 3600 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4950 3650 50  0001 C CNN
-F 4 "0603" H 5031 3580 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-071K5L" H 5031 3489 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 4950 3650 50  0001 C CNN "Description"
-F 7 "Yageo" H 4950 3650 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 4950 3650 50  0001 C CNN "Website"
-F 9 "311-1.50KHRCT-ND" H 4950 3650 50  0001 C CNN "Digi-Key_PN"
-	1    4950 3650
+P 4950 3850
+F 0 "R302" H 5031 3962 50  0000 L CNN
+F 1 "1.5k" H 5031 3871 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 5005 3800 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4950 3850 50  0001 C CNN
+F 4 "0603" H 5031 3780 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-071K5L" H 5031 3689 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 4950 3850 50  0001 C CNN "Description"
+F 7 "Yageo" H 4950 3850 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 4950 3850 50  0001 C CNN "Website"
+F 9 "311-1.50KHRCT-ND" H 4950 3850 50  0001 C CNN "Digi-Key_PN"
+	1    4950 3850
 	1    0    0    -1  
 $EndComp
-Text Notes 4050 3750 0    50   ~ 0
+Text Notes 4050 3950 0    50   ~ 0
 Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
 $Comp
 L MyResistors:R_vert R303
@@ -268,9 +242,7 @@ F 3 "~" H 7150 3350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6650 2350 6650 3350
-Wire Wire Line
-	7650 3150 7650 2350
+	7650 3150 7650 2450
 $Comp
 L MyCapacitors:CP1_Small_vert C302
 U 1 1 5F813BB4
@@ -291,15 +263,9 @@ F 11 "Murata Electronics" H 8391 2045 50  0001 L CNN "Manufacturer"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 3350 6650 3350
-Wire Wire Line
-	4950 2050 7050 2050
-Wire Wire Line
-	3550 2050 4950 2050
+	4950 3550 6700 3550
 Wire Wire Line
 	8400 1900 9900 1900
-Wire Wire Line
-	7450 2250 8300 2250
 Wire Wire Line
 	7150 3150 7150 3200
 Wire Wire Line
@@ -310,20 +276,20 @@ Wire Wire Line
 $Comp
 L MyCapacitors:CP1_Small_vert C301
 U 1 1 5F8241B5
-P 3550 2300
-F 0 "C301" H 3641 2482 50  0000 L CNN
-F 1 "10uF" H 3641 2391 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3550 2300 50  0001 C CNN
-F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 3560 2370 50  0001 C CNN
-F 4 "16V" H 3641 2300 50  0000 L CNN "Voltage Rating"
-F 5 "0805" H 3641 2209 50  0000 L CNN "Package Size"
-F 6 "GRM21BR61C106KE15L" H 3641 2118 50  0000 L CNN "MPN"
-F 7 "490-3886-1-ND" H 3641 2209 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 3641 2118 50  0001 L CNN "Prefix"
-F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 3641 2027 50  0001 L CNN "Website"
-F 10 "CAP CER 10UF 16V X5R 0805" H 3641 1936 50  0001 L CNN "Description"
-F 11 "Murata Electronics" H 3641 1845 50  0001 L CNN "Manufacturer"
-	1    3550 2300
+P 3550 2650
+F 0 "C301" H 3641 2832 50  0000 L CNN
+F 1 "10uF" H 3641 2741 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3550 2650 50  0001 C CNN
+F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 3560 2720 50  0001 C CNN
+F 4 "16V" H 3641 2650 50  0000 L CNN "Voltage Rating"
+F 5 "0805" H 3641 2559 50  0000 L CNN "Package Size"
+F 6 "GRM21BR61C106KE15L" H 3641 2468 50  0000 L CNN "MPN"
+F 7 "490-3886-1-ND" H 3641 2559 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 3641 2468 50  0001 L CNN "Prefix"
+F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 3641 2377 50  0001 L CNN "Website"
+F 10 "CAP CER 10UF 16V X5R 0805" H 3641 2286 50  0001 L CNN "Description"
+F 11 "Murata Electronics" H 3641 2195 50  0001 L CNN "Manufacturer"
+	1    3550 2650
 	1    0    0    -1  
 $EndComp
 Text Notes 7650 1400 0    50   ~ 10
@@ -417,10 +383,8 @@ Text Notes 600  3750 0    50   Italic 0
 Wire Wire Line
 	1400 2550 3000 2550
 Wire Wire Line
-	3000 2550 3000 2050
-Connection ~ 3000 2050
-Wire Wire Line
-	3000 2050 3550 2050
+	3000 2750 3000 2550
+Connection ~ 3000 2250
 $Comp
 L power:GND #PWR?
 U 1 1 5F80F687
@@ -448,7 +412,7 @@ F 3 "~" H 3000 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3550 2400 3550 2550
+	3550 2750 3550 2900
 Connection ~ 3000 2950
 Wire Wire Line
 	1400 2950 1700 2950
@@ -461,4 +425,52 @@ Wire Wire Line
 	1000 3450 1000 3350
 Wire Wire Line
 	1700 2950 1700 3450
+Text Notes 4200 1300 0    50   ~ 0
+V_BUS comes from USB\n\nOn/Off switch controls V_BAT
+$Comp
+L MyICs:MCP73831T-2ATI_OT U?
+U 1 1 5F91A003
+P 7100 2250
+F 0 "U?" H 6800 2750 60  0000 L CNN
+F 1 "MCP73831T-2ATI_OT" H 6800 2650 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 8000 2500 60  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 7300 2550 60  0001 L CNN
+F 4 "MCP73831T-2ATI/OTCT-ND" H 8000 2700 60  0001 L CNN "Digi-Key_PN"
+F 5 "MCP73831T-2ATI/OT" H 6800 2550 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 8000 2900 60  0001 L CNN "Category"
+F 7 "PMIC - Battery Chargers" H 8000 3000 60  0001 L CNN "Family"
+F 8 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 8000 3100 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/microchip-technology/MCP73831T-2ATI-OT/MCP73831T-2ATI-OTCT-ND/1979803" H 8000 3200 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC CONTROLLR LI-ION 4.2V SOT23-5" H 8000 3300 60  0001 L CNN "Description"
+F 11 "Microchip Technology" H 8000 3400 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8000 3500 60  0001 L CNN "Status"
+F 13 "4.20 V" H 6800 2450 50  0000 L CNN "Vreg"
+	1    7100 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 2250 8300 2250
+Wire Wire Line
+	7100 2700 7100 2650
+Wire Wire Line
+	6700 2450 6700 3550
+Connection ~ 3000 2550
+Wire Wire Line
+	3000 2550 3000 2250
+Connection ~ 3550 2550
+Wire Wire Line
+	3550 2550 3550 2750
+Connection ~ 3550 2750
+Wire Wire Line
+	3000 2250 3550 2250
+Wire Wire Line
+	3550 2250 3550 2550
+Connection ~ 3550 2250
+Wire Wire Line
+	3550 2250 4950 2250
+Wire Wire Line
+	4950 2400 4950 2250
+Connection ~ 4950 2250
+Wire Wire Line
+	4950 2250 6700 2250
 $EndSCHEMATC

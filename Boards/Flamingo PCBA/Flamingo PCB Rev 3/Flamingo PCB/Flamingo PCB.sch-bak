@@ -39,4 +39,6 @@ U 5F780F7E
 F0 "Power" 50
 F1 "Flamingo PCB - Power.sch" 50
 $EndSheet
+Text HLabel 1300 1800 2    50   UnSpc ~ 0
++5V
 $EndSCHEMATC
