@@ -16,10 +16,10 @@ $EndDescr
 Text Notes 600  7700 0    39   ~ 0
 --------FLOW CHART--------\n\n###SHUTDOWN MODE\nVDD < VUVLO\nVDD < VBAT\nor\nPROG > 200 k\nSTAT = High Z\n\n###PRECONDITIONING \nCharge Current = IPREG\nSTAT = LOW\n\n###FAST CHARGE \nAlso get here if VBAT > VPTH from SHUTDOWN    \nor   \nVBAT < VRTH  from CHARGE COMPLETE\n\nCharge Current = IREG\nSTAT = LOW\n\n###CONSTANT VOLTAGE \nCharge Voltage = VREG\nSTAT = LOW\n\n###CHARGE MODE \nSTAT = HIGH (MCP73831)\nSTAT = High Z (MCP73832)\n\n--------PART NUMBER BREAKDOWN--------\n\nMCP73831T - 2 * * * _ OT\n\n(T) Tape and reel\n(2) 4.20 V regulated\n(OT) SMall Outline Transistor SOT23 T-Lead\n\n#######\n\nMCP73831T - 2 A C I _ OT\n(AT) Ipreg/Ireg = 10%\n        Iterm/Ireg = 7.5%\n\nMCP73831T - 2 A T I _ OT\n(AT) Ipreg/Ireg = 10%\n        Iterm/Ireg = 20%\n\nMCP73831T - 2 D C I _ OT\n(DC) Ipreg/Ireg = 100%\n        Iterm/Ireg = 7.5%
 $Comp
-L power:GND #PWR0303
+L power:GND #PWR0304
 U 1 1 5F7DD8CE
 P 7100 2700
-F 0 "#PWR0303" H 7100 2450 50  0001 C CNN
+F 0 "#PWR0304" H 7100 2450 50  0001 C CNN
 F 1 "GND" H 7105 2527 50  0000 C CNN
 F 2 "" H 7100 2700 50  0001 C CNN
 F 3 "" H 7100 2700 50  0001 C CNN
@@ -27,10 +27,10 @@ F 3 "" H 7100 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0304
+L power:GND #PWR0305
 U 1 1 5F7E1F62
 P 7700 4000
-F 0 "#PWR0304" H 7700 3750 50  0001 C CNN
+F 0 "#PWR0305" H 7700 3750 50  0001 C CNN
 F 1 "GND" H 7705 3827 50  0000 C CNN
 F 2 "" H 7700 4000 50  0001 C CNN
 F 3 "" H 7700 4000 50  0001 C CNN
@@ -38,10 +38,10 @@ F 3 "" H 7700 4000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0305
+L power:GND #PWR0306
 U 1 1 5F7E390B
 P 8300 2600
-F 0 "#PWR0305" H 8300 2350 50  0001 C CNN
+F 0 "#PWR0306" H 8300 2350 50  0001 C CNN
 F 1 "GND" H 8305 2427 50  0000 C CNN
 F 2 "" H 8300 2600 50  0001 C CNN
 F 3 "" H 8300 2600 50  0001 C CNN
@@ -52,10 +52,10 @@ Wire Wire Line
 	8300 2250 8300 2400
 Connection ~ 8300 2250
 $Comp
-L power:GND #PWR0306
+L power:GND #PWR0307
 U 1 1 5F7E6098
 P 9600 2400
-F 0 "#PWR0306" H 9600 2150 50  0001 C CNN
+F 0 "#PWR0307" H 9600 2150 50  0001 C CNN
 F 1 "GND" H 9605 2227 50  0000 C CNN
 F 2 "" H 9600 2400 50  0001 C CNN
 F 3 "" H 9600 2400 50  0001 C CNN
@@ -71,10 +71,10 @@ V_BAT
 Wire Wire Line
 	7500 2450 7650 2450
 $Comp
-L power:GND #PWR0301
+L power:GND #PWR0302
 U 1 1 5F7ED2F5
 P 3550 2900
-F 0 "#PWR0301" H 3550 2650 50  0001 C CNN
+F 0 "#PWR0302" H 3550 2650 50  0001 C CNN
 F 1 "GND" H 3555 2727 50  0000 C CNN
 F 2 "" H 3550 2900 50  0001 C CNN
 F 3 "" H 3550 2900 50  0001 C CNN
@@ -84,10 +84,10 @@ $EndComp
 Wire Wire Line
 	4950 4500 4950 4700
 $Comp
-L power:GND #PWR0302
+L power:GND #PWR0303
 U 1 1 5F7EC089
 P 4950 4700
-F 0 "#PWR0302" H 4950 4450 50  0001 C CNN
+F 0 "#PWR0303" H 4950 4450 50  0001 C CNN
 F 1 "GND" H 4955 4527 50  0000 C CNN
 F 2 "" H 4950 4700 50  0001 C CNN
 F 3 "" H 4950 4700 50  0001 C CNN
@@ -295,10 +295,10 @@ $EndComp
 Text Notes 7650 1400 0    50   ~ 10
 TODO:\nNEED TO FIND A GOOD SOCKET FOR THE SWITCH CABLE\nMIGHT JUST NOT POPULATE AND SOLDER DIRECT
 $Comp
-L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J301
+L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J302
 U 1 1 5F82D9D3
 P 8400 1650
-F 0 "J301" H 8312 1612 50  0000 R CNN
+F 0 "J302" H 8312 1612 50  0000 R CNN
 F 1 "Wire Switch Here" H 8312 1703 50  0000 R CNN
 F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 8600 1850 60  0001 L CNN
 F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 8600 1950 60  0001 L CNN
@@ -317,10 +317,10 @@ $EndComp
 Wire Wire Line
 	8300 2250 9750 2250
 $Comp
-L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J302
+L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J303
 U 1 1 5F8290D6
 P 9850 2250
-F 0 "J302" V 9941 2122 50  0000 R CNN
+F 0 "J303" V 9941 2122 50  0000 R CNN
 F 1 "JST PH Battery Connector" V 9850 2122 50  0000 R CNN
 F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 10050 2450 60  0001 L CNN
 F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 10050 2550 60  0001 L CNN
@@ -359,10 +359,10 @@ Wire Wire Line
 Wire Wire Line
 	7650 3150 8150 3150
 $Comp
-L dk_USB-DVI-HDMI-Connectors:10103594-0001LF J?
+L dk_USB-DVI-HDMI-Connectors:10103594-0001LF J301
 U 1 1 5F8008FC
 P 1150 2750
-F 0 "J?" H 1164 3473 50  0000 C CNN
+F 0 "J301" H 1164 3473 50  0000 C CNN
 F 1 "10103594-0001LF" H 1164 3382 50  0000 C CNN
 F 2 "digikey-footprints:USB_Micro_B_Female_10103594-0001LF" H 1350 2950 60  0001 L CNN
 F 3 "https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10103594.pdf" H 1350 3050 60  0001 L CNN
@@ -386,10 +386,10 @@ Wire Wire Line
 	3000 2750 3000 2550
 Connection ~ 3000 2250
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0301
 U 1 1 5F80F687
 P 3000 3100
-F 0 "#PWR?" H 3000 2850 50  0001 C CNN
+F 0 "#PWR0301" H 3000 2850 50  0001 C CNN
 F 1 "GND" H 3005 2927 50  0000 C CNN
 F 2 "" H 3000 3100 50  0001 C CNN
 F 3 "" H 3000 3100 50  0001 C CNN
@@ -401,10 +401,10 @@ Wire Wire Line
 Text Notes 4350 6400 0    50   ~ 0
 Will need to take some approach to negotiating higher power delivery if I am planning on using more than 500 mA. For example, a 2000 mAh LiPo charges at 1200 mA.\n\nApproaches are:\n\nDont.\nhttps://www.maximintegrated.com/en/design/technical-documents/tutorials/4/4803.html#3
 $Comp
-L power:PWR_FLAG #FLG?
+L power:PWR_FLAG #FLG0302
 U 1 1 5F810FFE
 P 3000 2950
-F 0 "#FLG?" H 3000 3025 50  0001 C CNN
+F 0 "#FLG0302" H 3000 3025 50  0001 C CNN
 F 1 "PWR_FLAG" H 3000 3123 50  0000 C CNN
 F 2 "" H 3000 2950 50  0001 C CNN
 F 3 "~" H 3000 2950 50  0001 C CNN
@@ -428,10 +428,10 @@ Wire Wire Line
 Text Notes 4200 1300 0    50   ~ 0
 V_BUS comes from USB\n\nOn/Off switch controls V_BAT
 $Comp
-L MyICs:MCP73831T-2ATI_OT U?
+L MyICs:MCP73831T-2ATI_OT U301
 U 1 1 5F91A003
 P 7100 2250
-F 0 "U?" H 6800 2750 60  0000 L CNN
+F 0 "U301" H 6800 2750 60  0000 L CNN
 F 1 "MCP73831T-2ATI_OT" H 6800 2650 60  0000 L CNN
 F 2 "digikey-footprints:SOT-753" H 8000 2500 60  0001 L CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 7300 2550 60  0001 L CNN

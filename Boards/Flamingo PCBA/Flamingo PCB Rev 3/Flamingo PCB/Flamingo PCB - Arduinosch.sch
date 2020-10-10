@@ -150,10 +150,10 @@ ATmega328-AU Surface mount (Low/Thin Profile Plastic Quad Flat Package)\nATmega3
 Text Notes -3750 1900 0    50   ~ 0
 The -PU and -AU suffixes indicate packaging and temperature range\n\n -P indicates a DIP, \n-A indicates a TQFP, and \n-M is a QFN.  \n\nU means "industrial" temperature range.
 $Comp
-L MyConnectors:FTDI_Header J?
+L MyConnectors:FTDI_Header J201
 U 1 1 5F844162
 P 1850 5400
-F 0 "J?" H 1850 5750 50  0000 C TNN
+F 0 "J201" H 1850 5750 50  0000 C TNN
 F 1 "FTDI_Header" H 1850 5000 50  0000 C CNN
 F 2 "" H 1850 5400 50  0001 C CNN
 F 3 "~" H 1850 5400 50  0001 C CNN
@@ -166,10 +166,10 @@ F 8 "-" H 1850 5400 50  0001 C CNN "Manufacturer"
 	-1   0    0    1   
 $EndComp
 $Comp
-L MyICs:ATMEGA328P-AU U?
+L MyICs:ATMEGA328P-AU U201
 U 1 1 5F846AEA
 P 10700 4500
-F 0 "U?" H 9400 6050 60  0000 L CNN
+F 0 "U201" H 9400 6050 60  0000 L CNN
 F 1 "ATMEGA328P-AU" V 10900 4550 60  0000 C CNN
 F 2 "digikey-footprints:TQFP-32_7x7mm" H 11250 4700 60  0001 L CNN
 F 3 "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en608326" H 11250 4800 60  0001 L CNN
@@ -197,10 +197,10 @@ Wire Wire Line
 Wire Wire Line
 	2150 5500 2150 5600
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0201
 U 1 1 5F84DF41
 P 2150 5600
-F 0 "#PWR?" H 2150 5350 50  0001 C CNN
+F 0 "#PWR0201" H 2150 5350 50  0001 C CNN
 F 1 "GND" H 2150 5450 50  0000 C CNN
 F 2 "" H 2150 5600 50  0001 C CNN
 F 3 "" H 2150 5600 50  0001 C CNN
@@ -209,10 +209,10 @@ F 3 "" H 2150 5600 50  0001 C CNN
 $EndComp
 Connection ~ 2150 5600
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0203
 U 1 1 5F84F6BB
 P 4800 4700
-F 0 "#PWR?" H 4800 4550 50  0001 C CNN
+F 0 "#PWR0203" H 4800 4550 50  0001 C CNN
 F 1 "+5V" H 4800 4840 50  0000 C CNN
 F 2 "" H 4800 4700 50  0001 C CNN
 F 3 "" H 4800 4700 50  0001 C CNN
@@ -224,8 +224,8 @@ L MyResistors:R_vert R?
 U 1 1 5F8530A4
 P 4800 4850
 AR Path="/5F780D75/5F8530A4" Ref="R?"  Part="1" 
-AR Path="/5F780A01/5F8530A4" Ref="R?"  Part="1" 
-F 0 "R?" H 4881 4962 50  0000 L CNN
+AR Path="/5F780A01/5F8530A4" Ref="R201"  Part="1" 
+F 0 "R201" H 4881 4962 50  0000 L CNN
 F 1 "10k" H 4881 4871 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 4855 4800 50  0001 C CNN
 F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4800 4850 50  0001 C CNN
@@ -239,10 +239,10 @@ F 9 "311-10.0KHRCT-ND" H 4800 4850 50  0001 C CNN "Digi-Key_PN"
 	1    0    0    -1  
 $EndComp
 $Comp
-L MyCapacitors:C_Small_horizontal C?
+L MyCapacitors:C_Small_horizontal C207
 U 1 1 5F85B8E0
 P 4400 5050
-F 0 "C?" H 4200 5550 50  0000 L CNN
+F 0 "C207" H 4200 5550 50  0000 L CNN
 F 1 "0.1uF" H 4200 5450 50  0000 L CNN
 F 2 "" V 4275 5000 50  0001 L CNN
 F 3 "" H 4200 5525 50  0001 L CNN
@@ -258,10 +258,10 @@ F 11 "-" H 4200 5350 50  0001 L CNN "Manufacturer"
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0207
 U 1 1 5F861345
 P 10700 6200
-F 0 "#PWR?" H 10700 5950 50  0001 C CNN
+F 0 "#PWR0207" H 10700 5950 50  0001 C CNN
 F 1 "GND" H 10700 6050 50  0000 C CNN
 F 2 "" H 10700 6200 50  0001 C CNN
 F 3 "" H 10700 6200 50  0001 C CNN
@@ -287,10 +287,10 @@ Wire Wire Line
 Wire Wire Line
 	4800 5200 4550 5300
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0206
 U 1 1 5F869CB1
 P 10700 2750
-F 0 "#PWR?" H 10700 2600 50  0001 C CNN
+F 0 "#PWR0206" H 10700 2600 50  0001 C CNN
 F 1 "+5V" H 10700 2890 50  0000 C CNN
 F 2 "" H 10700 2750 50  0001 C CNN
 F 3 "" H 10700 2750 50  0001 C CNN
@@ -315,10 +315,10 @@ Wire Wire Line
 Wire Wire Line
 	9100 3400 9250 3400
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0204
 U 1 1 5F8980D8
 P 8100 3450
-F 0 "#PWR?" H 8100 3200 50  0001 C CNN
+F 0 "#PWR0204" H 8100 3200 50  0001 C CNN
 F 1 "GND" H 8100 3300 50  0000 C CNN
 F 2 "" H 8100 3450 50  0001 C CNN
 F 3 "" H 8100 3450 50  0001 C CNN
@@ -332,10 +332,10 @@ Wire Wire Line
 Wire Wire Line
 	8100 3450 8250 3450
 $Comp
-L MyCrystals:Resonator_Small_vert Y?
+L MyCrystals:Resonator_Small_vert Y201
 U 1 1 5F8A8BD5
 P 8450 3450
-F 0 "Y?" V 7873 3400 50  0000 C CNN
+F 0 "Y201" V 7873 3400 50  0000 C CNN
 F 1 "Resonator" V 7964 3400 50  0000 C CNN
 F 2 "" H 8425 3450 50  0001 C CNN
 F 3 "https://www.murata.com/en/products/productdata/8801162264606/SPEC-CSTNE16M0VH3C000R0.pdf" H 8425 3450 50  0001 C CNN
@@ -356,10 +356,10 @@ Wire Wire Line
 	10900 2800 10900 2900
 Connection ~ 10800 2800
 $Comp
-L MyCapacitors:C_Small_horizontal C?
+L MyCapacitors:C_Small_horizontal C208
 U 1 1 5F8AF43A
 P 8900 5550
-F 0 "C?" H 8800 5350 50  0000 C CNN
+F 0 "C208" H 8800 5350 50  0000 C CNN
 F 1 "0.1uF" H 8800 5250 50  0000 C CNN
 F 2 "" V 8775 5500 50  0001 L CNN
 F 3 "" H 8700 6025 50  0001 L CNN
@@ -377,10 +377,10 @@ $EndComp
 Wire Wire Line
 	8900 5600 9250 5600
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0205
 U 1 1 5F8B38E2
 P 8300 5650
-F 0 "#PWR?" H 8300 5400 50  0001 C CNN
+F 0 "#PWR0205" H 8300 5400 50  0001 C CNN
 F 1 "GND" H 8300 5500 50  0000 C CNN
 F 2 "" H 8300 5650 50  0001 C CNN
 F 3 "" H 8300 5650 50  0001 C CNN
@@ -418,10 +418,10 @@ Wire Wire Line
 Wire Wire Line
 	3250 4100 3350 4100
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0202
 U 1 1 5F8CB74A
 P 3350 4350
-F 0 "#PWR?" H 3350 4100 50  0001 C CNN
+F 0 "#PWR0202" H 3350 4100 50  0001 C CNN
 F 1 "GND" H 3350 4200 50  0000 C CNN
 F 2 "" H 3350 4350 50  0001 C CNN
 F 3 "" H 3350 4350 50  0001 C CNN
@@ -429,10 +429,10 @@ F 3 "" H 3350 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MyConnectors:ISP_Header J?
+L MyConnectors:ISP_Header J202
 U 1 1 5F8B5E79
 P 2350 4100
-F 0 "J?" H 2800 4415 50  0000 C CNN
+F 0 "J202" H 2800 4415 50  0000 C CNN
 F 1 "ICSP_Header" H 2800 4324 50  0000 C CNN
 F 2 "" H 2600 3750 50  0001 L CNN
 F 3 "~" H 2600 3750 50  0001 C CNN
