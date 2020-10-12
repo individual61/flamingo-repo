@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 4 4
 Title ""
 Date ""
 Rev ""
@@ -16,304 +16,188 @@ $EndDescr
 $Comp
 L MyCapacitors:C_Small_vert C501
 U 1 1 5F90528B
-P 3150 5450
-F 0 "C501" H 3242 5582 50  0000 L CNN
-F 1 "10uF" H 3242 5491 50  0000 L CNN
-F 2 "" H 3150 5425 50  0001 L CNN
-F 3 "" H 3250 5525 50  0001 L CNN
-F 4 "XXXX" H 3242 5400 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 3242 5309 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 3242 5218 50  0000 L CNN "MPN"
-F 7 "-" H 3250 5150 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 3250 5150 50  0001 L CNN "Prefix"
-F 9 "-" H 3250 5150 50  0001 L CNN "Website"
-F 10 "-" H 3250 5150 50  0001 L CNN "Description"
-F 11 "-" H 3250 5150 50  0001 L CNN "Manufacturer"
-	1    3150 5450
+P 1700 5850
+F 0 "C501" H 1792 5982 50  0000 L CNN
+F 1 "10uF" H 1792 5891 50  0000 L CNN
+F 2 "" H 1700 5825 50  0001 L CNN
+F 3 "" H 1800 5925 50  0001 L CNN
+F 4 "XXXX" H 1792 5800 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 1792 5709 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 1792 5618 50  0000 L CNN "MPN"
+F 7 "-" H 1800 5550 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 1800 5550 50  0001 L CNN "Prefix"
+F 9 "-" H 1800 5550 50  0001 L CNN "Website"
+F 10 "-" H 1800 5550 50  0001 L CNN "Description"
+F 11 "-" H 1800 5550 50  0001 L CNN "Manufacturer"
+	1    1700 5850
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0504
 U 1 1 5F906D29
-P 3150 5700
-F 0 "#PWR0504" H 3150 5450 50  0001 C CNN
-F 1 "GND" H 3155 5527 50  0000 C CNN
-F 2 "" H 3150 5700 50  0001 C CNN
-F 3 "" H 3150 5700 50  0001 C CNN
-	1    3150 5700
+P 1700 6100
+F 0 "#PWR0504" H 1700 5850 50  0001 C CNN
+F 1 "GND" H 1705 5927 50  0000 C CNN
+F 2 "" H 1700 6100 50  0001 C CNN
+F 3 "" H 1700 6100 50  0001 C CNN
+	1    1700 6100
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyICs:3.3V_Reg U501
 U 1 1 5F80149D
-P 4250 5350
-F 0 "U501" H 3700 5950 60  0000 L CNN
-F 1 "3.3V_Reg" H 3700 5850 60  0000 L CNN
-F 2 "digikey-footprints:SOT-753" H 5450 5900 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 4450 5650 60  0001 L CNN
-F 4 "296-18476-1-ND" H 5450 6100 60  0001 L CNN "Digi-Key_PN"
-F 5 "LP2985-33DBVR" H 3700 5750 60  0000 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 5450 6300 60  0001 L CNN "Category"
-F 7 "PMIC - Voltage Regulators - Linear" H 5450 6400 60  0001 L CNN "Family"
-F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 5450 6500 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/texas-instruments/LP2985-33DBVR/296-18476-1-ND/809911" H 5450 6600 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 5450 6700 60  0001 L CNN "Description"
-F 11 "Texas Instruments" H 5450 6800 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5450 6900 60  0001 L CNN "Status"
-F 13 "150 mA" H 3700 5650 50  0000 L CNN "Imax"
-	1    4250 5350
+P 2800 5750
+F 0 "U501" H 2250 6350 60  0000 L CNN
+F 1 "3.3V_Reg" H 2250 6250 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 4000 6300 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 3000 6050 60  0001 L CNN
+F 4 "296-18476-1-ND" H 4000 6500 60  0001 L CNN "Digi-Key_PN"
+F 5 "LP2985-33DBVR" H 2250 6150 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 4000 6700 60  0001 L CNN "Category"
+F 7 "PMIC - Voltage Regulators - Linear" H 4000 6800 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 4000 6900 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/texas-instruments/LP2985-33DBVR/296-18476-1-ND/809911" H 4000 7000 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 4000 7100 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 4000 7200 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 4000 7300 60  0001 L CNN "Status"
+F 13 "150 mA" H 2250 6050 50  0000 L CNN "Imax"
+	1    2800 5750
 	1    0    0    -1  
 $EndComp
-Text HLabel 5100 5250 2    50   UnSpc ~ 0
+Text HLabel 3650 5650 2    50   UnSpc ~ 10
 +3.3V
 Wire Wire Line
-	5100 5250 4900 5250
-NoConn ~ 4650 5450
+	3650 5650 3450 5650
+NoConn ~ 3200 5850
 $Comp
 L MyCapacitors:C_Small_vert C503
 U 1 1 5F803AE8
-P 4900 5500
-F 0 "C503" H 4992 5632 50  0000 L CNN
-F 1 "10uF" H 4992 5541 50  0000 L CNN
-F 2 "" H 4900 5475 50  0001 L CNN
-F 3 "" H 5000 5575 50  0001 L CNN
-F 4 "XXXX" H 4992 5450 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 4992 5359 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 4992 5268 50  0000 L CNN "MPN"
-F 7 "-" H 5000 5200 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 5000 5200 50  0001 L CNN "Prefix"
-F 9 "-" H 5000 5200 50  0001 L CNN "Website"
-F 10 "-" H 5000 5200 50  0001 L CNN "Description"
-F 11 "-" H 5000 5200 50  0001 L CNN "Manufacturer"
-	1    4900 5500
+P 3450 5900
+F 0 "C503" H 3542 6032 50  0000 L CNN
+F 1 "10uF" H 3542 5941 50  0000 L CNN
+F 2 "" H 3450 5875 50  0001 L CNN
+F 3 "" H 3550 5975 50  0001 L CNN
+F 4 "XXXX" H 3542 5850 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 3542 5759 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 3542 5668 50  0000 L CNN "MPN"
+F 7 "-" H 3550 5600 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 3550 5600 50  0001 L CNN "Prefix"
+F 9 "-" H 3550 5600 50  0001 L CNN "Website"
+F 10 "-" H 3550 5600 50  0001 L CNN "Description"
+F 11 "-" H 3550 5600 50  0001 L CNN "Manufacturer"
+	1    3450 5900
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0508
 U 1 1 5F804804
-P 4900 5700
-F 0 "#PWR0508" H 4900 5450 50  0001 C CNN
-F 1 "GND" H 4905 5527 50  0000 C CNN
-F 2 "" H 4900 5700 50  0001 C CNN
-F 3 "" H 4900 5700 50  0001 C CNN
-	1    4900 5700
+P 3450 6100
+F 0 "#PWR0508" H 3450 5850 50  0001 C CNN
+F 1 "GND" H 3455 5927 50  0000 C CNN
+F 2 "" H 3450 6100 50  0001 C CNN
+F 3 "" H 3450 6100 50  0001 C CNN
+	1    3450 6100
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0506
 U 1 1 5F80525C
-P 4150 5700
-F 0 "#PWR0506" H 4150 5450 50  0001 C CNN
-F 1 "GND" H 4155 5527 50  0000 C CNN
-F 2 "" H 4150 5700 50  0001 C CNN
-F 3 "" H 4150 5700 50  0001 C CNN
-	1    4150 5700
+P 2700 6100
+F 0 "#PWR0506" H 2700 5850 50  0001 C CNN
+F 1 "GND" H 2705 5927 50  0000 C CNN
+F 2 "" H 2700 6100 50  0001 C CNN
+F 3 "" H 2700 6100 50  0001 C CNN
+	1    2700 6100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3600 5450 3500 5450
+	2150 5850 2050 5850
 Wire Wire Line
-	3500 5450 3500 5250
+	2050 5850 2050 5650
 Wire Wire Line
-	3500 5250 3600 5250
+	2050 5650 2150 5650
 $Comp
 L MyCapacitors:C_Small_vert C502
 U 1 1 5F82A2E6
-P 3100 7000
-F 0 "C502" H 3192 7132 50  0000 L CNN
-F 1 "10uF" H 3192 7041 50  0000 L CNN
-F 2 "" H 3100 6975 50  0001 L CNN
-F 3 "" H 3200 7075 50  0001 L CNN
-F 4 "XXXX" H 3192 6950 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 3192 6859 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 3192 6768 50  0000 L CNN "MPN"
-F 7 "-" H 3200 6700 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 3200 6700 50  0001 L CNN "Prefix"
-F 9 "-" H 3200 6700 50  0001 L CNN "Website"
-F 10 "-" H 3200 6700 50  0001 L CNN "Description"
-F 11 "-" H 3200 6700 50  0001 L CNN "Manufacturer"
-	1    3100 7000
+P 5200 5850
+F 0 "C502" H 5292 5982 50  0000 L CNN
+F 1 "10uF" H 5292 5891 50  0000 L CNN
+F 2 "" H 5200 5825 50  0001 L CNN
+F 3 "" H 5300 5925 50  0001 L CNN
+F 4 "XXXX" H 5292 5800 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 5292 5709 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 5292 5618 50  0000 L CNN "MPN"
+F 7 "-" H 5300 5550 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 5300 5550 50  0001 L CNN "Prefix"
+F 9 "-" H 5300 5550 50  0001 L CNN "Website"
+F 10 "-" H 5300 5550 50  0001 L CNN "Description"
+F 11 "-" H 5300 5550 50  0001 L CNN "Manufacturer"
+	1    5200 5850
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyICs:3.3V_Reg U502
 U 1 1 5F82A2FD
-P 4250 6900
-F 0 "U502" H 3700 7500 60  0000 L CNN
-F 1 "1.8V_Reg" H 3700 7400 60  0000 L CNN
-F 2 "digikey-footprints:SOT-753" H 5450 7450 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 4450 7200 60  0001 L CNN
-F 4 "296-18474-1-ND" H 5450 7650 60  0001 L CNN "Digi-Key_PN"
-F 5 "LP2985-18DBVR" H 3700 7300 60  0000 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 5450 7850 60  0001 L CNN "Category"
-F 7 "PMIC - Voltage Regulators - Linear" H 5450 7950 60  0001 L CNN "Family"
-F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 5450 8050 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/products/detail/texas-instruments/LP2985-18DBVR/809757" H 5450 8150 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC REG LINEAR 1.8V 150MA SOT23-5" H 5450 8250 60  0001 L CNN "Description"
-F 11 "Texas Instruments" H 5450 8350 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5450 8450 60  0001 L CNN "Status"
-F 13 "150 mA" H 3700 7200 50  0000 L CNN "Imax"
-	1    4250 6900
+P 6350 5750
+F 0 "U502" H 5800 6350 60  0000 L CNN
+F 1 "1.8V_Reg" H 5800 6250 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 7550 6300 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 6550 6050 60  0001 L CNN
+F 4 "296-18474-1-ND" H 7550 6500 60  0001 L CNN "Digi-Key_PN"
+F 5 "LP2985-18DBVR" H 5800 6150 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 7550 6700 60  0001 L CNN "Category"
+F 7 "PMIC - Voltage Regulators - Linear" H 7550 6800 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 7550 6900 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/products/detail/texas-instruments/LP2985-18DBVR/809757" H 7550 7000 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC REG LINEAR 1.8V 150MA SOT23-5" H 7550 7100 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 7550 7200 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 7550 7300 60  0001 L CNN "Status"
+F 13 "150 mA" H 5800 6050 50  0000 L CNN "Imax"
+	1    6350 5750
 	1    0    0    -1  
 $EndComp
-Text HLabel 5050 6800 2    50   UnSpc ~ 0
+Text HLabel 7150 5650 2    50   UnSpc ~ 10
 +1.8V
 Wire Wire Line
-	5050 6800 4850 6800
-NoConn ~ 4650 7000
+	7150 5650 6950 5650
+NoConn ~ 6750 5850
 $Comp
 L MyCapacitors:C_Small_vert C504
 U 1 1 5F82A310
-P 4850 7050
-F 0 "C504" H 4942 7182 50  0000 L CNN
-F 1 "10uF" H 4942 7091 50  0000 L CNN
-F 2 "" H 4850 7025 50  0001 L CNN
-F 3 "" H 4950 7125 50  0001 L CNN
-F 4 "XXXX" H 4942 7000 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 4942 6909 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 4942 6818 50  0000 L CNN "MPN"
-F 7 "-" H 4950 6750 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 4950 6750 50  0001 L CNN "Prefix"
-F 9 "-" H 4950 6750 50  0001 L CNN "Website"
-F 10 "-" H 4950 6750 50  0001 L CNN "Description"
-F 11 "-" H 4950 6750 50  0001 L CNN "Manufacturer"
-	1    4850 7050
+P 6950 5900
+F 0 "C504" H 7042 6032 50  0000 L CNN
+F 1 "10uF" H 7042 5941 50  0000 L CNN
+F 2 "" H 6950 5875 50  0001 L CNN
+F 3 "" H 7050 5975 50  0001 L CNN
+F 4 "XXXX" H 7042 5850 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 7042 5759 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 7042 5668 50  0000 L CNN "MPN"
+F 7 "-" H 7050 5600 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 7050 5600 50  0001 L CNN "Prefix"
+F 9 "-" H 7050 5600 50  0001 L CNN "Website"
+F 10 "-" H 7050 5600 50  0001 L CNN "Description"
+F 11 "-" H 7050 5600 50  0001 L CNN "Manufacturer"
+	1    6950 5900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3600 7000 3500 7000
+	5700 5850 5600 5850
 Wire Wire Line
-	3500 7000 3500 6800
+	5600 5850 5600 5650
 Wire Wire Line
-	3500 6800 3600 6800
+	5600 5650 5700 5650
 Wire Wire Line
-	4850 7000 4850 6800
+	6950 5850 6950 5650
 Text Notes -6350 8200 0    50   ~ 0
 LP2985\n\nVin Max: 16 V\n\n--\n\n\nA minimum value of 1 μF (over the entire operating temperature range)\n is required at the input of the LP2985. In addition, this input capacitor \nshould be located within 1 cm of the input pin and connected to a\n clean analog ground. There are no equivalent series resistance (ESR) \nrequirements for this capacitor, and the capacitance can be increased without limit.\n\nAs an advantage over other regulators, the LP2985 permits the use of low-ESR capacitors at the output,\nincluding ceramic capacitors that can have an ESR as low as 5 mΩ. Tantalum and film capacitors also can be\nused if size and cost are not issues. The output capacitor also should be located within 1 cm of the output pin\nand be returned to a clean analog ground\n\n\n----\n\nThus, to prevent possible damage to the regulator in any application where\nthe output may be pulled above the input, or the input may be shorted to ground, an external Schottky diode\nshould be connected between the output and input. With the anode on output, this Schottky limits the reverse\nvoltage across the output and input pins to ∼0.3 V, preventing the regulator’s internal diode from forward biasing
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D503
-U 1 1 5F82B13B
-P 2750 4950
-F 0 "D503" V 2990 4872 50  0000 R CNN
-F 1 "Schottky" V 2899 4872 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 2950 5150 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2950 5250 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 2950 5350 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 2800 4872 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 2950 5550 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 2950 5650 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2950 5750 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 2950 5850 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 2950 5950 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 2950 6050 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2950 6150 60  0001 L CNN "Status"
-F 13 "SOD-123" V 2702 4872 50  0000 R CNN "Package"
-F 14 "0.45 V" V 2611 4872 50  0000 R CNN "Vf"
-	1    2750 4950
-	0    -1   -1   0   
-$EndComp
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D501
-U 1 1 5F8313FF
-P 1800 4950
-F 0 "D501" V 2040 4872 50  0000 R CNN
-F 1 "Schottky" V 1949 4872 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 2000 5150 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2000 5250 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 2000 5350 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 1850 4872 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 2000 5550 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 2000 5650 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2000 5750 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 2000 5850 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 2000 5950 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 2000 6050 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2000 6150 60  0001 L CNN "Status"
-F 13 "SOD-123" V 1752 4872 50  0000 R CNN "Package"
-F 14 "0.45 V" V 1661 4872 50  0000 R CNN "Vf"
-	1    1800 4950
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1800 4600 1800 4750
-Wire Wire Line
-	2750 4600 2750 4750
-Wire Wire Line
-	1800 5050 1800 5250
-Wire Wire Line
-	2750 5050 2750 5250
 Text Notes -6300 -150 0    50   ~ 0
 V_BUS comes from USB/FTDI exclusively\n\nIf V_BUS is energized, then V_BAT is energized through battery charger.\nHowever V_BAT may be accidental short to ground, low (on battery), etc.\n\nWe want to drive the voltage regulators from V_BUS over V_BAT if available.\n\nOn/Off switch controls V_BAT, so if V_BUS is powered, switch does nothing.
 Wire Wire Line
-	4900 5450 4900 5250
-Text HLabel 1550 4600 0    50   UnSpc ~ 0
-V_BAT
-Text HLabel 2600 4600 0    50   UnSpc ~ 0
-V_BUS
-Wire Wire Line
-	2600 4600 2750 4600
-Wire Wire Line
-	1550 4600 1800 4600
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D504
-U 1 1 5F8D7F80
-P 2750 6550
-F 0 "D504" V 2990 6472 50  0000 R CNN
-F 1 "Schottky" V 2899 6472 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 2950 6750 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2950 6850 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 2950 6950 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 2800 6472 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 2950 7150 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 2950 7250 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2950 7350 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 2950 7450 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 2950 7550 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 2950 7650 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2950 7750 60  0001 L CNN "Status"
-F 13 "SOD-123" V 2702 6472 50  0000 R CNN "Package"
-F 14 "0.45 V" V 2611 6472 50  0000 R CNN "Vf"
-	1    2750 6550
-	0    -1   -1   0   
-$EndComp
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D502
-U 1 1 5F8D7F91
-P 1750 6550
-F 0 "D502" V 1990 6472 50  0000 R CNN
-F 1 "Schottky" V 1899 6472 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 1950 6750 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1950 6850 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 1950 6950 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 1800 6472 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 1950 7150 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 1950 7250 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1950 7350 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 1950 7450 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 1950 7550 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 1950 7650 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 1950 7750 60  0001 L CNN "Status"
-F 13 "SOD-123" V 1702 6472 50  0000 R CNN "Package"
-F 14 "0.45 V" V 1611 6472 50  0000 R CNN "Vf"
-	1    1750 6550
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1750 6150 1750 6350
-Wire Wire Line
-	2750 6150 2750 6350
-Wire Wire Line
-	1750 6650 1750 6800
-Wire Wire Line
-	2750 6650 2750 6800
-Text HLabel 1500 6150 0    50   UnSpc ~ 0
-V_BAT
-Text HLabel 2600 6150 0    50   UnSpc ~ 0
-V_BUS
-Wire Wire Line
-	2600 6150 2750 6150
-Wire Wire Line
-	1500 6150 1750 6150
+	3450 5850 3450 5650
+Text HLabel 1400 5650 0    50   UnSpc ~ 10
+V_OUT
+Text HLabel 4850 5650 0    50   UnSpc ~ 10
+V_OUT
 Text Notes -6350 1350 0    50   ~ 0
 Cases:\nCasesI would like to protect for:\n\nV_BAT open\nV_BAT shorted to ground\nV_BAT below any of 1.8V, 3.3V, 5V\nV_BAT above any of 1.8V, 3.3V up to 4.20 V\nV_BAT reversed?\n\nV_BUS 0V\nV_BUS shorted to ground
 Text Notes -6200 2400 0    50   ~ 0
@@ -554,332 +438,342 @@ Text Notes 12300 -9450 0    39   ~ 0
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870CE
-P 4200 1500
+P 4300 2200
 AR Path="/5F780D75/5F8870CE" Ref="#PWR?"  Part="1" 
 AR Path="/5F780F7E/5F8870CE" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 4200 1250 50  0001 C CNN
-F 1 "GND" H 4205 1327 50  0000 C CNN
-F 2 "" H 4200 1500 50  0001 C CNN
-F 3 "" H 4200 1500 50  0001 C CNN
-	1    4200 1500
+F 0 "#PWR?" H 4300 1950 50  0001 C CNN
+F 1 "GND" H 4305 2027 50  0000 C CNN
+F 2 "" H 4300 2200 50  0001 C CNN
+F 3 "" H 4300 2200 50  0001 C CNN
+	1    4300 2200
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870D4
-P 4900 2800
-F 0 "#PWR?" H 4900 2550 50  0001 C CNN
-F 1 "GND" H 4905 2627 50  0000 C CNN
-F 2 "" H 4900 2800 50  0001 C CNN
-F 3 "" H 4900 2800 50  0001 C CNN
-	1    4900 2800
+P 4800 3500
+AR Path="/5F780D75/5F8870D4" Ref="#PWR?"  Part="1" 
+AR Path="/5F780F7E/5F8870D4" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 4800 3250 50  0001 C CNN
+F 1 "GND" H 4805 3327 50  0000 C CNN
+F 2 "" H 4800 3500 50  0001 C CNN
+F 3 "" H 4800 3500 50  0001 C CNN
+	1    4800 3500
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870DA
-P 5250 1400
-F 0 "#PWR?" H 5250 1150 50  0001 C CNN
-F 1 "GND" H 5255 1227 50  0000 C CNN
-F 2 "" H 5250 1400 50  0001 C CNN
-F 3 "" H 5250 1400 50  0001 C CNN
-	1    5250 1400
+P 5350 2250
+AR Path="/5F780D75/5F8870DA" Ref="#PWR?"  Part="1" 
+AR Path="/5F780F7E/5F8870DA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5350 2000 50  0001 C CNN
+F 1 "GND" H 5355 2077 50  0000 C CNN
+F 2 "" H 5350 2250 50  0001 C CNN
+F 3 "" H 5350 2250 50  0001 C CNN
+	1    5350 2250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5250 1050 5250 1200
-Connection ~ 5250 1050
-Text HLabel 7650 800  2    50   UnSpc ~ 10
+Connection ~ 5350 1750
+Text HLabel 6450 1750 2    50   UnSpc ~ 10
 V_BAT
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870EC
-P 1750 1450
+P 1850 2150
 AR Path="/5F780D75/5F8870EC" Ref="#PWR?"  Part="1" 
 AR Path="/5F780F7E/5F8870EC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1750 1200 50  0001 C CNN
-F 1 "GND" H 1755 1277 50  0000 C CNN
-F 2 "" H 1750 1450 50  0001 C CNN
-F 3 "" H 1750 1450 50  0001 C CNN
-	1    1750 1450
+F 0 "#PWR?" H 1850 1900 50  0001 C CNN
+F 1 "GND" H 1855 1977 50  0000 C CNN
+F 2 "" H 1850 2150 50  0001 C CNN
+F 3 "" H 1850 2150 50  0001 C CNN
+	1    1850 2150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2800 2750 2800 2850
+	2900 3450 2900 3550
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870F3
-P 2800 2850
+P 2900 3550
 AR Path="/5F780D75/5F8870F3" Ref="#PWR?"  Part="1" 
 AR Path="/5F780F7E/5F8870F3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 2800 2600 50  0001 C CNN
-F 1 "GND" H 2805 2677 50  0000 C CNN
-F 2 "" H 2800 2850 50  0001 C CNN
-F 3 "" H 2800 2850 50  0001 C CNN
-	1    2800 2850
+F 0 "#PWR?" H 2900 3300 50  0001 C CNN
+F 1 "GND" H 2905 3377 50  0000 C CNN
+F 2 "" H 2900 3550 50  0001 C CNN
+F 3 "" H 2900 3550 50  0001 C CNN
+	1    2900 3550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2800 2350 2800 2450
+	2900 3050 2900 3150
 Wire Wire Line
-	2800 1450 2800 1550
+	2900 2150 2900 2250
 $Comp
 L MyLEDs:LED_ALT_vert D?
 U 1 1 5F887101
-P 2800 1300
+P 2900 2000
 AR Path="/5F780D75/5F887101" Ref="D?"  Part="1" 
 AR Path="/5F780F7E/5F887101" Ref="D?"  Part="1" 
-F 0 "D?" H 2918 1430 50  0000 L CNN
-F 1 "Red/Charging" H 2918 1339 50  0000 L CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 2900 1300 50  0001 C CNN
-F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493517/LS%20L29K.pdf" H 3000 1400 50  0001 C CNN
-F 4 "0603" H 2918 1248 50  0000 L CNN "Package Size"
-F 5 "LS L29K-G1J2-1-Z" H 2918 1157 50  0000 L CNN "MFR P/N"
-F 6 "LED RED DIFFUSED 0603 SMD" H 2800 1300 50  0001 C CNN "Description"
-F 7 "OSRAM Opto Semiconductors Inc." H 2800 1300 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LS-L29K-G1J2-1-Z/1802633" H 2800 1300 50  0001 C CNN "Website"
-F 9 "475-2506-1-ND" H 2800 1300 50  0001 C CNN "Digi-Key_PN"
-	1    2800 1300
+F 0 "D?" H 3018 2130 50  0000 L CNN
+F 1 "Red/Charging" H 3018 2039 50  0000 L CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 3000 2000 50  0001 C CNN
+F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493517/LS%20L29K.pdf" H 3100 2100 50  0001 C CNN
+F 4 "0603" H 3018 1948 50  0000 L CNN "Package Size"
+F 5 "LS L29K-G1J2-1-Z" H 3018 1857 50  0000 L CNN "MFR P/N"
+F 6 "LED RED DIFFUSED 0603 SMD" H 2900 2000 50  0001 C CNN "Description"
+F 7 "OSRAM Opto Semiconductors Inc." H 2900 2000 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LS-L29K-G1J2-1-Z/1802633" H 2900 2000 50  0001 C CNN "Website"
+F 9 "475-2506-1-ND" H 2900 2000 50  0001 C CNN "Digi-Key_PN"
+	1    2900 2000
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5F88710D
-P 2800 1700
+P 2900 2400
 AR Path="/5F780D75/5F88710D" Ref="R?"  Part="1" 
 AR Path="/5F780F7E/5F88710D" Ref="R?"  Part="1" 
-F 0 "R?" H 2881 1812 50  0000 L CNN
-F 1 "1.5k" H 2881 1721 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2855 1650 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 2800 1700 50  0001 C CNN
-F 4 "0603" H 2881 1630 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-071K5L" H 2881 1539 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 2800 1700 50  0001 C CNN "Description"
-F 7 "Yageo" H 2800 1700 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 2800 1700 50  0001 C CNN "Website"
-F 9 "311-1.50KHRCT-ND" H 2800 1700 50  0001 C CNN "Digi-Key_PN"
-	1    2800 1700
+F 0 "R?" H 2981 2512 50  0000 L CNN
+F 1 "1.5k" H 2981 2421 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 2955 2350 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 2900 2400 50  0001 C CNN
+F 4 "0603" H 2981 2330 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-071K5L" H 2981 2239 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 2900 2400 50  0001 C CNN "Description"
+F 7 "Yageo" H 2900 2400 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 2900 2400 50  0001 C CNN "Website"
+F 9 "311-1.50KHRCT-ND" H 2900 2400 50  0001 C CNN "Digi-Key_PN"
+	1    2900 2400
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyLEDs:LED_ALT_vert D?
 U 1 1 5F887119
-P 2800 2600
+P 2900 3300
 AR Path="/5F780D75/5F887119" Ref="D?"  Part="1" 
 AR Path="/5F780F7E/5F887119" Ref="D?"  Part="1" 
-F 0 "D?" H 2917 2730 50  0000 L CNN
-F 1 "Green/Done" H 2917 2639 50  0000 L CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 2900 2600 50  0001 C CNN
-F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493945/LG%20L29K.pdf" H 3000 2700 50  0001 C CNN
-F 4 "0603" H 2917 2548 50  0000 L CNN "Package Size"
-F 5 "LG L29K-F2J1-24-Z" H 2917 2457 50  0000 L CNN "MFR P/N"
-F 6 "LED GREEN DIFFUSED 0603 SMD" H 2800 2600 50  0001 C CNN "Description"
-F 7 "OSRAM Opto Semiconductors Inc." H 2800 2600 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LG-L29K-F2J1-24-Z/2513791" H 2800 2600 50  0001 C CNN "Website"
-F 9 "475-3118-1-ND" H 2800 2600 50  0001 C CNN "Digi-Key_PN"
-	1    2800 2600
+F 0 "D?" H 3017 3430 50  0000 L CNN
+F 1 "Green/Done" H 3017 3339 50  0000 L CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 3000 3300 50  0001 C CNN
+F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493945/LG%20L29K.pdf" H 3100 3400 50  0001 C CNN
+F 4 "0603" H 3017 3248 50  0000 L CNN "Package Size"
+F 5 "LG L29K-F2J1-24-Z" H 3017 3157 50  0000 L CNN "MFR P/N"
+F 6 "LED GREEN DIFFUSED 0603 SMD" H 2900 3300 50  0001 C CNN "Description"
+F 7 "OSRAM Opto Semiconductors Inc." H 2900 3300 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LG-L29K-F2J1-24-Z/2513791" H 2900 3300 50  0001 C CNN "Website"
+F 9 "475-3118-1-ND" H 2900 3300 50  0001 C CNN "Digi-Key_PN"
+	1    2900 3300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2800 1900 2800 1950
-Connection ~ 2800 1950
+	2900 2600 2900 2650
+Connection ~ 2900 2650
 Wire Wire Line
-	2800 1950 2800 2000
-Text HLabel 2250 900  2    50   UnSpc ~ 10
+	2900 2650 2900 2700
+Text HLabel 2350 1600 2    50   UnSpc ~ 10
 V_BUS
 $Comp
 L power:PWR_FLAG #FLG?
 U 1 1 5F887124
-P 1450 900
+P 1550 1600
 AR Path="/5F780D75/5F887124" Ref="#FLG?"  Part="1" 
 AR Path="/5F780F7E/5F887124" Ref="#FLG?"  Part="1" 
-F 0 "#FLG?" H 1450 975 50  0001 C CNN
-F 1 "PWR_FLAG" H 1450 1073 50  0000 C CNN
-F 2 "" H 1450 900 50  0001 C CNN
-F 3 "~" H 1450 900 50  0001 C CNN
-	1    1450 900 
+F 0 "#FLG?" H 1550 1675 50  0001 C CNN
+F 1 "PWR_FLAG" H 1550 1773 50  0000 C CNN
+F 2 "" H 1550 1600 50  0001 C CNN
+F 3 "~" H 1550 1600 50  0001 C CNN
+	1    1550 1600
 	-1   0    0    1   
 $EndComp
-Text Notes 2150 1800 0    31   ~ 0
+Text Notes 2350 2500 0    20   ~ 0
 Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
-Text Notes 3200 2000 0    39   ~ 0
-HIGH when charging is done
+Text Notes 3300 2800 0    39   ~ 0
+HIGH when\ncharging is done
 Text Notes 12450 -7500 0    50   ~ 0
 A search for 0603 OSRAM leds\n\nhttps://www.digikey.com/short/zwdccj\nBlue\nGreen\norange\nRed\nWhite\nWhite Cool\nYellow
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5F887133
-P 2800 2150
+P 2900 2850
 AR Path="/5F780D75/5F887133" Ref="R?"  Part="1" 
 AR Path="/5F780F7E/5F887133" Ref="R?"  Part="1" 
-F 0 "R?" H 2881 2262 50  0000 L CNN
-F 1 "1.5k" H 2881 2171 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2855 2100 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 2800 2150 50  0001 C CNN
-F 4 "0603" H 2881 2080 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-071K5L" H 2881 1989 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 2800 2150 50  0001 C CNN "Description"
-F 7 "Yageo" H 2800 2150 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 2800 2150 50  0001 C CNN "Website"
-F 9 "311-1.50KHRCT-ND" H 2800 2150 50  0001 C CNN "Digi-Key_PN"
-	1    2800 2150
+F 0 "R?" H 2981 2962 50  0000 L CNN
+F 1 "1.5k" H 2981 2871 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 2955 2800 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 2900 2850 50  0001 C CNN
+F 4 "0603" H 2981 2780 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-071K5L" H 2981 2689 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 2900 2850 50  0001 C CNN "Description"
+F 7 "Yageo" H 2900 2850 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 2900 2850 50  0001 C CNN "Website"
+F 9 "311-1.50KHRCT-ND" H 2900 2850 50  0001 C CNN "Digi-Key_PN"
+	1    2900 2850
 	1    0    0    -1  
 $EndComp
-Text Notes 2150 2250 0    31   ~ 0
+Text Notes 2350 2900 0    20   ~ 0
 Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5F887140
-P 4350 2500
-F 0 "R?" H 4431 2612 50  0000 L CNN
-F 1 "2.49k" H 4431 2521 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 4405 2450 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4350 2500 50  0001 C CNN
-F 4 "0603" H 4431 2430 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-072K49L" H 4431 2339 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 2.49K OHM 1% 1/10W 0603" H 4350 2500 50  0001 C CNN "Description"
-F 7 "Yageo" H 4350 2500 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.sg/products/en?keywords=311-2.49KHRCT-ND" H 4350 2500 50  0001 C CNN "Website"
-F 9 "311-2.49KHRCT-ND" H 4350 2500 50  0001 C CNN "Digi-Key_PN"
-	1    4350 2500
+P 4250 3200
+AR Path="/5F780D75/5F887140" Ref="R?"  Part="1" 
+AR Path="/5F780F7E/5F887140" Ref="R?"  Part="1" 
+F 0 "R?" H 4331 3312 50  0000 L CNN
+F 1 "2.49k" H 4331 3221 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 4305 3150 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 4250 3200 50  0001 C CNN
+F 4 "0603" H 4331 3130 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-072K49L" H 4331 3039 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 2.49K OHM 1% 1/10W 0603" H 4250 3200 50  0001 C CNN "Description"
+F 7 "Yageo" H 4250 3200 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.sg/products/en?keywords=311-2.49KHRCT-ND" H 4250 3200 50  0001 C CNN "Website"
+F 9 "311-2.49KHRCT-ND" H 4250 3200 50  0001 C CNN "Digi-Key_PN"
+	1    4250 3200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 2650 4350 2700
+	4250 3350 4250 3400
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5F88714D
-P 5350 2500
-F 0 "R?" H 5431 2612 50  0000 L CNN
-F 1 "10k" H 5431 2521 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5405 2450 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 5350 2500 50  0001 C CNN
-F 4 "0603" H 5431 2430 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-0710KL" H 5431 2339 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 10K OHM 1% 1/10W 0603" H 5350 2500 50  0001 C CNN "Description"
-F 7 "Yageo" H 5350 2500 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.sg/product-detail/en/yageo/RC0603FR-0710KL/311-10-0KHRCT-ND/729827" H 5350 2500 50  0001 C CNN "Website"
-F 9 "311-10.0KHRCT-ND" H 5350 2500 50  0001 C CNN "Digi-Key_PN"
-	1    5350 2500
+P 5250 3200
+AR Path="/5F780D75/5F88714D" Ref="R?"  Part="1" 
+AR Path="/5F780F7E/5F88714D" Ref="R?"  Part="1" 
+F 0 "R?" H 5331 3312 50  0000 L CNN
+F 1 "10k" H 5331 3221 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 5305 3150 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 5250 3200 50  0001 C CNN
+F 4 "0603" H 5331 3130 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-0710KL" H 5331 3039 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 10K OHM 1% 1/10W 0603" H 5250 3200 50  0001 C CNN "Description"
+F 7 "Yageo" H 5250 3200 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.sg/product-detail/en/yageo/RC0603FR-0710KL/311-10-0KHRCT-ND/729827" H 5250 3200 50  0001 C CNN "Website"
+F 9 "311-10.0KHRCT-ND" H 5250 3200 50  0001 C CNN "Digi-Key_PN"
+	1    5250 3200
 	1    0    0    -1  
 $EndComp
 $Comp
 L Jumper:SolderJumper_2_Open JP?
 U 1 1 5F887153
-P 4350 2150
-F 0 "JP?" V 4304 2218 50  0000 L CNN
-F 1 "Solder Jumper" V 4395 2218 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 4350 2150 50  0001 C CNN
-F 3 "~" H 4350 2150 50  0001 C CNN
-	1    4350 2150
+P 4250 2850
+AR Path="/5F780D75/5F887153" Ref="JP?"  Part="1" 
+AR Path="/5F780F7E/5F887153" Ref="JP?"  Part="1" 
+F 0 "JP?" V 4204 2918 50  0000 L CNN
+F 1 "Solder Jumper" V 4295 2918 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 4250 2850 50  0001 C CNN
+F 3 "~" H 4250 2850 50  0001 C CNN
+	1    4250 2850
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	4850 1950 4850 1250
+	4750 2650 4750 1950
 $Comp
 L MyCapacitors:CP1_Small_vert C?
 U 1 1 5F887162
-P 5250 1300
-F 0 "C?" H 5341 1482 50  0000 L CNN
-F 1 "10uF" H 5341 1391 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5250 1300 50  0001 C CNN
-F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 5260 1370 50  0001 C CNN
-F 4 "16V" H 5341 1300 50  0000 L CNN "Voltage Rating"
-F 5 "0805" H 5341 1209 50  0000 L CNN "Package Size"
-F 6 "GRM21BR61C106KE15L" H 5341 1118 50  0000 L CNN "MPN"
-F 7 "490-3886-1-ND" H 5341 1209 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 5341 1118 50  0001 L CNN "Prefix"
-F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 5341 1027 50  0001 L CNN "Website"
-F 10 "CAP CER 10UF 16V X5R 0805" H 5341 936 50  0001 L CNN "Description"
-F 11 "Murata Electronics" H 5341 845 50  0001 L CNN "Manufacturer"
-	1    5250 1300
+P 5350 2150
+AR Path="/5F780D75/5F887162" Ref="C?"  Part="1" 
+AR Path="/5F780F7E/5F887162" Ref="C?"  Part="1" 
+F 0 "C?" H 5441 2332 50  0000 L CNN
+F 1 "10uF" H 5441 2241 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5350 2150 50  0001 C CNN
+F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 5360 2220 50  0001 C CNN
+F 4 "16V" H 5441 2150 50  0000 L CNN "Voltage Rating"
+F 5 "0805" H 5441 2059 50  0000 L CNN "Package Size"
+F 6 "GRM21BR61C106KE15L" H 5441 1968 50  0000 L CNN "MPN"
+F 7 "490-3886-1-ND" H 5441 2059 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 5441 1968 50  0001 L CNN "Prefix"
+F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 5441 1877 50  0001 L CNN "Website"
+F 10 "CAP CER 10UF 16V X5R 0805" H 5441 1786 50  0001 L CNN "Description"
+F 11 "Murata Electronics" H 5441 1695 50  0001 L CNN "Manufacturer"
+	1    5350 2150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2800 1950 3800 1950
+	2900 2650 3900 2650
 Wire Wire Line
-	4350 1950 4350 2000
+	4250 2650 4250 2700
 Wire Wire Line
-	4350 2700 4350 2800
-Connection ~ 4350 2700
+	4250 3400 4250 3500
+Connection ~ 4250 3400
 Wire Wire Line
-	4350 2350 4350 2300
+	4250 3050 4250 3000
 $Comp
 L MyCapacitors:CP1_Small_vert C?
 U 1 1 5F887176
-P 1750 1300
+P 1850 2000
 AR Path="/5F780D75/5F887176" Ref="C?"  Part="1" 
 AR Path="/5F780F7E/5F887176" Ref="C?"  Part="1" 
-F 0 "C?" H 1841 1482 50  0000 L CNN
-F 1 "10uF" H 1841 1391 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1750 1300 50  0001 C CNN
-F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 1760 1370 50  0001 C CNN
-F 4 "16V" H 1841 1300 50  0000 L CNN "Voltage Rating"
-F 5 "0805" H 1841 1209 50  0000 L CNN "Package Size"
-F 6 "GRM21BR61C106KE15L" H 1841 1118 50  0000 L CNN "MPN"
-F 7 "490-3886-1-ND" H 1841 1209 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 1841 1118 50  0001 L CNN "Prefix"
-F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 1841 1027 50  0001 L CNN "Website"
-F 10 "CAP CER 10UF 16V X5R 0805" H 1841 936 50  0001 L CNN "Description"
-F 11 "Murata Electronics" H 1841 845 50  0001 L CNN "Manufacturer"
-	1    1750 1300
+F 0 "C?" H 1941 2182 50  0000 L CNN
+F 1 "10uF" H 1941 2091 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1850 2000 50  0001 C CNN
+F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 1860 2070 50  0001 C CNN
+F 4 "16V" H 1941 2000 50  0000 L CNN "Voltage Rating"
+F 5 "0805" H 1941 1909 50  0000 L CNN "Package Size"
+F 6 "GRM21BR61C106KE15L" H 1941 1818 50  0000 L CNN "MPN"
+F 7 "490-3886-1-ND" H 1941 1909 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 1941 1818 50  0001 L CNN "Prefix"
+F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 1941 1727 50  0001 L CNN "Website"
+F 10 "CAP CER 10UF 16V X5R 0805" H 1941 1636 50  0001 L CNN "Description"
+F 11 "Murata Electronics" H 1941 1545 50  0001 L CNN "Manufacturer"
+	1    1850 2000
 	1    0    0    -1  
 $EndComp
-Text Notes 5250 300  0    50   ~ 10
+Text Notes 8950 800  0    50   ~ 10
 TODO:\nNEED TO FIND A GOOD SOCKET FOR THE SWITCH CABLE\nMIGHT JUST NOT POPULATE AND SOLDER DIRECT
-Text Notes 5700 2550 0    31   ~ 0
+Text Notes 5600 3250 0    31   ~ 0
 Open:    10k = 100 mA\nClosed:  2.0k = 500 mA\n\nBatt charging rate:\n\n10k = 100mA    *\n5.0k = 200 mA\n2.0k = 500 mA  *\n1.0k = 1000mA \n\nAdafruit typically does 0.5C for their batteries\n2500 mAh capacity - 1200 mA charge current
 Wire Wire Line
-	5350 2800 5350 2700
+	5250 3500 5250 3400
 Wire Wire Line
-	4900 2800 5350 2800
+	4800 3500 5250 3500
 Wire Wire Line
-	4350 2800 4900 2800
-Connection ~ 4900 2800
+	4250 3500 4800 3500
+Connection ~ 4800 3500
 Wire Wire Line
-	4350 1950 4850 1950
-Connection ~ 4850 1950
+	4250 2650 4750 2650
+Connection ~ 4750 2650
 Wire Wire Line
-	5350 2350 5350 1950
+	5250 3050 5250 2650
 Wire Wire Line
-	4850 1950 5350 1950
+	4750 2650 5250 2650
 $Comp
 L dk_USB-DVI-HDMI-Connectors:10103594-0001LF J?
 U 1 1 5F8871B1
-P 850 1100
+P 950 1800
 AR Path="/5F780D75/5F8871B1" Ref="J?"  Part="1" 
 AR Path="/5F780F7E/5F8871B1" Ref="J?"  Part="1" 
-F 0 "J?" H 1100 1600 50  0000 C CNN
-F 1 "10103594-0001LF" H 1400 1500 50  0000 C CNN
-F 2 "digikey-footprints:USB_Micro_B_Female_10103594-0001LF" H 1050 1300 60  0001 L CNN
-F 3 "https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10103594.pdf" H 1050 1400 60  0001 L CNN
-F 4 "609-4050-1-ND" H 1050 1500 60  0001 L CNN "Digi-Key_PN"
-F 5 "10103594-0001LF" H 1050 1600 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 1050 1700 60  0001 L CNN "Category"
-F 7 "USB, DVI, HDMI Connectors" H 1050 1800 60  0001 L CNN "Family"
-F 8 "https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10103594.pdf" H 1050 1900 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/amphenol-icc-fci/10103594-0001LF/609-4050-1-ND/2350357" H 1050 2000 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN RCPT USB2.0 MICRO B SMD R/A" H 1050 2100 60  0001 L CNN "Description"
-F 11 "Amphenol ICC (FCI)" H 1050 2200 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 1050 2300 60  0001 L CNN "Status"
-	1    850  1100
+F 0 "J?" H 1200 2300 50  0000 C CNN
+F 1 "10103594-0001LF" H 1500 2200 50  0000 C CNN
+F 2 "digikey-footprints:USB_Micro_B_Female_10103594-0001LF" H 1150 2000 60  0001 L CNN
+F 3 "https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10103594.pdf" H 1150 2100 60  0001 L CNN
+F 4 "609-4050-1-ND" H 1150 2200 60  0001 L CNN "Digi-Key_PN"
+F 5 "10103594-0001LF" H 1150 2300 60  0001 L CNN "MPN"
+F 6 "Connectors, Interconnects" H 1150 2400 60  0001 L CNN "Category"
+F 7 "USB, DVI, HDMI Connectors" H 1150 2500 60  0001 L CNN "Family"
+F 8 "https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/10103594.pdf" H 1150 2600 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/amphenol-icc-fci/10103594-0001LF/609-4050-1-ND/2350357" H 1150 2700 60  0001 L CNN "DK_Detail_Page"
+F 10 "CONN RCPT USB2.0 MICRO B SMD R/A" H 1150 2800 60  0001 L CNN "Description"
+F 11 "Amphenol ICC (FCI)" H 1150 2900 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 1150 3000 60  0001 L CNN "Status"
+	1    950  1800
 	1    0    0    -1  
 $EndComp
-Text Notes 500  350  0    50   Italic 0
+Text Notes 600  800  0    50   Italic 0
 10118194-0001LF would have been nicer, \nas it says 4 DIP legs, vis this SMT plus 2 DIP,\nbut was shipping like 3 months out when I made this
 Wire Wire Line
-	1100 900  1450 900 
+	1200 1600 1550 1600
 $Comp
 L power:GND #PWR?
 U 1 1 5F8871BA
-P 1000 1850
+P 1200 2550
 AR Path="/5F780D75/5F8871BA" Ref="#PWR?"  Part="1" 
 AR Path="/5F780F7E/5F8871BA" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 1000 1600 50  0001 C CNN
-F 1 "GND" H 1005 1677 50  0000 C CNN
-F 2 "" H 1000 1850 50  0001 C CNN
-F 3 "" H 1000 1850 50  0001 C CNN
-	1    1000 1850
+F 0 "#PWR?" H 1200 2300 50  0001 C CNN
+F 1 "GND" H 1205 2377 50  0000 C CNN
+F 2 "" H 1200 2550 50  0001 C CNN
+F 3 "" H 1200 2550 50  0001 C CNN
+	1    1200 2550
 	1    0    0    -1  
 $EndComp
 Text Notes 12850 -6450 0    50   ~ 0
@@ -887,62 +781,62 @@ Will need to take some approach to negotiating higher power delivery\n if I am p
 $Comp
 L power:PWR_FLAG #FLG?
 U 1 1 5F8871C2
-P 700 1850
+P 800 2550
 AR Path="/5F780D75/5F8871C2" Ref="#FLG?"  Part="1" 
 AR Path="/5F780F7E/5F8871C2" Ref="#FLG?"  Part="1" 
-F 0 "#FLG?" H 700 1925 50  0001 C CNN
-F 1 "PWR_FLAG" H 700 2023 50  0000 C CNN
-F 2 "" H 700 1850 50  0001 C CNN
-F 3 "~" H 700 1850 50  0001 C CNN
-	1    700  1850
+F 0 "#FLG?" H 800 2625 50  0001 C CNN
+F 1 "PWR_FLAG" H 800 2723 50  0000 C CNN
+F 2 "" H 800 2550 50  0001 C CNN
+F 3 "~" H 800 2550 50  0001 C CNN
+	1    800  2550
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1750 1400 1750 1450
+	1850 2100 1850 2150
 Text Notes 10550 -8300 0    50   ~ 0
 V_BUS comes from USB\n\nOn/Off switch controls V_BAT
 $Comp
 L MyICs:MCP73831T-2ATI_OT U?
 U 1 1 5F8871DB
-P 4200 1050
+P 4300 1750
 AR Path="/5F780D75/5F8871DB" Ref="U?"  Part="1" 
 AR Path="/5F780F7E/5F8871DB" Ref="U?"  Part="1" 
-F 0 "U?" H 3900 1550 60  0000 L CNN
-F 1 "MCP73831T-2ATI_OT" H 3900 1450 60  0000 L CNN
-F 2 "digikey-footprints:SOT-753" H 5100 1300 60  0001 L CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 4400 1350 60  0001 L CNN
-F 4 "MCP73831T-2ATI/OTCT-ND" H 5100 1500 60  0001 L CNN "Digi-Key_PN"
-F 5 "MCP73831T-2ATI/OT" H 3900 1350 60  0000 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 5100 1700 60  0001 L CNN "Category"
-F 7 "PMIC - Battery Chargers" H 5100 1800 60  0001 L CNN "Family"
-F 8 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 5100 1900 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/microchip-technology/MCP73831T-2ATI-OT/MCP73831T-2ATI-OTCT-ND/1979803" H 5100 2000 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC CONTROLLR LI-ION 4.2V SOT23-5" H 5100 2100 60  0001 L CNN "Description"
-F 11 "Microchip Technology" H 5100 2200 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5100 2300 60  0001 L CNN "Status"
-F 13 "4.20 V" H 3900 1250 50  0000 L CNN "Vreg"
-	1    4200 1050
+F 0 "U?" H 4000 2250 60  0000 L CNN
+F 1 "LiPo Charger 500 mA" H 4000 2150 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 5200 2000 60  0001 L CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 4500 2050 60  0001 L CNN
+F 4 "MCP73831T-2ATI/OTCT-ND" H 5200 2200 60  0001 L CNN "Digi-Key_PN"
+F 5 "MCP73831T-2ATI/OT" H 4000 2050 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 5200 2400 60  0001 L CNN "Category"
+F 7 "PMIC - Battery Chargers" H 5200 2500 60  0001 L CNN "Family"
+F 8 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 5200 2600 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/microchip-technology/MCP73831T-2ATI-OT/MCP73831T-2ATI-OTCT-ND/1979803" H 5200 2700 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC CONTROLLR LI-ION 4.2V SOT23-5" H 5200 2800 60  0001 L CNN "Description"
+F 11 "Microchip Technology" H 5200 2900 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5200 3000 60  0001 L CNN "Status"
+F 13 "4.20 V" H 4000 1950 50  0000 L CNN "Vreg"
+	1    4300 1750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4600 1050 5250 1050
+	4700 1750 5350 1750
 Wire Wire Line
-	4200 1500 4200 1450
+	4300 2200 4300 2150
 Wire Wire Line
-	3800 1250 3800 1950
-Connection ~ 1750 1200
+	3900 1950 3900 2650
+Connection ~ 1850 1900
 Wire Wire Line
-	1750 1200 1750 1400
-Connection ~ 1750 1400
+	1850 1900 1850 2100
+Connection ~ 1850 2100
 Wire Wire Line
-	1750 1050 1750 1200
+	1850 1750 1850 1900
 Wire Wire Line
-	1750 1050 2800 1050
+	1850 1750 2900 1750
 Wire Wire Line
-	2800 1150 2800 1050
-Connection ~ 2800 1050
+	2900 1850 2900 1750
+Connection ~ 2900 1750
 Wire Wire Line
-	2800 1050 3800 1050
+	2900 1750 3900 1750
 Text Notes 12400 -8600 0    50   ~ 0
 independent of the capacitor’s minimum\nEffective Series Resistance (ESR) value. The actual\nvalue of the capacitor (and its associated ESR)\ndepends on the output load current. A 4.7 µF ceramic,\ntantalum or aluminum electrolytic capacitor at the\noutput is usually sufficient to ensure stability for output\ncurrents up to a 500 mA.
 $Bitmap
@@ -2453,179 +2347,710 @@ Text Notes 5950 -9550 0    50   ~ 0
 https://easyeda.com/gerdmuller.de/lithium-battery-charger-mcp73831-with-load-sharing
 Text Notes 6000 -7150 0    50   ~ 0
 https://www.eevblog.com/forum/microcontrollers/rechargeable-battery-solution-for-mcu-projects/msg630455/#msg630455
-Connection ~ 3500 6800
+Connection ~ 5600 5650
 Wire Wire Line
-	1750 6800 2750 6800
-Connection ~ 2750 6800
+	6750 5650 6950 5650
+Connection ~ 6950 5650
 Wire Wire Line
-	4650 6800 4850 6800
-Connection ~ 4850 6800
+	3200 5650 3450 5650
+Connection ~ 3450 5650
+Connection ~ 2050 5650
 Wire Wire Line
-	4650 5250 4900 5250
-Connection ~ 4900 5250
+	1700 5800 1700 5650
 Wire Wire Line
-	1800 5250 2750 5250
-Connection ~ 2750 5250
-Connection ~ 3500 5250
+	1700 5650 2050 5650
 Wire Wire Line
-	2750 6800 3100 6800
+	5200 5800 5200 5650
 Wire Wire Line
-	2750 5250 3150 5250
-Wire Wire Line
-	3150 5400 3150 5250
-Connection ~ 3150 5250
-Wire Wire Line
-	3150 5250 3500 5250
-Wire Wire Line
-	3100 6950 3100 6800
-Connection ~ 3100 6800
-Wire Wire Line
-	3100 6800 3500 6800
+	5200 5650 5600 5650
 $Comp
 L power:GND #PWR0507
 U 1 1 5F82A31C
-P 4150 7250
-F 0 "#PWR0507" H 4150 7000 50  0001 C CNN
-F 1 "GND" H 4155 7077 50  0000 C CNN
-F 2 "" H 4150 7250 50  0001 C CNN
-F 3 "" H 4150 7250 50  0001 C CNN
-	1    4150 7250
+P 6250 6100
+F 0 "#PWR0507" H 6250 5850 50  0001 C CNN
+F 1 "GND" H 6255 5927 50  0000 C CNN
+F 2 "" H 6250 6100 50  0001 C CNN
+F 3 "" H 6250 6100 50  0001 C CNN
+	1    6250 6100
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0509
 U 1 1 5F82A316
-P 4850 7250
-F 0 "#PWR0509" H 4850 7000 50  0001 C CNN
-F 1 "GND" H 4855 7077 50  0000 C CNN
-F 2 "" H 4850 7250 50  0001 C CNN
-F 3 "" H 4850 7250 50  0001 C CNN
-	1    4850 7250
+P 6950 6100
+F 0 "#PWR0509" H 6950 5850 50  0001 C CNN
+F 1 "GND" H 6955 5927 50  0000 C CNN
+F 2 "" H 6950 6100 50  0001 C CNN
+F 3 "" H 6950 6100 50  0001 C CNN
+	1    6950 6100
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0505
 U 1 1 5F82A2EC
-P 3100 7250
-F 0 "#PWR0505" H 3100 7000 50  0001 C CNN
-F 1 "GND" H 3105 7077 50  0000 C CNN
-F 2 "" H 3100 7250 50  0001 C CNN
-F 3 "" H 3100 7250 50  0001 C CNN
-	1    3100 7250
+P 5200 6100
+F 0 "#PWR0505" H 5200 5850 50  0001 C CNN
+F 1 "GND" H 5205 5927 50  0000 C CNN
+F 2 "" H 5200 6100 50  0001 C CNN
+F 3 "" H 5200 6100 50  0001 C CNN
+	1    5200 6100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4850 7250 4850 7200
+	6950 6100 6950 6050
 Wire Wire Line
-	4150 7250 4150 7200
+	6250 6100 6250 6050
 Wire Wire Line
-	3100 7250 3100 7150
+	5200 6100 5200 6000
 Wire Wire Line
-	3150 5600 3150 5700
+	1700 6000 1700 6100
 Wire Wire Line
-	4150 5650 4150 5700
+	2700 6050 2700 6100
 Wire Wire Line
-	4900 5650 4900 5700
+	3450 6050 3450 6100
 Wire Wire Line
-	700  1700 700  1850
+	800  2400 800  2550
 Wire Wire Line
-	1000 1850 1100 1850
+	1200 2550 1200 2000
+Connection ~ 800  2550
 Wire Wire Line
-	1100 1850 1100 1300
-Connection ~ 700  1850
+	800  2550 1200 2550
+Connection ~ 1200 2550
 Wire Wire Line
-	700  1850 1000 1850
-Connection ~ 1000 1850
+	1850 1600 1850 1750
+Connection ~ 1850 1750
 Wire Wire Line
-	1750 900  1750 1050
-Connection ~ 1750 1050
+	1850 1600 2350 1600
+Connection ~ 1850 1600
+Connection ~ 1550 1600
 Wire Wire Line
-	1750 900  2250 900 
-Connection ~ 1750 900 
-Connection ~ 1450 900 
+	1550 1600 1850 1600
 Wire Wire Line
-	1450 900  1750 900 
+	4700 1950 4750 1950
+Wire Notes Line
+	6200 1300 6200 1100
+Text HLabel 7850 2150 0    50   UnSpc ~ 10
+V_BUS
+Text HLabel 7850 1750 0    50   UnSpc ~ 10
+V_BAT
+$Comp
+L Device:Q_PMOS_GSD Q?
+U 1 1 5FACB625
+P 8250 1850
+F 0 "Q?" V 8700 1900 50  0000 L CNN
+F 1 "P-Channel 1.25-W MOSFET" V 8600 950 50  0000 L CNN
+F 2 "" H 8450 1950 50  0001 C CNN
+F 3 "~" H 8250 1850 50  0001 C CNN
+F 4 "Si2301DS" V 8500 1650 50  0000 L CNN "MPN"
+	1    8250 1850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FADC4C8
+P 8250 2650
+AR Path="/5F780D75/5FADC4C8" Ref="#PWR?"  Part="1" 
+AR Path="/5F780F7E/5FADC4C8" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 8250 2400 50  0001 C CNN
+F 1 "GND" H 8255 2477 50  0000 C CNN
+F 2 "" H 8250 2650 50  0001 C CNN
+F 3 "" H 8250 2650 50  0001 C CNN
+	1    8250 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L MyResistors:R_vert R?
+U 1 1 5FAE1908
+P 8250 2400
+F 0 "R?" H 8331 2421 50  0000 L CNN
+F 1 "100K" H 8331 2330 50  0000 L CNN
+F 2 "" V 8305 2350 50  0001 C CNN
+F 3 "" H 8250 2400 50  0001 C CNN
+F 4 "XXXX" H 8331 2330 50  0001 L CNN "Package Size"
+F 5 "MFR P/N" H 8505 2239 50  0001 C CNN "MPN"
+F 6 "-" H 8550 2700 50  0001 C CNN "Digi-Key_PN"
+F 7 "R" H 8550 2700 50  0001 C CNN "Prefix"
+F 8 "-" H 8550 2700 50  0001 C CNN "Website"
+F 9 "-" H 8550 2700 50  0001 C CNN "Description"
+F 10 "-" H 8550 2700 50  0001 C CNN "Manufacturer"
+	1    8250 2400
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	4600 1250 4850 1250
-Text Notes 6850 1600 0    50   ~ 10
+	7850 1750 8050 1750
+Wire Wire Line
+	8250 2600 8250 2650
+$Comp
+L Diode:BAT60A D?
+U 1 1 5FB24385
+P 8750 1950
+F 0 "D?" V 8704 2167 50  0000 C CNN
+F 1 "BAT60A" V 8795 2167 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-323" H 8750 1775 50  0001 C CNN
+F 3 "https://www.infineon.com/dgdl/Infineon-BAT60ASERIES-DS-v01_01-en.pdf?fileId=db3a304313d846880113def70c9304a9" H 8750 1950 50  0001 C CNN
+	1    8750 1950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8250 2050 8250 2150
+Wire Wire Line
+	8250 2150 7850 2150
+Connection ~ 8250 2150
+Wire Wire Line
+	8250 2150 8250 2250
+Wire Wire Line
+	8250 2150 8750 2150
+Wire Wire Line
+	8750 2150 8750 2100
+Wire Wire Line
+	8750 1800 8750 1750
+Wire Wire Line
+	8750 1750 8450 1750
+Text HLabel 10100 1750 2    50   UnSpc ~ 10
+V_OUT
+Wire Wire Line
+	8750 1750 9200 1750
+Connection ~ 8750 1750
+$Comp
+L MyCapacitors:CP1_Small_vert C?
+U 1 1 5FB4D56E
+P 9200 2400
+AR Path="/5F780D75/5FB4D56E" Ref="C?"  Part="1" 
+AR Path="/5F780F7E/5FB4D56E" Ref="C?"  Part="1" 
+F 0 "C?" H 9291 2582 50  0000 L CNN
+F 1 "10uF" H 9291 2491 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 9200 2400 50  0001 C CNN
+F 3 "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR61C106KE15-01.pdf" H 9210 2470 50  0001 C CNN
+F 4 "16V" H 9291 2400 50  0000 L CNN "Voltage Rating"
+F 5 "0805" H 9291 2309 50  0000 L CNN "Package Size"
+F 6 "GRM21BR61C106KE15L" H 9291 2218 50  0000 L CNN "MPN"
+F 7 "490-3886-1-ND" H 9291 2309 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 9291 2218 50  0001 L CNN "Prefix"
+F 9 "https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR61C106KE15L/965928" H 9291 2127 50  0001 L CNN "Website"
+F 10 "CAP CER 10UF 16V X5R 0805" H 9291 2036 50  0001 L CNN "Description"
+F 11 "Murata Electronics" H 9291 1945 50  0001 L CNN "Manufacturer"
+	1    9200 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 1750 9200 2300
+$Comp
+L power:GND #PWR?
+U 1 1 5FB52307
+P 9200 2650
+AR Path="/5F780D75/5FB52307" Ref="#PWR?"  Part="1" 
+AR Path="/5F780F7E/5FB52307" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 9200 2400 50  0001 C CNN
+F 1 "GND" H 9205 2477 50  0000 C CNN
+F 2 "" H 9200 2650 50  0001 C CNN
+F 3 "" H 9200 2650 50  0001 C CNN
+	1    9200 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 2650 9200 2500
+$Comp
+L MyCapacitors:C_Small_vert C?
+U 1 1 5FB8B2A7
+P 2950 12700
+F 0 "C?" H 3042 12832 50  0000 L CNN
+F 1 "10uF" H 3042 12741 50  0000 L CNN
+F 2 "" H 2950 12675 50  0001 L CNN
+F 3 "" H 3050 12775 50  0001 L CNN
+F 4 "XXXX" H 3042 12650 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 3042 12559 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 3042 12468 50  0000 L CNN "MPN"
+F 7 "-" H 3050 12400 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 3050 12400 50  0001 L CNN "Prefix"
+F 9 "-" H 3050 12400 50  0001 L CNN "Website"
+F 10 "-" H 3050 12400 50  0001 L CNN "Description"
+F 11 "-" H 3050 12400 50  0001 L CNN "Manufacturer"
+	1    2950 12700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B2AD
+P 2950 12950
+F 0 "#PWR?" H 2950 12700 50  0001 C CNN
+F 1 "GND" H 2955 12777 50  0000 C CNN
+F 2 "" H 2950 12950 50  0001 C CNN
+F 3 "" H 2950 12950 50  0001 C CNN
+	1    2950 12950
+	1    0    0    -1  
+$EndComp
+$Comp
+L MyICs:3.3V_Reg U?
+U 1 1 5FB8B2BD
+P 4050 12600
+F 0 "U?" H 3500 13200 60  0000 L CNN
+F 1 "3.3V_Reg" H 3500 13100 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 5250 13150 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 4250 12900 60  0001 L CNN
+F 4 "296-18476-1-ND" H 5250 13350 60  0001 L CNN "Digi-Key_PN"
+F 5 "LP2985-33DBVR" H 3500 13000 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 5250 13550 60  0001 L CNN "Category"
+F 7 "PMIC - Voltage Regulators - Linear" H 5250 13650 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 5250 13750 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/texas-instruments/LP2985-33DBVR/296-18476-1-ND/809911" H 5250 13850 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 5250 13950 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 5250 14050 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5250 14150 60  0001 L CNN "Status"
+F 13 "150 mA" H 3500 12900 50  0000 L CNN "Imax"
+	1    4050 12600
+	1    0    0    -1  
+$EndComp
+Text HLabel 4900 12500 2    50   UnSpc ~ 0
++3.3V
+Wire Wire Line
+	4900 12500 4700 12500
+NoConn ~ 4450 12700
+$Comp
+L MyCapacitors:C_Small_vert C?
+U 1 1 5FB8B2CE
+P 4700 12750
+F 0 "C?" H 4792 12882 50  0000 L CNN
+F 1 "10uF" H 4792 12791 50  0000 L CNN
+F 2 "" H 4700 12725 50  0001 L CNN
+F 3 "" H 4800 12825 50  0001 L CNN
+F 4 "XXXX" H 4792 12700 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 4792 12609 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 4792 12518 50  0000 L CNN "MPN"
+F 7 "-" H 4800 12450 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 4800 12450 50  0001 L CNN "Prefix"
+F 9 "-" H 4800 12450 50  0001 L CNN "Website"
+F 10 "-" H 4800 12450 50  0001 L CNN "Description"
+F 11 "-" H 4800 12450 50  0001 L CNN "Manufacturer"
+	1    4700 12750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B2D4
+P 4700 12950
+F 0 "#PWR?" H 4700 12700 50  0001 C CNN
+F 1 "GND" H 4705 12777 50  0000 C CNN
+F 2 "" H 4700 12950 50  0001 C CNN
+F 3 "" H 4700 12950 50  0001 C CNN
+	1    4700 12950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B2DA
+P 3950 12950
+F 0 "#PWR?" H 3950 12700 50  0001 C CNN
+F 1 "GND" H 3955 12777 50  0000 C CNN
+F 2 "" H 3950 12950 50  0001 C CNN
+F 3 "" H 3950 12950 50  0001 C CNN
+	1    3950 12950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 12700 3300 12700
+Wire Wire Line
+	3300 12700 3300 12500
+Wire Wire Line
+	3300 12500 3400 12500
+$Comp
+L MyCapacitors:C_Small_vert C?
+U 1 1 5FB8B2EB
+P 8000 12800
+F 0 "C?" H 8092 12932 50  0000 L CNN
+F 1 "10uF" H 8092 12841 50  0000 L CNN
+F 2 "" H 8000 12775 50  0001 L CNN
+F 3 "" H 8100 12875 50  0001 L CNN
+F 4 "XXXX" H 8092 12750 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 8092 12659 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 8092 12568 50  0000 L CNN "MPN"
+F 7 "-" H 8100 12500 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 8100 12500 50  0001 L CNN "Prefix"
+F 9 "-" H 8100 12500 50  0001 L CNN "Website"
+F 10 "-" H 8100 12500 50  0001 L CNN "Description"
+F 11 "-" H 8100 12500 50  0001 L CNN "Manufacturer"
+	1    8000 12800
+	1    0    0    -1  
+$EndComp
+$Comp
+L MyICs:3.3V_Reg U?
+U 1 1 5FB8B2FB
+P 9150 12700
+F 0 "U?" H 8600 13300 60  0000 L CNN
+F 1 "1.8V_Reg" H 8600 13200 60  0000 L CNN
+F 2 "digikey-footprints:SOT-753" H 10350 13250 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 9350 13000 60  0001 L CNN
+F 4 "296-18474-1-ND" H 10350 13450 60  0001 L CNN "Digi-Key_PN"
+F 5 "LP2985-18DBVR" H 8600 13100 60  0000 L CNN "MPN"
+F 6 "Integrated Circuits (ICs)" H 10350 13650 60  0001 L CNN "Category"
+F 7 "PMIC - Voltage Regulators - Linear" H 10350 13750 60  0001 L CNN "Family"
+F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 10350 13850 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/products/detail/texas-instruments/LP2985-18DBVR/809757" H 10350 13950 60  0001 L CNN "DK_Detail_Page"
+F 10 "IC REG LINEAR 1.8V 150MA SOT23-5" H 10350 14050 60  0001 L CNN "Description"
+F 11 "Texas Instruments" H 10350 14150 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 10350 14250 60  0001 L CNN "Status"
+F 13 "150 mA" H 8600 13000 50  0000 L CNN "Imax"
+	1    9150 12700
+	1    0    0    -1  
+$EndComp
+Text HLabel 9950 12600 2    50   UnSpc ~ 0
++1.8V
+Wire Wire Line
+	9950 12600 9750 12600
+NoConn ~ 9550 12800
+$Comp
+L MyCapacitors:C_Small_vert C?
+U 1 1 5FB8B30C
+P 9750 12850
+F 0 "C?" H 9842 12982 50  0000 L CNN
+F 1 "10uF" H 9842 12891 50  0000 L CNN
+F 2 "" H 9750 12825 50  0001 L CNN
+F 3 "" H 9850 12925 50  0001 L CNN
+F 4 "XXXX" H 9842 12800 50  0000 L CNN "Package Size"
+F 5 "Voltage" H 9842 12709 50  0000 L CNN "Voltage Rating"
+F 6 "MFR P/N" H 9842 12618 50  0000 L CNN "MPN"
+F 7 "-" H 9850 12550 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 9850 12550 50  0001 L CNN "Prefix"
+F 9 "-" H 9850 12550 50  0001 L CNN "Website"
+F 10 "-" H 9850 12550 50  0001 L CNN "Description"
+F 11 "-" H 9850 12550 50  0001 L CNN "Manufacturer"
+	1    9750 12850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8500 12800 8400 12800
+Wire Wire Line
+	8400 12800 8400 12600
+Wire Wire Line
+	8400 12600 8500 12600
+Wire Wire Line
+	9750 12800 9750 12600
+$Comp
+L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D?
+U 1 1 5FB8B321
+P 2550 12200
+F 0 "D?" V 2790 12122 50  0000 R CNN
+F 1 "Schottky" V 2699 12122 50  0000 R CNN
+F 2 "digikey-footprints:SOD-123" H 2750 12400 60  0001 L CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2750 12500 60  0001 L CNN
+F 4 "1N5819HW-FDICT-ND" H 2750 12600 60  0001 L CNN "Digi-Key_PN"
+F 5 "1N5819HW-7-F" V 2600 12122 60  0000 R CNN "MPN"
+F 6 "Discrete Semiconductor Products" H 2750 12800 60  0001 L CNN "Category"
+F 7 "Diodes - Rectifiers - Single" H 2750 12900 60  0001 L CNN "Family"
+F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2750 13000 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 2750 13100 60  0001 L CNN "DK_Detail_Page"
+F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 2750 13200 60  0001 L CNN "Description"
+F 11 "Diodes Incorporated" H 2750 13300 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 2750 13400 60  0001 L CNN "Status"
+F 13 "SOD-123" V 2502 12122 50  0000 R CNN "Package"
+F 14 "0.45 V" V 2411 12122 50  0000 R CNN "Vf"
+	1    2550 12200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D?
+U 1 1 5FB8B332
+P 1600 12200
+F 0 "D?" V 1840 12122 50  0000 R CNN
+F 1 "Schottky" V 1749 12122 50  0000 R CNN
+F 2 "digikey-footprints:SOD-123" H 1800 12400 60  0001 L CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1800 12500 60  0001 L CNN
+F 4 "1N5819HW-FDICT-ND" H 1800 12600 60  0001 L CNN "Digi-Key_PN"
+F 5 "1N5819HW-7-F" V 1650 12122 60  0000 R CNN "MPN"
+F 6 "Discrete Semiconductor Products" H 1800 12800 60  0001 L CNN "Category"
+F 7 "Diodes - Rectifiers - Single" H 1800 12900 60  0001 L CNN "Family"
+F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1800 13000 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 1800 13100 60  0001 L CNN "DK_Detail_Page"
+F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 1800 13200 60  0001 L CNN "Description"
+F 11 "Diodes Incorporated" H 1800 13300 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 1800 13400 60  0001 L CNN "Status"
+F 13 "SOD-123" V 1552 12122 50  0000 R CNN "Package"
+F 14 "0.45 V" V 1461 12122 50  0000 R CNN "Vf"
+	1    1600 12200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1600 11850 1600 12000
+Wire Wire Line
+	2550 11850 2550 12000
+Wire Wire Line
+	1600 12300 1600 12500
+Wire Wire Line
+	2550 12300 2550 12500
+Wire Wire Line
+	4700 12700 4700 12500
+Text HLabel 1350 11850 0    50   UnSpc ~ 0
+V_BAT
+Text HLabel 2400 11850 0    50   UnSpc ~ 0
+V_BUS
+Wire Wire Line
+	2400 11850 2550 11850
+Wire Wire Line
+	1350 11850 1600 11850
+$Comp
+L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D?
+U 1 1 5FB8B34C
+P 7650 12350
+F 0 "D?" V 7890 12272 50  0000 R CNN
+F 1 "Schottky" V 7799 12272 50  0000 R CNN
+F 2 "digikey-footprints:SOD-123" H 7850 12550 60  0001 L CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 7850 12650 60  0001 L CNN
+F 4 "1N5819HW-FDICT-ND" H 7850 12750 60  0001 L CNN "Digi-Key_PN"
+F 5 "1N5819HW-7-F" V 7700 12272 60  0000 R CNN "MPN"
+F 6 "Discrete Semiconductor Products" H 7850 12950 60  0001 L CNN "Category"
+F 7 "Diodes - Rectifiers - Single" H 7850 13050 60  0001 L CNN "Family"
+F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 7850 13150 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 7850 13250 60  0001 L CNN "DK_Detail_Page"
+F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 7850 13350 60  0001 L CNN "Description"
+F 11 "Diodes Incorporated" H 7850 13450 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 7850 13550 60  0001 L CNN "Status"
+F 13 "SOD-123" V 7602 12272 50  0000 R CNN "Package"
+F 14 "0.45 V" V 7511 12272 50  0000 R CNN "Vf"
+	1    7650 12350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D?
+U 1 1 5FB8B35D
+P 6650 12350
+F 0 "D?" V 6890 12272 50  0000 R CNN
+F 1 "Schottky" V 6799 12272 50  0000 R CNN
+F 2 "digikey-footprints:SOD-123" H 6850 12550 60  0001 L CNN
+F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 6850 12650 60  0001 L CNN
+F 4 "1N5819HW-FDICT-ND" H 6850 12750 60  0001 L CNN "Digi-Key_PN"
+F 5 "1N5819HW-7-F" V 6700 12272 60  0000 R CNN "MPN"
+F 6 "Discrete Semiconductor Products" H 6850 12950 60  0001 L CNN "Category"
+F 7 "Diodes - Rectifiers - Single" H 6850 13050 60  0001 L CNN "Family"
+F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 6850 13150 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 6850 13250 60  0001 L CNN "DK_Detail_Page"
+F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 6850 13350 60  0001 L CNN "Description"
+F 11 "Diodes Incorporated" H 6850 13450 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 6850 13550 60  0001 L CNN "Status"
+F 13 "SOD-123" V 6602 12272 50  0000 R CNN "Package"
+F 14 "0.45 V" V 6511 12272 50  0000 R CNN "Vf"
+	1    6650 12350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6650 11950 6650 12150
+Wire Wire Line
+	7650 11950 7650 12150
+Wire Wire Line
+	6650 12450 6650 12600
+Wire Wire Line
+	7650 12450 7650 12600
+Text HLabel 6400 11950 0    50   UnSpc ~ 0
+V_BAT
+Text HLabel 7500 11950 0    50   UnSpc ~ 0
+V_BUS
+Wire Wire Line
+	7500 11950 7650 11950
+Wire Wire Line
+	6400 11950 6650 11950
+Connection ~ 8400 12600
+Wire Wire Line
+	6650 12600 7650 12600
+Connection ~ 7650 12600
+Wire Wire Line
+	9550 12600 9750 12600
+Connection ~ 9750 12600
+Wire Wire Line
+	4450 12500 4700 12500
+Connection ~ 4700 12500
+Wire Wire Line
+	1600 12500 2550 12500
+Connection ~ 2550 12500
+Connection ~ 3300 12500
+Wire Wire Line
+	7650 12600 8000 12600
+Wire Wire Line
+	2550 12500 2950 12500
+Wire Wire Line
+	2950 12650 2950 12500
+Connection ~ 2950 12500
+Wire Wire Line
+	2950 12500 3300 12500
+Wire Wire Line
+	8000 12750 8000 12600
+Connection ~ 8000 12600
+Wire Wire Line
+	8000 12600 8400 12600
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B37D
+P 9050 13050
+F 0 "#PWR?" H 9050 12800 50  0001 C CNN
+F 1 "GND" H 9055 12877 50  0000 C CNN
+F 2 "" H 9050 13050 50  0001 C CNN
+F 3 "" H 9050 13050 50  0001 C CNN
+	1    9050 13050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B383
+P 9750 13050
+F 0 "#PWR?" H 9750 12800 50  0001 C CNN
+F 1 "GND" H 9755 12877 50  0000 C CNN
+F 2 "" H 9750 13050 50  0001 C CNN
+F 3 "" H 9750 13050 50  0001 C CNN
+	1    9750 13050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FB8B389
+P 8000 13050
+F 0 "#PWR?" H 8000 12800 50  0001 C CNN
+F 1 "GND" H 8005 12877 50  0000 C CNN
+F 2 "" H 8000 13050 50  0001 C CNN
+F 3 "" H 8000 13050 50  0001 C CNN
+	1    8000 13050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9750 13050 9750 13000
+Wire Wire Line
+	9050 13050 9050 13000
+Wire Wire Line
+	8000 13050 8000 12950
+Wire Wire Line
+	2950 12850 2950 12950
+Wire Wire Line
+	3950 12900 3950 12950
+Wire Wire Line
+	4700 12900 4700 12950
+Wire Wire Line
+	1400 5650 1700 5650
+Connection ~ 1700 5650
+Wire Wire Line
+	4850 5650 5200 5650
+Connection ~ 5200 5650
+$Comp
+L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J?
+U 1 1 5F887186
+P 9550 1650
+AR Path="/5F780D75/5F887186" Ref="J?"  Part="1" 
+AR Path="/5F780F7E/5F887186" Ref="J?"  Part="1" 
+F 0 "J?" H 9700 1400 50  0000 R CNN
+F 1 "Wire Switch Here" H 9700 1500 50  0000 R CNN
+F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 9750 1850 60  0001 L CNN
+F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 9750 1950 60  0001 L CNN
+F 4 "455-1719-ND" H 9750 2050 60  0001 L CNN "Digi-Key_PN"
+F 5 "S2B-PH-K-S(LF)(SN)" H 9750 2150 60  0001 L CNN "MPN"
+F 6 "Connectors, Interconnects" H 9750 2250 60  0001 L CNN "Category"
+F 7 "Rectangular Connectors - Headers, Male Pins" H 9750 2350 60  0001 L CNN "Family"
+F 8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 9750 2450 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" H 9750 2550 60  0001 L CNN "DK_Detail_Page"
+F 10 "CONN HEADER R/A 2POS 2MM" H 9750 2650 60  0001 L CNN "Description"
+F 11 "JST Sales America Inc." H 9750 2750 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 9750 2850 60  0001 L CNN "Status"
+	1    9550 1650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5350 1750 5350 2050
+Text Notes 5800 800  0    50   ~ 10
 TODO:\nCHECK POLARITY
 Wire Wire Line
-	6400 950  6400 1200
+	5200 850  5200 1100
 Wire Wire Line
-	6400 950  6550 950 
+	5200 850  5350 850 
 $Comp
 L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J?
 U 1 1 5F887196
-P 6650 1050
-F 0 "J?" V 6741 922 50  0000 R CNN
-F 1 "JST PH Battery Connector" V 6650 922 50  0000 R CNN
-F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 6850 1250 60  0001 L CNN
-F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 6850 1350 60  0001 L CNN
-F 4 "455-1719-ND" H 6850 1450 60  0001 L CNN "Digi-Key_PN"
-F 5 "S2B-PH-K-S(LF)(SN)" H 6850 1550 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 6850 1650 60  0001 L CNN "Category"
-F 7 "Rectangular Connectors - Headers, Male Pins" H 6850 1750 60  0001 L CNN "Family"
-F 8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 6850 1850 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" H 6850 1950 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN HEADER R/A 2POS 2MM" H 6850 2050 60  0001 L CNN "Description"
-F 11 "JST Sales America Inc." H 6850 2150 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6850 2250 60  0001 L CNN "Status"
-	1    6650 1050
+P 5450 950
+AR Path="/5F780D75/5F887196" Ref="J?"  Part="1" 
+AR Path="/5F780F7E/5F887196" Ref="J?"  Part="1" 
+F 0 "J?" V 5541 822 50  0000 R CNN
+F 1 "JST PH Battery Connector" V 5450 822 50  0000 R CNN
+F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 5650 1150 60  0001 L CNN
+F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 5650 1250 60  0001 L CNN
+F 4 "455-1719-ND" H 5650 1350 60  0001 L CNN "Digi-Key_PN"
+F 5 "S2B-PH-K-S(LF)(SN)" H 5650 1450 60  0001 L CNN "MPN"
+F 6 "Connectors, Interconnects" H 5650 1550 60  0001 L CNN "Category"
+F 7 "Rectangular Connectors - Headers, Male Pins" H 5650 1650 60  0001 L CNN "Family"
+F 8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 5650 1750 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" H 5650 1850 60  0001 L CNN "DK_Detail_Page"
+F 10 "CONN HEADER R/A 2POS 2MM" H 5650 1950 60  0001 L CNN "Description"
+F 11 "JST Sales America Inc." H 5650 2050 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 5650 2150 60  0001 L CNN "Status"
+	1    5450 950 
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870E2
-P 6400 1200
-F 0 "#PWR?" H 6400 950 50  0001 C CNN
-F 1 "GND" H 6405 1027 50  0000 C CNN
-F 2 "" H 6400 1200 50  0001 C CNN
-F 3 "" H 6400 1200 50  0001 C CNN
-	1    6400 1200
+P 5200 1100
+AR Path="/5F780D75/5F8870E2" Ref="#PWR?"  Part="1" 
+AR Path="/5F780F7E/5F8870E2" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5200 850 50  0001 C CNN
+F 1 "GND" H 5205 927 50  0000 C CNN
+F 2 "" H 5200 1100 50  0001 C CNN
+F 3 "" H 5200 1100 50  0001 C CNN
+	1    5200 1100
 	1    0    0    -1  
 $EndComp
-$Comp
-L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J?
-U 1 1 5F887186
-P 5350 700
-AR Path="/5F780D75/5F887186" Ref="J?"  Part="1" 
-AR Path="/5F780F7E/5F887186" Ref="J?"  Part="1" 
-F 0 "J?" H 5262 662 50  0000 R CNN
-F 1 "Wire Switch Here" H 5262 753 50  0000 R CNN
-F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 5550 900 60  0001 L CNN
-F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 5550 1000 60  0001 L CNN
-F 4 "455-1719-ND" H 5550 1100 60  0001 L CNN "Digi-Key_PN"
-F 5 "S2B-PH-K-S(LF)(SN)" H 5550 1200 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 5550 1300 60  0001 L CNN "Category"
-F 7 "Rectangular Connectors - Headers, Male Pins" H 5550 1400 60  0001 L CNN "Family"
-F 8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 5550 1500 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" H 5550 1600 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN HEADER R/A 2POS 2MM" H 5550 1700 60  0001 L CNN "Description"
-F 11 "JST Sales America Inc." H 5550 1800 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5550 1900 60  0001 L CNN "Status"
-	1    5350 700 
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	5250 800  5250 1050
-Wire Wire Line
-	5350 800  7650 800 
-Wire Wire Line
-	5250 1050 6550 1050
 Wire Notes Line
-	6850 1200 6850 1400
+	5650 1100 5650 1300
 Wire Notes Line
-	6850 1400 7400 1400
+	5650 1300 6200 1300
 Wire Notes Line
-	7400 1400 7400 1200
-Wire Notes Line
-	7400 1200 6850 1200
-Text Notes 6950 1350 0    50   ~ 0
+	6200 1100 5650 1100
+Text Notes 5750 1250 0    50   ~ 0
 battery
 Wire Notes Line
-	6700 1100 6700 1250
+	5500 1000 5500 1150
 Wire Notes Line
-	6700 1250 6850 1250
-Text Notes 7500 2050 0    50   ~ 0
-1) Run off USB while charging:  Battery may not charge since load is on V_BAT, and all current goes through battery charger.
+	5500 1150 5650 1150
+Wire Wire Line
+	5350 950  5350 1750
+Wire Wire Line
+	9200 1750 9450 1750
+Connection ~ 9200 1750
+Wire Wire Line
+	9550 1750 9950 1750
+Text Notes 6400 1900 0    50   ~ 0
+4.20 V max
+Text Notes 7550 1900 0    50   ~ 0
+4.20 V max
+Wire Wire Line
+	5350 1750 6150 1750
+Text Notes 7450 3300 0    50   ~ 0
+1) Charge battery while running: V_BUS at 5V, battery connected, switch on.\n2) Charge battery while not running: V_BUS at 5V, battery connected, switch off.\n3) Run on USB only: V_BUS at 5V, battery not connected, switch on.
+Text Notes 2000 6500 0    50   ~ 0
+Datasheet suggests a Schottky to avoid reverse biasing Vin/Vout if that is a possibility but I don't expect that to happen.
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5FC9C3B5
+P 6150 1750
+AR Path="/5F780D75/5FC9C3B5" Ref="#FLG?"  Part="1" 
+AR Path="/5F780F7E/5FC9C3B5" Ref="#FLG?"  Part="1" 
+F 0 "#FLG?" H 6150 1825 50  0001 C CNN
+F 1 "PWR_FLAG" H 6150 1923 50  0000 C CNN
+F 2 "" H 6150 1750 50  0001 C CNN
+F 3 "~" H 6150 1750 50  0001 C CNN
+	1    6150 1750
+	-1   0    0    1   
+$EndComp
+Connection ~ 6150 1750
+Wire Wire Line
+	6150 1750 6450 1750
+$Comp
+L power:PWR_FLAG #FLG?
+U 1 1 5FC9C859
+P 9950 1750
+AR Path="/5F780D75/5FC9C859" Ref="#FLG?"  Part="1" 
+AR Path="/5F780F7E/5FC9C859" Ref="#FLG?"  Part="1" 
+F 0 "#FLG?" H 9950 1825 50  0001 C CNN
+F 1 "PWR_FLAG" H 9950 1923 50  0000 C CNN
+F 2 "" H 9950 1750 50  0001 C CNN
+F 3 "~" H 9950 1750 50  0001 C CNN
+	1    9950 1750
+	-1   0    0    1   
+$EndComp
+Connection ~ 9950 1750
+Wire Wire Line
+	9950 1750 10100 1750
+Text Notes 2400 1500 0    50   ~ 0
+V_BUS also comes\nfrom the UART header
 $EndSCHEMATC
