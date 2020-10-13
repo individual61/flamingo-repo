@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 6
+Sheet 1 5
 Title "Flamingo PCB"
 Date "2020-09-29"
 Rev "3"
@@ -36,13 +36,7 @@ $EndSheet
 Text HLabel 1300 1800 2    50   UnSpc ~ 0
 +5V
 $Sheet
-S 1450 4450 2850 1550
-U 5F85F8A8
-F0 "Power sim" 50
-F1 "Flamingo PCB - Power sim.sch" 50
-$EndSheet
-$Sheet
-S 4750 3650 2000 1050
+S 7050 4850 2000 1050
 U 5FA54816
 F0 "Button Remote" 50
 F1 "Flamingo PCB - Button Remote.sch" 50

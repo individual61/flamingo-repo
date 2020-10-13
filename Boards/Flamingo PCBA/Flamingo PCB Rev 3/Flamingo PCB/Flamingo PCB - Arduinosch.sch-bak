@@ -629,7 +629,7 @@ Wire Wire Line
 Wire Wire Line
 	9050 5000 9400 5000
 Text HLabel 3800 850  0    50   UnSpc ~ 10
-V_BAT
+V_OUT
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5FA70FC9
@@ -798,14 +798,12 @@ Text HLabel 7300 950  2    50   Input ~ 10
 V_OUT
 Text Notes 9300 1700 0    31   ~ 6
 Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
-Text Notes 2450 2450 0    50   ~ 10
-Isn't this closing the battery to ground even with switch off?
-Text Notes 2450 2800 0    50   ~ 10
-If we use V_OUT, we can sense batt voltage up to 4.2 V, and if USB is connected, we can use an additional digital pin to sense that line.
+Text Notes 2900 2450 0    50   ~ 10
+If we use V_OUT, we can sense batt voltage up to 4.2 V, \nand if USB is connected, we can use an additional digital pin to sense that line.
 Text HLabel 9050 4600 0    50   UnSpc ~ 10
 V_BUS
-Text Notes 2750 3350 0    50   ~ 10
-V_BUS will be floating when there is nothing connected to USB
+Text Notes 4750 4700 0    50   ~ 0
+Sensing USB power or not: V_BUS will be pulled to GND through 100k when there is nothing on USB.\nUse digital read to determine.
 Wire Wire Line
 	9050 4600 9400 4600
 $EndSCHEMATC
