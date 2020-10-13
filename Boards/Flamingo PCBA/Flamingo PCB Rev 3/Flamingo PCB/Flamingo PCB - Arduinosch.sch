@@ -210,39 +210,37 @@ Connection ~ 10950 2800
 $Comp
 L MyCapacitors:C_Small_horizontal C208
 U 1 1 5F8AF43A
-P 9200 5550
-F 0 "C208" H 9100 5350 50  0000 C CNN
-F 1 "0.1uF" H 9100 5250 50  0000 C CNN
-F 2 "" V 9075 5500 50  0001 L CNN
-F 3 "" H 9000 6025 50  0001 L CNN
-F 4 "XXXX" H 9100 5150 50  0000 C CNN "Package Size"
-F 5 "Voltage" H 9100 5050 50  0000 C CNN "Voltage Rating"
-F 6 "MFR P/N" H 9100 4950 50  0000 C CNN "MPN"
-F 7 "-" H 9000 5850 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 9000 5850 50  0001 L CNN "Prefix"
-F 9 "-" H 9000 5850 50  0001 L CNN "Website"
-F 10 "-" H 9000 5850 50  0001 L CNN "Description"
-F 11 "-" H 9000 5850 50  0001 L CNN "Manufacturer"
-	1    9200 5550
+P 8400 5550
+F 0 "C208" H 8300 5350 50  0000 C CNN
+F 1 "0.1uF" H 8300 5250 50  0000 C CNN
+F 2 "" V 8275 5500 50  0001 L CNN
+F 3 "" H 8200 6025 50  0001 L CNN
+F 4 "XXXX" H 8300 5150 50  0000 C CNN "Package Size"
+F 5 "Voltage" H 8300 5050 50  0000 C CNN "Voltage Rating"
+F 6 "MFR P/N" H 8300 4950 50  0000 C CNN "MPN"
+F 7 "-" H 8200 5850 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 8200 5850 50  0001 L CNN "Prefix"
+F 9 "-" H 8200 5850 50  0001 L CNN "Website"
+F 10 "-" H 8200 5850 50  0001 L CNN "Description"
+F 11 "-" H 8200 5850 50  0001 L CNN "Manufacturer"
+	1    8400 5550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9200 5600 9400 5600
 $Comp
 L power:GND #PWR0205
 U 1 1 5F8B38E2
-P 8850 5650
-F 0 "#PWR0205" H 8850 5400 50  0001 C CNN
-F 1 "GND" H 8850 5500 50  0000 C CNN
-F 2 "" H 8850 5650 50  0001 C CNN
-F 3 "" H 8850 5650 50  0001 C CNN
-	1    8850 5650
+P 8050 5650
+F 0 "#PWR0205" H 8050 5400 50  0001 C CNN
+F 1 "GND" H 8050 5500 50  0000 C CNN
+F 2 "" H 8050 5650 50  0001 C CNN
+F 3 "" H 8050 5650 50  0001 C CNN
+	1    8050 5650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8850 5600 8850 5650
+	8050 5600 8050 5650
 Wire Wire Line
-	8850 5600 9000 5600
+	8050 5600 8200 5600
 Wire Wire Line
 	2800 5050 2800 5100
 $Comp
@@ -266,19 +264,19 @@ $EndComp
 $Comp
 L Device:C C?
 U 1 1 5F856F35
-P 6850 1700
-F 0 "C?" H 6965 1746 50  0000 L CNN
-F 1 "100uF" H 6965 1655 50  0000 L CNN
-F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-C_EIA-6032-28_Reflow" H 6888 1550 50  0001 C CNN
-F 3 "~" H 6850 1700 50  0001 C CNN
-F 4 "-" H 6850 1700 50  0001 C CNN "Description"
-F 5 "TAJC107K010RNJ" H 7300 1450 50  0000 C CNN "MPN"
-F 6 "-" H 6850 1700 50  0001 C CNN "Manufacturer"
-F 7 "-" H 6850 1700 50  0001 C CNN "Website"
-F 8 "-" H 6850 1700 50  0001 C CNN "Digi-Key_PN"
-F 9 "2312" H 7050 1550 50  0000 C CNN "Package"
-F 10 "10V" H 6850 1700 50  0001 C CNN "Voltage Rating"
-	1    6850 1700
+P 7150 1350
+F 0 "C?" H 7265 1396 50  0000 L CNN
+F 1 "100uF" H 7265 1305 50  0000 L CNN
+F 2 "Capacitors_Tantalum_SMD:CP_Tantalum_Case-C_EIA-6032-28_Reflow" H 7188 1200 50  0001 C CNN
+F 3 "~" H 7150 1350 50  0001 C CNN
+F 4 "-" H 7150 1350 50  0001 C CNN "Description"
+F 5 "TAJC107K010RNJ" H 7600 1100 50  0000 C CNN "MPN"
+F 6 "-" H 7150 1350 50  0001 C CNN "Manufacturer"
+F 7 "-" H 7150 1350 50  0001 C CNN "Website"
+F 8 "-" H 7150 1350 50  0001 C CNN "Digi-Key_PN"
+F 9 "2312" H 7350 1200 50  0000 C CNN "Package"
+F 10 "10V" H 7150 1350 50  0001 C CNN "Voltage Rating"
+	1    7150 1350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -497,95 +495,93 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_01x04 J?
 U 1 1 5F9B2DF6
-P 5550 1750
-F 0 "J?" H 5468 1325 50  0000 C CNN
-F 1 "APA102 HEADER" H 5468 1416 50  0000 C CNN
-F 2 "" H 5550 1750 50  0001 C CNN
-F 3 "~" H 5550 1750 50  0001 C CNN
-F 4 "MPN" H 5550 1750 50  0001 C CNN "MPN"
-F 5 "-" H 5550 1750 50  0001 C CNN "Digi-Key_PN"
-F 6 "-" H 5550 1750 50  0001 C CNN "Website"
-F 7 "-" H 5550 1750 50  0001 C CNN "Description"
-F 8 "-" H 5550 1750 50  0001 C CNN "Manufacturer"
-	1    5550 1750
+P 5850 1400
+F 0 "J?" H 5768 975 50  0000 C CNN
+F 1 "APA102 HEADER" H 5768 1066 50  0000 C CNN
+F 2 "" H 5850 1400 50  0001 C CNN
+F 3 "~" H 5850 1400 50  0001 C CNN
+F 4 "MPN" H 5850 1400 50  0001 C CNN "MPN"
+F 5 "-" H 5850 1400 50  0001 C CNN "Digi-Key_PN"
+F 6 "-" H 5850 1400 50  0001 C CNN "Website"
+F 7 "-" H 5850 1400 50  0001 C CNN "Description"
+F 8 "-" H 5850 1400 50  0001 C CNN "Manufacturer"
+	1    5850 1400
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	9650 1600 9650 1700
+	10000 1350 10000 1450
 $Comp
 L MyLEDs:LED_ALT_vert D?
 U 1 1 5F9CDB9E
-P 9650 1450
+P 10000 1200
 AR Path="/5F780D75/5F9CDB9E" Ref="D?"  Part="1" 
 AR Path="/5F780F7E/5F9CDB9E" Ref="D?"  Part="1" 
 AR Path="/5F780A01/5F9CDB9E" Ref="D?"  Part="1" 
-F 0 "D?" H 9768 1580 50  0000 L CNN
-F 1 "Orange/Heartbeat" H 9768 1489 50  0000 L CNN
-F 2 "LEDs:LED_0603_HandSoldering" H 9750 1450 50  0001 C CNN
-F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493882/LO%20L29K.pdf" H 9850 1550 50  0001 C CNN
-F 4 "0603" H 9768 1398 50  0000 L CNN "Package Size"
-F 5 "LO L29K-H2K1-24-Z" H 9768 1307 50  0000 L CNN "MFR P/N"
-F 6 "LED ORANGE DIFFUSED 0603 SMD" H 9650 1450 50  0001 C CNN "Description"
-F 7 "OSRAM Opto Semiconductors Inc." H 9650 1450 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LO-L29K-H2K1-24-Z/1938771" H 9650 1450 50  0001 C CNN "Website"
-F 9 "475-2740-1-ND" H 9650 1450 50  0001 C CNN "Digi-Key_PN"
-	1    9650 1450
+F 0 "D?" H 10118 1330 50  0000 L CNN
+F 1 "Orange/Heartbeat" H 10118 1239 50  0000 L CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 10100 1200 50  0001 C CNN
+F 3 "https://dammedia.osram.info/media/resource/hires/osram-dam-2493882/LO%20L29K.pdf" H 10200 1300 50  0001 C CNN
+F 4 "0603" H 10118 1148 50  0000 L CNN "Package Size"
+F 5 "LO L29K-H2K1-24-Z" H 10118 1057 50  0000 L CNN "MFR P/N"
+F 6 "LED ORANGE DIFFUSED 0603 SMD" H 10000 1200 50  0001 C CNN "Description"
+F 7 "OSRAM Opto Semiconductors Inc." H 10000 1200 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/osram-opto-semiconductors-inc/LO-L29K-H2K1-24-Z/1938771" H 10000 1200 50  0001 C CNN "Website"
+F 9 "475-2740-1-ND" H 10000 1200 50  0001 C CNN "Digi-Key_PN"
+	1    10000 1200
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5F9CDBAA
-P 9650 1850
+P 10000 1600
 AR Path="/5F780D75/5F9CDBAA" Ref="R?"  Part="1" 
 AR Path="/5F780F7E/5F9CDBAA" Ref="R?"  Part="1" 
 AR Path="/5F780A01/5F9CDBAA" Ref="R?"  Part="1" 
-F 0 "R?" H 9731 1962 50  0000 L CNN
-F 1 "1.5k" H 9731 1871 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 9705 1800 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 9650 1850 50  0001 C CNN
-F 4 "0603" H 9731 1780 50  0000 L CNN "Package Size"
-F 5 "RC0603FR-071K5L" H 9731 1689 50  0000 L CNN "MFR P/N"
-F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 9650 1850 50  0001 C CNN "Description"
-F 7 "Yageo" H 9650 1850 50  0001 C CNN "Manufacturer"
-F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 9650 1850 50  0001 C CNN "Website"
-F 9 "311-1.50KHRCT-ND" H 9650 1850 50  0001 C CNN "Digi-Key_PN"
-	1    9650 1850
+F 0 "R?" H 10081 1712 50  0000 L CNN
+F 1 "1.5k" H 10081 1621 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 10055 1550 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 10000 1600 50  0001 C CNN
+F 4 "0603" H 10081 1530 50  0000 L CNN "Package Size"
+F 5 "RC0603FR-071K5L" H 10081 1439 50  0000 L CNN "MFR P/N"
+F 6 "RES SMD 1.5K OHM 1% 1/10W 0603" H 10000 1600 50  0001 C CNN "Description"
+F 7 "Yageo" H 10000 1600 50  0001 C CNN "Manufacturer"
+F 8 "https://www.digikey.com/en/products/detail/yageo/RC0603FR-071K5L/729811" H 10000 1600 50  0001 C CNN "Website"
+F 9 "311-1.50KHRCT-ND" H 10000 1600 50  0001 C CNN "Digi-Key_PN"
+	1    10000 1600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9650 1250 9650 1300
+	10000 1000 10000 1050
 $Comp
 L power:GND #PWR?
 U 1 1 5F9D1FE5
-P 9650 2150
-F 0 "#PWR?" H 9650 1900 50  0001 C CNN
-F 1 "GND" H 9650 2000 50  0000 C CNN
-F 2 "" H 9650 2150 50  0001 C CNN
-F 3 "" H 9650 2150 50  0001 C CNN
-	1    9650 2150
+P 10000 1900
+F 0 "#PWR?" H 10000 1650 50  0001 C CNN
+F 1 "GND" H 10000 1750 50  0000 C CNN
+F 2 "" H 10000 1900 50  0001 C CNN
+F 3 "" H 10000 1900 50  0001 C CNN
+	1    10000 1900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9650 2150 9650 2050
-Text Label 9350 1250 2    50   ~ 10
+	10000 1900 10000 1800
+Text Label 9700 1000 2    50   ~ 10
 Heartbeat_LED
 Wire Wire Line
-	9350 1250 9650 1250
+	9700 1000 10000 1000
 $Comp
 L power:GND #PWR?
 U 1 1 5F9E548C
-P 6850 2000
-F 0 "#PWR?" H 6850 1750 50  0001 C CNN
-F 1 "GND" H 6850 1850 50  0000 C CNN
-F 2 "" H 6850 2000 50  0001 C CNN
-F 3 "" H 6850 2000 50  0001 C CNN
-	1    6850 2000
+P 7150 1650
+F 0 "#PWR?" H 7150 1400 50  0001 C CNN
+F 1 "GND" H 7150 1500 50  0000 C CNN
+F 2 "" H 7150 1650 50  0001 C CNN
+F 3 "" H 7150 1650 50  0001 C CNN
+	1    7150 1650
 	1    0    0    -1  
 $EndComp
-Text HLabel 7000 1300 2    50   Input ~ 10
-V_OUT
 Text Label 9050 4200 2    50   ~ 10
-MOSI_APA102DATA
+MOSI__APA102DATA
 Text Label 9050 4300 2    50   ~ 10
 MISO
 Wire Wire Line
@@ -605,121 +601,209 @@ Wire Wire Line
 Wire Wire Line
 	8250 3500 9400 3500
 Text Label 9050 4400 2    50   ~ 10
-SCK_APA102CLOCK
-Text Label 5850 1650 0    50   ~ 10
-SCK_APA102CLOCK
-Text Label 5850 1750 0    50   ~ 10
-MOSI_APA102DATA
-Text Notes 6000 1000 0    50   ~ 10
-TODO: \nSELECT HEADER\nCHECK PINOUT
+SCK__APA102CLOCK
+Text Label 6150 1300 0    50   ~ 10
+SCK__APA102CLOCK
+Text Label 6150 1400 0    50   ~ 10
+MOSI__APA102DATA
+Text Notes 6300 850  0    50   ~ 10
+TODO: \nSELECT CONNECTOR\nCHECK PINOUT
 Wire Wire Line
-	6850 2000 6850 1850
+	7150 1650 7150 1500
 Wire Wire Line
-	7000 1300 6850 1300
+	7300 950  7150 950 
 Wire Wire Line
-	6850 1300 6850 1550
+	7150 950  7150 1200
 Wire Wire Line
-	6600 1550 6850 1550
-Connection ~ 6850 1550
+	6900 1200 7150 1200
+Connection ~ 7150 1200
 Wire Wire Line
-	6600 1850 6850 1850
-Connection ~ 6850 1850
-Text Notes 9000 850  0    50   ~ 10
-TODO: \nCHOOSE PIN
-Text Notes 7050 5000 0    50   ~ 0
-Looking like the IMU needs to be on i2c
-Text HLabel 9200 4900 0    50   UnSpc ~ 10
+	6900 1500 7150 1500
+Connection ~ 7150 1500
+Text HLabel 9050 4900 0    50   UnSpc ~ 10
 SDA_IMU_5V
-Text HLabel 9200 5000 0    50   UnSpc ~ 10
+Text HLabel 9050 5000 0    50   UnSpc ~ 10
 SCL_IMU_5V
 Wire Wire Line
-	9200 4900 9400 4900
+	9050 4900 9400 4900
 Wire Wire Line
-	9200 5000 9400 5000
-Text HLabel 9250 3200 0    50   UnSpc ~ 10
-Button_1
-Text HLabel 9250 3300 0    50   UnSpc ~ 10
-Button_2
-Text Notes 5500 3550 0    50   ~ 10
-TODO: \n\nMissing pins:\n\n(1) interrupt pin for MPU6050 et al\n(1) Heartbeat pin\n(1) ADC battery sense pin\n\nIf pins are left over, more buttons
-Text HLabel 3450 850  0    50   UnSpc ~ 10
-V_BAT
+	9050 5000 9400 5000
+Text HLabel 3800 850  0    50   UnSpc ~ 10
+V_OUT
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5FA70FC9
-P 3650 1700
+P 4000 1700
 AR Path="/5F780D75/5FA70FC9" Ref="R?"  Part="1" 
 AR Path="/5F780F7E/5FA70FC9" Ref="R?"  Part="1" 
 AR Path="/5F780A01/5FA70FC9" Ref="R?"  Part="1" 
-F 0 "R?" H 3731 1812 50  0000 L CNN
-F 1 "-" H 3731 1721 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3705 1650 50  0001 C CNN
-F 3 "" H 3650 1700 50  0001 C CNN
-F 4 "0603" H 3731 1630 50  0000 L CNN "Package Size"
-F 5 "" H 3731 1539 50  0000 L CNN "MFR P/N"
-F 6 "" H 3650 1700 50  0001 C CNN "Description"
-F 7 "" H 3650 1700 50  0001 C CNN "Manufacturer"
-F 8 "" H 3650 1700 50  0001 C CNN "Website"
-F 9 "" H 3650 1700 50  0001 C CNN "Digi-Key_PN"
-	1    3650 1700
+F 0 "R?" H 4081 1812 50  0000 L CNN
+F 1 "-" H 4081 1721 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 4055 1650 50  0001 C CNN
+F 3 "" H 4000 1700 50  0001 C CNN
+F 4 "0603" H 4081 1630 50  0000 L CNN "Package Size"
+F 5 "" H 4081 1539 50  0000 L CNN "MFR P/N"
+F 6 "" H 4000 1700 50  0001 C CNN "Description"
+F 7 "" H 4000 1700 50  0001 C CNN "Manufacturer"
+F 8 "" H 4000 1700 50  0001 C CNN "Website"
+F 9 "" H 4000 1700 50  0001 C CNN "Digi-Key_PN"
+	1    4000 1700
 	1    0    0    -1  
 $EndComp
 $Comp
 L MyResistors:R_vert R?
 U 1 1 5FA738C9
-P 3650 1150
+P 4000 1150
 AR Path="/5F780D75/5FA738C9" Ref="R?"  Part="1" 
 AR Path="/5F780F7E/5FA738C9" Ref="R?"  Part="1" 
 AR Path="/5F780A01/5FA738C9" Ref="R?"  Part="1" 
-F 0 "R?" H 3731 1262 50  0000 L CNN
-F 1 "-" H 3731 1171 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3705 1100 50  0001 C CNN
-F 3 "" H 3650 1150 50  0001 C CNN
-F 4 "0603" H 3731 1080 50  0000 L CNN "Package Size"
-F 5 "" H 3731 989 50  0000 L CNN "MFR P/N"
-F 6 "" H 3650 1150 50  0001 C CNN "Description"
-F 7 "" H 3650 1150 50  0001 C CNN "Manufacturer"
-F 8 "" H 3650 1150 50  0001 C CNN "Website"
-F 9 "" H 3650 1150 50  0001 C CNN "Digi-Key_PN"
-	1    3650 1150
+F 0 "R?" H 4081 1262 50  0000 L CNN
+F 1 "-" H 4081 1171 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 4055 1100 50  0001 C CNN
+F 3 "" H 4000 1150 50  0001 C CNN
+F 4 "0603" H 4081 1080 50  0000 L CNN "Package Size"
+F 5 "" H 4081 989 50  0000 L CNN "MFR P/N"
+F 6 "" H 4000 1150 50  0001 C CNN "Description"
+F 7 "" H 4000 1150 50  0001 C CNN "Manufacturer"
+F 8 "" H 4000 1150 50  0001 C CNN "Website"
+F 9 "" H 4000 1150 50  0001 C CNN "Digi-Key_PN"
+	1    4000 1150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3650 1350 3650 1450
+	4000 1350 4000 1450
 Wire Wire Line
-	3450 850  3650 850 
+	3800 850  4000 850 
 Wire Wire Line
-	3650 850  3650 1000
+	4000 850  4000 1000
 $Comp
 L power:GND #PWR?
 U 1 1 5FA79585
-P 3650 2000
-F 0 "#PWR?" H 3650 1750 50  0001 C CNN
-F 1 "GND" H 3650 1850 50  0000 C CNN
-F 2 "" H 3650 2000 50  0001 C CNN
-F 3 "" H 3650 2000 50  0001 C CNN
-	1    3650 2000
+P 4000 2000
+F 0 "#PWR?" H 4000 1750 50  0001 C CNN
+F 1 "GND" H 4000 1850 50  0000 C CNN
+F 2 "" H 4000 2000 50  0001 C CNN
+F 3 "" H 4000 2000 50  0001 C CNN
+	1    4000 2000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3650 2000 3650 1900
-Text Label 3900 1450 0    50   ~ 10
+	4000 2000 4000 1900
+Text Label 4250 1450 0    50   ~ 10
 Batt_Volt_Divider
 Wire Wire Line
-	3900 1450 3650 1450
-Connection ~ 3650 1450
+	4250 1450 4000 1450
+Connection ~ 4000 1450
 Wire Wire Line
-	3650 1450 3650 1550
-Text Notes 2500 800  0    50   ~ 10
+	4000 1450 4000 1550
+Text Notes 2850 800  0    50   ~ 10
 TODO: \nVOLTAGE DIVIDE SO THAT 4.2 V ENDS UP JUST BELOW 1.1 V\nCHOOSE PIN
-Text Label 6250 3800 2    50   ~ 10
+Text Label 9150 5700 2    50   ~ 10
 Batt_Volt_Divider
-Text HLabel 6250 3650 0    50   UnSpc ~ 10
+Text HLabel 9200 5400 0    50   UnSpc ~ 10
 IMU_INTERRUPT_5V
-Text Label 6250 3950 2    50   ~ 10
+Text Label 9050 4500 2    50   ~ 10
 Heartbeat_LED
-Text HLabel 9250 3600 0    50   UnSpc ~ 10
-Button_3
 Wire Wire Line
 	9250 3600 9400 3600
+Text Notes -1600 -700 0    50   ~ 0
+ADXL345         2 interrupt pins                  i2c             acc only\nICM20948        1 interrupt pin                   i2c/aux       acc gyro mag\nMPU6050        1 interrupt pin                    i2c            ACC GYRO\nBNO055          1 interrupt pin, 1 reset pin      i2c            acc gyro mag\n
+Text Notes 550  950  0    50   ~ 10
+TODO: \n\nSELECT CONNECTOR FOR BUTTON BOARD CABLE.\nUSE AS MANY POSITIONS AS THERE ARE FREE PINS, \nSO THIS CAN BE AN EXTENSION HEADER
+$Comp
+L power:+5V #PWR?
+U 1 1 5F861215
+P 4800 6850
+F 0 "#PWR?" H 4800 6700 50  0001 C CNN
+F 1 "+5V" H 4800 6990 50  0000 C CNN
+F 2 "" H 4800 6850 50  0001 C CNN
+F 3 "" H 4800 6850 50  0001 C CNN
+	1    4800 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F86171A
+P 4800 7400
+F 0 "#PWR?" H 4800 7150 50  0001 C CNN
+F 1 "GND" H 4800 7250 50  0000 C CNN
+F 2 "" H 4800 7400 50  0001 C CNN
+F 3 "" H 4800 7400 50  0001 C CNN
+	1    4800 7400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 7400 4800 7300
+Wire Wire Line
+	4800 6850 4800 7000
+Text Notes 5000 6800 0    50   ~ 0
+Place next to VCC pins
+Text Label 9250 3200 2    50   ~ 10
+Button_1
+Text Label 9250 3300 2    50   ~ 10
+Button_2
+Text Label 9250 3600 2    50   ~ 10
+Button_3
+Text Notes 2950 -450 0    50   ~ 0
+Ideas:\n\nOne on-board button for convenience. (adds a resistor and a button)\nDIP switch (adds resistor per switch)
+Text Label 1700 1500 0    50   ~ 10
+Button_1
+Text Label 1700 1600 0    50   ~ 10
+Button_2
+Text Label 1700 1700 0    50   ~ 10
+Button_3
+Text HLabel 1700 1400 2    50   Input ~ 10
+V_OUT
+$Comp
+L power:GND #PWR?
+U 1 1 5F875030
+P 1700 1800
+F 0 "#PWR?" H 1700 1550 50  0001 C CNN
+F 1 "GND" H 1700 1650 50  0000 C CNN
+F 2 "" H 1700 1800 50  0001 C CNN
+F 3 "" H 1700 1800 50  0001 C CNN
+	1    1700 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 5F87A6A8
+P 950 1600
+F 0 "J?" H 868 1175 50  0000 C CNN
+F 1 "Button Board Connector" H 868 1266 50  0000 C CNN
+F 2 "" H 950 1600 50  0001 C CNN
+F 3 "~" H 950 1600 50  0001 C CNN
+	1    950  1600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1150 1400 1700 1400
+Wire Wire Line
+	1150 1500 1700 1500
+Wire Wire Line
+	1150 1800 1700 1800
+Wire Wire Line
+	1150 1700 1700 1700
+Wire Wire Line
+	1150 1600 1700 1600
+Wire Wire Line
+	8400 5600 9400 5600
+Wire Wire Line
+	9150 5700 9400 5700
+Wire Wire Line
+	9050 4500 9400 4500
+Wire Wire Line
+	9400 5400 9200 5400
+Text HLabel 7300 950  2    50   Input ~ 10
+V_OUT
+Text Notes 9300 1700 0    31   ~ 6
+Vf = 1.8V, 2 mA Ityp\n5V-1.8 = 3.2V\n3.2V/1.5k = 2.1 mA
+Text Notes 2900 2450 0    50   ~ 10
+If we use V_OUT, we can sense batt voltage up to 4.2 V, \nand if USB is connected, we can use an additional digital pin to sense that line.
+Text HLabel 9050 4600 0    50   UnSpc ~ 10
+V_BUS
+Text Notes 4750 4700 0    50   ~ 0
+Sensing USB power or not: V_BUS will be pulled to GND through 100k when there is nothing on USB.\nUse digital read to determine.
+Wire Wire Line
+	9050 4600 9400 4600
 $EndSCHEMATC

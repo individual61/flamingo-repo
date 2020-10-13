@@ -3016,7 +3016,7 @@ Text Notes 7550 1900 0    50   ~ 0
 Wire Wire Line
 	5350 1750 6150 1750
 Text Notes 7450 3300 0    50   ~ 0
-1) Charge battery while running: V_BUS at 5V, battery connected, switch on.\n2) Charge battery while not running: V_BUS at 5V, battery connected, switch off.\n3) Run on USB only: V_BUS at 5V, battery not connected, switch on.
+1) Charge battery while running: V_BUS at 5V, battery connected, switch on.\n2) Charge battery while not running: V_BUS at 5V, battery connected, switch off.\n3) Run on USB only: V_BUS at 5V, battery not connected, switch on.\n4) No long-term discharge allowed when batt present but off and not connected to USB.
 Text Notes 2000 6500 0    50   ~ 0
 Datasheet suggests a Schottky to avoid reverse biasing Vin/Vout if that is a possibility but I don't expect that to happen.
 $Comp
@@ -3053,4 +3053,6 @@ Wire Wire Line
 	9950 1750 10100 1750
 Text Notes 2400 1500 0    50   ~ 0
 V_BUS also comes\nfrom the UART header
+Text Notes 7750 3500 0    50   ~ 10
+What is leakage of V_BAT through mosfet and 100k resistor?
 $EndSCHEMATC
