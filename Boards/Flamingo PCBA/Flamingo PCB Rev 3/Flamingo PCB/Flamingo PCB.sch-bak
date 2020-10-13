@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 4
+Sheet 1 6
 Title "Flamingo PCB"
 Date "2020-09-29"
 Rev "3"
@@ -18,6 +18,8 @@ S 1300 1500 2000 1400
 U 5F780A01
 F0 "Arduino" 50
 F1 "Flamingo PCB - Arduinosch.sch" 50
+F2 "SDA_IMU_5V" B R 3300 2000 50 
+F3 "SCK_IMU_5V" B R 3300 2150 50 
 $EndSheet
 $Sheet
 S 6500 1500 2000 1400
@@ -33,4 +35,16 @@ F1 "Flamingo PCB - Power.sch" 50
 $EndSheet
 Text HLabel 1300 1800 2    50   UnSpc ~ 0
 +5V
+$Sheet
+S 1450 4450 2850 1550
+U 5F85F8A8
+F0 "Power sim" 50
+F1 "Flamingo PCB - Power sim.sch" 50
+$EndSheet
+$Sheet
+S 4750 3650 2000 1050
+U 5FA54816
+F0 "Button Remote" 50
+F1 "Flamingo PCB - Button Remote.sch" 50
+$EndSheet
 $EndSCHEMATC
