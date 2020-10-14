@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 5
+Sheet 2 5
 Title ""
 Date ""
 Rev ""
@@ -202,8 +202,6 @@ Text Notes -6350 1350 0    50   ~ 0
 Cases:\nCasesI would like to protect for:\n\nV_BAT open\nV_BAT shorted to ground\nV_BAT below any of 1.8V, 3.3V, 5V\nV_BAT above any of 1.8V, 3.3V up to 4.20 V\nV_BAT reversed?\n\nV_BUS 0V\nV_BUS shorted to ground
 Text Notes -6200 2400 0    50   ~ 0
 V_BAT will always be below V_BUS. If I connect Schottky diode\n from output to input as directed, now have V_BUS on the V_BAT line,\n which would bypass the battery controller. Not good.\n\nIn addition I can maybe I can put a Schottky on the output\n so the internal diode cannot forward bias.
-Text HLabel 5400 9250 0    50   UnSpc ~ 0
-V_BUS
 $Comp
 L dk_Diodes-Rectifiers-Single:1N5819HW-7-F #D403
 U 1 1 5F909D28
@@ -279,8 +277,6 @@ F 13 "150 mA" H 3200 10250 50  0000 L CNN "Imax"
 	1    3750 9950
 	1    0    0    -1  
 $EndComp
-Text HLabel 5900 9850 2    50   UnSpc ~ 0
-+5V
 NoConn ~ 4150 10050
 $Comp
 L MyCapacitors:C_Small_vert #C402
@@ -343,8 +339,6 @@ Wire Wire Line
 	5600 10400 5600 10250
 Wire Wire Line
 	5600 10050 5600 9850
-Text HLabel 1700 9850 0    50   UnSpc ~ 0
-V_BAT
 Wire Wire Line
 	5600 9850 5900 9850
 Connection ~ 5600 9850
@@ -475,8 +469,6 @@ F 3 "" H 5350 2250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Connection ~ 5350 1750
-Text HLabel 6450 1750 2    50   UnSpc ~ 10
-V_BAT
 $Comp
 L power:GND #PWR?
 U 1 1 5F8870EC
@@ -719,8 +711,6 @@ F 11 "Murata Electronics" H 1941 1545 50  0001 L CNN "Manufacturer"
 	1    1850 2000
 	1    0    0    -1  
 $EndComp
-Text Notes 8950 800  0    50   ~ 10
-TODO:\nNEED TO FIND A GOOD SOCKET FOR THE SWITCH CABLE\nMIGHT JUST NOT POPULATE AND SOLDER DIRECT
 Text Notes 5600 3250 0    31   ~ 0
 Open:    10k = 100 mA\nClosed:  2.0k = 500 mA\n\nBatt charging rate:\n\n10k = 100mA    *\n5.0k = 200 mA\n2.0k = 500 mA  *\n1.0k = 1000mA \n\nAdafruit typically does 0.5C for their batteries\n2500 mAh capacity - 1200 mA charge current
 Wire Wire Line
@@ -2431,8 +2421,6 @@ Wire Notes Line
 	6200 1300 6200 1100
 Text HLabel 7850 2150 0    50   UnSpc ~ 10
 V_BUS
-Text HLabel 7850 1750 0    50   UnSpc ~ 10
-V_BAT
 $Comp
 L Device:Q_PMOS_GSD Q401
 U 1 1 5FACB625
@@ -2549,404 +2537,12 @@ F 3 "" H 9200 2650 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9200 2650 9200 2500
-$Comp
-L MyCapacitors:C_Small_vert C403
-U 1 1 5FB8B2A7
-P 2950 12700
-F 0 "C403" H 3042 12832 50  0000 L CNN
-F 1 "10uF" H 3042 12741 50  0000 L CNN
-F 2 "" H 2950 12675 50  0001 L CNN
-F 3 "" H 3050 12775 50  0001 L CNN
-F 4 "XXXX" H 3042 12650 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 3042 12559 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 3042 12468 50  0000 L CNN "MPN"
-F 7 "-" H 3050 12400 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 3050 12400 50  0001 L CNN "Prefix"
-F 9 "-" H 3050 12400 50  0001 L CNN "Website"
-F 10 "-" H 3050 12400 50  0001 L CNN "Description"
-F 11 "-" H 3050 12400 50  0001 L CNN "Manufacturer"
-	1    2950 12700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0407
-U 1 1 5FB8B2AD
-P 2950 12950
-F 0 "#PWR0407" H 2950 12700 50  0001 C CNN
-F 1 "GND" H 2955 12777 50  0000 C CNN
-F 2 "" H 2950 12950 50  0001 C CNN
-F 3 "" H 2950 12950 50  0001 C CNN
-	1    2950 12950
-	1    0    0    -1  
-$EndComp
-$Comp
-L MyICs:3.3V_Reg U402
-U 1 1 5FB8B2BD
-P 4050 12600
-F 0 "U402" H 3500 13200 60  0000 L CNN
-F 1 "3.3V_Reg" H 3500 13100 60  0000 L CNN
-F 2 "digikey-footprints:SOT-753" H 5250 13150 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 4250 12900 60  0001 L CNN
-F 4 "296-18476-1-ND" H 5250 13350 60  0001 L CNN "Digi-Key_PN"
-F 5 "LP2985-33DBVR" H 3500 13000 60  0000 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 5250 13550 60  0001 L CNN "Category"
-F 7 "PMIC - Voltage Regulators - Linear" H 5250 13650 60  0001 L CNN "Family"
-F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 5250 13750 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/texas-instruments/LP2985-33DBVR/296-18476-1-ND/809911" H 5250 13850 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC REG LINEAR 3.3V 150MA SOT23-5" H 5250 13950 60  0001 L CNN "Description"
-F 11 "Texas Instruments" H 5250 14050 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 5250 14150 60  0001 L CNN "Status"
-F 13 "150 mA" H 3500 12900 50  0000 L CNN "Imax"
-	1    4050 12600
-	1    0    0    -1  
-$EndComp
-Text HLabel 4900 12500 2    50   UnSpc ~ 0
-+3.3V
-Wire Wire Line
-	4900 12500 4700 12500
-NoConn ~ 4450 12700
-$Comp
-L MyCapacitors:C_Small_vert C405
-U 1 1 5FB8B2CE
-P 4700 12750
-F 0 "C405" H 4792 12882 50  0000 L CNN
-F 1 "10uF" H 4792 12791 50  0000 L CNN
-F 2 "" H 4700 12725 50  0001 L CNN
-F 3 "" H 4800 12825 50  0001 L CNN
-F 4 "XXXX" H 4792 12700 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 4792 12609 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 4792 12518 50  0000 L CNN "MPN"
-F 7 "-" H 4800 12450 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 4800 12450 50  0001 L CNN "Prefix"
-F 9 "-" H 4800 12450 50  0001 L CNN "Website"
-F 10 "-" H 4800 12450 50  0001 L CNN "Description"
-F 11 "-" H 4800 12450 50  0001 L CNN "Manufacturer"
-	1    4700 12750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0412
-U 1 1 5FB8B2D4
-P 4700 12950
-F 0 "#PWR0412" H 4700 12700 50  0001 C CNN
-F 1 "GND" H 4705 12777 50  0000 C CNN
-F 2 "" H 4700 12950 50  0001 C CNN
-F 3 "" H 4700 12950 50  0001 C CNN
-	1    4700 12950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0410
-U 1 1 5FB8B2DA
-P 3950 12950
-F 0 "#PWR0410" H 3950 12700 50  0001 C CNN
-F 1 "GND" H 3955 12777 50  0000 C CNN
-F 2 "" H 3950 12950 50  0001 C CNN
-F 3 "" H 3950 12950 50  0001 C CNN
-	1    3950 12950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3400 12700 3300 12700
-Wire Wire Line
-	3300 12700 3300 12500
-Wire Wire Line
-	3300 12500 3400 12500
-$Comp
-L MyCapacitors:C_Small_vert C409
-U 1 1 5FB8B2EB
-P 8000 12800
-F 0 "C409" H 8092 12932 50  0000 L CNN
-F 1 "10uF" H 8092 12841 50  0000 L CNN
-F 2 "" H 8000 12775 50  0001 L CNN
-F 3 "" H 8100 12875 50  0001 L CNN
-F 4 "XXXX" H 8092 12750 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 8092 12659 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 8092 12568 50  0000 L CNN "MPN"
-F 7 "-" H 8100 12500 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 8100 12500 50  0001 L CNN "Prefix"
-F 9 "-" H 8100 12500 50  0001 L CNN "Website"
-F 10 "-" H 8100 12500 50  0001 L CNN "Description"
-F 11 "-" H 8100 12500 50  0001 L CNN "Manufacturer"
-	1    8000 12800
-	1    0    0    -1  
-$EndComp
-$Comp
-L MyICs:3.3V_Reg U405
-U 1 1 5FB8B2FB
-P 9150 12700
-F 0 "U405" H 8600 13300 60  0000 L CNN
-F 1 "1.8V_Reg" H 8600 13200 60  0000 L CNN
-F 2 "digikey-footprints:SOT-753" H 10350 13250 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 9350 13000 60  0001 L CNN
-F 4 "296-18474-1-ND" H 10350 13450 60  0001 L CNN "Digi-Key_PN"
-F 5 "LP2985-18DBVR" H 8600 13100 60  0000 L CNN "MPN"
-F 6 "Integrated Circuits (ICs)" H 10350 13650 60  0001 L CNN "Category"
-F 7 "PMIC - Voltage Regulators - Linear" H 10350 13750 60  0001 L CNN "Family"
-F 8 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flp2985" H 10350 13850 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/products/detail/texas-instruments/LP2985-18DBVR/809757" H 10350 13950 60  0001 L CNN "DK_Detail_Page"
-F 10 "IC REG LINEAR 1.8V 150MA SOT23-5" H 10350 14050 60  0001 L CNN "Description"
-F 11 "Texas Instruments" H 10350 14150 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 10350 14250 60  0001 L CNN "Status"
-F 13 "150 mA" H 8600 13000 50  0000 L CNN "Imax"
-	1    9150 12700
-	1    0    0    -1  
-$EndComp
-Text HLabel 9950 12600 2    50   UnSpc ~ 0
-+1.8V
-Wire Wire Line
-	9950 12600 9750 12600
-NoConn ~ 9550 12800
-$Comp
-L MyCapacitors:C_Small_vert C411
-U 1 1 5FB8B30C
-P 9750 12850
-F 0 "C411" H 9842 12982 50  0000 L CNN
-F 1 "10uF" H 9842 12891 50  0000 L CNN
-F 2 "" H 9750 12825 50  0001 L CNN
-F 3 "" H 9850 12925 50  0001 L CNN
-F 4 "XXXX" H 9842 12800 50  0000 L CNN "Package Size"
-F 5 "Voltage" H 9842 12709 50  0000 L CNN "Voltage Rating"
-F 6 "MFR P/N" H 9842 12618 50  0000 L CNN "MPN"
-F 7 "-" H 9850 12550 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 9850 12550 50  0001 L CNN "Prefix"
-F 9 "-" H 9850 12550 50  0001 L CNN "Website"
-F 10 "-" H 9850 12550 50  0001 L CNN "Description"
-F 11 "-" H 9850 12550 50  0001 L CNN "Manufacturer"
-	1    9750 12850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8500 12800 8400 12800
-Wire Wire Line
-	8400 12800 8400 12600
-Wire Wire Line
-	8400 12600 8500 12600
-Wire Wire Line
-	9750 12800 9750 12600
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D402
-U 1 1 5FB8B321
-P 2550 12200
-F 0 "D402" V 2790 12122 50  0000 R CNN
-F 1 "Schottky" V 2699 12122 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 2750 12400 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2750 12500 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 2750 12600 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 2600 12122 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 2750 12800 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 2750 12900 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 2750 13000 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 2750 13100 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 2750 13200 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 2750 13300 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 2750 13400 60  0001 L CNN "Status"
-F 13 "SOD-123" V 2502 12122 50  0000 R CNN "Package"
-F 14 "0.45 V" V 2411 12122 50  0000 R CNN "Vf"
-	1    2550 12200
-	0    -1   -1   0   
-$EndComp
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D401
-U 1 1 5FB8B332
-P 1600 12200
-F 0 "D401" V 1840 12122 50  0000 R CNN
-F 1 "Schottky" V 1749 12122 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 1800 12400 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1800 12500 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 1800 12600 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 1650 12122 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 1800 12800 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 1800 12900 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 1800 13000 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 1800 13100 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 1800 13200 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 1800 13300 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 1800 13400 60  0001 L CNN "Status"
-F 13 "SOD-123" V 1552 12122 50  0000 R CNN "Package"
-F 14 "0.45 V" V 1461 12122 50  0000 R CNN "Vf"
-	1    1600 12200
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1600 11850 1600 12000
-Wire Wire Line
-	2550 11850 2550 12000
-Wire Wire Line
-	1600 12300 1600 12500
-Wire Wire Line
-	2550 12300 2550 12500
-Wire Wire Line
-	4700 12700 4700 12500
-Text HLabel 1350 11850 0    50   UnSpc ~ 0
-V_BAT
-Text HLabel 2400 11850 0    50   UnSpc ~ 0
-V_BUS
-Wire Wire Line
-	2400 11850 2550 11850
-Wire Wire Line
-	1350 11850 1600 11850
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D406
-U 1 1 5FB8B34C
-P 7650 12350
-F 0 "D406" V 7890 12272 50  0000 R CNN
-F 1 "Schottky" V 7799 12272 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 7850 12550 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 7850 12650 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 7850 12750 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 7700 12272 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 7850 12950 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 7850 13050 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 7850 13150 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 7850 13250 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 7850 13350 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 7850 13450 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 7850 13550 60  0001 L CNN "Status"
-F 13 "SOD-123" V 7602 12272 50  0000 R CNN "Package"
-F 14 "0.45 V" V 7511 12272 50  0000 R CNN "Vf"
-	1    7650 12350
-	0    -1   -1   0   
-$EndComp
-$Comp
-L dk_Diodes-Rectifiers-Single:1N5819HW-7-F D405
-U 1 1 5FB8B35D
-P 6650 12350
-F 0 "D405" V 6890 12272 50  0000 R CNN
-F 1 "Schottky" V 6799 12272 50  0000 R CNN
-F 2 "digikey-footprints:SOD-123" H 6850 12550 60  0001 L CNN
-F 3 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 6850 12650 60  0001 L CNN
-F 4 "1N5819HW-FDICT-ND" H 6850 12750 60  0001 L CNN "Digi-Key_PN"
-F 5 "1N5819HW-7-F" V 6700 12272 60  0000 R CNN "MPN"
-F 6 "Discrete Semiconductor Products" H 6850 12950 60  0001 L CNN "Category"
-F 7 "Diodes - Rectifiers - Single" H 6850 13050 60  0001 L CNN "Family"
-F 8 "https://www.diodes.com/assets/Datasheets/ds30217.pdf" H 6850 13150 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/diodes-incorporated/1N5819HW-7-F/1N5819HW-FDICT-ND/815283" H 6850 13250 60  0001 L CNN "DK_Detail_Page"
-F 10 "DIODE SCHOTTKY 40V 1A SOD123" H 6850 13350 60  0001 L CNN "Description"
-F 11 "Diodes Incorporated" H 6850 13450 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6850 13550 60  0001 L CNN "Status"
-F 13 "SOD-123" V 6602 12272 50  0000 R CNN "Package"
-F 14 "0.45 V" V 6511 12272 50  0000 R CNN "Vf"
-	1    6650 12350
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6650 11950 6650 12150
-Wire Wire Line
-	7650 11950 7650 12150
-Wire Wire Line
-	6650 12450 6650 12600
-Wire Wire Line
-	7650 12450 7650 12600
-Text HLabel 6400 11950 0    50   UnSpc ~ 0
-V_BAT
-Text HLabel 7500 11950 0    50   UnSpc ~ 0
-V_BUS
-Wire Wire Line
-	7500 11950 7650 11950
-Wire Wire Line
-	6400 11950 6650 11950
-Connection ~ 8400 12600
-Wire Wire Line
-	6650 12600 7650 12600
-Connection ~ 7650 12600
-Wire Wire Line
-	9550 12600 9750 12600
-Connection ~ 9750 12600
-Wire Wire Line
-	4450 12500 4700 12500
-Connection ~ 4700 12500
-Wire Wire Line
-	1600 12500 2550 12500
-Connection ~ 2550 12500
-Connection ~ 3300 12500
-Wire Wire Line
-	7650 12600 8000 12600
-Wire Wire Line
-	2550 12500 2950 12500
-Wire Wire Line
-	2950 12650 2950 12500
-Connection ~ 2950 12500
-Wire Wire Line
-	2950 12500 3300 12500
-Wire Wire Line
-	8000 12750 8000 12600
-Connection ~ 8000 12600
-Wire Wire Line
-	8000 12600 8400 12600
-$Comp
-L power:GND #PWR0422
-U 1 1 5FB8B37D
-P 9050 13050
-F 0 "#PWR0422" H 9050 12800 50  0001 C CNN
-F 1 "GND" H 9055 12877 50  0000 C CNN
-F 2 "" H 9050 13050 50  0001 C CNN
-F 3 "" H 9050 13050 50  0001 C CNN
-	1    9050 13050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0424
-U 1 1 5FB8B383
-P 9750 13050
-F 0 "#PWR0424" H 9750 12800 50  0001 C CNN
-F 1 "GND" H 9755 12877 50  0000 C CNN
-F 2 "" H 9750 13050 50  0001 C CNN
-F 3 "" H 9750 13050 50  0001 C CNN
-	1    9750 13050
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0420
-U 1 1 5FB8B389
-P 8000 13050
-F 0 "#PWR0420" H 8000 12800 50  0001 C CNN
-F 1 "GND" H 8005 12877 50  0000 C CNN
-F 2 "" H 8000 13050 50  0001 C CNN
-F 3 "" H 8000 13050 50  0001 C CNN
-	1    8000 13050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9750 13050 9750 13000
-Wire Wire Line
-	9050 13050 9050 13000
-Wire Wire Line
-	8000 13050 8000 12950
-Wire Wire Line
-	2950 12850 2950 12950
-Wire Wire Line
-	3950 12900 3950 12950
-Wire Wire Line
-	4700 12900 4700 12950
 Wire Wire Line
 	1400 5650 1700 5650
 Connection ~ 1700 5650
 Wire Wire Line
 	4850 5650 5200 5650
 Connection ~ 5200 5650
-$Comp
-L dk_Rectangular-Connectors-Headers-Male-Pins:S2B-PH-K-S_LF__SN_ J?
-U 1 1 5F887186
-P 9550 1650
-AR Path="/5F780D75/5F887186" Ref="J?"  Part="1" 
-AR Path="/5F780F7E/5F887186" Ref="J403"  Part="1" 
-F 0 "J403" H 9700 1400 50  0000 R CNN
-F 1 "Wire Switch Here" H 9700 1500 50  0000 R CNN
-F 2 "digikey-footprints:PinHeader_1x2_P2mm_Drill1mm_RA" H 9750 1850 60  0001 L CNN
-F 3 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 9750 1950 60  0001 L CNN
-F 4 "455-1719-ND" H 9750 2050 60  0001 L CNN "Digi-Key_PN"
-F 5 "S2B-PH-K-S(LF)(SN)" H 9750 2150 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 9750 2250 60  0001 L CNN "Category"
-F 7 "Rectangular Connectors - Headers, Male Pins" H 9750 2350 60  0001 L CNN "Family"
-F 8 "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf" H 9750 2450 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/jst-sales-america-inc/S2B-PH-K-S(LF)(SN)/455-1719-ND/926626" H 9750 2550 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN HEADER R/A 2POS 2MM" H 9750 2650 60  0001 L CNN "Description"
-F 11 "JST Sales America Inc." H 9750 2750 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 9750 2850 60  0001 L CNN "Status"
-	1    9550 1650
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	5350 1750 5350 2050
 Text Notes 5800 800  0    50   ~ 10
@@ -3055,4 +2651,22 @@ Text Notes 2400 1500 0    50   ~ 0
 V_BUS also comes\nfrom the UART header
 Text Notes 7750 3500 0    50   ~ 10
 What is leakage of V_BAT through mosfet and 100k resistor?
+Text HLabel 9450 1750 1    50   UnSpc ~ 10
+PWR_SW_IN
+Text HLabel 9550 1750 1    50   UnSpc ~ 10
+PWR_SW_OUT
+Text Notes 5100 9300 0    50   ~ 0
+V_BUS
+Text Notes 6000 9850 0    50   ~ 0
++5V
+Text Notes 1400 9900 0    50   ~ 0
+V_BAT
+Text Notes 650  3100 0    50   ~ 10
+TODO:\nLook into negotiating higher power
+Text Label 6450 1750 0    50   ~ 10
+V_BAT
+Text Label 7850 1750 2    50   ~ 10
+V_BAT
+Text Notes 9200 1000 0    50   Italic 0
+These are connected \nat power switch on button board\nvia MCU board
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 5
+Sheet 5 5
 Title ""
 Date ""
 Rev ""
@@ -150,56 +150,42 @@ Wire Wire Line
 	2500 5200 2750 5300
 Wire Wire Line
 	2750 5200 2500 5300
-$Comp
-L power:+5V #PWR0206
-U 1 1 5F869CB1
-P 10850 2750
-F 0 "#PWR0206" H 10850 2600 50  0001 C CNN
-F 1 "+5V" H 10850 2890 50  0000 C CNN
-F 2 "" H 10850 2750 50  0001 C CNN
-F 3 "" H 10850 2750 50  0001 C CNN
-	1    10850 2750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10850 2750 10850 2800
 Wire Wire Line
 	10950 2900 10950 2800
 Wire Wire Line
 	10950 2800 10850 2800
-Connection ~ 10850 2800
 Wire Wire Line
 	10850 2800 10850 2900
 $Comp
 L power:GND #PWR0204
 U 1 1 5F8980D8
-P 7650 3450
-F 0 "#PWR0204" H 7650 3200 50  0001 C CNN
-F 1 "GND" H 7650 3300 50  0000 C CNN
-F 2 "" H 7650 3450 50  0001 C CNN
-F 3 "" H 7650 3450 50  0001 C CNN
-	1    7650 3450
+P 7350 3450
+F 0 "#PWR0204" H 7350 3200 50  0001 C CNN
+F 1 "GND" H 7350 3300 50  0000 C CNN
+F 2 "" H 7350 3450 50  0001 C CNN
+F 3 "" H 7350 3450 50  0001 C CNN
+	1    7350 3450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7650 3450 7800 3450
+	7350 3450 7500 3450
 $Comp
 L MyCrystals:Resonator_Small_vert Y201
 U 1 1 5F8A8BD5
-P 8000 3450
-F 0 "Y201" V 7423 3400 50  0000 C CNN
-F 1 "Resonator" V 7514 3400 50  0000 C CNN
-F 2 "" H 7975 3450 50  0001 C CNN
-F 3 "https://www.murata.com/en/products/productdata/8801162264606/SPEC-CSTNE16M0VH3C000R0.pdf" H 7975 3450 50  0001 C CNN
-F 4 "CSTNE16M0VH3C000R0" V 7605 3400 50  0000 C CNN "MPN"
-F 5 "490-17951-1-ND" H 8000 3450 50  0001 C CNN "Digi-Key_PN"
-F 6 "Y" H 8000 3450 50  0001 C CNN "Prefix"
-F 7 "https://www.digikey.com/en/products/detail/murata-electronics/CSTNE16M0VH3C000R0/8747732" H 8000 3450 50  0001 C CNN "Website"
-F 8 "CERAMIC RES 16.0000MHZ 15PF SMD" H 8000 3450 50  0001 C CNN "Description"
-F 9 "Murata Electronics" H 8000 3450 50  0001 C CNN "Manufacturer"
-F 10 "3.2x1.3x0.9mm" V 7696 3400 50  0000 C CNN "Package"
-F 11 "16 MHz" V 7787 3400 50  0000 C CNN "Frequency"
-	1    8000 3450
+P 7700 3450
+F 0 "Y201" V 7123 3400 50  0000 C CNN
+F 1 "Resonator" V 7214 3400 50  0000 C CNN
+F 2 "" H 7675 3450 50  0001 C CNN
+F 3 "https://www.murata.com/en/products/productdata/8801162264606/SPEC-CSTNE16M0VH3C000R0.pdf" H 7675 3450 50  0001 C CNN
+F 4 "CSTNE16M0VH3C000R0" V 7305 3400 50  0000 C CNN "MPN"
+F 5 "490-17951-1-ND" H 7700 3450 50  0001 C CNN "Digi-Key_PN"
+F 6 "Y" H 7700 3450 50  0001 C CNN "Prefix"
+F 7 "https://www.digikey.com/en/products/detail/murata-electronics/CSTNE16M0VH3C000R0/8747732" H 7700 3450 50  0001 C CNN "Website"
+F 8 "CERAMIC RES 16.0000MHZ 15PF SMD" H 7700 3450 50  0001 C CNN "Description"
+F 9 "Murata Electronics" H 7700 3450 50  0001 C CNN "Manufacturer"
+F 10 "3.2x1.3x0.9mm" V 7396 3400 50  0000 C CNN "Package"
+F 11 "16 MHz" V 7487 3400 50  0000 C CNN "Frequency"
+	1    7700 3450
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -210,37 +196,37 @@ Connection ~ 10950 2800
 $Comp
 L MyCapacitors:C_Small_horizontal C208
 U 1 1 5F8AF43A
-P 8400 5550
-F 0 "C208" H 8300 5350 50  0000 C CNN
-F 1 "0.1uF" H 8300 5250 50  0000 C CNN
-F 2 "" V 8275 5500 50  0001 L CNN
-F 3 "" H 8200 6025 50  0001 L CNN
-F 4 "XXXX" H 8300 5150 50  0000 C CNN "Package Size"
-F 5 "Voltage" H 8300 5050 50  0000 C CNN "Voltage Rating"
-F 6 "MFR P/N" H 8300 4950 50  0000 C CNN "MPN"
-F 7 "-" H 8200 5850 50  0001 L CNN "Digi-Key_PN"
-F 8 "C" H 8200 5850 50  0001 L CNN "Prefix"
-F 9 "-" H 8200 5850 50  0001 L CNN "Website"
-F 10 "-" H 8200 5850 50  0001 L CNN "Description"
-F 11 "-" H 8200 5850 50  0001 L CNN "Manufacturer"
-	1    8400 5550
+P 7950 5550
+F 0 "C208" H 7850 5350 50  0000 C CNN
+F 1 "0.1uF" H 7850 5250 50  0000 C CNN
+F 2 "" V 7825 5500 50  0001 L CNN
+F 3 "" H 7750 6025 50  0001 L CNN
+F 4 "XXXX" H 7850 5150 50  0000 C CNN "Package Size"
+F 5 "Voltage" H 7850 5050 50  0000 C CNN "Voltage Rating"
+F 6 "MFR P/N" H 7850 4950 50  0000 C CNN "MPN"
+F 7 "-" H 7750 5850 50  0001 L CNN "Digi-Key_PN"
+F 8 "C" H 7750 5850 50  0001 L CNN "Prefix"
+F 9 "-" H 7750 5850 50  0001 L CNN "Website"
+F 10 "-" H 7750 5850 50  0001 L CNN "Description"
+F 11 "-" H 7750 5850 50  0001 L CNN "Manufacturer"
+	1    7950 5550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR0205
 U 1 1 5F8B38E2
-P 8050 5650
-F 0 "#PWR0205" H 8050 5400 50  0001 C CNN
-F 1 "GND" H 8050 5500 50  0000 C CNN
-F 2 "" H 8050 5650 50  0001 C CNN
-F 3 "" H 8050 5650 50  0001 C CNN
-	1    8050 5650
+P 7600 5650
+F 0 "#PWR0205" H 7600 5400 50  0001 C CNN
+F 1 "GND" H 7600 5500 50  0000 C CNN
+F 2 "" H 7600 5650 50  0001 C CNN
+F 3 "" H 7600 5650 50  0001 C CNN
+	1    7600 5650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8050 5600 8050 5650
+	7600 5600 7600 5650
 Wire Wire Line
-	8050 5600 8200 5600
+	7600 5600 7750 5600
 Wire Wire Line
 	2800 5050 2800 5100
 $Comp
@@ -585,21 +571,17 @@ MOSI__APA102DATA
 Text Label 9050 4300 2    50   ~ 10
 MISO
 Wire Wire Line
-	9250 3200 9400 3200
+	9050 3200 9400 3200
 Wire Wire Line
-	9250 3300 9400 3300
+	9050 3300 9400 3300
 Wire Wire Line
-	8100 3350 8250 3350
+	7800 3350 7950 3350
 Wire Wire Line
-	8250 3350 8250 3400
+	7950 3350 7950 3400
 Wire Wire Line
-	8250 3400 9400 3400
+	7800 3550 7950 3550
 Wire Wire Line
-	8100 3550 8250 3550
-Wire Wire Line
-	8250 3550 8250 3500
-Wire Wire Line
-	8250 3500 9400 3500
+	7950 3550 7950 3500
 Text Label 9050 4400 2    50   ~ 10
 SCK__APA102CLOCK
 Text Label 6700 1350 0    50   ~ 10
@@ -639,7 +621,7 @@ IMU_INTERRUPT_5V
 Text Label 9050 4500 2    50   ~ 10
 Heartbeat_LED
 Wire Wire Line
-	9250 3600 9400 3600
+	9050 3600 9400 3600
 Text Notes -1600 -700 0    50   ~ 0
 ADXL345         2 interrupt pins                  i2c             acc only\nICM20948        1 interrupt pin                   i2c/aux       acc gyro mag\nMPU6050        1 interrupt pin                    i2c            ACC GYRO\nBNO055          1 interrupt pin, 1 reset pin      i2c            acc gyro mag\n
 Text Notes 550  950  0    50   ~ 10
@@ -672,11 +654,11 @@ Wire Wire Line
 	4800 6850 4800 7000
 Text Notes 5000 6800 0    50   ~ 0
 Place next to VCC pins
-Text Label 9250 3200 2    50   ~ 10
+Text Label 9050 3200 2    50   ~ 10
 Button_1
-Text Label 9250 3300 2    50   ~ 10
+Text Label 9050 3300 2    50   ~ 10
 Button_2
-Text Label 9250 3600 2    50   ~ 10
+Text Label 9050 3600 2    50   ~ 10
 Button_3
 Text Notes 2950 -450 0    50   ~ 0
 Ideas:\n\nOne on-board button for convenience. (adds a resistor and a button)\nDIP switch (adds resistor per switch)
@@ -686,8 +668,6 @@ Text Label 1700 1600 0    50   ~ 10
 Button_2
 Text Label 1700 1700 0    50   ~ 10
 Button_3
-Text HLabel 1700 1400 2    50   Input ~ 10
-V_OUT
 $Comp
 L power:GND #PWR?
 U 1 1 5F875030
@@ -699,17 +679,6 @@ F 3 "" H 1700 1800 50  0001 C CNN
 	1    1700 1800
 	0    -1   -1   0   
 $EndComp
-$Comp
-L Connector_Generic:Conn_01x05 J?
-U 1 1 5F87A6A8
-P 950 1600
-F 0 "J?" H 868 1175 50  0000 C CNN
-F 1 "Button Board Connector" H 868 1266 50  0000 C CNN
-F 2 "" H 950 1600 50  0001 C CNN
-F 3 "~" H 950 1600 50  0001 C CNN
-	1    950  1600
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1150 1400 1700 1400
 Wire Wire Line
@@ -720,8 +689,6 @@ Wire Wire Line
 	1150 1700 1700 1700
 Wire Wire Line
 	1150 1600 1700 1600
-Wire Wire Line
-	8400 5600 9400 5600
 Wire Wire Line
 	9150 5700 9400 5700
 Wire Wire Line
@@ -740,8 +707,6 @@ Wire Wire Line
 	9050 4600 9400 4600
 Text Notes 2900 2750 0    50   ~ 0
 If we use V_OUT, we can sense batt voltage up to 4.2 V, \nand if USB is connected, we can use an additional\n digital pin to sense that line.
-Text Notes 3000 950  0    50   ~ 10
-TODO: \nVOLTAGE DIVIDE SO THAT 4.2 V ENDS UP JUST BELOW 1.1 V \n(internal voltage reference for ADC)\n\nCHOOSE PIN
 Wire Wire Line
 	4050 1650 4050 1750
 Connection ~ 4050 1650
@@ -774,7 +739,7 @@ AR Path="/5F780D75/5FA738C9" Ref="R?"  Part="1"
 AR Path="/5F780F7E/5FA738C9" Ref="R?"  Part="1" 
 AR Path="/5F780A01/5FA738C9" Ref="R?"  Part="1" 
 F 0 "R?" H 4131 1462 50  0000 L CNN
-F 1 "-" H 4131 1371 50  0000 L CNN
+F 1 "33k" H 4131 1371 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 4105 1300 50  0001 C CNN
 F 3 "" H 4050 1350 50  0001 C CNN
 F 4 "0603" H 4131 1280 50  0000 L CNN "Package Size"
@@ -794,7 +759,7 @@ AR Path="/5F780D75/5FA70FC9" Ref="R?"  Part="1"
 AR Path="/5F780F7E/5FA70FC9" Ref="R?"  Part="1" 
 AR Path="/5F780A01/5FA70FC9" Ref="R?"  Part="1" 
 F 0 "R?" H 4131 2012 50  0000 L CNN
-F 1 "-" H 4131 1921 50  0000 L CNN
+F 1 "11k" H 4131 1921 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 4105 1850 50  0001 C CNN
 F 3 "" H 4050 1900 50  0001 C CNN
 F 4 "0603" H 4131 1830 50  0000 L CNN "Package Size"
@@ -812,4 +777,36 @@ Wire Notes Line
 	5750 500  5750 2800
 Wire Notes Line
 	8650 500  8650 2750
+Text HLabel 1700 1900 2    50   UnSpc ~ 10
+PWR_SW_IN
+Text HLabel 1700 1400 2    50   UnSpc ~ 10
+PWR_SW_OUT
+$Comp
+L Connector_Generic:Conn_01x06 J?
+U 1 1 5F88EBD8
+P 950 1700
+F 0 "J?" H 868 1175 50  0000 C CNN
+F 1 "Button Board Connector" H 868 1266 50  0000 C CNN
+F 2 "" H 950 1700 50  0001 C CNN
+F 3 "~" H 950 1700 50  0001 C CNN
+	1    950  1700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1700 1900 1150 1900
+Text Notes 600  2200 0    50   ~ 0
+On Power schematic PWR_SW_OUT = V_OUT
+Text Notes 2950 1700 0    50   ~ 0
+33k & 11k  \n1.05 Vout @ 4.2 V in \n(113 uA @ 5V)\n
+Wire Wire Line
+	7950 3400 9400 3400
+Wire Wire Line
+	7950 3500 9400 3500
+Wire Wire Line
+	7950 5600 9400 5600
+Text HLabel 10700 2800 0    50   UnSpc ~ 10
+V_OUT
+Wire Wire Line
+	10700 2800 10850 2800
+Connection ~ 10850 2800
 $EndSCHEMATC
