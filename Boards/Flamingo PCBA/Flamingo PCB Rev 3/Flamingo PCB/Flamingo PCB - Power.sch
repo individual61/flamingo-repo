@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 5
+Sheet 2 4
 Title ""
 Date ""
 Rev ""
@@ -2668,5 +2668,5 @@ V_BAT
 Text Label 7850 1750 2    50   ~ 10
 V_BAT
 Text Notes 9200 1000 0    50   Italic 0
-These are connected \nat power switch on button board\nvia MCU board
+These are connected \nat power switch on button board\nvia Arduino board
 $EndSCHEMATC

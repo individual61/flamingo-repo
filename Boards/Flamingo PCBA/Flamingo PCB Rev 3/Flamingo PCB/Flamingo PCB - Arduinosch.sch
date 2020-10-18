@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 5 5
+Sheet 4 4
 Title ""
 Date ""
 Rev ""
@@ -662,33 +662,33 @@ Text Label 9050 3600 2    50   ~ 10
 Button_3
 Text Notes 2950 -450 0    50   ~ 0
 Ideas:\n\nOne on-board button for convenience. (adds a resistor and a button)\nDIP switch (adds resistor per switch)
-Text Label 1700 1500 0    50   ~ 10
+Text Label 1650 1500 0    50   ~ 10
 Button_1
-Text Label 1700 1600 0    50   ~ 10
+Text Label 1650 1600 0    50   ~ 10
 Button_2
-Text Label 1700 1700 0    50   ~ 10
+Text Label 1650 1700 0    50   ~ 10
 Button_3
 $Comp
 L power:GND #PWR?
 U 1 1 5F875030
-P 1700 1800
-F 0 "#PWR?" H 1700 1550 50  0001 C CNN
-F 1 "GND" H 1700 1650 50  0000 C CNN
-F 2 "" H 1700 1800 50  0001 C CNN
-F 3 "" H 1700 1800 50  0001 C CNN
-	1    1700 1800
+P 1650 1800
+F 0 "#PWR?" H 1650 1550 50  0001 C CNN
+F 1 "GND" H 1650 1650 50  0000 C CNN
+F 2 "" H 1650 1800 50  0001 C CNN
+F 3 "" H 1650 1800 50  0001 C CNN
+	1    1650 1800
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	1150 1400 1700 1400
+	1100 1400 1650 1400
 Wire Wire Line
-	1150 1500 1700 1500
+	1100 1500 1650 1500
 Wire Wire Line
-	1150 1800 1700 1800
+	1100 1800 1650 1800
 Wire Wire Line
-	1150 1700 1700 1700
+	1100 1700 1650 1700
 Wire Wire Line
-	1150 1600 1700 1600
+	1100 1600 1650 1600
 Wire Wire Line
 	9150 5700 9400 5700
 Wire Wire Line
@@ -777,23 +777,23 @@ Wire Notes Line
 	5750 500  5750 2800
 Wire Notes Line
 	8650 500  8650 2750
-Text HLabel 1700 1900 2    50   UnSpc ~ 10
+Text HLabel 1650 1900 2    50   UnSpc ~ 10
 PWR_SW_IN
-Text HLabel 1700 1400 2    50   UnSpc ~ 10
+Text HLabel 1650 1400 2    50   UnSpc ~ 10
 PWR_SW_OUT
 $Comp
 L Connector_Generic:Conn_01x06 J?
 U 1 1 5F88EBD8
-P 950 1700
-F 0 "J?" H 868 1175 50  0000 C CNN
-F 1 "Button Board Connector" H 868 1266 50  0000 C CNN
-F 2 "" H 950 1700 50  0001 C CNN
-F 3 "~" H 950 1700 50  0001 C CNN
-	1    950  1700
+P 900 1700
+F 0 "J?" H 818 1175 50  0000 C CNN
+F 1 "Button Board Connector" H 818 1266 50  0000 C CNN
+F 2 "" H 900 1700 50  0001 C CNN
+F 3 "~" H 900 1700 50  0001 C CNN
+	1    900  1700
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1700 1900 1150 1900
+	1650 1900 1100 1900
 Text Notes 600  2200 0    50   ~ 0
 On Power schematic PWR_SW_OUT = V_OUT
 Text Notes 2950 1700 0    50   ~ 0
@@ -809,4 +809,6 @@ V_OUT
 Wire Wire Line
 	10700 2800 10850 2800
 Connection ~ 10850 2800
+Text Notes 2200 2000 0    50   ~ 0
+This one \nis powered
 $EndSCHEMATC

@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 5
+Sheet 1 4
 Title "Flamingo PCB"
 Date "2020-09-29"
 Rev "3"
@@ -29,12 +29,6 @@ Wire Wire Line
 	2350 2750 3200 2750
 Wire Wire Line
 	2350 2850 3200 2850
-$Sheet
-S 8250 5500 2000 1050
-U 5FA54816
-F0 "Button Remote" 50
-F1 "Flamingo PCB - Button Remote.sch" 50
-$EndSheet
 Text Notes 3850 2900 0    39   ~ 0
 Power switch\nconnects these\non button board
 $Sheet

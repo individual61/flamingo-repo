@@ -492,40 +492,6 @@ X ~ 2 0 -200 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# MySwitchesButtons_10-XX_vert
-#
-DEF MySwitchesButtons_10-XX_vert S 0 40 N N 1 F N
-F0 "S" 150 150 50 H V L BNN
-F1 "MySwitchesButtons_10-XX_vert" 150 50 50 H V L BNN
-F2 "switch-omron-B3F-10XX" 150 300 50 H I L CNN
-F3 "" 0 0 60 H I C CNN
-F4 "MFR P/N" 150 -50 50 H V L CNN "MPN"
-F5 "switch-omron-B3F-10XX" 150 -50 50 H V L CNN "Footprint"
-F6 "S" 150 -50 50 H V L CNN "Prefix"
-F7 "-" 150 -50 50 H V L CNN "Website"
-F8 "-" 150 -50 50 H V L CNN "Description"
-F9 "-" 150 -50 50 H V L CNN "Manufacturer"
-DRAW
-C 0 -100 5 1 1 0 F
-C 0 100 5 1 1 0 F
-P 2 1 0 0 -175 -75 -125 -75 N
-P 2 1 0 0 -175 0 -175 -75 N
-P 2 1 0 0 -175 0 -125 0 N
-P 2 1 0 0 -175 75 -175 0 N
-P 2 1 0 0 -175 75 -125 75 N
-P 2 1 0 0 -100 0 -75 0 N
-P 2 1 0 0 -50 0 -25 0 N
-P 2 1 0 0 0 -100 -50 75 N
-P 2 1 0 0 0 75 0 100 N
-P 2 1 0 0 100 -100 0 -100 N
-P 2 1 0 0 100 100 0 100 N
-X S 1 0 200 100 D 40 40 1 1 P
-X S1 2 100 200 100 D 40 40 1 1 P
-X P 3 0 -200 100 U 40 40 1 1 P
-X P1 4 100 -200 100 U 40 40 1 1 P
-ENDDRAW
-ENDDEF
-#
 # dk_Diodes-Rectifiers-Single_1N5819HW-7-F
 #
 DEF dk_Diodes-Rectifiers-Single_1N5819HW-7-F D 0 40 Y Y 1 F N
