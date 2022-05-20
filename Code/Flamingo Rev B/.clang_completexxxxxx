@@ -1,0 +1,61 @@
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/cores/arduino
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/variants/eightanaloginputs
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/FastLED_ID126
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-Core_ID11
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-ADXL345_ID96
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-MPU6050_ID107
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/FastLED_ID126
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/FastLED_ID126
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-ADXL345_ID96
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-Core_ID11
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-ADXL345_ID96
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-Core_ID11
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-Core_ID11
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-MPU6050_ID107
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-Core_ID11
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/I2Cdevlib-MPU6050_ID107
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/Users/durandal/Documents/Projects/Flamingo/flamingo-repo/Code/Flamingo Rev B/.piolibdeps/Adafruit DotStar_ID812
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/HID/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Adafruit_CircuitPlayground/utility
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Bridge/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Esplora/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Ethernet/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Firmata
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Firmata/utility
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/GSM/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Keyboard/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/LiquidCrystal/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Mouse/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/RobotIRremote/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Robot_Control/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Robot_Motor/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/SD/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Servo/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/SpacebrewYun/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Stepper/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/TFT/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/Temboo/src
+-I/Users/durandal/.platformio/packages/framework-arduinoavr/libraries/WiFi/src
+-I/Users/durandal/.platformio/packages/toolchain-atmelavr/avr/include
+-I/Users/durandal/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include
+-I/Users/durandal/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/4.9.2/include-fixed
+-I/Users/durandal/.platformio/packages/tool-unity
+-DF_CPU=16000000L
+-DPLATFORMIO=30500
+-DARDUINO_ARCH_AVR
+-DARDUINO_AVR_PROTRINKET5FTDI
+-DARDUINO=10619
+-D__AVR_ATmega328P__
