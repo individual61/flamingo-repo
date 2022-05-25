@@ -91,7 +91,7 @@ void setup()
   // Initialize serial communication
   Serial.begin(115200);
 
-  Serial.println(F("FLAMINGO REV B"));
+  Serial.println(F("FLAMINGO REV B 2022"));
   Serial.println(F("by Paul Blackburn"));
   Serial.println(F("paulwb@gmail.com"));
   Serial.println(F(
@@ -135,11 +135,11 @@ void setup()
   Serial.println("Done.");
 
   // Set accel range
-  Serial.print(F("Setting Range to 2... "));
+  Serial.print(F("Setting accel range to 2... "));
   accel.setRange(2);
   Serial.println(F("Done."));
 
-  // Measure 3 seconds of accelerometer values and averages to create offset.
+  // Measure 1 second of accelerometer values and averages to create offset.
   Serial.print(
       F("Measuring 1 second of accelerometer values for zero value... "));
   initAccelOffset();
