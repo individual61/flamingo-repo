@@ -1,0 +1,1 @@
+Individual folders from within the i2cdevlib distribution must be at the top level under lib/ to compile

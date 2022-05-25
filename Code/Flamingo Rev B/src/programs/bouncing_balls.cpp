@@ -51,14 +51,14 @@ void updateBallPosition_BB(bouncingball* theBall, float damping)
   // acc_ext is generally negative because getNormalizedAccelY() returns
   // negative when Flamingo is upright.
   // G_ACC_MAGNITUDE_BB is positive.
-  acc_ext = G_ACC_MAGNITUDE_BB * getNormalizedAccelY();
+  float acc_ext = G_ACC_MAGNITUDE_BB * getNormalizedAccelY(); // Added type def
 
   theBall->timenow = millis();
   float timestep_i_BB = theBall->timenow - theBall->timeold;
   float timestep_f_BB = 0.001 * ((float)timestep_i_BB);
-  vel1 = get_next_v_BB(timestep_f_BB, theBall->velocity, theBall->position,
+  float vel1 = get_next_v_BB(timestep_f_BB, theBall->velocity, theBall->position,
                        acc_ext, damping, theBall->mass);
-  pos1 = get_next_x_BB(timestep_f_BB, theBall->velocity, theBall->position);
+  float pos1 = get_next_x_BB(timestep_f_BB, theBall->velocity, theBall->position);
   theBall->velocity = vel1;
   theBall->position = pos1;
   theBall->timeold = theBall->timenow;
