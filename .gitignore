@@ -4,3 +4,9 @@
 .gcc-flags.json
 Boards/Flamingo PCBA/Adafruit IMU Trade Study.gsheet
 Boards/before discarding stashed changes.zip
+*.dblite
+*.elf
+*.o
+*.a
+*.hex
+*.cpp.o
