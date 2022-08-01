@@ -100,7 +100,7 @@ void setup()
   FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
       .setCorrection(CORRECTION);
 
-  FastLED.setBrightness(brightness[50]);
+  FastLED.setBrightness(255);
   FastLED.clear();
   FastLED.show();
   Serial.println(F("Done."));
@@ -129,7 +129,7 @@ void loop()
   uint8_t Pixel = random8(0, NUMPIXELS);  // (...]
   //leds[Pixel] = thecolor;
   //CRGB color = 0x601040;  // Flamingo Pink for dotstars
-  leds[Pixel] = 0x601040;
+  leds[Pixel] = 0xFFFFFF;
   FastLED.show();
   FastLED.delay(1);
   leds[Pixel] = CRGB(0, 0, 0);
