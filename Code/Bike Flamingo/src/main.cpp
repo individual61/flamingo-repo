@@ -18,10 +18,9 @@ states the_state = PROGRAM_1;
 #define CLOCK_PIN 3
 #define DATA_PIN 2
 
-#define NUMPIXELS 27    // Number of LEDs in strip
+#define NUMPIXELS 27 // Number of LEDs in strip
 
-
-#define COLOR_ORDER BGR  // my strip is BGR
+#define COLOR_ORDER BGR // my strip is BGR
 #define CORRECTION TypicalLEDStrip
 //#define CORRECTION UncorrectedColor
 
@@ -44,12 +43,11 @@ void isr_handler_A()
 
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
+    last_interrupt_time = interrupt_time;
 #ifdef DEBUG
     Serial.println("Button A");
 #endif
   }
-
-  last_interrupt_time = interrupt_time;
 }
 
 void isr_handler_B()
@@ -58,12 +56,12 @@ void isr_handler_B()
 
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
+    last_interrupt_time = interrupt_time;
+
 #ifdef DEBUG
     Serial.println("Button B");
 #endif
   }
-
-  last_interrupt_time = interrupt_time;
 }
 
 void isr_handler_C()
@@ -72,12 +70,12 @@ void isr_handler_C()
 
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
+    last_interrupt_time = interrupt_time;
+
 #ifdef DEBUG
     Serial.println("Button C");
 #endif
   }
-
-  last_interrupt_time = interrupt_time;
 }
 
 void setup()
@@ -125,15 +123,13 @@ void loop()
        Serial.print("WAITING_FOR_SHAKE ");
      }*/
 
-       // FastLED random8(N, M) is from N to M-1
-  uint8_t Pixel = random8(0, NUMPIXELS);  // (...]
-  //leds[Pixel] = thecolor;
-  //CRGB color = 0x601040;  // Flamingo Pink for dotstars
+  // FastLED random8(N, M) is from N to M-1
+  uint8_t Pixel = random8(0, NUMPIXELS); // (...]
+  // leds[Pixel] = thecolor;
+  // CRGB color = 0x601040;  // Flamingo Pink for dotstars
   leds[Pixel] = 0xFFFFFF;
   FastLED.show();
   FastLED.delay(1);
   leds[Pixel] = CRGB(0, 0, 0);
   FastLED.show();
-
-
 }
