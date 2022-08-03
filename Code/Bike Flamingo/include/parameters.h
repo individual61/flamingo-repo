@@ -29,8 +29,9 @@
 #define NUM_PROGRAMS 2
 #define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
 //All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
-#define ALL_BRIGHTNESS_ARRAY {{10, 15, 20, 40, 60, 100, 140, 180, 240, 0},{10, 140, 240, 0, 0, 0, 0, 0, 0, 0}};
+#define ALL_BRIGHTNESS_ARRAY {{10, 15, 20, 40, 60, 100, 140, 180, 240, 0},{10, 140, 240, 0, 0, 0, 0, 0, 0, 0}}
 // NO "RUN_ON_TOTEM" defined here
+extern uint8_t brightnessIndex[NUM_PROGRAMS];
 
 // Buttons
 //#define BUTTON1 3
@@ -122,7 +123,7 @@ extern unsigned long lastTimePressedButton2;
 
 extern bool firstRun;
 
-extern uint8_t brightnessIndex;
+
 
 extern uint8_t programIndex;  // start at 1
 

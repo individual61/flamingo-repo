@@ -69,7 +69,7 @@ uint32_t timer = 0;
 uint8_t counter = 0;
 uint16_t counter16 = 0;
 uint8_t counter_every_10_8 = 0;
- uint32_t last_interrupt_time = 0;
+uint32_t last_interrupt_time = 0;
 
 ////////////////////   FastLED / APA102C   //////////////////
 //
@@ -90,13 +90,11 @@ uint16_t acc_avg_timenew;
 float acc_avg;
 #endif
 
-
 ///////////////
-
 
 #define numberofprograms 2
 
-int program = 1;
+uint8_t programIndex = 0;
 
 #define BUTT_A 9
 #define BUTT_B 10
@@ -113,28 +111,19 @@ int program = 1;
 //#define CORRECTION TypicalLEDStrip
 //#define CORRECTION UncorrectedColor
 
-
-
 // Fire W PALLETTE parameters
 //#define FIRE_PALLETTE_COOLING 70
 //#define FIRE_PALLETTE_SPARKING 120
 
+// int caca = 0;
 
+// bool buttA = 0;
+// bool buttB = 0;
+// bool buttC = 0;
 
-//int caca = 0;
-
-//bool buttA = 0;
-//bool buttB = 0;
-//bool buttC = 0;
-
-//CRGB leds[NUMPIXELS];
+// CRGB leds[NUMPIXELS];
 
 // bool firstRun = 1;
-
-
-
-
-
 
 void setup()
 {
@@ -166,10 +155,17 @@ void setup()
   FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
       .setCorrection(CORRECTION);
 
-  FastLED.setBrightness(255);
+// I guess the first program will always start at 10 brightness.
+  FastLED.setBrightness(10);
   FastLED.clear();
   FastLED.show();
   Serial.println(F("Done."));
+
+  // Initialize brightness of all programs to initial brightness
+  for (int i = 0; i < NUM_PROGRAMS; i++)
+  {
+    brightnessIndex[i] = 0;
+  }
 }
 
 void loop()
@@ -183,14 +179,14 @@ void loop()
    Serial.print("\t");
    Serial.println(buttC);*/
 
-  switch (program)
+  switch (programIndex)
   {
 
-  case 1:
+  case 0:
   {
     if (firstRun)
     {
-      Serial.print("PROGRAM_1");
+      Serial.println("PROGRAM_0 first run: Sparkle");
       firstRun = 0;
     }
     // FastLED random8(N, M) is from N to M-1
@@ -202,18 +198,20 @@ void loop()
     FastLED.delay(1);
     leds[Pixel] = CRGB(0, 0, 0);
     FastLED.show();
+    break;
   }
 
-  case 2:
+  case 1:
   {
     if (firstRun)
     {
-      Serial.print("PROGRAM_2");
+      Serial.println("PROGRAM_1 first run: Fire2012RainbowRotate");
       Fire2012RainbowRotate();
       firstRun = 0;
       break;
     }
     Fire2012RainbowRotate();
+    break;
   };
   };
 };

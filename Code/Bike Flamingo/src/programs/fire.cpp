@@ -207,9 +207,8 @@ void Fire2012RainbowRotate(void)
   {
     FastLED.clear();
     firstRun = 0;
-    Serial.println(F("Starting Program:\tFire With Rainbow Rotate"));
-    Serial.print(F("Free SRAM:  "));
-    Serial.println(freeRam());
+ ///   Serial.print(F("Free SRAM:  "));
+ //   Serial.println(freeRam());
 
     // gPal = HeatColors_p;
     // gPal = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
