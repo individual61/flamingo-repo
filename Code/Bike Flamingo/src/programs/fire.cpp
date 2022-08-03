@@ -198,6 +198,132 @@ void GreenFireOriginal(void)
 //   CRGB lightcolor = CHSV(hue,128,255); // half 'whitened', full brightness
 //   gPal = CRGBPalette16( CRGB::Black, darkcolor, lightcolor, CRGB::White);
 
+//bike flamingo version
+void Fire2012RainbowRotate(void)
+{
+  static uint8_t hue = 0;
+  static uint8_t every = 0;
+  if (firstRun)
+  {
+    FastLED.clear();
+    firstRun = 0;
+    Serial.println(F("Starting Program:\tFire With Rainbow Rotate"));
+    Serial.print(F("Free SRAM:  "));
+    Serial.println(freeRam());
+
+    // gPal = HeatColors_p;
+    // gPal = CRGBPalette16(CRGB::Black, CRGB::Blue, CRGB::Aqua, CRGB::White);
+  }
+
+  // Set up pallette
+  if (every++ == 15)
+  {
+    every = 0;
+    hue++;
+  }
+  CRGB darkcolor = CHSV(hue, 255, 192);  // pure hue, three-quarters brightness
+  CRGB lightcolor = CHSV(hue, 128, 255); // half 'whitened', full brightness
+  CRGBPalette16 gPal;
+  gPal = CRGBPalette16(CRGB::Black, darkcolor, lightcolor, CRGB::White);
+  //
+
+  // Add entropy to random number generator; we use a lot of it.
+  random16_add_entropy(random());
+  // Array of temperature readings at each simulation cell
+  static byte heat[NUMPIXELS];
+
+  // Step 1.  Cool down every cell a little
+  for (int i = 0; i < NUMPIXELS; i++)
+  {
+    heat[i] =
+        qsub8(heat[i],
+              random8(0, ((FIRE_PALLETTE_COOLING * 10) / NUMPIXELS) + 2));
+  }
+
+  // Step 2.  Heat from each cell drifts 'up' and diffuses a little
+  for (int k = NUMPIXELS - 1; k >= 2; k--)
+  {
+    heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
+  }
+
+  // Step 3.  Randomly ignite new 'sparks' of heat near the bottom
+  if (random8() < FIRE_PALLETTE_SPARKING)
+  {
+    int y = random8(7);
+    heat[y] = qadd8(heat[y], random8(160, 255));
+  }
+
+  // Step 4.  Map from heat cells to LED colors
+  for (int j = 0; j < NUMPIXELS; j++)
+  {
+    // Scale the heat value from 0-255 down to 0-240
+    // for best results with color palettes.
+    byte colorindex = scale8(heat[j], 100); // was 240
+    CRGB acolor = ColorFromPalette(gPal, colorindex);
+    // setPixelByStrandIndex(j, acolor);
+    int realindex = NUMPIXELS - j - 1;
+    leds[realindex] = acolor;
+    //      Serial.print(color.r);
+    //      Serial.print("\t");
+    //      Serial.print(color.g);
+    //      Serial.print("\t");
+    //      Serial.println(color.b);
+  }
+
+  // Add sparks here
+
+  // No more than N sparks at a time, N could be around 5
+  // Random interval before birth
+  // Sparks ascend at constant different and random rate
+  // Sparks can die before reaching the top. They are born with "pixels to live"
+  // Sparks die when reaching the top
+  // Spark properties are time to live, where the spark is, speed
+  /*
+    for (int i = 0; i < 5; i++)
+    {
+      if (sparks[i].position >= NUMPIXELS - 1)
+      {
+        sparks[i].pixels_to_live =
+            0; // We're at the end, so it's time to die
+      }
+      // for sparks that are alive
+      if (sparks[i].pixels_to_live > 0)
+      {
+        // This spark is alive, so if it is time to move up
+        // Move up
+        sparks[i].position += sparks[i].rate;
+        // Decrease life
+        sparks[i].pixels_to_live -= sparks[i].rate;
+
+        if (sparks[i].position < NUMPIXELS)
+        {
+          setPixelByStrandIndex(sparks[i].position, CRGB(255, 255, 255));
+        }
+      }
+      else // this spark is not alive. There is a chance a new one could be
+           // born!
+      {
+        if (random8() < 2)
+        {
+          // Make a new spark
+          sparks[i].position =
+              random8(0, NUMPIXELS / 2); // It could appear anywhere
+                                            // near the base of the strand
+          sparks[i].pixels_to_live =
+              random8(4, (NUMPIXELS / 2) -
+                             sparks[i].position); // It could last as
+                                                  // distance it has yet
+                                                  // to cover
+          sparks[i].rate = random8(2, 3);
+        }
+      }
+    }
+  */
+  FastLED.show();           // display this frame
+  FastLED.delay(1000 / 60); // 60 fps
+}
+
+#if BOARD_TYPE == 2
 void Fire2012RainbowRotate(void)
 {
   static uint8_t hue = 0;
@@ -319,7 +445,7 @@ void Fire2012RainbowRotate(void)
   FastLED.show();            // display this frame
   FastLED.delay(1000 / 60);  // 60 fps
 }
-
+#endif
 ///////////////
 
 void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,

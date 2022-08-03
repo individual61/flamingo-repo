@@ -2,6 +2,8 @@
 #include <parameters.h>
 #include <programs-common.h>
 
+#if BOARD_TYPE == 2
+
 float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
 
 uint16_t timeold_i = 0;
@@ -367,3 +369,5 @@ void DHO_Comet()
   FastLED.show();
 }
 */
+
+#endif
