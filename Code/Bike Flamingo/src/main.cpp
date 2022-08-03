@@ -94,7 +94,7 @@ float acc_avg;
 
 #define numberofprograms 2
 
-uint8_t programIndex = 0;
+uint8_t volatile programIndex = 0;
 
 #define BUTT_A 9
 #define BUTT_B 10
@@ -155,7 +155,7 @@ void setup()
   FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, COLOR_ORDER>(leds, NUMPIXELS)
       .setCorrection(CORRECTION);
 
-// I guess the first program will always start at 10 brightness.
+  // I guess the first program will always start at 10 brightness.
   FastLED.setBrightness(10);
   FastLED.clear();
   FastLED.show();
@@ -178,6 +178,9 @@ void loop()
    Serial.print(buttB);
    Serial.print("\t");
    Serial.println(buttC);*/
+
+  Serial.print(F("Entering loop(), programIndex is "));
+  Serial.println(programIndex);
 
   switch (programIndex)
   {
@@ -205,13 +208,41 @@ void loop()
   {
     if (firstRun)
     {
-      Serial.println("PROGRAM_1 first run: Fire2012RainbowRotate");
+      Serial.println("PROGRAM_1 first run: Fire 2012 Rainbow Rotate");
       Fire2012RainbowRotate();
       firstRun = 0;
       break;
     }
     Fire2012RainbowRotate();
     break;
+  };
+
+  case 2:
+  {
+    Serial.println("Entering Case 2");
+    CRGBPalette16 firepal, sparkpal;
+    firepal = RainbowColors_p;
+    CRGB sparkcolor = CRGB(255, 255, 255);
+    bool rotate = 1;
+
+    if (firstRun)
+    {
+      Serial.println("PROGRAM_2 first run: Fire 2012 Rainbow Palette");
+      Fire2012WithPalette(firepal, sparkcolor, 0, rotate);
+      firstRun = 0;
+      break;
+    }
+
+    // rainbow fire
+    Fire2012WithPalette(firepal, sparkcolor, 0, rotate);
+
+    break;
+  };
+
+  default:
+  {
+    Serial.print(F("We fell into default case, programIndex is "));
+    Serial.println(programIndex);
   };
   };
 };

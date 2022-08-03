@@ -25,11 +25,14 @@
 //////////// BOARD TYPE 1 ////////////////////////
 // 1 = Bike Flamingo 2022 Rev 1
 // ItsyBitsy 5V, 3 buttons
-#define BOARD_TYPE 1 
-#define NUM_PROGRAMS 2
+#define BOARD_TYPE 1
+#define NUM_PROGRAMS 3
 #define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
-//All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
-#define ALL_BRIGHTNESS_ARRAY {{10, 15, 20, 40, 60, 100, 140, 180, 240, 0},{10, 140, 240, 0, 0, 0, 0, 0, 0, 0}}
+// All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
+#define ALL_BRIGHTNESS_ARRAY                                                                                                        \
+  {                                                                                                                                 \
+    {10, 15, 20, 40, 60, 100, 140, 180, 240, 0}, {10, 140, 240, 0, 0, 0, 0, 0, 0, 0}, { 10, 15, 20, 40, 60, 100, 140, 180, 240, 0 } \
+  }
 // NO "RUN_ON_TOTEM" defined here
 extern uint8_t brightnessIndex[NUM_PROGRAMS];
 
@@ -40,20 +43,19 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 #define BUTT_B 10
 #define BUTT_C 11
 
-#define DEBOUNCE_DELAY 50
-
-
+#define DEBOUNCE_DELAY 100
 
 // FastLED stuff
 //#define NUMPIXELS 144    // Number of LEDs in strip
-#define NUMPIXELS 27    // Number of LEDs in strip
-#define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
+#define NUMPIXELS 29    // Number of LEDs in strip
+#define NUMPERSTRAND 29 // Assuming 1 strands for bike Flamingo
+//#define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
 //#define CLOCK_PIN 13
 //#define DATA_PIN 11
 #define CLOCK_PIN 3
 #define DATA_PIN 2
 
-#define COLOR_ORDER BGR  // my strip is BGR
+#define COLOR_ORDER BGR // my strip is BGR
 #define CORRECTION TypicalLEDStrip
 //#define CORRECTION UncorrectedColor
 
@@ -66,7 +68,6 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 //#define DAMPING_REAL 0.3f         // 0.3
 //#define MASS_REAL 4.0f            // 4.0
 
-
 // Green Fire parameters
 #define GFIRE_COOLING 55
 #define GFIRE_SPARKING 120
@@ -77,13 +78,13 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 #define FIRE_PALLETTE_SPARKING 120
 
 // Sparkle Fizz
-#define MAX_G_SPARKLEFIZZ 1.0f         // acceleration in m/sˆ2 for max sparkle
-#define MAX_INTERVAL_SPARKLEFIZZ 1300  // longest without a sparkle
+#define MAX_G_SPARKLEFIZZ 1.0f        // acceleration in m/sˆ2 for max sparkle
+#define MAX_INTERVAL_SPARKLEFIZZ 1300 // longest without a sparkle
 #define JITTER_SPARKLEFIZZ \
-  200  // random interval in ms to add to inter-sparkle time
+  200 // random interval in ms to add to inter-sparkle time
 #define ACC_MAX_DECAY_RATE \
-  20000.0f  // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of
-            // acceleration max
+  20000.0f // A0 * exp( - t/AVG_DECAY_RATE), in ms, sets decay rate of
+           // acceleration max
 
 // DHO_Comet
 //#define NUM_HISTORY 100
@@ -102,8 +103,6 @@ extern uint32_t timer;
 extern uint8_t counter_every_10_8;
 extern uint32_t last_interrupt_time;
 
-
-
 // ADXL345/GY-291 variables
 extern ADXL345 accel;
 
@@ -121,11 +120,9 @@ extern unsigned long timeNowButton2;
 extern unsigned long lastTimePressedButton1;
 extern unsigned long lastTimePressedButton2;
 
-extern bool firstRun;
+extern volatile bool firstRun;
 
-
-
-extern uint8_t programIndex;  // start at 1
+extern volatile uint8_t programIndex; // start at 0
 
 // FastLED/Dotstar/APA102C variables
 // extern uint32_t color;
@@ -140,7 +137,7 @@ extern bool first_iter;
 
 // Sparkle fizz variables
 extern uint16_t sparkleInterval;
-extern float acc_max;  // Maximum acceleration, decay rate set by AVG_DECAY_RATE
+extern float acc_max; // Maximum acceleration, decay rate set by AVG_DECAY_RATE
 extern uint16_t acc_max_timeold;
 extern uint16_t acc_max_timenew;
 extern uint16_t sparkle_timeold;
@@ -311,9 +308,5 @@ extern uint16_t jrainbow;
 
 
 */
-
-
-
-
 
 #endif

@@ -20,7 +20,7 @@ uint8_t brightness[BRIGHTNESS_COUNT] = {10, 15, 20, 40, 60,
 uint8_t brightness[NUM_PROGRAMS][BRIGHTNESS_MAX_QUANTITY] = ALL_BRIGHTNESS_ARRAY;
 uint8_t brightnessIndex[NUM_PROGRAMS];
 
-bool firstRun = 1;
+volatile bool firstRun = 1;
 
 // Change Program
 void isr_handler_A()

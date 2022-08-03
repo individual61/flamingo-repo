@@ -27,6 +27,15 @@ void setPixelByStrandIndex(uint16_t index, CRGB color)
       realindex = 3 * NUMPERSTRAND - index - 1;
       leds[realindex] = color;
     }
+    else
+    {
+      Serial.print(F("Tried to set index "));
+      Serial.print(index);
+      Serial.print(F("In strand of length "));
+      Serial.print(NUMPERSTRAND);
+      Serial.print(F(" and total number "));
+      Serial.println(NUMPIXELS);
+    }
 }
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
