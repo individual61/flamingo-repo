@@ -47,7 +47,7 @@
     (pcbplotparams
       (layerselection 0x00010fc_ffffffff)
       (disableapertmacros false)
-      (usegerberextensions false)
+      (usegerberextensions true)
       (usegerberattributes true)
       (usegerberadvancedattributes true)
       (creategerberjobfile true)
@@ -67,15 +67,15 @@
       (psnegative false)
       (psa4output false)
       (plotreference true)
-      (plotvalue true)
+      (plotvalue false)
       (plotinvisibletext false)
       (sketchpadsonfab false)
-      (subtractmaskfromsilk false)
+      (subtractmaskfromsilk true)
       (outputformat 1)
       (mirror false)
-      (drillshape 1)
+      (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "")
+      (outputdirectory "gerbers/")
     )
   )
 
@@ -220,9 +220,9 @@
     (fp_line (start -2.2 -1.6) (end -3 -0.8) (layer "F.Fab") (width 0.1) (tstamp 8a56b6ce-120b-47ce-ac11-e520a460515a))
     (fp_line (start -3 1.6) (end 3 1.6) (layer "F.Fab") (width 0.1) (tstamp ebcb96bd-f0bf-4b23-aded-cee8043e4968))
     (fp_line (start 3 1.6) (end 3 -1.6) (layer "F.Fab") (width 0.1) (tstamp f05b17bd-0f3c-4d17-8199-49cd02bc77a9))
-    (pad "1" smd roundrect (at -2.55 0 90) (size 2.25 2.35) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.111111)
+    (pad "1" smd roundrect (at -2.55 0 90) (size 2.25 2.35) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.1111111111)
       (net 1 "VBUS") (pintype "passive") (tstamp f0b82efb-8863-49c9-8810-0381e4685fd5))
-    (pad "2" smd roundrect (at 2.55 0 90) (size 2.25 2.35) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.111111)
+    (pad "2" smd roundrect (at 2.55 0 90) (size 2.25 2.35) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.1111111111)
       (net 2 "GND") (pintype "passive") (tstamp 65784036-8464-418c-8550-7742ce44ae3a))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_Tantalum_SMD.3dshapes/CP_EIA-6032-28_Kemet-C.wrl"
       (offset (xyz 0 0 0))
@@ -823,7 +823,7 @@
     (fp_line (start 3.25 -0.25) (end -1.25 -0.25) (layer "B.Fab") (width 0.1) (tstamp ebfd8210-ba76-42ae-b3bb-ffd6ec9cba54))
     (fp_line (start 0 -0.875) (end -0.5 -1.375) (layer "B.Fab") (width 0.1) (tstamp f6947423-019e-4c96-8032-95c612f43661))
     (fp_line (start -1.25 1.35) (end -1.95 1.35) (layer "B.Fab") (width 0.1) (tstamp fa31ee11-e57a-4e21-b7a1-9a23194732d1))
-    (pad "1" thru_hole roundrect (at 0 0) (size 1.2 1.75) (drill 0.75) (layers *.Cu *.Mask) (roundrect_rratio 0.208333)
+    (pad "1" thru_hole roundrect (at 0 0) (size 1.2 1.75) (drill 0.75) (layers *.Cu *.Mask) (roundrect_rratio 0.2083333333)
       (net 3 "Net-(J1-Pad1)") (pinfunction "Pin_1") (pintype "passive") (tstamp bf9b5cc0-b4c8-4092-9b50-6dc41fbb2e88))
     (pad "2" thru_hole oval (at 2 0) (size 1.2 1.75) (drill 0.75) (layers *.Cu *.Mask)
       (net 2 "GND") (pinfunction "Pin_2") (pintype "passive") (tstamp f748e4e3-ecc2-491d-b05d-4db8efc740f1))
@@ -1134,6 +1134,14 @@
       ) (layer "B.SilkS") (width 0.01) (fill solid) (tstamp afbbd2f6-ccd3-4520-8eba-5cb10580e08c))
   )
 
+  (gr_line (start 124.25 130) (end 123.75 129.5) (layer "B.SilkS") (width 0.15) (tstamp 072c37fe-5b38-4a48-8989-7bd255cfe5db))
+  (gr_line (start 124.25 129) (end 123.75 129.5) (layer "B.SilkS") (width 0.15) (tstamp 27116f4b-f041-4d1f-a78e-1d69426275e4))
+  (gr_line (start 126.25 128.5) (end 127.75 128.5) (layer "B.SilkS") (width 0.15) (tstamp 48c54990-572f-423e-993d-30e36e7f50d2))
+  (gr_line (start 127.25 129) (end 127.75 128.5) (layer "B.SilkS") (width 0.15) (tstamp 5701b7b4-e551-49a6-96c8-5532158005bb))
+  (gr_line (start 127.75 128.5) (end 126.25 128.5) (layer "B.SilkS") (width 0.15) (tstamp 9a224663-0e65-48aa-9174-bc5288068fb9))
+  (gr_line (start 127.25 128) (end 127.75 128.5) (layer "B.SilkS") (width 0.15) (tstamp b341d9e9-ac67-460f-8b21-dae6b11c0e88))
+  (gr_line (start 123.75 129.5) (end 125.25 129.5) (layer "B.SilkS") (width 0.15) (tstamp e256b2e8-eca5-4e1d-9f7a-acd7cdab61d6))
+  (gr_line (start 125.25 129.5) (end 123.75 129.5) (layer "B.SilkS") (width 0.15) (tstamp fc4f8ae0-89bb-4926-88d3-fa4629f1e5ac))
   (gr_line (start 134.62 83.82) (end 134.62 130.81) (layer "Edge.Cuts") (width 0.1) (tstamp 04498c1b-5317-4f8f-9bf7-85421dbb3327))
   (gr_arc (start 134.62 130.81) (mid 134.248026 131.708026) (end 133.35 132.08) (layer "Edge.Cuts") (width 0.1) (tstamp 35afd157-5f7a-44b4-abca-e682af6fe2b0))
   (gr_line (start 118.11 132.08) (end 133.35 132.08) (layer "Edge.Cuts") (width 0.1) (tstamp 4735696d-0c85-4b7c-847b-55949c4c8202))
@@ -5499,6 +5507,22 @@
         (xy 119.354529 84.3285)
         (xy 132.105471 84.3285)
       )
+    )
+  )
+  (group "" (id b797e970-c573-4592-824d-0ddfddae06de)
+    (members
+      072c37fe-5b38-4a48-8989-7bd255cfe5db
+      27116f4b-f041-4d1f-a78e-1d69426275e4
+      e256b2e8-eca5-4e1d-9f7a-acd7cdab61d6
+      fc4f8ae0-89bb-4926-88d3-fa4629f1e5ac
+    )
+  )
+  (group "" (id c54e5f58-0746-4597-a695-f3955c1240e7)
+    (members
+      48c54990-572f-423e-993d-30e36e7f50d2
+      5701b7b4-e551-49a6-96c8-5532158005bb
+      9a224663-0e65-48aa-9174-bc5288068fb9
+      b341d9e9-ac67-460f-8b21-dae6b11c0e88
     )
   )
 )
