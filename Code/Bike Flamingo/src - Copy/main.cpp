@@ -29,6 +29,7 @@ bool buttA = 0;
 bool buttB = 0;
 bool buttC = 0;
 
+// Change program
 void isr_handler_A()
 {
   uint32_t interrupt_time = millis();
@@ -43,6 +44,7 @@ void isr_handler_A()
   last_interrupt_time = interrupt_time;
 }
 
+// TBD
 void isr_handler_B()
 {
   uint32_t interrupt_time = millis();
@@ -57,6 +59,7 @@ void isr_handler_B()
   last_interrupt_time = interrupt_time;
 }
 
+//
 void isr_handler_C()
 {
   uint32_t interrupt_time = millis();
@@ -70,6 +73,9 @@ void isr_handler_C()
 
   last_interrupt_time = interrupt_time;
 }
+
+
+
 
 void setup()
 {

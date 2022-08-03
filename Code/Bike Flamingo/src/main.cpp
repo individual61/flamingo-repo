@@ -2,12 +2,9 @@
 #include <FastLED.h>
 #include <EnableInterrupt.h>
 
-enum states
-{
-  PROGRAM_1,
-  PROGRAM_2
-};
-states the_state = PROGRAM_1;
+#define numberofprograms 2
+
+int program = 1;
 
 #define BUTT_A 9
 #define BUTT_B 10
@@ -25,6 +22,10 @@ states the_state = PROGRAM_1;
 //#define CORRECTION UncorrectedColor
 
 #define DEBUG 1
+
+// Fire W PALLETTE parameters
+#define FIRE_PALLETTE_COOLING 70
+#define FIRE_PALLETTE_SPARKING 120
 
 uint32_t last_interrupt_time = 0;
 
@@ -47,9 +48,19 @@ void isr_handler_A()
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
     last_interrupt_time = interrupt_time;
-#ifdef DEBUG
+    firstrun = 1;
+    Serial.print(program);
+    Serial.print(" ");
+
+    program++;
+    Serial.println(program);
+    if (program == numberofprograms + 1)
+    {
+      program = 1;
+      Serial.println("Resetting program to 1");
+    }
+
     Serial.println("Button A");
-#endif
   }
 }
 
@@ -62,9 +73,7 @@ void isr_handler_B()
   {
     last_interrupt_time = interrupt_time;
 
-#ifdef DEBUG
     Serial.println("Button B");
-#endif
   }
 }
 
@@ -77,20 +86,25 @@ void isr_handler_C()
   {
     last_interrupt_time = interrupt_time;
 
-#ifdef DEBUG
     Serial.println("Button C");
-#endif
   }
+}
+
+int freeRam(void)
+{
+  extern int __heap_start, *__brkval;
+  int v;
+  return (int)&v - (__brkval == 0 ? (int)&__heap_start : (int)__brkval);
 }
 
 void Fire2012RainbowRotate(void)
 {
   static uint8_t hue = 0;
   static uint8_t every = 0;
-  if (firstRun)
+  if (firstrun)
   {
     FastLED.clear();
-    firstRun = 0;
+    firstrun = 0;
     Serial.println(F("Starting Program:\tFire With Rainbow Rotate"));
     Serial.print(F("Free SRAM:  "));
     Serial.println(freeRam());
@@ -114,18 +128,18 @@ void Fire2012RainbowRotate(void)
   // Add entropy to random number generator; we use a lot of it.
   random16_add_entropy(random());
   // Array of temperature readings at each simulation cell
-  static byte heat[NUMPERSTRAND];
+  static byte heat[NUMPIXELS];
 
   // Step 1.  Cool down every cell a little
-  for (int i = 0; i < NUMPERSTRAND; i++)
+  for (int i = 0; i < NUMPIXELS; i++)
   {
     heat[i] =
         qsub8(heat[i],
-              random8(0, ((FIRE_PALLETTE_COOLING * 10) / NUMPERSTRAND) + 2));
+              random8(0, ((FIRE_PALLETTE_COOLING * 10) / NUMPIXELS) + 2));
   }
 
   // Step 2.  Heat from each cell drifts 'up' and diffuses a little
-  for (int k = NUMPERSTRAND - 1; k >= 2; k--)
+  for (int k = NUMPIXELS - 1; k >= 2; k--)
   {
     heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
   }
@@ -138,13 +152,15 @@ void Fire2012RainbowRotate(void)
   }
 
   // Step 4.  Map from heat cells to LED colors
-  for (int j = 0; j < NUMPERSTRAND; j++)
+  for (int j = 0; j < NUMPIXELS; j++)
   {
     // Scale the heat value from 0-255 down to 0-240
     // for best results with color palettes.
     byte colorindex = scale8(heat[j], 100); // was 240
     CRGB acolor = ColorFromPalette(gPal, colorindex);
-    setPixelByStrandIndex(j, acolor);
+    // setPixelByStrandIndex(j, acolor);
+    int realindex = NUMPIXELS - j - 1;
+    leds[realindex] = acolor;
     //      Serial.print(color.r);
     //      Serial.print("\t");
     //      Serial.print(color.g);
@@ -160,47 +176,47 @@ void Fire2012RainbowRotate(void)
   // Sparks can die before reaching the top. They are born with "pixels to live"
   // Sparks die when reaching the top
   // Spark properties are time to live, where the spark is, speed
-
-  for (int i = 0; i < 5; i++)
-  {
-    if (sparks[i].position >= NUMPERSTRAND - 1)
+  /*
+    for (int i = 0; i < 5; i++)
     {
-      sparks[i].pixels_to_live =
-          0; // We're at the end, so it's time to die
-    }
-    // for sparks that are alive
-    if (sparks[i].pixels_to_live > 0)
-    {
-      // This spark is alive, so if it is time to move up
-      // Move up
-      sparks[i].position += sparks[i].rate;
-      // Decrease life
-      sparks[i].pixels_to_live -= sparks[i].rate;
-
-      if (sparks[i].position < NUMPERSTRAND)
+      if (sparks[i].position >= NUMPIXELS - 1)
       {
-        setPixelByStrandIndex(sparks[i].position, CRGB(255, 255, 255));
-      }
-    }
-    else // this spark is not alive. There is a chance a new one could be
-         // born!
-    {
-      if (random8() < 2)
-      {
-        // Make a new spark
-        sparks[i].position =
-            random8(0, NUMPERSTRAND / 2); // It could appear anywhere
-                                          // near the base of the strand
         sparks[i].pixels_to_live =
-            random8(4, (NUMPERSTRAND / 2) -
-                           sparks[i].position); // It could last as
-                                                // distance it has yet
-                                                // to cover
-        sparks[i].rate = random8(2, 3);
+            0; // We're at the end, so it's time to die
+      }
+      // for sparks that are alive
+      if (sparks[i].pixels_to_live > 0)
+      {
+        // This spark is alive, so if it is time to move up
+        // Move up
+        sparks[i].position += sparks[i].rate;
+        // Decrease life
+        sparks[i].pixels_to_live -= sparks[i].rate;
+
+        if (sparks[i].position < NUMPIXELS)
+        {
+          setPixelByStrandIndex(sparks[i].position, CRGB(255, 255, 255));
+        }
+      }
+      else // this spark is not alive. There is a chance a new one could be
+           // born!
+      {
+        if (random8() < 2)
+        {
+          // Make a new spark
+          sparks[i].position =
+              random8(0, NUMPIXELS / 2); // It could appear anywhere
+                                            // near the base of the strand
+          sparks[i].pixels_to_live =
+              random8(4, (NUMPIXELS / 2) -
+                             sparks[i].position); // It could last as
+                                                  // distance it has yet
+                                                  // to cover
+          sparks[i].rate = random8(2, 3);
+        }
       }
     }
-  }
-
+  */
   FastLED.show();           // display this frame
   FastLED.delay(1000 / 60); // 60 fps
 }
@@ -252,10 +268,10 @@ void loop()
    Serial.print("\t");
    Serial.println(buttC);*/
 
-  switch (the_state)
+  switch (program)
   {
 
-  case PROGRAM_1:
+  case 1:
   {
     if (firstrun)
     {
@@ -273,13 +289,16 @@ void loop()
     FastLED.show();
   }
 
-  case PROGRAM_2:
+  case 2:
   {
     if (firstrun)
     {
       Serial.print("PROGRAM_2");
+      Fire2012RainbowRotate();
       firstrun = 0;
+      break;
     }
-  }
-  }
-}
+    Fire2012RainbowRotate();
+  };
+  };
+};
