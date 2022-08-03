@@ -26,6 +26,7 @@
 // 1 = Bike Flamingo 2022 Rev 1
 // ItsyBitsy 5V, 3 buttons
 #define BOARD_TYPE 1
+#define NUM_STRANDS 1
 #define NUM_PROGRAMS 3
 #define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
 // All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0

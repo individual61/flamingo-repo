@@ -179,8 +179,8 @@ void loop()
    Serial.print("\t");
    Serial.println(buttC);*/
 
-  Serial.print(F("Entering loop(), programIndex is "));
-  Serial.println(programIndex);
+ // Serial.print(F("Entering loop(), programIndex is "));
+ // Serial.println(programIndex);
 
   switch (programIndex)
   {
@@ -219,7 +219,7 @@ void loop()
 
   case 2:
   {
-    Serial.println("Entering Case 2");
+   // Serial.println("Entering Case 2");
     CRGBPalette16 firepal, sparkpal;
     firepal = RainbowColors_p;
     CRGB sparkcolor = CRGB(255, 255, 255);

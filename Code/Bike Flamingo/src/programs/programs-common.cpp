@@ -1,41 +1,52 @@
 #include <parameters.h>
 #include <programs-common.h>
 
-CRGB color = 0x601040;  // Flamingo Pink for dotstars
+CRGB color = 0x601040; // Flamingo Pink for dotstars
 // uint32_t color = 0x106040;  // Flamingo Pink for dotstars
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void setPixelByStrandIndex(uint16_t index, CRGB color)
 {
   if ((index >= 0) && (index < NUMPERSTRAND))
-    {
-      // index goes from 0 to NUMPERSTRAND - 1
-      uint8_t realindex = 0;
+  {
+    // index goes from 0 to NUMPERSTRAND - 1
+    uint8_t realindex = 0;
 
-      // NUMPERSTRAND - 1
-      // 0
-      realindex = NUMPERSTRAND - index - 1;
-      leds[realindex] = color;
+#if NUM_STRANDS == 1
 
-      // NUMPERSTRAND
-      // 2*NUMPERSTRAND - 1
-      realindex = NUMPERSTRAND + index;
-      leds[realindex] = color;
+    realindex = index;
+    leds[realindex] = color;
+#endif
 
-      // 3*NUMPERSTRAND - 1
-      // 2*NUMPERSTRAND
-      realindex = 3 * NUMPERSTRAND - index - 1;
-      leds[realindex] = color;
-    }
-    else
-    {
-      Serial.print(F("Tried to set index "));
-      Serial.print(index);
-      Serial.print(F("In strand of length "));
-      Serial.print(NUMPERSTRAND);
-      Serial.print(F(" and total number "));
-      Serial.println(NUMPIXELS);
-    }
+#if NUM_STRANDS == 3
+    // NUMPERSTRAND - 1
+    // 0
+    realindex = NUMPERSTRAND - index - 1;
+    leds[realindex] = color;
+
+    // NUMPERSTRAND
+    // 2*NUMPERSTRAND - 1
+    realindex = NUMPERSTRAND + index;
+    leds[realindex] = color;
+
+    // 3*NUMPERSTRAND - 1
+    // 2*NUMPERSTRAND
+    realindex = 3 * NUMPERSTRAND - index - 1;
+    leds[realindex] = color;
+#endif
+  }
+  else
+  {
+    Serial.print(F("Tried to set index "));
+    Serial.print(index);
+    Serial.print(F("In strand of length "));
+    Serial.print(NUMPERSTRAND);
+    Serial.print(F(" and total number "));
+    Serial.print(NUMPIXELS);
+    Serial.print(F(" with "));
+    Serial.print(NUM_STRANDS);
+    Serial.println(F(" strands."));
+  }
 }
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
@@ -48,32 +59,32 @@ void setPixelByStrandIndex(uint16_t index, uint8_t r, uint8_t g, uint8_t b)
 void fadeWholeStrip(uint8_t fade_coef)
 {
   for (uint16_t i = 0; i < NUMPIXELS; i++)
-    {
-      leds[i].r = scale8(leds[i].r, fade_coef);
-      leds[i].g = scale8(leds[i].g, fade_coef);
-      leds[i].b = scale8(leds[i].b, fade_coef);
-    }
+  {
+    leds[i].r = scale8(leds[i].r, fade_coef);
+    leds[i].g = scale8(leds[i].g, fade_coef);
+    leds[i].b = scale8(leds[i].b, fade_coef);
+  }
 }
 
 void fadePixelByStrandIndex(uint16_t index, uint8_t fade)
 {
   if ((index >= 0) && (index < NUMPERSTRAND))
-    {
-      // index goes from 0 to NUMPERSTRAND - 1
-      uint8_t realindex = 0;
+  {
+    // index goes from 0 to NUMPERSTRAND - 1
+    uint8_t realindex = 0;
 
-      // NUMPERSTRAND - 1 to 0
-      realindex = NUMPERSTRAND - index - 1;
-      leds[realindex].fadeToBlackBy(fade);
+    // NUMPERSTRAND - 1 to 0
+    realindex = NUMPERSTRAND - index - 1;
+    leds[realindex].fadeToBlackBy(fade);
 
-      // NUMPERSTRAND to 2*NUMPERSTRAND - 1
-      realindex = NUMPERSTRAND + index;
-      leds[realindex].fadeToBlackBy(fade);
+    // NUMPERSTRAND to 2*NUMPERSTRAND - 1
+    realindex = NUMPERSTRAND + index;
+    leds[realindex].fadeToBlackBy(fade);
 
-      // 3*NUMPERSTRAND - 1 to 2*NUMPERSTRAND
-      realindex = 3 * NUMPERSTRAND - index - 1;
-      leds[realindex].fadeToBlackBy(fade);
-    }
+    // 3*NUMPERSTRAND - 1 to 2*NUMPERSTRAND
+    realindex = 3 * NUMPERSTRAND - index - 1;
+    leds[realindex].fadeToBlackBy(fade);
+  }
 }
 
 ////////////////////// PROGRAMS

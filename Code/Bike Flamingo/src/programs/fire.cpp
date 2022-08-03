@@ -479,33 +479,33 @@ void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,
               random8(0, ((FIRE_PALLETTE_COOLING * 10) / NUMPERSTRAND) + 2));
   }
 
-  Serial.print("Done Step 1, programIndex is");
-  Serial.println(programIndex);
+ // Serial.print("Done Step 1, programIndex is");
+ // Serial.println(programIndex);
 
   // Step 2.  Heat from each cell drifts 'up' and diffuses a little
   for (int k = NUMPERSTRAND - 1; k >= 2; k--)
   {
-    Serial.print(F("Setting heat[] of size "));
-    Serial.print(NUMPERSTRAND);
-    Serial.print(F(" to index "));
-    Serial.println(k);
-    heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
+  //  Serial.print(F("Setting heat[] of size "));
+  //  Serial.print(NUMPERSTRAND);
+  //  Serial.print(F(" to index "));
+  //  Serial.println(k);
+  //  heat[k] = (heat[k - 1] + heat[k - 2] + heat[k - 2]) / 3;
   }
 
-  Serial.print("Done Step 2, programIndex is");
-  Serial.println(programIndex);
+ // Serial.print("Done Step 2, programIndex is");
+ // Serial.println(programIndex);
 
   // Step 3.  Randomly ignite new 'sparks' of heat near the bottom
   if (random8() < FIRE_PALLETTE_SPARKING)
   {
-    Serial.println(F("About to run random8 in Step 3"));
+  //  Serial.println(F("About to run random8 in Step 3"));
     int y = random8(7);
-    Serial.println(F("About to run qadd8 in Step 3"));
+  //  Serial.println(F("About to run qadd8 in Step 3"));
     heat[y] = qadd8(heat[y], random8(160, 255));
   }
 
-  Serial.print("Done Step 3, programIndex is");
-  Serial.println(programIndex);
+ // Serial.print("Done Step 3, programIndex is");
+ // Serial.println(programIndex);
 
   // Step 4.  Map from heat cells to LED colors
   byte colorindex;
@@ -543,8 +543,8 @@ void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,
     //      Serial.println(color.b);
   }
 
-  Serial.print("Done Step 4, programIndex is");
-  Serial.println(programIndex);
+//  Serial.print("Done Step 4, programIndex is");
+//  Serial.println(programIndex);
 
   // Step 5
   // Add sparks here
@@ -595,13 +595,13 @@ void Fire2012WithPalette(CRGBPalette16 firepal, CRGB sparkcolor, bool scaleHeat,
       }
     }
   }
-  Serial.print(F("Done with sparks, programIndex is"));
-  Serial.println(programIndex);
+ // Serial.print(F("Done with sparks, programIndex is"));
+//  Serial.println(programIndex);
 
   FastLED.show(); // display this frame
 
-  Serial.print(F("Done with FASTLEDSHOW, programIndex is "));
-  Serial.println(programIndex);
+ // Serial.print(F("Done with FASTLEDSHOW, programIndex is "));
+ // Serial.println(programIndex);
 
   // FastLED.delay(1000 / 60); // 60 fps
 }
