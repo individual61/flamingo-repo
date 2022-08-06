@@ -1070,7 +1070,7 @@
     (uuid fa96d8e0-969a-4bb8-bf4e-c046666fc00e)
   )
 
-  (image (at 33.02 -26.67)
+  (image (at 50.8 170.18)
     (uuid 279deb42-21fa-43bb-a513-80284e882495)
     (data
       iVBORw0KGgoAAAANSUhEUgAAAykAAAI3CAIAAAAQo4NiAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
@@ -1231,7 +1231,7 @@
       XgAAcWQvAIA4shcAQBzZCwAgzv8DGIye5iSlUr0AAAAASUVORK5CYII=
     )
   )
-  (image (at 184.15 -35.56) (scale 1.58632)
+  (image (at 60.96 -35.56) (scale 1.58632)
     (uuid c8f0d68e-4a39-4d8c-bdd3-601dc814e136)
     (data
       iVBORw0KGgoAAAANSUhEUgAAA58AAAHsCAIAAADaWo5tAAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
@@ -1958,12 +1958,17 @@
   )
 
   (text "ItsyBitsy power\n\nVBAT goes through the 5V regulator, so it is not suitable as a sole source of power, unless the load is under 150 mA\n"
-    (at 0 -53.34 0)
+    (at 16.51 143.51 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a9501e5a-0f9c-4bc4-a8fe-96b990991463)
   )
+  (text "Since if USB is unplugged, the only route to the LED VCC (VBUS) is through the 5 V regulator. This is also true if a battery backpack is used. \n\nDoes it make sense to put the batt connector on the VUSB line? Not really, because then the Arduino just sees unregulated batt... which is OK for a LiPo I guess.\n\nDoes it make sense to change the LEDs to use VBAT? With VBAT and no USB present, the LEDS get direct battery and the arduino gets regulated output. With USB and no VBAT the LEDs dont see VBUS unless a battery backpack is used. "
+    (at 125.73 -3.81 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid b40e1943-3eea-4eed-83bd-3cba587fda60)
+  )
   (text "Battery Backpack\n\nPuts the battery on VBAT also, which does not help since light power is on VBUS"
-    (at 123.19 -72.39 0)
+    (at 0 -71.12 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid cadbbed2-3764-4e3c-b223-916c4f188ce6)
   )
@@ -2174,7 +2179,7 @@
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Website" "https://www.digikey.com/en/products/detail/kyocera-avx/TPSF107M016R0200/3068751" (id 10) (at 251.46 108.7881 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+      (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Description" "-" (id 11) (at 251.46 111.3281 0)
       (effects (font (size 1.27 1.27)) (justify left))

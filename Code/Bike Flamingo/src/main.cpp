@@ -83,7 +83,7 @@ CRGB leds[NUMPIXELS];
 // ALT high = 0x1D
 ADXL345 accel;
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 uint16_t accArray[ACC_AVG_NUM];
 uint16_t acc_avg_timeold;
 uint16_t acc_avg_timenew;
@@ -187,13 +187,9 @@ void loop()
 
   case 0:
   {
-    if (firstRun)
-    {
-      Serial.println("PROGRAM_0 first run: Sparkle");
-      firstRun = 0;
-    }
+
     // FastLED random8(N, M) is from N to M-1
-    uint8_t Pixel = random8(0, NUMPIXELS); // (...]
+    uint16_t Pixel = random16(0, NUMPIXELS); // (...]
     // leds[Pixel] = thecolor;
     // CRGB color = 0x601040;  // Flamingo Pink for dotstars
     leds[Pixel] = 0xFFFFFF;

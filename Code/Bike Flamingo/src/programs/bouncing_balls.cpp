@@ -1,7 +1,7 @@
 #include <parameters.h>
 #include <programs-common.h>
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 // This program is on hold. Ball bounces too slowly, velocity of second
 // iteration is
 bouncingball balls[NUM_BOUNCYBALLS];

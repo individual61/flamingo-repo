@@ -11,7 +11,7 @@ unsigned long timeNowButton2 = 0;
 unsigned long lastTimePressedButton1 = 0;
 unsigned long lastTimePressedButton2 = 0;
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 // Make sure there are BRIGHTNESS_COUNT elements in the array.
 uint8_t brightness[BRIGHTNESS_COUNT] = {10, 15, 20, 40, 60,
                                         100, 140, 180, 220, 240};
@@ -33,7 +33,7 @@ void isr_handler_A()
 
     firstRun = 1;
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
     pos0 = vel0 = pos1 = vel1 = 0.0;
 #endif
 

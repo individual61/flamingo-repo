@@ -1,7 +1,7 @@
 #include <accel.h>
 #include <parameters.h>
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 float acc_offset_normalized;
 
 // Returns normalized acc in units of g

@@ -22,20 +22,36 @@
 
 #define DEBUG 1
 
-//////////// BOARD TYPE 1 ////////////////////////
-// 1 = Bike Flamingo 2022 Rev 1
-// ItsyBitsy 5V, 3 buttons
-#define BOARD_TYPE 1
-#define NUM_STRANDS 1
-#define NUM_PROGRAMS 3
+// Brightness stuff
+
 #define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
 // All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
 #define ALL_BRIGHTNESS_ARRAY                                                                                                        \
   {                                                                                                                                 \
-    {10, 15, 20, 40, 60, 100, 140, 180, 240, 0}, {10, 140, 240, 0, 0, 0, 0, 0, 0, 0}, { 10, 15, 20, 40, 60, 100, 140, 180, 240, 0 } \
+    {10, 100, 255, 0, 0, 0, 0, 0, 0, 0}, {10, 140, 240, 0, 0, 0, 0, 0, 0, 0}, { 10, 15, 20, 40, 60, 100, 140, 180, 240, 0 } \
   }
 // NO "RUN_ON_TOTEM" defined here
 extern uint8_t brightnessIndex[NUM_PROGRAMS];
+
+
+
+// Board Types
+// Board Type 1: Bike Flamingo 2022 Rev 1. ItsyBitsy 5V, 3 buttons. On bike. 216 pixels.
+// Board Type 2: Bike Flamingo 2022 Rev 1. ItsyBitsy 5V, 3 buttons. On tent. 288 Pixels.
+// Board Type 3: Flamingo totem.
+
+#define BOARD_TYPE 1
+
+
+
+
+//////////// BOARD TYPE 1 ////////////////////////
+// 1 = Bike Flamingo 2022 Rev 1
+// ItsyBitsy 5V, 3 buttons
+#if BOARD_TYPE == 1
+
+#define NUM_STRANDS 1
+#define NUM_PROGRAMS 3
 
 // Buttons
 //#define BUTTON1 3
@@ -48,7 +64,8 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 
 // FastLED stuff
 //#define NUMPIXELS 144    // Number of LEDs in strip
-#define NUMPIXELS 29    // Number of LEDs in strip
+//#define NUMPIXELS 29    // Number of LEDs in strip
+#define NUMPIXELS 288    // Number of LEDs in strip
 #define NUMPERSTRAND 29 // Assuming 1 strands for bike Flamingo
 //#define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
 //#define CLOCK_PIN 13
@@ -154,13 +171,19 @@ extern uint16_t sparkleInterval_max;
 extern byte *c;
 extern uint16_t jrainbow;
 
+
+#endif // BOARD_TYPE = 1
+
+
 ////////////////////////////////////////////////////////////
 
-/*
 
-//////////// BOARD TYPE 2 ////////////////////////
-// 2= Flamingo Totem Original ADXL345
-#define BOARD_TYPE 2
+
+#if BOARD_TYPE == 3
+
+//////////// BOARD TYPE 3 ////////////////////////
+// 3= Flamingo Totem Original ADXL345
+
 #define NUM_PROGRAMS 14
 #define RUN_ON_TOTEM  // accelerometer has different offsets on the Totem
 
@@ -305,9 +328,6 @@ extern byte *c;
 extern uint16_t jrainbow;
 ////////////////////////////////////////////////////////////
 
+#endif // #f BOARD_TYPE == 3
 
-
-
-*/
-
-#endif
+#endif // #ifndef PARAMETERS_H

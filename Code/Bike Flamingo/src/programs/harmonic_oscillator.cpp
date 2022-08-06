@@ -2,7 +2,7 @@
 #include <parameters.h>
 #include <programs-common.h>
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 
 float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
 

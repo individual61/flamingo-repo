@@ -322,7 +322,7 @@ void Fire2012RainbowRotate(void)
   FastLED.delay(1000 / 60); // 60 fps
 }
 
-#if BOARD_TYPE == 2
+#if BOARD_TYPE == 3
 void Fire2012RainbowRotate(void)
 {
   static uint8_t hue = 0;
