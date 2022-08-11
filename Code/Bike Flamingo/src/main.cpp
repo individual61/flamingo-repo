@@ -71,6 +71,10 @@ uint16_t counter16 = 0;
 uint8_t counter_every_10_8 = 0;
 uint32_t last_interrupt_time = 0;
 
+// for time()
+
+uint32_t start_time = 0;
+
 ////////////////////   FastLED / APA102C   //////////////////
 //
 
@@ -127,10 +131,14 @@ uint8_t volatile programIndex = 0;
 
 void setup()
 {
+  // initialize start time for time()
+  start_time = millis();
+
+  // Serial
   Serial.begin(115200);
   // while (!Serial)
   //   ;
-  Serial.println("Started serial to PC.");
+  Serial.println(F("Started serial to PC."));
 
   pinMode(BUTT_A, INPUT);
   pinMode(BUTT_B, INPUT);
@@ -179,8 +187,8 @@ void loop()
    Serial.print("\t");
    Serial.println(buttC);*/
 
- // Serial.print(F("Entering loop(), programIndex is "));
- // Serial.println(programIndex);
+  // Serial.print(F("Entering loop(), programIndex is "));
+  // Serial.println(programIndex);
 
   switch (programIndex)
   {
@@ -204,7 +212,7 @@ void loop()
   {
     if (firstRun)
     {
-      Serial.println("PROGRAM_1 first run: Fire 2012 Rainbow Rotate");
+      Serial.println(F("PROGRAM_1 first run: Fire 2012 Rainbow Rotate"));
       Fire2012RainbowRotate();
       firstRun = 0;
       break;
@@ -215,7 +223,7 @@ void loop()
 
   case 2:
   {
-   // Serial.println("Entering Case 2");
+
     CRGBPalette16 firepal, sparkpal;
     firepal = RainbowColors_p;
     CRGB sparkcolor = CRGB(255, 255, 255);
@@ -223,7 +231,7 @@ void loop()
 
     if (firstRun)
     {
-      Serial.println("PROGRAM_2 first run: Fire 2012 Rainbow Palette");
+      Serial.println(F("PROGRAM_2 first run: Fire 2012 Rainbow Palette"));
       Fire2012WithPalette(firepal, sparkcolor, 0, rotate);
       firstRun = 0;
       break;
@@ -235,6 +243,19 @@ void loop()
     break;
   };
 
+  case 3:
+  {
+    if (firstRun)
+    {
+      Serial.println(F("PROGRAM_3 "));
+      synchronized_random_numbers_rainbow();
+      firstRun = 0;
+      break;
+    }
+    synchronized_random_numbers_rainbow();
+    break;
+  };
+
   default:
   {
     Serial.print(F("We fell into default case, programIndex is "));
@@ -242,3 +263,19 @@ void loop()
   };
   };
 };
+
+/*
+
+//TEMPLATE
+    case 3:
+  {
+    if (firstRun)
+    {
+      Serial.println(F("PROGRAM_3 "));
+      firstRun = 0;
+      break;
+    }
+
+    break;
+  };
+  */

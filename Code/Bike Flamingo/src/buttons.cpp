@@ -62,7 +62,7 @@ void isr_handler_B()
   {
     last_interrupt_time = interrupt_time;
 
-    Serial.println("Button B");
+    Serial.println(F("Button B"));
   }
 }
 
@@ -80,7 +80,7 @@ void isr_handler_C()
     if (brightnessIndex[programIndex] == BRIGHTNESS_MAX_QUANTITY)
     {
       brightnessIndex[programIndex] = 0;
-      Serial.println("Setting brightnessIndex[programIndex] to 0 because brightnessIndex[programIndex])++ == BRIGHTNESS_MAX_QUANTITY");
+      Serial.println(F("Setting brightnessIndex[programIndex] to 0 because brightnessIndex[programIndex])++ == BRIGHTNESS_MAX_QUANTITY"));
     }
 
     // brightnessIndex[programIndex] may still not have looped because we exceeded BRIGHTNESS_MAX_QUANTITY,
@@ -89,18 +89,18 @@ void isr_handler_C()
     if (brightness[programIndex][brightnessIndex[programIndex]] == 0)
     {
       brightnessIndex[programIndex] = 0;
-      Serial.println("Setting brightnessIndex[programIndex] to 0 because brightnessIndex[programIndex])++ == 0");
+      Serial.println(F("Setting brightnessIndex[programIndex] to 0 because brightnessIndex[programIndex])++ == 0"));
     }
 
     // At this point brightnessIndex[programIndex] is either 0 (because we looped through all 10 brightness levels, or we hight a brightness level of 0)
     // or it's a regular brightness level
     FastLED.setBrightness(brightness[programIndex][brightnessIndex[programIndex]]);
     FastLED.show();
-    Serial.print("Button C pressed, brightness is: ");
+    Serial.print(F("Button C pressed, brightness is: "));
     Serial.print(brightness[programIndex][brightnessIndex[programIndex]]);
-    Serial.print(" and brightnessIndex[programIndex] is ");
+    Serial.print(F(" and brightnessIndex[programIndex] is "));
     Serial.print(brightnessIndex[programIndex]);
-    Serial.print(" and program is ");
+    Serial.print(F(" and program is "));
     Serial.println(programIndex);
   }
 }

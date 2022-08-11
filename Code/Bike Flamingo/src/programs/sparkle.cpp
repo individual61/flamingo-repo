@@ -10,14 +10,15 @@ void Sparkle(CRGB thecolor, uint8_t duration)
 
   if (firstRun)
   {
-    Serial.println("PROGRAM_0 first run: Sparkle");
+    Serial.println(F("PROGRAM_0 first run: Sparkle"));
     firstRun = 0;
   }
   // FastLED random8(N, M) is from N to M-1
   uint16_t Pixel = random16(0, NUMPIXELS); // (...]
-  // leds[Pixel] = thecolor;
+   leds[Pixel] = thecolor;
   // CRGB color = 0x601040;  // Flamingo Pink for dotstars
-  leds[Pixel] = 0xFFFFFF;
+  // leds[Pixel] = 0xFFFFFF;
+
   FastLED.show();
   FastLED.delay(1);
   leds[Pixel] = CRGB(0, 0, 0);
@@ -30,12 +31,14 @@ void Sparkle(CRGB thecolor, uint8_t duration)
 
 // ditto
 
-// 9
+
+#if BOARD_TYPE == 3
 //////////// SPARKLE PINK FIZZ
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // The higher the average acceleration, the shorter the interval between flashes
 // Define: Max g, longest interval
+
 
 float acc_max = 0.0;
 uint16_t sparkleInterval;
@@ -159,3 +162,5 @@ void Acctest(void)
   delay(50);
 }
 */
+
+#endif

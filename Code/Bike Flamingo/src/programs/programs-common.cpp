@@ -1,6 +1,32 @@
 #include <parameters.h>
 #include <programs-common.h>
 
+/* It returns a value between 0 and 1 that loops over and over.
+The speed that it loops is inverse to the argument given.
+A value of 1 will loop about every 65 seconds,
+ where a value of .1 will loop about every 6.5 seconds. */
+// Period in tenths of a second, 0 to 255
+uint8_t time(uint8_t period)
+{
+  uint32_t period_millis = period * 100;
+  uint32_t elapsed_time = millis() - start_time;
+  uint32_t phase_t = elapsed_time % period_millis;
+  float phase_int = phase_t / ((float)period_millis);
+
+ /* Serial.print("period_millis is ");
+  Serial.print(period_millis);
+  Serial.print(", elapsed_time is ");
+  Serial.print(elapsed_time);
+  Serial.print(", phase_t = ");
+  Serial.print(phase_t);
+  Serial.print("phase_int is ");
+  Serial.print(phase_int);
+  Serial.print(", and return value is ");
+  Serial.println((uint8_t)(phase_int * 255));*/
+
+  return ((uint8_t)(phase_int * 255));
+}
+
 CRGB color = 0x601040; // Flamingo Pink for dotstars
 // uint32_t color = 0x106040;  // Flamingo Pink for dotstars
 

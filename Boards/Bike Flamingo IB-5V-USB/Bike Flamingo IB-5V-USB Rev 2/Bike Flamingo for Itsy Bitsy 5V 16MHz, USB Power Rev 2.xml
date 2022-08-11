@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>G:\My Drive\Projects\Flamingo\flaming-repo\Boards\Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power\Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1\Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch</source>
+    <date>8/2/2022 11:48:54 AM</date>
+    <tool>Eeschema (6.0.7)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100uF</value>
+      <footprint>Capacitor_Tantalum_SMD:CP_EIA-6032-28_Kemet-C_Pad2.25x2.35mm_HandSolder</footprint>
+      <datasheet>https://datasheets.kyocera-avx.com/TPS.pdf</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MFR P/N">TPSF107M016R0200</field>
+        <field name="Manufacturer">Kyocera AVX</field>
+        <field name="Package Size">2312(6032-20)</field>
+        <field name="Prefix">C</field>
+        <field name="Voltage Rating">16V</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/kyocera-avx/TPSF107M016R0200/3068751</field>
+      </fields>
+      <libsource lib="MyCapacitors" part="CP1_Small_vert" description="Polarised capacitor vertical"/>
+      <property name="Voltage Rating" value="16V"/>
+      <property name="Package Size" value="2312(6032-20)"/>
+      <property name="MFR P/N" value="TPSF107M016R0200"/>
+      <property name="MPN" value=""/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="C"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/kyocera-avx/TPSF107M016R0200/3068751"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Kyocera AVX"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5d3d7779-7a1d-409a-b417-5181c3b62965</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>Battery Connector</value>
+      <footprint>Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal</footprint>
+      <datasheet>https://www.jst-mfg.com/product/pdf/eng/ePH.pdf</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">455-1719-nd</field>
+        <field name="MPN">S2B-PH-K-S(LF)(SN)</field>
+        <field name="Manufacturer">-</field>
+        <field name="Prefix">J</field>
+        <field name="Website">-</field>
+      </fields>
+      <libsource lib="MyConnectors" part="01x02_Connector" description="Generic connector, single row, 01x02"/>
+      <property name="MPN" value="S2B-PH-K-S(LF)(SN)"/>
+      <property name="Digi-Key_PN" value="455-1719-nd"/>
+      <property name="Prefix" value="J"/>
+      <property name="Website" value="-"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="-"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>185a7088-0d82-46a6-9998-d0d114e2f705</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>Button Board Terminal</value>
+      <footprint>TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-4_1x04_P2.54mm_Horizontal</footprint>
+      <datasheet>https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&amp;DocNm=282834&amp;DocType=Customer+Drawing&amp;DocLang=English</datasheet>
+      <fields>
+        <field name="DIGIKEY PN">A98335-ND</field>
+        <field name="MFR">TE</field>
+        <field name="MFR PN">282834-4</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x04" description="Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MFR PN" value="282834-4"/>
+      <property name="MFR" value="TE"/>
+      <property name="DIGIKEY PN" value="A98335-ND"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fef68002-fe9b-4763-b5cd-56fddae601c7</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Button Board Terminal</value>
+      <footprint>TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-4_1x04_P2.54mm_Horizontal</footprint>
+      <datasheet>https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&amp;DocNm=282834&amp;DocType=Customer+Drawing&amp;DocLang=English</datasheet>
+      <fields>
+        <field name="DIGIKEY PN">A98335-ND</field>
+        <field name="MFR">TE</field>
+        <field name="MFR PN">282834-4</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x04" description="Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="MFR PN" value="282834-4"/>
+      <property name="MFR" value="TE"/>
+      <property name="DIGIKEY PN" value="A98335-ND"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44f35d1b-662a-4765-a23d-e31c9a9c63c7</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/cr.pdf?sfvrsn=574d41f6_14</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MPN">CR0603-FX-4701ELF</field>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Package Size">0603</field>
+        <field name="Prefix">R</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916</field>
+      </fields>
+      <libsource lib="MyResistors" part="R_vert" description="Resistor Vertical"/>
+      <property name="Package Size" value="0603"/>
+      <property name="MPN" value="CR0603-FX-4701ELF"/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="R"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aea6768b-0bd3-4840-a839-5186ae2b5fd7</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/cr.pdf?sfvrsn=574d41f6_14</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MPN">CR0603-FX-4701ELF</field>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Package Size">0603</field>
+        <field name="Prefix">R</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916</field>
+      </fields>
+      <libsource lib="MyResistors" part="R_vert" description="Resistor Vertical"/>
+      <property name="Package Size" value="0603"/>
+      <property name="MPN" value="CR0603-FX-4701ELF"/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="R"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aafd3f35-d54f-4c84-9e66-93a46807d3c3</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/cr.pdf?sfvrsn=574d41f6_14</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MPN">CR0603-FX-4701ELF</field>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Package Size">0603</field>
+        <field name="Prefix">R</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916</field>
+      </fields>
+      <libsource lib="MyResistors" part="R_vert" description="Resistor Vertical"/>
+      <property name="Package Size" value="0603"/>
+      <property name="MPN" value="CR0603-FX-4701ELF"/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="R"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-4701ELF/3740916"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cc645449-5097-4ac6-876e-71806e4f3db7</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>330</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/cr.pdf?sfvrsn=574d41f6_14</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MPN">CR0603-FX-3300ELF</field>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Package Size">0603(1608)</field>
+        <field name="Prefix">R</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-3300ELF/3783948</field>
+      </fields>
+      <libsource lib="MyResistors" part="R_horiz" description="Resistor Horizontal"/>
+      <property name="Package Size" value="0603(1608)"/>
+      <property name="MPN" value="CR0603-FX-3300ELF"/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="R"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-3300ELF/3783948"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8073fc0d-fa84-4c1a-8820-d4be0f90aab1</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>330</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.bourns.com/docs/product-datasheets/cr.pdf?sfvrsn=574d41f6_14</datasheet>
+      <fields>
+        <field name="Description">-</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="MPN">CR0603-FX-3300ELF</field>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Package Size">0603(1608)</field>
+        <field name="Prefix">R</field>
+        <field name="Website">https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-3300ELF/3783948</field>
+      </fields>
+      <libsource lib="MyResistors" part="R_horiz" description="Resistor Horizontal"/>
+      <property name="Package Size" value="0603(1608)"/>
+      <property name="MPN" value="CR0603-FX-3300ELF"/>
+      <property name="Digi-Key_PN" value="-"/>
+      <property name="Prefix" value="R"/>
+      <property name="Website" value="https://www.digikey.com/en/products/detail/bourns-inc/CR0603-FX-3300ELF/3783948"/>
+      <property name="Description" value="-"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e0deca9c-b97c-40c2-9082-4a4e9a043b21</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>Adafruit_ItsyBitsy_5V_16MHz</value>
+      <footprint>MyBoards:Adafruit Itsy Bitsy 5V 16 MHz</footprint>
+      <libsource lib="MyICs" part="Adafruit_ItsyBitsy_5V_16MHz" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="Bike Flamingo for Itsy Bitsy 5V 16MHz, USB Power Rev 1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae2534ef-47d1-4a18-a6a3-c7a2150af318</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="Screw_Terminal_01x04">
+      <description>Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x04</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MyCapacitors" part="CP1_Small_vert">
+      <description>Polarised capacitor vertical</description>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP1_Small_vert</field>
+        <field name="Voltage Rating">Voltage</field>
+        <field name="Package Size">XXXX</field>
+        <field name="MFR P/N">MFR P/N</field>
+        <field name="MPN">MFR P/N</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="Prefix">C</field>
+        <field name="Website">-</field>
+        <field name="Description">-</field>
+        <field name="Manufacturer">-</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MyConnectors" part="01x02_Connector">
+      <description>Generic connector, single row, 01x02</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_??x*mm*</fp>
+        <fp>Connector*:*1x??x*mm*</fp>
+        <fp>Pin?Header?Straight?1X*</fp>
+        <fp>Pin?Header?Angled?1X*</fp>
+        <fp>Socket?Strip?Straight?1X*</fp>
+        <fp>Socket?Strip?Angled?1X*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">01x02_Connector</field>
+        <field name="Datasheet">~</field>
+        <field name="MPN">MFR P/N</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="Prefix">J</field>
+        <field name="Website">-</field>
+        <field name="Description">-</field>
+        <field name="Manufacturer">-</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MyICs" part="Adafruit_ItsyBitsy_5V_16MHz">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">Adafruit_ItsyBitsy_5V_16MHz</field>
+        <field name="Footprint">MyBoards:Adafruit Itsy Bitsy 5V 16 MHz</field>
+      </fields>
+      <pins>
+        <pin num="" name="2-SDA" type="bidirectional"/>
+      </pins>
+    </libpart>
+    <libpart lib="MyResistors" part="R_horiz">
+      <description>Resistor Horizontal</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_horiz</field>
+        <field name="Package Size">XXXX</field>
+        <field name="MPN">MFR P/N</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="Prefix">R</field>
+        <field name="Website">-</field>
+        <field name="Description">-</field>
+        <field name="Manufacturer">-</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MyResistors" part="R_vert">
+      <description>Resistor Vertical</description>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_vert</field>
+        <field name="Package Size">XXXX</field>
+        <field name="MPN">MFR P/N</field>
+        <field name="Digi-Key_PN">-</field>
+        <field name="Prefix">R</field>
+        <field name="Website">-</field>
+        <field name="Description">-</field>
+        <field name="Manufacturer">-</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Connector.kicad_sym</uri>
+    </library>
+    <library logical="MyCapacitors">
+      <uri>G:/My Drive/Projects/KiCADCustomLibraries/Schematic_Symbols/MyCapacitors.kicad_sym</uri>
+    </library>
+    <library logical="MyConnectors">
+      <uri>G:/My Drive/Projects/KiCADCustomLibraries/Schematic_Symbols/MyConnectors.kicad_sym</uri>
+    </library>
+    <library logical="MyICs">
+      <uri>G:/My Drive/Projects/KiCADCustomLibraries/Schematic_Symbols/MyICs.kicad_sym</uri>
+    </library>
+    <library logical="MyResistors">
+      <uri>G:/My Drive/Projects/KiCADCustomLibraries/Schematic_Symbols/MyResistors.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+5V">
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="5V" pintype="passive"/>
+    </net>
+    <net code="2" name="/BUTT_A">
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="D11" pintype="bidirectional"/>
+    </net>
+    <net code="3" name="/BUTT_B">
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="D10" pintype="bidirectional"/>
+    </net>
+    <net code="4" name="/BUTT_C">
+      <node ref="J2" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="D9" pintype="bidirectional"/>
+    </net>
+    <net code="5" name="/SCL">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="3-SCL" pintype="bidirectional"/>
+    </net>
+    <net code="6" name="/SDA">
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="2-SDA" pintype="bidirectional"/>
+    </net>
+    <net code="7" name="GND">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="8" name="Net-(J1-Pad1)">
+      <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="VBAT" pintype="passive"/>
+    </net>
+    <net code="9" name="Net-(J3-Pad2)">
+      <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="10" name="Net-(J3-Pad3)">
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="11" name="VBUS">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J3" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="U1" pin="" pinfunction="USB" pintype="passive"/>
+    </net>
+    <net code="12" name="unconnected-(U1-Pad)">
+      <node ref="U1" pin="" pinfunction="RST" pintype="input+no_connect"/>
+    </net>
+    <net code="13" name="unconnected-(U1-Pad)_1">
+      <node ref="U1" pin="" pinfunction="8" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="14" name="unconnected-(U1-Pad)_2">
+      <node ref="U1" pin="" pinfunction="6" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="15" name="unconnected-(U1-Pad)_3">
+      <node ref="U1" pin="" pinfunction="4" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="16" name="unconnected-(U1-Pad)_4">
+      <node ref="U1" pin="" pinfunction="D0" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="17" name="unconnected-(U1-Pad)_5">
+      <node ref="U1" pin="" pinfunction="D1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="18" name="unconnected-(U1-Pad)_6">
+      <node ref="U1" pin="" pinfunction="MOSI" pintype="output+no_connect"/>
+    </net>
+    <net code="19" name="unconnected-(U1-Pad)_7">
+      <node ref="U1" pin="" pinfunction="MISO" pintype="input+no_connect"/>
+    </net>
+    <net code="20" name="unconnected-(U1-Pad)_8">
+      <node ref="U1" pin="" pinfunction="3V" pintype="passive+no_connect"/>
+    </net>
+    <net code="21" name="unconnected-(U1-Pad)_9">
+      <node ref="U1" pin="" pinfunction="EN" pintype="input+no_connect"/>
+    </net>
+    <net code="22" name="unconnected-(U1-Pad)_10">
+      <node ref="U1" pin="" pinfunction="SCK" pintype="output+no_connect"/>
+    </net>
+    <net code="23" name="unconnected-(U1-Pad)_11">
+      <node ref="U1" pin="" pinfunction="A2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="24" name="unconnected-(U1-Pad)_12">
+      <node ref="U1" pin="" pinfunction="A3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="25" name="unconnected-(U1-Pad)_13">
+      <node ref="U1" pin="" pinfunction="A4" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="26" name="unconnected-(U1-Pad)_14">
+      <node ref="U1" pin="" pinfunction="A5" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="27" name="unconnected-(U1-Pad)_15">
+      <node ref="U1" pin="" pinfunction="A0" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="28" name="unconnected-(U1-Pad)_16">
+      <node ref="U1" pin="" pinfunction="A1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="29" name="unconnected-(U1-Pad)_17">
+      <node ref="U1" pin="" pinfunction="ARF" pintype="passive+no_connect"/>
+    </net>
+    <net code="30" name="unconnected-(U1-Pad)_18">
+      <node ref="U1" pin="" pinfunction="D12" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="31" name="unconnected-(U1-Pad)_19">
+      <node ref="U1" pin="" pinfunction="D13" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="32" name="unconnected-(U1-Pad)_20">
+      <node ref="U1" pin="" pinfunction="D5" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="33" name="unconnected-(U1-Pad)_21">
+      <node ref="U1" pin="" pinfunction="D7" pintype="bidirectional+no_connect"/>
+    </net>
+  </nets>
+</export>

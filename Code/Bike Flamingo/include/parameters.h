@@ -22,16 +22,7 @@
 
 #define DEBUG 1
 
-// Brightness stuff
 
-#define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
-// All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
-#define ALL_BRIGHTNESS_ARRAY                                                                                                        \
-  {                                                                                                                                 \
-    {10, 100, 255, 0, 0, 0, 0, 0, 0, 0}, {10, 140, 240, 0, 0, 0, 0, 0, 0, 0}, { 10, 15, 20, 40, 60, 100, 140, 180, 240, 0 } \
-  }
-// NO "RUN_ON_TOTEM" defined here
-extern uint8_t brightnessIndex[NUM_PROGRAMS];
 
 
 
@@ -51,7 +42,20 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 #if BOARD_TYPE == 1
 
 #define NUM_STRANDS 1
-#define NUM_PROGRAMS 3
+#define NUM_PROGRAMS 4
+
+
+// Brightness stuff
+
+#define BRIGHTNESS_MAX_QUANTITY 10 // max number of brightness levels across all programs
+// All brightness arrays have 10 elements. When the value is 0, it cycles back. Therefore all must end with 0
+#define ALL_BRIGHTNESS_ARRAY                                                                                                        \
+  {                                                                                                                                 \
+    {10, 100, 255, 0, 0, 0, 0, 0, 0, 0}, {10, 140, 240, 0, 0, 0, 0, 0, 0, 0}, { 10, 15, 20, 40, 60, 100, 140, 180, 240, 0 },  {10, 100, 255, 0, 0, 0, 0, 0, 0, 0}\
+  }
+// NO "RUN_ON_TOTEM" defined here
+extern uint8_t brightnessIndex[NUM_PROGRAMS];
+
 
 // Buttons
 //#define BUTTON1 3
@@ -76,6 +80,11 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 #define COLOR_ORDER BGR // my strip is BGR
 #define CORRECTION TypicalLEDStrip
 //#define CORRECTION UncorrectedColor
+
+// time()
+extern uint32_t start_time;
+
+// Synchronized Random Numbes Rainbow varliables
 
 // Harmonic oscillator parameters
 //#define SPRINGCONSTANT 2

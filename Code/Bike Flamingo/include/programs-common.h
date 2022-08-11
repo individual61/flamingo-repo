@@ -5,6 +5,10 @@
 #include <Arduino.h>
 #include <FastLED.h>
 
+void synchronized_random_numbers_rainbow(void);
+
+uint8_t time(uint8_t period);
+
 byte* Wheel(byte WheelPos);
 
 void setPixelByIndex(int index, uint32_t color);
@@ -54,5 +58,7 @@ void DHO_Fade(void);
 void Test(void);
 
 void Bouncing_Balls(bool BB_fade);
+
+
 
 #endif

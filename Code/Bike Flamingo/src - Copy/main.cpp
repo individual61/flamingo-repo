@@ -37,7 +37,7 @@ void isr_handler_A()
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
 #ifdef DEBUG
-    Serial.println("Button A");
+    Serial.println(F("Button A"));
 #endif
   }
 
@@ -52,7 +52,7 @@ void isr_handler_B()
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
 #ifdef DEBUG
-    Serial.println("Button B");
+    Serial.println(F("Button B"));
 #endif
   }
 
@@ -67,7 +67,7 @@ void isr_handler_C()
   if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
   {
 #ifdef DEBUG
-    Serial.println("Button C");
+    Serial.println(F("Button C"));
 #endif
   }
 
@@ -82,7 +82,7 @@ void setup()
   Serial.begin(115200);
   while (!Serial)
     ;
-  Serial.println("Started serial to PC.");
+  Serial.println(F("Started serial to PC."));
 
   pinMode(BUTT_A, INPUT);
   pinMode(BUTT_B, INPUT);
