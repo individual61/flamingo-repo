@@ -70,7 +70,7 @@ extern uint8_t brightnessIndex[NUM_PROGRAMS];
 //#define NUMPIXELS 144    // Number of LEDs in strip
 //#define NUMPIXELS 29    // Number of LEDs in strip
 #define NUMPIXELS 288    // Number of LEDs in strip
-#define NUMPERSTRAND 29 // Assuming 1 strands for bike Flamingo
+#define NUMPERSTRAND 288 // Assuming 1 strands for bike Flamingo
 //#define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
 //#define CLOCK_PIN 13
 //#define DATA_PIN 11

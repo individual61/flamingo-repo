@@ -1,10 +1,8 @@
 #include <parameters.h>
 #include <programs-common.h>
 
-/* It returns a value between 0 and 1 that loops over and over.
-The speed that it loops is inverse to the argument given.
-A value of 1 will loop about every 65 seconds,
- where a value of .1 will loop about every 6.5 seconds. */
+/* It returns a value between 0 and 255 that loops over and over.
+The speed that it loops is inverse to the argument given.*/
 // Period in tenths of a second, 0 to 255
 uint8_t time(uint8_t period)
 {
