@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Adafruit protrinket backpack")(type "KiCad")(uri "$(KIPRJMOD)/Adafruit protrinket backpack.pretty")(options "")(descr ""))
+)

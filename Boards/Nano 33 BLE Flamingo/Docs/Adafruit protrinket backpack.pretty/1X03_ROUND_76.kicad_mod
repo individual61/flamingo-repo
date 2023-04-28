@@ -1,0 +1,47 @@
+(footprint "1X03_ROUND_76" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (fp_text reference "REF**" (at -3.8862 -1.8288) (layer "F.SilkS")
+      (effects (font (size 0.666496 0.666496) (thickness 0.146304)) (justify left bottom))
+    (tstamp 92684699-73a2-4a07-9497-619543f6fca9)
+  )
+  (fp_text value "1X03_ROUND_76" (at -3.81 3.175) (layer "F.Fab")
+      (effects (font (size 0.36576 0.36576) (thickness 0.04064)) (justify left bottom))
+    (tstamp dd4317b4-8e54-47a4-b35f-ee550663af6c)
+  )
+  (fp_line (start -3.81 -0.635) (end -3.81 0.635)
+    (stroke (width 0.2032) (type solid)) (layer "F.Fab") (tstamp 639da6ac-5e7b-469a-b444-ad4ff2f6118f))
+  (fp_poly
+    (pts
+      (xy -2.794 0.254)
+      (xy -2.286 0.254)
+      (xy -2.286 -0.254)
+      (xy -2.794 -0.254)
+    )
+
+    (stroke (width 0) (type default)) (fill solid) (layer "F.Fab") (tstamp f64bf4b7-eae0-4754-ba7b-971a380c64c3))
+  (fp_poly
+    (pts
+      (xy -0.254 0.254)
+      (xy 0.254 0.254)
+      (xy 0.254 -0.254)
+      (xy -0.254 -0.254)
+    )
+
+    (stroke (width 0) (type default)) (fill solid) (layer "F.Fab") (tstamp 2e382ff7-fcfd-47a2-ace5-df1994a42807))
+  (fp_poly
+    (pts
+      (xy 2.286 0.254)
+      (xy 2.794 0.254)
+      (xy 2.794 -0.254)
+      (xy 2.286 -0.254)
+    )
+
+    (stroke (width 0) (type default)) (fill solid) (layer "F.Fab") (tstamp f116f91a-9387-4a65-a739-fe699409deca))
+  (pad "1" thru_hole roundrect (at -2.54 0 90) (size 1.9304 1.9304) (drill 1) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.25)
+    (chamfer_ratio 0.2928932188) (chamfer top_left top_right bottom_left bottom_right)
+    (solder_mask_margin 0.0508) (thermal_bridge_angle 45) (tstamp 38a06480-19fa-4fcb-91a6-12eea158c0c6))
+  (pad "2" thru_hole circle (at 0 0 90) (size 1.9304 1.9304) (drill 1) (layers "*.Cu" "*.Mask")
+    (solder_mask_margin 0.0508) (tstamp d9714246-0aad-49ba-bab3-3cebc15738de))
+  (pad "3" thru_hole circle (at 2.54 0 90) (size 1.9304 1.9304) (drill 1) (layers "*.Cu" "*.Mask")
+    (solder_mask_margin 0.0508) (tstamp 7aa4aa50-54ad-4958-991a-5ce23dbfb31d))
+)

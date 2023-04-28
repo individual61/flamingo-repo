@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Adafruit FET 4-Channel Shifter")(type "KiCad")(uri "$(KIPRJMOD)/Adafruit FET 4-Channel Shifter.pretty")(options "")(descr ""))
+)
