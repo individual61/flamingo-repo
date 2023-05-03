@@ -1,40 +1,163 @@
 #include <Arduino.h>
+#include <SPI.h>
+#include <Wire.h>
+
+#include <parameters.h>
+#include <function_declarations_and_globals.h>
+
 /*
-  Blink
 
-  Turns an LED on for one second, then off for one second, repeatedly.
+About 700 Hz with just 3-button polling and serial out.
 
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino
-  model, check the Technical Specs of your board at:
-  https://www.arduino.cc/en/Main/Products
 
-  modified 8 May 2014
-  by Scott Fitzgerald
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  modified 8 Sep 2016
-  by Colby Newman
+HOW TO CONNECT EVERYTHING
 
-  This example code is in the public domain.
+********* Buttons *********
+BAT -> Resistor -> (Button Pin) -> (Normally Open Button) -> GND
 
-  https://www.arduino.cc/en/Tutorial/BuiltInExamples/Blink
+********* Dotstars/APA102C *********
+Electrolytic cap across VCC and GND
+
+(Adafruit 144/m, on Flamingo Original stick):
+VCC -> BAT
+Green/data -> 11 (Hardware SPI MOSI)
+Yellow/clock -> 13 (Hardware SPI CLOCK)
+GND to GND
+
+APA102C 144/m (chinese):
+VCC -> BAT
+Green/data -> 11 (Hardware SPI MOSI)
+Red/clock -> 13 (Hardware SPI CLOCK)
+GND to GND
 */
 
-// the setup function runs once when you press reset or power the board
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-Serial.begin(9600);
+/////// GENERAL ////
+//
+//
+//
+
+// for time()
+
+// uint32_t start_time = 0;
+
+// #define numberofprograms 2
+
+// uint8_t volatile programIndex = 0;
+
+// bool firstRun = 1;
+
+void setup()
+{
+
+    //////////////////// Serial ////////////////////
+
+    Serial.begin(115200);
+    // while (!Serial)
+    //   ;
+    Serial.println(F("Started serial to PC."));
+
+    //////////////////// Buttons ////////////////////
+
+    buttons_initialize();
 }
 
-// the loop function runs over and over again forever
-void loop() {
-  Serial.print("y\t");
-  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
+void loop()
+{
+    // This calls button_X_action() in buttons.cpp
+    buttons_check_for_changes();
+
+    //////////////////// Timing ////////////////////
+
+    // This updates time_interval_us with the loop interval
+    update_timing_variables();
+
+
+
+
+
+    //////////////////////////////////////////////
+
+    /*
+        switch (programIndex)
+        {
+
+        case 0:
+        {
+
+            if (firstRun)
+            {
+                Serial.print(F("In Case 0"));
+                firstRun = 0;
+                break;
+            }
+            break;
+
+
+
+        }
+
+        case 1:
+        {
+
+            if (firstRun)
+            {
+                Serial.print(F("In Case 1"));
+                firstRun = 0;
+                break;
+            }
+            break;
+
+
+        };
+
+        case 2:
+        {
+
+            if (firstRun)
+            {
+                Serial.print(F("In Case 2"));
+                firstRun = 0;
+                break;
+            }
+            break;
+
+
+        };
+
+        case 3:
+        {
+
+            if (firstRun)
+            {
+                Serial.print(F("In Case 3"));
+                firstRun = 0;
+                break;
+            }
+            break;
+
+
+        };
+
+        default:
+        {
+            Serial.print(F("We fell into default case, programIndex is "));
+            Serial.println(programIndex);
+        };
+        };
+    */
+};
+
+/*
+//TEMPLATE
+case 3:
+{
+if (firstRun)
+{
+  Serial.println(F("PROGRAM_3 "));
+  firstRun = 0;
+  break;
 }
+
+break;
+};
+*/

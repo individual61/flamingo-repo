@@ -1,0 +1,124 @@
+#include <harmonic_oscillator.h>
+#include <parameters.h>
+
+float pos0, pos1, vel0, vel1, acc0, acc1, acc_ext;
+
+uint16_t timeold_i = 0;
+uint16_t timenow_i = 0;
+float timenow_f = 0.0;
+float timestep_f = 0.0;
+float timestep_i =
+    0;  // check how this is used, name suggests int but decl is float
+
+bool first_iter = 0;
+uint16_t sendTime = 0;  // currently in a commented out section
+
+//////// DAMPED HARMONIC OSCILLATOR FUNCTIONS ///////////////
+
+float eval_v_func(float v, float x, float acc_ext, float damping,
+                  float springconstant, float mass)
+{
+  // acc_ext is generally negative when Flamingo is upright.
+  // m x'' = - k x - c v + F_ext
+  // with F_ext = m acc_ext
+  return -damping * v - springconstant * x + mass * acc_ext;
+}
+
+// Integrates acceleration to get velocity
+float get_next_v(float oldv, float oldx, float acc_ext, float damping,
+                 float springconstant, float mass)
+{
+  float k1, k2, k3, k4;
+  k1 = eval_v_func(oldv, oldx, acc_ext, damping, springconstant, mass);
+  k2 = eval_v_func(oldv + 0.5 * k1, oldx, acc_ext, damping, springconstant,
+                   mass);
+  k3 = eval_v_func(oldv + 0.5 * k2, oldx, acc_ext, damping, springconstant,
+                   mass);
+  k4 = eval_v_func(oldv + k3, oldx, acc_ext, damping, springconstant, mass);
+  return (float)(oldv + timestep_f * ((k1 / 6.0) + (k2 / 3.0) + (k3 / 3.0) +
+                                      (k4 / 6.0)));
+}
+
+// integrates velocity to get position
+float get_next_x(float oldv, float oldx)
+{
+  return (float)(oldx + timestep_f * oldv);
+}
+
+int ballToStrandPosition(float ballPos)
+{
+  return (NUMPERSTRAND / 2) + ballPos * (NUMPERSTRAND / 2);
+};
+
+// DAMPED HARMONIC OSCILLATOR, real physical units. Returns object position as a
+// fraction of max range, centered on 0, so maxrange is half the length of the
+// strip
+float getBallPosition(void)
+{
+  if (first_iter == 1)  // first iteration
+    {
+      pos0 = 0.0;
+      vel0 = 0.0;
+      timenow_i = 0;
+      timestep_i = timenow_i - timeold_i;
+      timeold_i = millis();  // why is this timeold and not timenow? I moved
+                             // this from below btw
+      timestep_f = 0.01 * ((float)timestep_i);
+
+      // getNormalizedAccelY() is negative when Flamingo is upright.
+      acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
+      vel1 = get_next_v(vel0, pos0, acc_ext, DAMPING_REAL, SPRINGCONSTANT_REAL,
+                        MASS_REAL);
+      pos1 = get_next_x(vel0, pos0);
+
+      timeold_i = timenow_i;
+      pos0 = pos1;
+      vel0 = vel1;
+
+      first_iter = 0;
+    }
+  else
+    {
+      timenow_i = millis();
+      timestep_i = timenow_i - timeold_i;
+      timestep_f = 0.01 * ((float)timestep_i);
+
+      // acc_ext is generally negative because getNormalizedAccelY() returns
+      // negative when Flamingo is upright.
+      // G_ACC_MAGNITUDE is positive.
+      acc_ext = G_ACC_MAGNITUDE * getNormalizedAccelY();
+      vel1 = get_next_v(vel0, pos0, acc_ext, DAMPING_REAL, SPRINGCONSTANT_REAL,
+                        MASS_REAL);
+      pos1 = get_next_x(vel0, pos0);
+      vel0 = vel1;
+      pos0 = pos1;
+      timeold_i = timenow_i;
+
+      /*
+            uint16_t timet = millis();
+            if (timet - sendTime > 100)
+              {
+                Serial.print(F("Time:\t"));
+                Serial.print(timet);
+                Serial.print(F("\tpos1:\t"));
+                Serial.print((pos1));
+                Serial.print(F("\tBallPosition:\t"));
+                Serial.print(
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
+         + 1.0); Serial.print(F("\tPixel Index:\t"));
+                Serial.print(ballToStrandPosition(
+                    (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL))
+         + 1.0)); Serial.print(F("\tgetNormalizedAccelY:\t"));
+                Serial.print(getNormalizedAccelY());
+                Serial.print(F("\tgetNormalizedOffsetAccelY:\t"));
+                Serial.println(getNormalizedOffsetAccelY());
+                sendTime = timet;
+              }
+      */
+    }
+  // Resting location is at 0.0
+  float temp =
+      (pos1 / (MASS_REAL * G_ACC_MAGNITUDE / SPRINGCONSTANT_REAL)) + 1.0;
+
+  return temp;
+}
