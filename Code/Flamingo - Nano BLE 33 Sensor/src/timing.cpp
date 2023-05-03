@@ -6,7 +6,7 @@ uint32_t time_last_us = 0;
 float time_frequency_hz = 0.0;
 uint32_t time_interval_us = 0;
 
-void update_timing_variables(void)
+void timing_update_variables(void)
 {
     time_now_us = micros();
     time_interval_us = time_now_us - time_last_us;

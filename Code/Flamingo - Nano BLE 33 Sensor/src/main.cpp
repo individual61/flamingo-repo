@@ -59,21 +59,38 @@ void setup()
     //////////////////// Buttons ////////////////////
 
     buttons_initialize();
+
+    //////////////////// IMU ////////////////////
+
+    imu_active = 1;
+    if (!imu_initialize())
+    {
+        Serial.println(F("IMU failed to initialize."));
+        while (1)
+            ;
+    }
 }
 
 void loop()
 {
+    //////////////////// Buttons ////////////////////
+
     // This calls button_X_action() in buttons.cpp
     buttons_check_for_changes();
 
     //////////////////// Timing ////////////////////
 
     // This updates time_interval_us with the loop interval
-    update_timing_variables();
+    timing_update_variables();
+
+    //////////////////// IMU ////////////////////
+
+    if (imu_active)
+    {
+        imu_update_accel_values();
 
 
-
-
+    }
 
     //////////////////////////////////////////////
 
