@@ -46,14 +46,18 @@ GND to GND
 
 // bool firstRun = 1;
 
+// Globals
+
+bool first_program_run = 1;
+
 void setup()
 {
 
     //////////////////// Serial ////////////////////
 
     Serial.begin(115200);
-    // while (!Serial)
-    //   ;
+    while (!Serial)
+        ;
     Serial.println(F("Started serial to PC."));
 
     //////////////////// Buttons ////////////////////
@@ -62,14 +66,24 @@ void setup()
 
     //////////////////// IMU ////////////////////
 
-    imu_active = 1;
     if (!imu_initialize())
     {
         Serial.println(F("IMU failed to initialize."));
         while (1)
             ;
     }
+
+    imu_active = 1;
+    if (imu_active)
+    {
+        Serial.println(F("IMU active."));
+    }
+
+    timing_update_variables();
 }
+
+double send_interval = 50.0;
+double sent_last = 0.0;
 
 void loop()
 {
@@ -78,19 +92,37 @@ void loop()
     // This calls button_X_action() in buttons.cpp
     buttons_check_for_changes();
 
-    //////////////////// Timing ////////////////////
-
-    // This updates time_interval_us with the loop interval
-    timing_update_variables();
-
     //////////////////// IMU ////////////////////
 
     if (imu_active)
     {
         imu_update_accel_values();
-
-
     }
+
+    //////////////////// Timing ////////////////////
+
+    // This updates time_interval_us with the loop interval
+    timing_update_variables();
+
+    double the_position = DHO_update_position();
+
+    uint32_t timet = millis();
+    if (timet - sent_last > send_interval)
+    {
+        double time_interval_ms = (double)(time_interval_us / 1000.0);
+        Serial.print(the_position, 8);
+        Serial.print("\t");
+        Serial.print(acc_g_z, 8);
+        Serial.print("\t");
+        Serial.print(time_interval_ms, 8);
+        Serial.print("\t");
+        Serial.print(0.5);
+        Serial.print("\t");
+        Serial.println(-0.5);
+        sent_last = timet;
+    }
+
+    //////////////////////////////////////////////
 
     //////////////////////////////////////////////
 

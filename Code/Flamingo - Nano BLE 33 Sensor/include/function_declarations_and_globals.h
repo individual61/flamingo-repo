@@ -15,6 +15,16 @@ void isr_C(void);
 
 void buttons_check_for_changes(void);
 
+///////////////////// PROGRAMS /////////////////////
+
+// Defined in main.cpp
+
+extern bool first_program_run;
+
+///////////////////// DHO /////////////////////
+
+double DHO_update_position(void);
+
 ///////////////////// TIMING /////////////////////
 
 extern uint32_t time_interval_us;
@@ -24,16 +34,16 @@ void timing_update_variables(void);
 ///////////////////// IMU /////////////////////
 
 extern bool imu_active;
-extern float acc_x, acc_y, acc_z;
-extern float acc_filt_x, acc_filt_y, acc_filt_z;
+extern float acc_g_x, acc_g_y, acc_g_z;
+extern float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z;
 
 extern SimpleKalmanFilter acc_kalman_filter_x;
 extern SimpleKalmanFilter acc_kalman_filter_y;
 extern SimpleKalmanFilter acc_kalman_filter_z;
 
-uint8_t imu_initialize(void);
+bool imu_initialize(void);
 void imu_update_accel_values(void);
 void imu_update_accel_values_filtered(void);
-
+float imu_get_update_rate(void);
 
 #endif

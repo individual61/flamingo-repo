@@ -1,7 +1,8 @@
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
 
-uint32_t time_now_us = 0;
+
+uint32_t time_now_us = 0;       // global
 uint32_t time_last_us = 0;
 float time_frequency_hz = 0.0;
 uint32_t time_interval_us = 0;
