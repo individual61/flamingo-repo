@@ -30,10 +30,7 @@
 //  v' = - (k/m) x - (c/m) v + acc_ext
 //
 
-
 double xx, vv;
-
-
 
 double f(double x, double v, double t, double a_ext)
 {
@@ -67,14 +64,13 @@ double DHO_update_position(void)
 
     if (first_program_run)
     {
-
         xx = 0.3;
         vv = 0.0;
 
         first_program_run = 0;
-        Serial.print(acc_g_z,8);
-        Serial.print("\t");
-        Serial.println("first program run");
+        //        Serial.print(acc_g_z, 8);
+        //        Serial.print("\t");
+        //        Serial.println("first program run");
     }
 
     rk4(xx, vv, 0.0, acc_ext, time_interval_s);
@@ -87,7 +83,82 @@ double DHO_update_position(void)
     //    return x_temp;
 }
 
+uint16_t DHO_get_strand_index_from_x(float x)
+{
+    return (uint16_t)round(NUMPERSTRAND / 2) + (x / (DHO_STRAND_LENGTH_M / 2.0)) * (NUMPERSTRAND / 2);
+}
 
+// Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
+void DHO_setPixelByStrandIndex(uint16_t index)
+{
+    if ((index >= 0) && (index < NUMPERSTRAND))
+    {
+        // index goes from 0 to NUMPERSTRAND - 1
+        uint8_t realindex = 0;
+
+#if NUM_STRANDS == 1
+        realindex = index;
+        leds[realindex] = color;
+#endif
+
+#if NUM_STRANDS == 3
+        // NUMPERSTRAND - 1
+        // 0
+        realindex = NUMPERSTRAND - index - 1;
+        // Serial.print(realindex);
+        // Serial.print("\t");
+        //  leds[realindex] = color;
+
+        // NUMPERSTRAND
+        // 2*NUMPERSTRAND - 1
+        realindex = NUMPERSTRAND + index;
+        // Serial.print(realindex);
+        // Serial.print("\t");
+        //  leds[realindex] = color;
+
+        // 3*NUMPERSTRAND - 1
+        // 2*NUMPERSTRAND
+        realindex = 3 * NUMPERSTRAND - index - 1;
+        // Serial.println(realindex);
+        //  leds[realindex] = color;
+#endif
+    }
+}
+
+double send_interval = 50.0;
+double sent_last = 0.0;
+
+void DHO_main_program(void)
+{
+    uint16_t the_index = DHO_get_strand_index_from_x(DHO_update_position());
+
+    DHO_setPixelByStrandIndex(the_index);
+
+    uint32_t timet = millis();
+    if (timet - sent_last > send_interval)
+    {
+        /*      Serial.print(the_index);
+                Serial.print("\t");
+                Serial.print("0.0");
+                Serial.print("\t");
+                Serial.println("48.0"); */
+
+        /*      double time_interval_ms = (double)(time_interval_us / 1000.0);
+                Serial.print(the_position, 8);
+                Serial.print("\t");
+                Serial.print(acc_g_z, 8);
+                Serial.print("\t");
+                Serial.print(time_interval_ms, 8);
+                Serial.print("\t");
+                Serial.print(0.5);
+                Serial.print("\t");
+                Serial.println(-0.5); */
+
+        sent_last = timet;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Previous attempt, probably borked (diverges)
 //Put these in first run
         x_old = 0.0;
@@ -120,7 +191,6 @@ double DHO_get_next_x(double oldv, double oldx, double timestep_f)
     return (double)(oldx + timestep_f * oldv);
 }
 */
-
 
 /*
 int DHO_ballToStrandPosition(float ballPos_DHO)

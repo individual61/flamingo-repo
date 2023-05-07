@@ -1,6 +1,4 @@
 #include <Arduino.h>
-#include <SPI.h>
-#include <Wire.h>
 
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
@@ -49,6 +47,7 @@ GND to GND
 // Globals
 
 bool first_program_run = 1;
+uint8_t programIndex = 0;
 
 void setup()
 {
@@ -79,11 +78,18 @@ void setup()
         Serial.println(F("IMU active."));
     }
 
+    //////////////////// LEDs ////////////////////
+
+    Adafruit_DotStar strip(NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BGR);
+    strip.begin(); // Initialize pins for output
+    strip.show();  // Turn all LEDs off ASAP
+
+    //////////////////// Timing ////////////////////
+
     timing_update_variables();
 }
 
-double send_interval = 50.0;
-double sent_last = 0.0;
+
 
 void loop()
 {
@@ -104,96 +110,66 @@ void loop()
     // This updates time_interval_us with the loop interval
     timing_update_variables();
 
-    double the_position = DHO_update_position();
-
-    uint32_t timet = millis();
-    if (timet - sent_last > send_interval)
+    switch (programIndex)
     {
-        double time_interval_ms = (double)(time_interval_us / 1000.0);
-        Serial.print(the_position, 8);
-        Serial.print("\t");
-        Serial.print(acc_g_z, 8);
-        Serial.print("\t");
-        Serial.print(time_interval_ms, 8);
-        Serial.print("\t");
-        Serial.print(0.5);
-        Serial.print("\t");
-        Serial.println(-0.5);
-        sent_last = timet;
-    }
 
-    //////////////////////////////////////////////
+    case 0:
+    {
 
-    //////////////////////////////////////////////
-
-    /*
-        switch (programIndex)
+        if (first_program_run)
         {
-
-        case 0:
-        {
-
-            if (firstRun)
-            {
-                Serial.print(F("In Case 0"));
-                firstRun = 0;
-                break;
-            }
+            Serial.println(F("In Case 0"));
+            first_program_run = 0;
             break;
-
-
-
         }
 
-        case 1:
-        {
+        DHO_main_program();
 
-            if (firstRun)
-            {
-                Serial.print(F("In Case 1"));
-                firstRun = 0;
-                break;
-            }
+        break;
+    }
+
+    case 1:
+    {
+
+        if (first_program_run)
+        {
+            Serial.println(F("In Case 1"));
+            first_program_run = 0;
             break;
+        }
+        break;
+    };
 
+    case 2:
+    {
 
-        };
-
-        case 2:
+        if (first_program_run)
         {
-
-            if (firstRun)
-            {
-                Serial.print(F("In Case 2"));
-                firstRun = 0;
-                break;
-            }
+            Serial.println(F("In Case 2"));
+            first_program_run = 0;
             break;
+        }
+        break;
+    };
 
+    case 3:
+    {
 
-        };
-
-        case 3:
+        if (first_program_run)
         {
-
-            if (firstRun)
-            {
-                Serial.print(F("In Case 3"));
-                firstRun = 0;
-                break;
-            }
+            Serial.println(F("In Case 3"));
+            first_program_run = 0;
             break;
+        }
+        break;
+    };
 
-
-        };
-
-        default:
-        {
-            Serial.print(F("We fell into default case, programIndex is "));
-            Serial.println(programIndex);
-        };
-        };
-    */
+    default:
+    {
+        Serial.print(F("We fell into default case, programIndex is "));
+        Serial.println(programIndex);
+    };
+    };
 };
 
 /*

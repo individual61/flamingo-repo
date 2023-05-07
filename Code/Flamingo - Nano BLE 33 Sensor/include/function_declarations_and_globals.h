@@ -20,10 +20,14 @@ void buttons_check_for_changes(void);
 // Defined in main.cpp
 
 extern bool first_program_run;
+extern uint8_t programIndex;
 
 ///////////////////// DHO /////////////////////
 
 double DHO_update_position(void);
+uint16_t DHO_get_strand_index_from_x(float x);
+void DHO_setPixelByStrandIndex(uint16_t index);
+void DHO_main_program(void);
 
 ///////////////////// TIMING /////////////////////
 

@@ -27,6 +27,11 @@
 
 #define NUMPIXELS 144    // Number of LEDs in strip
 #define NUMPERSTRAND 48  // Assuming 3 strands for Flamingo
+#define NUM_STRANDS 3
+
+#define DATAPIN    11
+#define CLOCKPIN   13
+
 
 
 ///////////////////////  Buttons  ///////////////////////  
@@ -37,12 +42,16 @@
 
 #define DEBOUNCE_DELAY 100
 
+#define NUM_PROGRAMS 4
+
 ///////////////////////  DHO  ///////////////////////  
 
 #define DHO_G_ACC_MAGNITUDE 9.81f
 #define DHO_SPRINGCONSTANT 160.0f
 #define DHO_DAMPING 1.7f
 #define DHO_MASS 1.0f
+
+#define DHO_STRAND_LENGTH_M 0.3f
 
 // For roughly 120 bpm
 //#define DHO_SPRINGCONSTANT 160.0f

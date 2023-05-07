@@ -37,13 +37,23 @@ void isr_C(void)
   button_C_state = 1;
 }
 
+// Program change
 void button_A_action(void)
 {
 #if SERIAL_OUT_BUTTONS == 1
   Serial.println(F("A button pressed."));
 #endif
+
+  first_program_run = 1;
+  programIndex++;
+
+  if (programIndex == NUM_PROGRAMS)
+  {
+    programIndex = 0;
+  }
 }
 
+// Sparkle/Previous Program
 void button_B_action(void)
 {
 #if SERIAL_OUT_BUTTONS == 1
@@ -51,6 +61,7 @@ void button_B_action(void)
 #endif
 }
 
+// Brightness
 void button_C_action(void)
 {
 #if SERIAL_OUT_BUTTONS == 1
