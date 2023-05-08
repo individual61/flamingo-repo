@@ -49,14 +49,22 @@ GND to GND
 bool first_program_run = 1;
 uint8_t programIndex = 0;
 
+// This version uses hardware SPI
+// With just DHO single pixel:
+// 81.97 Hz, 12.2 ms for 72 LEDs, 1 strand
+// 6.8 ms for LED data, 5.44 ms for DHO single pixel loop
+// 
+Adafruit_DotStar strip(NUMPIXELS, DOTSTAR_BGR);
+
 void setup()
 {
 
     //////////////////// Serial ////////////////////
 
     Serial.begin(115200);
-    while (!Serial)
-        ;
+    //while (!Serial)
+    //    ;
+    delay(100);
     Serial.println(F("Started serial to PC."));
 
     //////////////////// Buttons ////////////////////
@@ -80,16 +88,15 @@ void setup()
 
     //////////////////// LEDs ////////////////////
 
-    Adafruit_DotStar strip(NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BGR);
     strip.begin(); // Initialize pins for output
-    strip.show();  // Turn all LEDs off ASAP
+    strip.clear();
+    strip.setBrightness(20);
+    strip.show(); // Turn all LEDs off ASAP
 
     //////////////////// Timing ////////////////////
 
     timing_update_variables();
 }
-
-
 
 void loop()
 {

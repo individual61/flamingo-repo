@@ -1,10 +1,18 @@
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
 
+// Same for both LSM9DS1/BMI270_BMM150
+// Accelerometer range is set at [-4, +4]g -/+0.122 mg.
+// Gyroscope range is set at [-2000, +2000] dps +/-70 mdps.
+// Magnetometer range is set at [-400, +400] uT +/-0.014 uT.
+// Accelerometer output data rate is fixed at 104 Hz.
+// Gyroscope output data rate is fixed at 104 Hz.
+// Magnetometer output data rate is fixed at 20 Hz.
+
 bool imu_active = 1;
 
-float acc_g_x, acc_g_y, acc_g_z;                  // global
-float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z;   // global
+float acc_g_x, acc_g_y, acc_g_z;                // global
+float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z; // global
 
 SimpleKalmanFilter acc_kalman_filter_x(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
 SimpleKalmanFilter acc_kalman_filter_y(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
@@ -65,11 +73,15 @@ void imu_update_accel_values(void)
 
     if (IMU.accelerationAvailable())
     {
+
         IMU.readAcceleration(acc_g_x, acc_g_y, acc_g_z);
-        acc_g_x = acc_g_x - 1.0;
-        acc_g_y = acc_g_y - 1.0;
         acc_g_z = acc_g_z - 1.0;
-        //imu_update_accel_values_filtered();
+
+//        Serial.print(time_interval_us);
+//        Serial.print("\t");
+//        Serial.println(acc_g_z);
+
+        // imu_update_accel_values_filtered();
     }
 }
 

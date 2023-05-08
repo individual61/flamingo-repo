@@ -15,6 +15,11 @@ void isr_C(void);
 
 void buttons_check_for_changes(void);
 
+///////////////////// LEDS /////////////////////
+
+extern Adafruit_DotStar strip;
+extern uint32_t DHO_color;
+
 ///////////////////// PROGRAMS /////////////////////
 
 // Defined in main.cpp

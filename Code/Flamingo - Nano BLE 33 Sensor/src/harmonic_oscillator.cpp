@@ -31,6 +31,7 @@
 //
 
 double xx, vv;
+uint32_t DHO_color = 0x601040;
 
 double f(double x, double v, double t, double a_ext)
 {
@@ -60,7 +61,7 @@ void rk4(double &x, double &v, double t, double acc_ext, double dt)
 double DHO_update_position(void)
 {
     double acc_ext = -DHO_G_ACC_MAGNITUDE * acc_g_z;
-    double time_interval_s = (float)(time_interval_us / 1000000.0);
+    double time_interval_s = (double)(time_interval_us / 1000000.0);
 
     if (first_program_run)
     {
@@ -75,22 +76,19 @@ double DHO_update_position(void)
 
     rk4(xx, vv, 0.0, acc_ext, time_interval_s);
     return xx;
-    //    v_new = DHO_get_next_v(v_old, x_old, acc_ext, DHO_DAMPING, DHO_SPRINGCONSTANT, DHO_MASS, time_interval_s);
-    //    x_new = DHO_get_next_x(v_old, x_old, time_interval_s);
-    //    double x_temp = x_new;
-    //    x_old = x_new;
-    //    v_old = v_new;
-    //    return x_temp;
 }
 
 uint16_t DHO_get_strand_index_from_x(float x)
 {
-    return (uint16_t)round(NUMPERSTRAND / 2) + (x / (DHO_STRAND_LENGTH_M / 2.0)) * (NUMPERSTRAND / 2);
+    uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0) + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0);
+    return strand_index;
 }
 
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void DHO_setPixelByStrandIndex(uint16_t index)
 {
+    strip.clear();
+
     if ((index >= 0) && (index < NUMPERSTRAND))
     {
         // index goes from 0 to NUMPERSTRAND - 1
@@ -98,31 +96,33 @@ void DHO_setPixelByStrandIndex(uint16_t index)
 
 #if NUM_STRANDS == 1
         realindex = index;
-        leds[realindex] = color;
+        strip.setPixelColor(realindex, DHO_color);
+
 #endif
 
 #if NUM_STRANDS == 3
         // NUMPERSTRAND - 1
         // 0
         realindex = NUMPERSTRAND - index - 1;
+        strip.setPixelColor(realindex, DHO_color);
         // Serial.print(realindex);
         // Serial.print("\t");
-        //  leds[realindex] = color;
 
         // NUMPERSTRAND
         // 2*NUMPERSTRAND - 1
         realindex = NUMPERSTRAND + index;
+        strip.setPixelColor(realindex, DHO_color);
         // Serial.print(realindex);
         // Serial.print("\t");
-        //  leds[realindex] = color;
 
         // 3*NUMPERSTRAND - 1
         // 2*NUMPERSTRAND
         realindex = 3 * NUMPERSTRAND - index - 1;
+        strip.setPixelColor(realindex, DHO_color);
         // Serial.println(realindex);
-        //  leds[realindex] = color;
 #endif
     }
+    strip.show();
 }
 
 double send_interval = 50.0;
@@ -134,28 +134,28 @@ void DHO_main_program(void)
 
     DHO_setPixelByStrandIndex(the_index);
 
-    uint32_t timet = millis();
-    if (timet - sent_last > send_interval)
-    {
-        /*      Serial.print(the_index);
-                Serial.print("\t");
-                Serial.print("0.0");
-                Serial.print("\t");
-                Serial.println("48.0"); */
+    // uint32_t timet = millis();
+    // if (timet - sent_last > send_interval)
+    //{
+    /*      Serial.print(the_index);
+            Serial.print("\t");
+            Serial.print("0.0");
+            Serial.print("\t");
+            Serial.println("48.0"); */
 
-        /*      double time_interval_ms = (double)(time_interval_us / 1000.0);
-                Serial.print(the_position, 8);
-                Serial.print("\t");
-                Serial.print(acc_g_z, 8);
-                Serial.print("\t");
-                Serial.print(time_interval_ms, 8);
-                Serial.print("\t");
-                Serial.print(0.5);
-                Serial.print("\t");
-                Serial.println(-0.5); */
+    /*      double time_interval_ms = (double)(time_interval_us / 1000.0);
+            Serial.print(the_position, 8);
+            Serial.print("\t");
+            Serial.print(acc_g_z, 8);
+            Serial.print("\t");
+            Serial.print(time_interval_ms, 8);
+            Serial.print("\t");
+            Serial.print(0.5);
+            Serial.print("\t");
+            Serial.println(-0.5); */
 
-        sent_last = timet;
-    }
+    //    sent_last = timet;
+    //}
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
