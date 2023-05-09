@@ -160,9 +160,13 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 2"));
+            SPARKLE_main_program();
             first_program_run = 0;
             break;
         }
+
+        SPARKLE_main_program();
+
         break;
     };
 

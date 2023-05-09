@@ -80,7 +80,7 @@ double DHO_update_position(void)
 uint16_t DHO_get_strand_index_from_x(float x)
 {
     // Fixed round() scope
-    //uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0) + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0);
+    // uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0) + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0);
     uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0 + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0));
     return strand_index;
 }
@@ -88,7 +88,6 @@ uint16_t DHO_get_strand_index_from_x(float x)
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void DHO_setPixelByStrandIndex(uint16_t index)
 {
-    strip.clear();
 
     if ((index >= 0) && (index < NUMPERSTRAND))
     {
@@ -123,7 +122,6 @@ void DHO_setPixelByStrandIndex(uint16_t index)
         // Serial.println(realindex);
 #endif
     }
-    strip.show();
 }
 
 double DHO_send_interval = 50.0;
@@ -132,9 +130,10 @@ double DHO_sent_last = 0.0;
 void DHO_main_program(void)
 {
     uint16_t the_index = DHO_get_strand_index_from_x(DHO_update_position());
-
+    
+    strip.clear();
     DHO_setPixelByStrandIndex(the_index);
-
+    strip.show();
     // uint32_t timet = millis();
     // if (timet - DHO_sent_last > DHO_send_interval)
     //{

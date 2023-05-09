@@ -85,6 +85,11 @@
 
 #define BB_STRAND_LENGTH_M 0.3f
 
+///////////////////////  SPARKLE  ///////////////////////
+
+#define SPARKLE_QUANTITY 3
+#define SPARKLE_DURATION_MS 1
+
 ///////////////////////  IMU  ///////////////////////
 
 // Using Arduino LSM9DS1 library: [-4, +4] g -/+0.122 mg

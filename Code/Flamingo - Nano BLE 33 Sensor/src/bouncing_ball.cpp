@@ -110,7 +110,6 @@ uint16_t BB_get_strand_index_from_x(float x)
 // Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
 void BB_setPixelByStrandIndex(uint16_t index)
 {
-    strip.clear();
 
     if ((index >= 0) && (index < NUMPERSTRAND))
     {
@@ -145,7 +144,6 @@ void BB_setPixelByStrandIndex(uint16_t index)
         // Serial.println(realindex);
 #endif
     }
-    strip.show();
 }
 
 double BB_send_interval = 50.0;
@@ -155,8 +153,9 @@ void BB_main_program(void)
 {
     uint16_t the_index = BB_get_strand_index_from_x(BB_update_position());
 
+    strip.clear();
     BB_setPixelByStrandIndex(the_index);
-
+    strip.show();
     // uint32_t timet = millis();
     // if (timet - BB_sent_last > BB_send_interval)
     //{
