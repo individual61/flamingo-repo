@@ -30,10 +30,10 @@
 //  v' = - (k/m) x - (c/m) v + acc_ext
 //
 
-double xx, vv;
+double DHO_xx, DHO_vv;
 uint32_t DHO_color = 0x601040;
 
-double f(double x, double v, double t, double a_ext)
+double DHO_f(double x, double v, double t, double a_ext)
 {
     // function for the acceleration of the damped harmonic oscillator
     double f_spring = -DHO_SPRINGCONSTANT * x;
@@ -42,45 +42,46 @@ double f(double x, double v, double t, double a_ext)
 }
 
 // t is not used
-void rk4(double &x, double &v, double t, double acc_ext, double dt)
+void DHO_rk4(double &x, double &v, double t, double acc_ext, double dt)
 {
     // implementation of the Runge-Kutta 4th order method
     double k1 = dt * v;
-    double l1 = dt * f(x, v, t, acc_ext);
+    double l1 = dt * DHO_f(x, v, t, acc_ext);
     double k2 = dt * (v + 0.5 * l1);
-    double l2 = dt * f(x + 0.5 * k1, v + 0.5 * l1, t + 0.5 * dt, acc_ext);
+    double l2 = dt * DHO_f(x + 0.5 * k1, v + 0.5 * l1, t + 0.5 * dt, acc_ext);
     double k3 = dt * (v + 0.5 * l2);
-    double l3 = dt * f(x + 0.5 * k2, v + 0.5 * l2, t + 0.5 * dt, acc_ext);
+    double l3 = dt * DHO_f(x + 0.5 * k2, v + 0.5 * l2, t + 0.5 * dt, acc_ext);
     double k4 = dt * (v + l3);
-    double l4 = dt * f(x + k3, v + l3, t + dt, acc_ext);
+    double l4 = dt * DHO_f(x + k3, v + l3, t + dt, acc_ext);
 
-    xx += (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
-    vv += (l1 + 2.0 * l2 + 2.0 * l3 + l4) / 6.0;
+    DHO_xx += (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+    DHO_vv += (l1 + 2.0 * l2 + 2.0 * l3 + l4) / 6.0;
 }
 
 double DHO_update_position(void)
 {
-    double acc_ext = -DHO_G_ACC_MAGNITUDE * acc_g_z;
+    double acc_ext = -DHO_G_ACC_MAGNITUDE * (acc_g_z - 1.0);
     double time_interval_s = (double)(time_interval_us / 1000000.0);
 
     if (first_program_run)
     {
-        xx = 0.3;
-        vv = 0.0;
+        DHO_xx = 0.3;
+        DHO_vv = 0.0;
 
-        first_program_run = 0;
         //        Serial.print(acc_g_z, 8);
         //        Serial.print("\t");
         //        Serial.println("first program run");
     }
 
-    rk4(xx, vv, 0.0, acc_ext, time_interval_s);
-    return xx;
+    DHO_rk4(DHO_xx, DHO_vv, 0.0, acc_ext, time_interval_s);
+    return DHO_xx;
 }
 
 uint16_t DHO_get_strand_index_from_x(float x)
 {
-    uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0) + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0);
+    // Fixed round() scope
+    //uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0) + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0);
+    uint16_t strand_index = (uint16_t)round(NUMPERSTRAND / 2.0 + (x / ((float)(DHO_STRAND_LENGTH_M / 2.0))) * (NUMPERSTRAND / 2.0));
     return strand_index;
 }
 
@@ -125,8 +126,8 @@ void DHO_setPixelByStrandIndex(uint16_t index)
     strip.show();
 }
 
-double send_interval = 50.0;
-double sent_last = 0.0;
+double DHO_send_interval = 50.0;
+double DHO_sent_last = 0.0;
 
 void DHO_main_program(void)
 {
@@ -135,7 +136,7 @@ void DHO_main_program(void)
     DHO_setPixelByStrandIndex(the_index);
 
     // uint32_t timet = millis();
-    // if (timet - sent_last > send_interval)
+    // if (timet - DHO_sent_last > DHO_send_interval)
     //{
     /*      Serial.print(the_index);
             Serial.print("\t");
@@ -154,7 +155,7 @@ void DHO_main_program(void)
             Serial.print("\t");
             Serial.println(-0.5); */
 
-    //    sent_last = timet;
+    //    DHO_sent_last = timet;
     //}
 }
 

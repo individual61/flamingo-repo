@@ -27,7 +27,7 @@
 // Configuration
 
 #define SERIAL_OUT_TIMING 0
-#define SERIAL_OUT_BUTTONS 0
+#define SERIAL_OUT_BUTTONS 1
 
 #define SERIAL_OUT_ACC 1
 #define SERIAL_OUT_ACC_PLOT 0
@@ -75,6 +75,15 @@
 // #define DHO_SPRINGCONSTANT 160.0f
 // #define DHO_DAMPING 0.7f, maybe 1.7
 // #define DHO_MASS 1.0f
+
+///////////////////////  BB  ///////////////////////
+
+#define BB_G_ACC_MAGNITUDE 9.81f
+#define BB_MASS 1.0f
+#define BB_BOUNCE_COEF 0.8f
+#define BB_DAMPING 0.2f
+
+#define BB_STRAND_LENGTH_M 0.3f
 
 ///////////////////////  IMU  ///////////////////////
 

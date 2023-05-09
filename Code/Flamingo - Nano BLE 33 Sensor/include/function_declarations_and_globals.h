@@ -34,6 +34,13 @@ uint16_t DHO_get_strand_index_from_x(float x);
 void DHO_setPixelByStrandIndex(uint16_t index);
 void DHO_main_program(void);
 
+///////////////////// BB /////////////////////
+
+double BB_update_position(void);
+uint16_t BB_get_strand_index_from_x(float x);
+void BB_setPixelByStrandIndex(uint16_t index);
+void BB_main_program(void);
+
 ///////////////////// TIMING /////////////////////
 
 extern uint32_t time_interval_us;

@@ -75,7 +75,7 @@ void imu_update_accel_values(void)
     {
 
         IMU.readAcceleration(acc_g_x, acc_g_y, acc_g_z);
-        acc_g_z = acc_g_z - 1.0;
+
 
 //        Serial.print(time_interval_us);
 //        Serial.print("\t");

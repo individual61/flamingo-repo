@@ -1,0 +1,16 @@
+59c59
+<   spi_dev = new Adafruit_SPIDevice(-1, 8000000, SPI_BITORDER_MSBFIRST,
+---
+>   spi_dev = new Adafruit_SPIDevice(-1, 16000000, SPI_BITORDER_MSBFIRST,
+80c80
+<   spi_dev = new Adafruit_SPIDevice(-1, clock, -1, data, 8000000);
+---
+>   spi_dev = new Adafruit_SPIDevice(-1, clock, -1, data, 16000000);
+114c114
+<   spi_dev = new Adafruit_SPIDevice(-1, 8000000);
+---
+>   spi_dev = new Adafruit_SPIDevice(-1, 16000000);
+128c128
+<   spi_dev = new Adafruit_SPIDevice(-1, clock, -1, data, 8000000);
+---
+>   spi_dev = new Adafruit_SPIDevice(-1, clock, -1, data, 16000000);

@@ -53,7 +53,7 @@ uint8_t programIndex = 0;
 // With just DHO single pixel:
 // 81.97 Hz, 12.2 ms for 72 LEDs, 1 strand
 // 6.8 ms for LED data, 5.44 ms for DHO single pixel loop
-// 
+//
 Adafruit_DotStar strip(NUMPIXELS, DOTSTAR_BGR);
 
 void setup()
@@ -62,8 +62,8 @@ void setup()
     //////////////////// Serial ////////////////////
 
     Serial.begin(115200);
-    //while (!Serial)
-    //    ;
+    // while (!Serial)
+    //     ;
     delay(100);
     Serial.println(F("Started serial to PC."));
 
@@ -117,6 +117,8 @@ void loop()
     // This updates time_interval_us with the loop interval
     timing_update_variables();
 
+    //////////////////// Programs ////////////////////
+
     switch (programIndex)
     {
 
@@ -126,6 +128,7 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 0"));
+            DHO_main_program();
             first_program_run = 0;
             break;
         }
@@ -133,7 +136,7 @@ void loop()
         DHO_main_program();
 
         break;
-    }
+    };
 
     case 1:
     {
@@ -141,9 +144,13 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 1"));
+            BB_main_program();
             first_program_run = 0;
             break;
         }
+
+        BB_main_program();
+
         break;
     };
 
