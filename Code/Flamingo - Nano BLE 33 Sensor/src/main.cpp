@@ -90,7 +90,7 @@ void setup()
 
     strip.begin(); // Initialize pins for output
     strip.clear();
-    strip.setBrightness(20);
+    strip.setBrightness(START_BRIGHTNESS);
     strip.show(); // Turn all LEDs off ASAP
 
     //////////////////// Timing ////////////////////
@@ -128,12 +128,14 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 0"));
-            DHO_main_program();
+            // DHO_main_program();
+            FIRE_main_program();
             first_program_run = 0;
             break;
         }
 
-        DHO_main_program();
+        // DHO_main_program();
+        FIRE_main_program();
 
         break;
     };
@@ -145,6 +147,7 @@ void loop()
         {
             Serial.println(F("In Case 1"));
             BB_main_program();
+
             first_program_run = 0;
             break;
         }
@@ -176,9 +179,15 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 3"));
+            // FIRE_main_program();
+            DHO_main_program();
             first_program_run = 0;
             break;
         }
+
+        // FIRE_main_program();
+        DHO_main_program();
+
         break;
     };
 

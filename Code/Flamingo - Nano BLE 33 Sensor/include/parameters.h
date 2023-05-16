@@ -36,18 +36,19 @@
 
 #define NUM_STRANDS 1 // 1 or 3
 
+#define START_BRIGHTNESS 20
+
 // Flamingo
-#if NUM_STRANDS == 3    
+#if NUM_STRANDS == 3
 #define NUMPIXELS 144   // Number of LEDs in strip
 #define NUMPERSTRAND 48 // Assuming 3 strands for Flamingo
 #endif
 
 // Test strip
-#if NUM_STRANDS == 1   
+#if NUM_STRANDS == 1
 #define NUMPIXELS 72    // Number of LEDs in strip
-#define NUMPERSTRAND 72  // This must match NUMPIXELS
+#define NUMPERSTRAND 72 // This must match NUMPIXELS
 #endif
-
 
 #define DATAPIN 11
 #define CLOCKPIN 13
@@ -89,6 +90,13 @@
 
 #define SPARKLE_QUANTITY 3
 #define SPARKLE_DURATION_MS 1
+
+///////////////////////  FIRE  ///////////////////////
+
+#define FIRE_RAINBOW_FIRST_HUE 0
+#define FIRE_RAINBOW_HUE_REPS 1
+#define FIRE_RAINBOW_SATURATION 255
+#define FIRE_RAINBOW_BRIGHTNESS 20
 
 ///////////////////////  IMU  ///////////////////////
 

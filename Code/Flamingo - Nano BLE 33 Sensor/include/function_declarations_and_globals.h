@@ -45,6 +45,10 @@ void BB_main_program(void);
 
 void SPARKLE_main_program(void);
 
+///////////////////// FIRE /////////////////////
+
+void FIRE_main_program(void);
+uint32_t FIRE_ColorFromPalette(uint8_t the_pal, uint8_t index);
 
 ///////////////////// TIMING /////////////////////
 
