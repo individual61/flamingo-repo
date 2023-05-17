@@ -115,10 +115,7 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
 
     default:
     {
-        color_hot = strip.Color(255, 255, heatramp);
-        color_mid = strip.Color(heatramp, 255, 0);
-        color_cold = strip.Color(0, heatramp, 0);
-        color_spark = strip.Color(255, 255, 255);
+        settingIndex = 0;
     }
     };
 

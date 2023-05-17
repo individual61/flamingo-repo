@@ -85,12 +85,79 @@ float prng(float max)
 }
 
 float adjusts[NUMPERSTRAND];
-float sparkliness = SYNCRANDNUM_SPARKLINESS;
+float sparkliness = 0;
+float scale = 0;
+uint16_t period = 0;
 
 void SYNCRANDNUM_main_program(void)
 {
+    switch (settingIndex)
+    {
 
-    float ramp = time_ramp(SYNCRANDNUM_RAMP_PERIOD);
+    case 0:
+    {
+
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_0;
+        scale = SYNCRANDNUM_SCALE_SETT_0;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_0;
+        // Serial.println("0");
+        break;
+    };
+
+    case 1:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_1;
+        scale = SYNCRANDNUM_SCALE_SETT_1;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_1;
+        // Serial.println("1");
+        break;
+    };
+
+    case 2:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_2;
+        scale = SYNCRANDNUM_SCALE_SETT_2;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_2;
+        // Serial.println("2");
+        break;
+    };
+
+    case 3:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_3;
+        scale = SYNCRANDNUM_SCALE_SETT_3;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_3;
+        // Serial.println("3");
+        break;
+    };
+
+    case 4:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_4;
+        scale = SYNCRANDNUM_SCALE_SETT_4;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_4;
+        // Serial.println("3");
+        break;
+    };
+
+        case 5:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_5;
+        scale = SYNCRANDNUM_SCALE_SETT_5;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_5;
+        // Serial.println("3");
+        break;
+    };
+
+    default:
+    {
+        settingIndex = 0;
+        Serial.print(F("Setting index set to:\t"));
+        Serial.println(settingIndex);
+    };
+    };
+
+    float ramp = time_ramp(period);
 
     for (uint16_t i = 0; i < NUMPERSTRAND; ++i)
     {
@@ -105,36 +172,23 @@ void SYNCRANDNUM_main_program(void)
     for (uint16_t index = 0; index < NUMPERSTRAND; index++)
     {
 
-        uint16_t color_h = 65536 * (ramp + 0.1*index / ((float)NUMPERSTRAND) + adjusts[index]);
+        //   Serial.print(sparkliness);
+        //   Serial.print("\t");
+        //   Serial.print(scale);
+        //   Serial.print("\t");
+        //   Serial.println(period);
 
-        //Serial.print(color_h);
-        //Serial.print("\t");
-        //Serial.print(ramp);
-        //Serial.print("\t");
-        //Serial.print(index / ((float)NUMPERSTRAND));
-       // Serial.print("\t");
-        //Serial.println(adjusts[index]);
+        uint16_t color_h = 65536 * (ramp + scale * index / ((float)NUMPERSTRAND) + adjusts[index]);
+
+        // Serial.print(color_h);
+        // Serial.print("\t");
+        // Serial.print(ramp);
+        // Serial.print("\t");
+        // Serial.print(index / ((float)NUMPERSTRAND));
+        // Serial.print("\t");
+        // Serial.println(adjusts[index]);
 
         COMMON_SetPixelByStrandIndex(index, strip.ColorHSV(color_h, 255, 50));
     }
     strip.show();
 }
-
-/*
-void beforeRender(uint16_t delta)
-{
-    t1 = time(0.1)
-        uint16_t sparkliness = 0.01 for (var i = 0; i < pixelCount; ++i)
-    {
-        adjusts[i] += prng(sparkliness) - sparkliness / 2;
-    }
-}
-
-void render(uint16_t index)
-{
-    h = t1 + index / pixelCount + adjusts[index];
-    s = 1;
-    v = 1;
-    COMMON_SetPixelByStrandIndex(index, strip.ColorHSV(hue, FIRE_RAINBOW_SATURATION, FIRE_RAINBOW_BRIGHTNESS););
-}
-*/

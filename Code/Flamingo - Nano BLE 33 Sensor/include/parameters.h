@@ -62,7 +62,7 @@
 #define DEBOUNCE_DELAY 100
 
 #define NUM_PROGRAMS 5
-#define NUMSETTINGS 5
+#define NUMSETTINGS 6
 
 ///////////////////////  DHO  ///////////////////////
 
@@ -113,8 +113,42 @@
 
 ///////////////////// SYNC RAND NUM /////////////////////
 
-#define SYNCRANDNUM_SPARKLINESS 0.01
-#define SYNCRANDNUM_RAMP_PERIOD 4000
+// If sparkliness > 0.01, it sparkles way too fast and flickers
+
+// 0
+#define SYNCRANDNUM_SPARKLINESS_SETT_0 0.001
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
+#define SYNCRANDNUM_SCALE_SETT_0 0.5
+
+// 1 SETTLED
+// Slow fading in of pixels with overall color theme
+#define SYNCRANDNUM_SPARKLINESS_SETT_1 0.01
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
+#define SYNCRANDNUM_SCALE_SETT_1 0.5
+
+// 2 SETTLED
+// 1 s sweep with glitter, maybe a bit too many colors close together
+#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_2 1000
+#define SYNCRANDNUM_SCALE_SETT_2 1.0
+
+// 3 SETTLED 
+// 4 s weep with glitter
+#define SYNCRANDNUM_SPARKLINESS_SETT_3 0.01
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_3 4000
+#define SYNCRANDNUM_SCALE_SETT_3 1.0
+
+// 4 SETTLED
+// Nice slightly flowing slightly fading pattern
+#define SYNCRANDNUM_SPARKLINESS_SETT_4 0.001
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_4 4000
+#define SYNCRANDNUM_SCALE_SETT_4 1.0
+
+// 5 settled
+// Clear flowing of pattern, with some sparkles
+#define SYNCRANDNUM_SPARKLINESS_SETT_5 0.01
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_5 4000
+#define SYNCRANDNUM_SCALE_SETT_5 1.0
 
 ///////////////////////  IMU  ///////////////////////
 

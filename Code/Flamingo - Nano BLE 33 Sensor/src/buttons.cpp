@@ -62,10 +62,14 @@ void button_B_action(void)
 
   settingIndex++;
 
+
   if (settingIndex == NUM_PROGRAMS)
   {
     settingIndex = 0;
   }
+
+     Serial.print(F("Setting index set to:\t"));
+     Serial.println(settingIndex);
 
 
 }
