@@ -1,28 +1,6 @@
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
 
-// Returns a color in form 0x00RRGGBB using index from 0-65535
-uint32_t FIRE_ColorFromPalette(uint8_t the_pal, uint16_t index)
-{
-    uint32_t color_to_return = 0x000000;
-
-    if (the_pal == 1)
-    {
-        // An unsigned 16-bit value, 0 to 65535, representing one full
-        //         loop of the color wheel, which allows 16-bit hues to "roll
-        //         over" while still doing the expected thing
-
-        // uint16_t hue = FIRE_RAINBOW_FIRST_HUE + (index * FIRE_RAINBOW_HUE_REPS /* * 65536*/); // / NUMPERSTRAND;
-        // uint16_t hue = FIRE_RAINBOW_FIRST_HUE + (index * FIRE_RAINBOW_HUE_REPS  * 255); // / NUMPERSTRAND;
-        uint16_t hue = FIRE_RAINBOW_FIRST_HUE + (index * FIRE_RAINBOW_HUE_REPS); // / NUMPERSTRAND;
-        //        Serial.print(hue);
-        // Serial.print("\t");
-        color_to_return = strip.ColorHSV(hue, FIRE_RAINBOW_SATURATION, FIRE_RAINBOW_BRIGHTNESS);
-        // color_to_return = strip.gamma32(color_to_return);
-    }
-
-    return color_to_return;
-}
 
 uint16_t FIRE_HueIndexFromPixelIndex(uint16_t index, uint16_t hue_start, uint16_t num_leds)
 {

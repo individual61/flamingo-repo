@@ -128,8 +128,27 @@ void loop()
 
         if (first_program_run)
         {
+            Serial.println(F("In Case 4"));
+
+            imu_active = 0;
+            settingIndex = 0;
+            SYNCRANDNUM_main_program();
+            first_program_run = 0;
+            break;
+        }
+
+        SYNCRANDNUM_main_program();
+
+        break;
+    };
+
+    case 1:
+    {
+
+        if (first_program_run)
+        {
             Serial.println(F("In Case 0"));
-            
+
             // imu_active = 1;
             // DHO_main_program();
 
@@ -146,7 +165,7 @@ void loop()
         break;
     };
 
-    case 1:
+    case 2:
     {
 
         if (first_program_run)
@@ -166,7 +185,7 @@ void loop()
         break;
     };
 
-    case 2:
+    case 3:
     {
 
         if (first_program_run)
@@ -185,7 +204,7 @@ void loop()
         break;
     };
 
-    case 3:
+    case 4:
     {
 
         if (first_program_run)
@@ -225,6 +244,7 @@ void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color)
 #if NUM_STRANDS == 1
         realindex = index;
         strip.setPixelColor(realindex, color);
+        // Serial.println(color_h, HEX);
 #endif
 
 #if NUM_STRANDS == 3
@@ -250,7 +270,6 @@ void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color)
 #endif
     }
 }
-
 
 /*
 //TEMPLATE

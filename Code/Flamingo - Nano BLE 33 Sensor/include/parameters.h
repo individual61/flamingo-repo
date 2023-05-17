@@ -61,7 +61,7 @@
 
 #define DEBOUNCE_DELAY 100
 
-#define NUM_PROGRAMS 4
+#define NUM_PROGRAMS 5
 #define NUMSETTINGS 5
 
 ///////////////////////  DHO  ///////////////////////
@@ -110,6 +110,11 @@
 #define FIRE_SPEEDDELAY 10
 
 #define FIRE_STYLE 4
+
+///////////////////// SYNC RAND NUM /////////////////////
+
+#define SYNCRANDNUM_SPARKLINESS 0.01
+#define SYNCRANDNUM_RAMP_PERIOD 4000
 
 ///////////////////////  IMU  ///////////////////////
 

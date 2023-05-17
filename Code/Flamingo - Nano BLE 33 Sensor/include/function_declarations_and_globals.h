@@ -52,6 +52,10 @@ void SPARKLE_main_program(void);
 void FIRE_main_program(void);
 uint32_t FIRE_ColorFromPalette(uint8_t the_pal, uint8_t index);
 
+///////////////////// SYNC RAND NUM /////////////////////
+
+void  SYNCRANDNUM_main_program(void);
+
 ///////////////////// TIMING /////////////////////
 
 extern uint32_t time_interval_us;
