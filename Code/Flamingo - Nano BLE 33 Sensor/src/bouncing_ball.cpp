@@ -107,44 +107,6 @@ uint16_t BB_get_strand_index_from_x(float x)
     return strand_index;
 }
 
-// Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
-void BB_setPixelByStrandIndex(uint16_t index)
-{
-
-    if ((index >= 0) && (index < NUMPERSTRAND))
-    {
-        // index goes from 0 to NUMPERSTRAND - 1
-        uint8_t realindex = 0;
-
-#if NUM_STRANDS == 1
-        realindex = index;
-        strip.setPixelColor(realindex, BB_color);
-
-#endif
-
-#if NUM_STRANDS == 3
-        // NUMPERSTRAND - 1
-        // 0
-        realindex = NUMPERSTRAND - index - 1;
-        strip.setPixelColor(realindex, BB_color);
-        // Serial.print(realindex);
-        // Serial.print("\t");
-
-        // NUMPERSTRAND
-        // 2*NUMPERSTRAND - 1
-        realindex = NUMPERSTRAND + index;
-        strip.setPixelColor(realindex, BB_color);
-        // Serial.print(realindex);
-        // Serial.print("\t");
-
-        // 3*NUMPERSTRAND - 1
-        // 2*NUMPERSTRAND
-        realindex = 3 * NUMPERSTRAND - index - 1;
-        strip.setPixelColor(realindex, BB_color);
-        // Serial.println(realindex);
-#endif
-    }
-}
 
 double BB_send_interval = 50.0;
 double BB_sent_last = 0.0;
@@ -154,7 +116,7 @@ void BB_main_program(void)
     uint16_t the_index = BB_get_strand_index_from_x(BB_update_position());
 
     strip.clear();
-    BB_setPixelByStrandIndex(the_index);
+    COMMON_SetPixelByStrandIndex(the_index, BB_COLOR);
     strip.show();
     // uint32_t timet = millis();
     // if (timet - BB_sent_last > BB_send_interval)

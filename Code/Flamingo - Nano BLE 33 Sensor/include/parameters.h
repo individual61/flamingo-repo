@@ -36,7 +36,7 @@
 
 #define NUM_STRANDS 1 // 1 or 3
 
-#define START_BRIGHTNESS 20
+#define START_BRIGHTNESS 10
 
 // Flamingo
 #if NUM_STRANDS == 3
@@ -65,6 +65,7 @@
 
 ///////////////////////  DHO  ///////////////////////
 
+#define DHO_COLOR 0x601040
 #define DHO_G_ACC_MAGNITUDE 9.81f
 #define DHO_SPRINGCONSTANT 160.0f
 #define DHO_DAMPING 1.7f
@@ -79,6 +80,8 @@
 
 ///////////////////////  BB  ///////////////////////
 
+#define BB_COLOR 0x601040
+
 #define BB_G_ACC_MAGNITUDE 9.81f
 #define BB_MASS 1.0f
 #define BB_BOUNCE_COEF 0.8f
@@ -87,6 +90,8 @@
 #define BB_STRAND_LENGTH_M 0.3f
 
 ///////////////////////  SPARKLE  ///////////////////////
+
+#define SPARKLE_COLOR 0xffffff
 
 #define SPARKLE_QUANTITY 3
 #define SPARKLE_DURATION_MS 1
@@ -97,6 +102,13 @@
 #define FIRE_RAINBOW_HUE_REPS 1
 #define FIRE_RAINBOW_SATURATION 255
 #define FIRE_RAINBOW_BRIGHTNESS 20
+
+// Green Fire parameters
+#define FIRE_COOLING 55
+#define FIRE_SPARKING 120
+#define FIRE_SPEEDDELAY 0
+
+#define FIRE_STYLE 2
 
 ///////////////////////  IMU  ///////////////////////
 

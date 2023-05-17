@@ -128,7 +128,11 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 0"));
+            
+            // imu_active = 1;
             // DHO_main_program();
+
+            imu_active = 0;
             FIRE_main_program();
             first_program_run = 0;
             break;
@@ -146,6 +150,8 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 1"));
+
+            imu_active = 1;
             BB_main_program();
 
             first_program_run = 0;
@@ -163,6 +169,8 @@ void loop()
         if (first_program_run)
         {
             Serial.println(F("In Case 2"));
+
+            imu_active = 0;
             SPARKLE_main_program();
             first_program_run = 0;
             break;
@@ -180,6 +188,8 @@ void loop()
         {
             Serial.println(F("In Case 3"));
             // FIRE_main_program();
+
+            imu_active = 1;
             DHO_main_program();
             first_program_run = 0;
             break;
@@ -198,6 +208,44 @@ void loop()
     };
     };
 };
+
+// Takes an index from 0 to NUMPERSTRAND -1 and sets all three strands.
+void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color)
+{
+    if ((index >= 0) && (index < NUMPERSTRAND))
+    {
+        // index goes from 0 to NUMPERSTRAND - 1
+        uint16_t realindex = 0;
+
+#if NUM_STRANDS == 1
+        realindex = index;
+        strip.setPixelColor(realindex, color);
+#endif
+
+#if NUM_STRANDS == 3
+        // NUMPERSTRAND - 1
+        // 0
+        realindex = NUMPERSTRAND - index - 1;
+        strip.setPixelColor(realindex, color);
+        // Serial.print(realindex);
+        // Serial.print("\t");
+
+        // NUMPERSTRAND
+        // 2*NUMPERSTRAND - 1
+        realindex = NUMPERSTRAND + index;
+        strip.setPixelColor(realindex, color);
+        // Serial.print(realindex);
+        // Serial.print("\t");
+
+        // 3*NUMPERSTRAND - 1
+        // 2*NUMPERSTRAND
+        realindex = 3 * NUMPERSTRAND - index - 1;
+        strip.setPixelColor(realindex, color);
+        // Serial.println(realindex);
+#endif
+    }
+}
+
 
 /*
 //TEMPLATE

@@ -19,6 +19,7 @@ void buttons_check_for_changes(void);
 
 extern Adafruit_DotStar strip;
 extern uint32_t DHO_color;
+void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color);
 
 ///////////////////// PROGRAMS /////////////////////
 
