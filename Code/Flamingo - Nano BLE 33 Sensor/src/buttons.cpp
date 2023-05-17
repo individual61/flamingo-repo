@@ -59,6 +59,15 @@ void button_B_action(void)
 #if SERIAL_OUT_BUTTONS == 1
   Serial.println(F("B button pressed."));
 #endif
+
+  settingIndex++;
+
+  if (settingIndex == NUM_PROGRAMS)
+  {
+    settingIndex = 0;
+  }
+
+
 }
 
 // Brightness

@@ -27,6 +27,7 @@ void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color);
 
 extern bool first_program_run;
 extern uint8_t programIndex;
+extern uint8_t settingIndex;
 
 ///////////////////// DHO /////////////////////
 

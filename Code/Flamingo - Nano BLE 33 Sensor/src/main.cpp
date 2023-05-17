@@ -48,6 +48,7 @@ GND to GND
 
 bool first_program_run = 1;
 uint8_t programIndex = 0;
+uint8_t settingIndex = 0;
 
 // This version uses hardware SPI
 // With just DHO single pixel:
@@ -133,6 +134,7 @@ void loop()
             // DHO_main_program();
 
             imu_active = 0;
+            settingIndex = 0;
             FIRE_main_program();
             first_program_run = 0;
             break;
@@ -152,6 +154,7 @@ void loop()
             Serial.println(F("In Case 1"));
 
             imu_active = 1;
+            settingIndex = 0;
             BB_main_program();
 
             first_program_run = 0;
@@ -171,6 +174,7 @@ void loop()
             Serial.println(F("In Case 2"));
 
             imu_active = 0;
+            settingIndex = 0;
             SPARKLE_main_program();
             first_program_run = 0;
             break;
@@ -190,6 +194,7 @@ void loop()
             // FIRE_main_program();
 
             imu_active = 1;
+            settingIndex = 0;
             DHO_main_program();
             first_program_run = 0;
             break;

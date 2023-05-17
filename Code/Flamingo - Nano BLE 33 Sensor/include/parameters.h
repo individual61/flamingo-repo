@@ -62,6 +62,7 @@
 #define DEBOUNCE_DELAY 100
 
 #define NUM_PROGRAMS 4
+#define NUMSETTINGS 5
 
 ///////////////////////  DHO  ///////////////////////
 
@@ -106,9 +107,9 @@
 // Green Fire parameters
 #define FIRE_COOLING 55
 #define FIRE_SPARKING 120
-#define FIRE_SPEEDDELAY 0
+#define FIRE_SPEEDDELAY 10
 
-#define FIRE_STYLE 2
+#define FIRE_STYLE 4
 
 ///////////////////////  IMU  ///////////////////////
 

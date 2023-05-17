@@ -41,6 +41,10 @@ spark sparks[5];
 
 uint32_t color_spark = 0;
 
+uint16_t hue_offset = 0;
+uint16_t hue_delay_count = 0;
+uint16_t hue_interval = 300;
+
 void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
 { // Scale 'heat' down from 0-255 to 0-191
     // byte t192 = (byte) round((temperature / 255.0) * 191);
@@ -84,6 +88,49 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         color_hot = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 20, heatramp);
         color_mid = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 200, heatramp);
         color_cold = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 255, heatramp);
+        color_spark = strip.ColorHSV(0, 0, 255);
+        break;
+    }
+
+    case 3:
+    {
+        hue_interval = 300;
+
+        hue_delay_count++;
+        if (hue_delay_count > hue_interval)
+        {
+            hue_offset++;
+            if (hue_offset > 65535)
+            {
+                hue_offset = 0;
+            }
+            hue_delay_count = 0;
+        }
+
+        color_hot = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 20, heatramp);
+        color_mid = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 200, heatramp);
+        color_cold = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 255, heatramp);
+        color_spark = strip.ColorHSV(0, 0, 255);
+        break;
+    }
+
+    case 4:
+    {
+        hue_interval = 50;
+        hue_delay_count++;
+        if (hue_delay_count > hue_interval)
+        {
+            hue_offset++;
+            if (hue_offset > 65535)
+            {
+                hue_offset = 0;
+            }
+            hue_delay_count = 0;
+        }
+
+        color_hot = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 2.0 * NUMPIXELS), 20, heatramp);
+        color_mid = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 2.0 * NUMPIXELS), 200, heatramp);
+        color_cold = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel + hue_offset, FIRE_RAINBOW_FIRST_HUE, 2.0 * NUMPIXELS), 255, heatramp);
         color_spark = strip.ColorHSV(0, 0, 255);
         break;
     }
@@ -186,7 +233,7 @@ void FIRE_main_program(void)
     // Step 4.  Convert heat to LED colors
     for (int j = 0; j < NUMPERSTRAND; j++)
     {
-        SetPixelByHeatColor(j, heat[j], FIRE_STYLE);
+        SetPixelByHeatColor(j, heat[j], settingIndex);
     }
 
     for (int i = 0; i < 5; i++)
