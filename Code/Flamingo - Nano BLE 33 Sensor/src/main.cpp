@@ -82,10 +82,11 @@ void setup()
     }
 
     imu_active = 1;
-    if (imu_active)
+  /*  if (imu_active)
     {
         Serial.println(F("IMU active."));
     }
+ */
 
     //////////////////// LEDs ////////////////////
 
@@ -113,6 +114,11 @@ void loop()
         imu_update_accel_values();
     }
 
+        if (mag_active)
+    {
+        mag_update_mag_values();
+    }
+
     //////////////////// Timing ////////////////////
 
     // This updates time_interval_us with the loop interval
@@ -130,7 +136,28 @@ void loop()
         {
             Serial.println(F("In Case 4"));
 
+            imu_active = 1;
+            mag_active = 0;
+            settingIndex = 0;
+            GFLASH_main_program();
+            first_program_run = 0;
+            break;
+        }
+
+        GFLASH_main_program();
+
+        break;
+    };
+
+    case 1:
+    {
+
+        if (first_program_run)
+        {
+            Serial.println(F("In Case 4"));
+
             imu_active = 0;
+            mag_active = 0;
             settingIndex = 0;
             SYNCRANDNUM_main_program();
             first_program_run = 0;
@@ -142,7 +169,7 @@ void loop()
         break;
     };
 
-    case 1:
+    case 2:
     {
 
         if (first_program_run)
@@ -153,6 +180,7 @@ void loop()
             // DHO_main_program();
 
             imu_active = 0;
+            mag_active = 0;
             settingIndex = 0;
             FIRE_main_program();
             first_program_run = 0;
@@ -165,7 +193,7 @@ void loop()
         break;
     };
 
-    case 2:
+    case 3:
     {
 
         if (first_program_run)
@@ -173,6 +201,7 @@ void loop()
             Serial.println(F("In Case 1"));
 
             imu_active = 1;
+            mag_active = 0;
             settingIndex = 0;
             BB_main_program();
 
@@ -185,13 +214,14 @@ void loop()
         break;
     };
 
-    case 3:
+    case 4:
     {
 
         if (first_program_run)
         {
             Serial.println(F("In Case 2"));
 
+            imu_active = 0;
             imu_active = 0;
             settingIndex = 0;
             SPARKLE_main_program();
@@ -204,7 +234,7 @@ void loop()
         break;
     };
 
-    case 4:
+    case 5:
     {
 
         if (first_program_run)
@@ -213,6 +243,7 @@ void loop()
             // FIRE_main_program();
 
             imu_active = 1;
+            imu_active = 0;
             settingIndex = 0;
             DHO_main_program();
             first_program_run = 0;

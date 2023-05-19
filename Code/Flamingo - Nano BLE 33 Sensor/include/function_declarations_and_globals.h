@@ -56,17 +56,29 @@ uint32_t FIRE_ColorFromPalette(uint8_t the_pal, uint8_t index);
 
 void  SYNCRANDNUM_main_program(void);
 
+///////////////////// COMPASS /////////////////////
+
+//void  COMPASS_main_program(void);
+
+///////////////////// GFLASH /////////////////////
+
+void  GFLASH_main_program(void);
+
 ///////////////////// TIMING /////////////////////
 
 extern uint32_t time_interval_us;
+extern uint32_t time_now_us; 
 
 void timing_update_variables(void);
 
 ///////////////////// IMU /////////////////////
 
 extern bool imu_active;
+extern bool mag_active;
 extern float acc_g_x, acc_g_y, acc_g_z;
 extern float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z;
+
+extern float mag_g_x, mag_g_y, mag_g_z;                // global
 
 extern SimpleKalmanFilter acc_kalman_filter_x;
 extern SimpleKalmanFilter acc_kalman_filter_y;
@@ -76,5 +88,7 @@ bool imu_initialize(void);
 void imu_update_accel_values(void);
 void imu_update_accel_values_filtered(void);
 float imu_get_update_rate(void);
+
+void mag_update_mag_values(void);
 
 #endif

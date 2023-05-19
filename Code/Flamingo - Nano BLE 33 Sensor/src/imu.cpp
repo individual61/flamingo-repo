@@ -10,9 +10,12 @@
 // Magnetometer output data rate is fixed at 20 Hz.
 
 bool imu_active = 1;
+bool mag_active = 1;
 
 float acc_g_x, acc_g_y, acc_g_z;                // global
 float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z; // global
+float mag_g_x, mag_g_y, mag_g_z;                // global
+
 
 SimpleKalmanFilter acc_kalman_filter_x(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
 SimpleKalmanFilter acc_kalman_filter_y(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
@@ -88,4 +91,16 @@ void imu_update_accel_values(void)
 float imu_get_update_rate(void)
 {
     return IMU.accelerationSampleRate();
+}
+
+
+
+void mag_update_mag_values(void)
+{
+
+    if (IMU.magneticFieldAvailable())
+    {
+
+        IMU.readMagneticField(mag_g_x, mag_g_y, mag_g_z);
+    }
 }

@@ -61,7 +61,7 @@
 
 #define DEBOUNCE_DELAY 100
 
-#define NUM_PROGRAMS 5
+#define NUM_PROGRAMS 6
 #define NUMSETTINGS 6
 
 ///////////////////////  DHO  ///////////////////////
@@ -170,5 +170,17 @@
 //  the units of the process noise covariance matrix would be meters
 // squared per second squared and meters squared per second to the fourth power
 #define ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY 0.1f
+
+
+/*
+///////////////////////  COMPASS  ///////////////////////
+
+#define COMPASS_COLOR 0x300030
+*/
+
+///////////////////////  GFLASH  ///////////////////////
+
+#define GFLASH_COLOR 0x300030
+
 
 #endif
