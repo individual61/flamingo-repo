@@ -38,6 +38,12 @@
 
 #define START_BRIGHTNESS 10
 
+#define ARRAY_SIZE 4
+#define GLOBAL_BRIGHTNESS_LEVELS {0, 10, 20, 30}
+#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 4
+
+    
+
 // Flamingo
 #if NUM_STRANDS == 3
 #define NUMPIXELS 144   // Number of LEDs in strip
@@ -115,40 +121,45 @@
 
 // If sparkliness > 0.01, it sparkles way too fast and flickers
 
-// 0
-#define SYNCRANDNUM_SPARKLINESS_SETT_0 0.001
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
-#define SYNCRANDNUM_SCALE_SETT_0 0.5
 
-// 1 SETTLED
-// Slow fading in of pixels with overall color theme
-#define SYNCRANDNUM_SPARKLINESS_SETT_1 0.01
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
-#define SYNCRANDNUM_SCALE_SETT_1 0.5
 
-// 2 SETTLED
-// 1 s sweep with glitter, maybe a bit too many colors close together
-#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_2 1000
-#define SYNCRANDNUM_SCALE_SETT_2 1.0
-
-// 3 SETTLED 
+// 3 SETTLED
 // 4 s weep with glitter
-#define SYNCRANDNUM_SPARKLINESS_SETT_3 0.01
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_3 4000
-#define SYNCRANDNUM_SCALE_SETT_3 1.0
+#define SYNCRANDNUM_SPARKLINESS_SETT_0 0.01
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
+#define SYNCRANDNUM_SCALE_SETT_0 1.0
 
 // 4 SETTLED
 // Nice slightly flowing slightly fading pattern
-#define SYNCRANDNUM_SPARKLINESS_SETT_4 0.001
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_4 4000
-#define SYNCRANDNUM_SCALE_SETT_4 1.0
+#define SYNCRANDNUM_SPARKLINESS_SETT_1 0.001
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
+#define SYNCRANDNUM_SCALE_SETT_1 1.0
 
 // 5 settled
 // Clear flowing of pattern, with some sparkles
-#define SYNCRANDNUM_SPARKLINESS_SETT_5 0.01
-#define SYNCRANDNUM_RAMP_PERIOD_SETT_5 4000
-#define SYNCRANDNUM_SCALE_SETT_5 1.0
+#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.001
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_2 8000
+#define SYNCRANDNUM_SCALE_SETT_2 1.0
+
+
+// Unused
+// 0 boring no noise
+//#define SYNCRANDNUM_SPARKLINESS_SETT_0 0.001
+//#define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
+//#define SYNCRANDNUM_SCALE_SETT_0 0.5
+
+// 1 eh
+// Slow fading in of pixels with overall color theme
+//#define SYNCRANDNUM_SPARKLINESS_SETT_1 0.01
+//#define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
+//#define SYNCRANDNUM_SCALE_SETT_1 0.5
+
+// 2 too fast
+// 1 s sweep with glitter, maybe a bit too many colors close together
+//#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
+//#define SYNCRANDNUM_RAMP_PERIOD_SETT_2 1000
+//#define SYNCRANDNUM_SCALE_SETT_2 1.0
+
 
 ///////////////////////  IMU  ///////////////////////
 
@@ -171,16 +182,18 @@
 // squared per second squared and meters squared per second to the fourth power
 #define ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY 0.1f
 
+///////////////////////  GFLASH  ///////////////////////
+
+#define GFLASH_COLOR 0x300030
+
+// Scale 0.5, thresh 2.0 reaches 1.0 at 3.4 G
+#define GFLASH_MAX 3.5
+#define GFLASH_START 1.8
 
 /*
 ///////////////////////  COMPASS  ///////////////////////
 
 #define COMPASS_COLOR 0x300030
 */
-
-///////////////////////  GFLASH  ///////////////////////
-
-#define GFLASH_COLOR 0x300030
-
 
 #endif

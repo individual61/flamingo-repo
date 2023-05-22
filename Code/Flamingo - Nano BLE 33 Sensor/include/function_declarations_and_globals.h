@@ -20,6 +20,7 @@ void buttons_check_for_changes(void);
 extern Adafruit_DotStar strip;
 extern uint32_t DHO_color;
 void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color);
+extern float brightnessArray[];
 
 ///////////////////// PROGRAMS /////////////////////
 
@@ -28,6 +29,7 @@ void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color);
 extern bool first_program_run;
 extern uint8_t programIndex;
 extern uint8_t settingIndex;
+extern uint8_t brightnessIndex;
 
 ///////////////////// DHO /////////////////////
 
@@ -75,10 +77,14 @@ void timing_update_variables(void);
 
 extern bool imu_active;
 extern bool mag_active;
+extern bool gflash_active;
+
 extern float acc_g_x, acc_g_y, acc_g_z;
 extern float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z;
 
 extern float mag_g_x, mag_g_y, mag_g_z;                // global
+
+extern float gflash_factor;
 
 extern SimpleKalmanFilter acc_kalman_filter_x;
 extern SimpleKalmanFilter acc_kalman_filter_y;
@@ -90,5 +96,6 @@ void imu_update_accel_values_filtered(void);
 float imu_get_update_rate(void);
 
 void mag_update_mag_values(void);
+
 
 #endif

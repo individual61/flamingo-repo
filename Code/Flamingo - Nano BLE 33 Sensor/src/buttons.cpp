@@ -53,7 +53,7 @@ void button_A_action(void)
   }
 }
 
-// Sparkle/Previous Program
+// Program setting
 void button_B_action(void)
 {
 #if SERIAL_OUT_BUTTONS == 1
@@ -62,16 +62,13 @@ void button_B_action(void)
 
   settingIndex++;
 
-
   if (settingIndex == NUM_PROGRAMS)
   {
     settingIndex = 0;
   }
 
-     Serial.print(F("Setting index set to:\t"));
-     Serial.println(settingIndex);
-
-
+  Serial.print(F("Setting index set to:\t"));
+  Serial.println(settingIndex);
 }
 
 // Brightness
@@ -80,6 +77,13 @@ void button_C_action(void)
 #if SERIAL_OUT_BUTTONS == 1
   Serial.println(F("C button pressed."));
 #endif
+
+  brightnessIndex++;
+  if (brightnessIndex == GLOBAL_BRIGHTNESS_LEVELS_NUMBER)
+  {
+    brightnessIndex = 0;
+  }
+  strip.setBrightness(brightnessArray[brightnessIndex]);
 }
 
 void buttons_check_for_changes(void)

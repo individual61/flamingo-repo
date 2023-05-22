@@ -10,12 +10,14 @@
 // Magnetometer output data rate is fixed at 20 Hz.
 
 bool imu_active = 1;
-bool mag_active = 1;
+bool mag_active = 0;
+bool gflash_active = 1;
 
 float acc_g_x, acc_g_y, acc_g_z;                // global
 float acc_g_filt_x, acc_g_filt_y, acc_g_filt_z; // global
 float mag_g_x, mag_g_y, mag_g_z;                // global
 
+float gflash_factor = 0.0;
 
 SimpleKalmanFilter acc_kalman_filter_x(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
 SimpleKalmanFilter acc_kalman_filter_y(ACC_KALMAN_MEASUREMENT_UNCERTAINTY, ACC_KALMAN_ESTIMATION_UNCERTAINTY, ACC_KALMAN_PROCESS_NOISE_UNCERTAINTY);
@@ -79,10 +81,26 @@ void imu_update_accel_values(void)
 
         IMU.readAcceleration(acc_g_x, acc_g_y, acc_g_z);
 
+        if (gflash_active)
+        {
+            if (acc_g_z > GFLASH_START)
+            {
+                // gflash_factor = GFLASH_SCALE * (acc_g_z - GFLASH_THRESH) * (acc_g_z - GFLASH_THRESH);
+                gflash_factor = (acc_g_z * acc_g_z - GFLASH_START * acc_g_z) / (GFLASH_MAX * (GFLASH_MAX - GFLASH_START));
+                if (gflash_factor > 1.0)
+                {
+                    gflash_factor = 1.0;
+                }
+            }
+            else
+            {
+                gflash_factor = 0.0;
+            }
+        }
 
-//        Serial.print(time_interval_us);
-//        Serial.print("\t");
-//        Serial.println(acc_g_z);
+            //    Serial.print(time_interval_us);
+            //    Serial.print("\t");
+            //    Serial.println(acc_g_z);
 
         // imu_update_accel_values_filtered();
     }
@@ -92,8 +110,6 @@ float imu_get_update_rate(void)
 {
     return IMU.accelerationSampleRate();
 }
-
-
 
 void mag_update_mag_values(void)
 {

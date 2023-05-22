@@ -100,7 +100,7 @@ void SYNCRANDNUM_main_program(void)
         sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_0;
         scale = SYNCRANDNUM_SCALE_SETT_0;
         period = SYNCRANDNUM_RAMP_PERIOD_SETT_0;
-        // Serial.println("0");
+        // Serial.println("Syncrandnum setting\t0");
         break;
     };
 
@@ -109,7 +109,7 @@ void SYNCRANDNUM_main_program(void)
         sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_1;
         scale = SYNCRANDNUM_SCALE_SETT_1;
         period = SYNCRANDNUM_RAMP_PERIOD_SETT_1;
-        // Serial.println("1");
+        // Serial.println("Syncrandnum setting\t1");
         break;
     };
 
@@ -118,34 +118,7 @@ void SYNCRANDNUM_main_program(void)
         sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_2;
         scale = SYNCRANDNUM_SCALE_SETT_2;
         period = SYNCRANDNUM_RAMP_PERIOD_SETT_2;
-        // Serial.println("2");
-        break;
-    };
-
-    case 3:
-    {
-        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_3;
-        scale = SYNCRANDNUM_SCALE_SETT_3;
-        period = SYNCRANDNUM_RAMP_PERIOD_SETT_3;
-        // Serial.println("3");
-        break;
-    };
-
-    case 4:
-    {
-        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_4;
-        scale = SYNCRANDNUM_SCALE_SETT_4;
-        period = SYNCRANDNUM_RAMP_PERIOD_SETT_4;
-        // Serial.println("3");
-        break;
-    };
-
-        case 5:
-    {
-        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_5;
-        scale = SYNCRANDNUM_SCALE_SETT_5;
-        period = SYNCRANDNUM_RAMP_PERIOD_SETT_5;
-        // Serial.println("3");
+        // Serial.println("Syncrandnum setting\t2");
         break;
     };
 
@@ -179,6 +152,15 @@ void SYNCRANDNUM_main_program(void)
         //   Serial.println(period);
 
         uint16_t color_h = 65536 * (ramp + scale * index / ((float)NUMPERSTRAND) + adjusts[index]);
+        uint16_t color_s = 255 - 255 * gflash_factor;
+
+        // Serial.print(gflash_active);
+        // Serial.print("\t");
+        // Serial.print(acc_g_z);
+        // Serial.print("\t");
+        // Serial.print(gflash_factor);
+        // Serial.print("\t");
+        // Serial.println(color_s);
 
         // Serial.print(color_h);
         // Serial.print("\t");
@@ -188,7 +170,9 @@ void SYNCRANDNUM_main_program(void)
         // Serial.print("\t");
         // Serial.println(adjusts[index]);
 
-        COMMON_SetPixelByStrandIndex(index, strip.ColorHSV(color_h, 255, 50));
+        uint32_t the_color = strip.ColorHSV(color_h, color_s, 50);
+        //the_color = strip.gamma32(color_h);
+        COMMON_SetPixelByStrandIndex(index, the_color);
     }
     strip.show();
 }

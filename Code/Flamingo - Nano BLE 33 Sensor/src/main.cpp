@@ -3,6 +3,26 @@
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
 
+/*   TODO
+
+Fix other button board, take as spare
+Make second board, load programs
+BRIGHTNESS
+Make gamma work.`
+
+// Make sure there are BRIGHTNESS_COUNT elements in the array.
+uint8_t brightness[BRIGHTNESS_COUNT] = {10, 15, 20, 40, 60,
+                                        100, 140, 180, 220, 240};
+
+
+
+
+uint8_t brightness[NUM_PROGRAMS][BRIGHTNESS_MAX_QUANTITY] = ALL_BRIGHTNESS_ARRAY;
+uint8_t brightnessIndex[NUM_PROGRAMS];
+
+
+*/
+
 /*
 
 About 700 Hz with just 3-button polling and serial out.
@@ -49,6 +69,9 @@ GND to GND
 bool first_program_run = 1;
 uint8_t programIndex = 0;
 uint8_t settingIndex = 0;
+uint8_t brightnessIndex = 0;
+
+float brightnessArray[GLOBAL_BRIGHTNESS_LEVELS_NUMBER] = GLOBAL_BRIGHTNESS_LEVELS;
 
 // This version uses hardware SPI
 // With just DHO single pixel:
@@ -63,8 +86,7 @@ void setup()
     //////////////////// Serial ////////////////////
 
     Serial.begin(115200);
-    // while (!Serial)
-    //     ;
+
     delay(100);
     Serial.println(F("Started serial to PC."));
 
@@ -82,11 +104,8 @@ void setup()
     }
 
     imu_active = 1;
-  /*  if (imu_active)
-    {
-        Serial.println(F("IMU active."));
-    }
- */
+    mag_active = 0;
+    gflash_active = 1;
 
     //////////////////// LEDs ////////////////////
 
@@ -102,6 +121,9 @@ void setup()
 
 void loop()
 {
+    //Serial.print(first_program_run);
+    //Serial.print("\t");
+    //Serial.println(imu_active);
     //////////////////// Buttons ////////////////////
 
     // This calls button_X_action() in buttons.cpp
@@ -114,7 +136,7 @@ void loop()
         imu_update_accel_values();
     }
 
-        if (mag_active)
+    if (mag_active)
     {
         mag_update_mag_values();
     }
@@ -125,75 +147,37 @@ void loop()
     timing_update_variables();
 
     //////////////////// Programs ////////////////////
+    //////////////////////////////////////////////////
 
     switch (programIndex)
     {
 
+        ///////////////////////  DHO  ///////////////////////
     case 0:
-    {
-
-        if (first_program_run)
-        {
-            Serial.println(F("In Case 4"));
-
-            imu_active = 1;
-            mag_active = 0;
-            settingIndex = 0;
-            GFLASH_main_program();
-            first_program_run = 0;
-            break;
-        }
-
-        GFLASH_main_program();
-
-        break;
-    };
-
-    case 1:
-    {
-
-        if (first_program_run)
-        {
-            Serial.println(F("In Case 4"));
-
-            imu_active = 0;
-            mag_active = 0;
-            settingIndex = 0;
-            SYNCRANDNUM_main_program();
-            first_program_run = 0;
-            break;
-        }
-
-        SYNCRANDNUM_main_program();
-
-        break;
-    };
-
-    case 2:
     {
 
         if (first_program_run)
         {
             Serial.println(F("In Case 0"));
 
-            // imu_active = 1;
-            // DHO_main_program();
-
-            imu_active = 0;
+            imu_active = 1;
             mag_active = 0;
+            gflash_active = 0;
+
             settingIndex = 0;
-            FIRE_main_program();
+            DHO_main_program();
             first_program_run = 0;
+
             break;
         }
 
-        // DHO_main_program();
-        FIRE_main_program();
+        DHO_main_program();
 
         break;
     };
 
-    case 3:
+///////////////////////  BB  ///////////////////////
+    case 1:
     {
 
         if (first_program_run)
@@ -202,10 +186,12 @@ void loop()
 
             imu_active = 1;
             mag_active = 0;
+            gflash_active = 0;
+
             settingIndex = 0;
             BB_main_program();
-
             first_program_run = 0;
+
             break;
         }
 
@@ -214,44 +200,99 @@ void loop()
         break;
     };
 
-    case 4:
+        ///////////////////////  GFLASH  ///////////////////////
+    case 2:
     {
 
         if (first_program_run)
         {
             Serial.println(F("In Case 2"));
 
-            imu_active = 0;
-            imu_active = 0;
+            imu_active = 1;
+            mag_active = 0;
+            gflash_active = 1;
+
             settingIndex = 0;
-            SPARKLE_main_program();
+            GFLASH_main_program();
             first_program_run = 0;
+
             break;
         }
 
-        SPARKLE_main_program();
+        GFLASH_main_program();
 
         break;
     };
 
-    case 5:
+
+///////////////////////  SYNCRANDNUM  ///////////////////////
+    case 3:
     {
 
         if (first_program_run)
         {
             Serial.println(F("In Case 3"));
-            // FIRE_main_program();
 
             imu_active = 1;
-            imu_active = 0;
+            mag_active = 0;
+            gflash_active = 1;
+
             settingIndex = 0;
-            DHO_main_program();
+            SYNCRANDNUM_main_program();
             first_program_run = 0;
+
             break;
         }
 
-        // FIRE_main_program();
-        DHO_main_program();
+        SYNCRANDNUM_main_program();
+
+        break;
+    };
+
+///////////////////////  FIRE  ///////////////////////
+    case 4:
+    {
+
+        if (first_program_run)
+        {
+            Serial.println(F("In Case 4"));
+
+            imu_active = 0;
+            mag_active = 0;
+            gflash_active = 0;
+
+            settingIndex = 0;
+            FIRE_main_program();
+            first_program_run = 0;
+
+            break;
+        }
+
+        FIRE_main_program();
+
+        break;
+    };
+
+///////////////////////  SPARKLE  ///////////////////////
+    case 5:
+    {
+
+        if (first_program_run)
+        {
+            Serial.println(F("In Case 5"));
+
+            imu_active = 0;
+            imu_active = 0;
+            gflash_active = 0;
+
+            settingIndex = 0;
+            SPARKLE_main_program();
+            first_program_run = 0;
+
+            break;
+        }
+
+        SPARKLE_main_program();
 
         break;
     };
@@ -301,18 +342,3 @@ void COMMON_SetPixelByStrandIndex(uint16_t index, uint32_t color)
 #endif
     }
 }
-
-/*
-//TEMPLATE
-case 3:
-{
-if (firstRun)
-{
-  Serial.println(F("PROGRAM_3 "));
-  firstRun = 0;
-  break;
-}
-
-break;
-};
-*/

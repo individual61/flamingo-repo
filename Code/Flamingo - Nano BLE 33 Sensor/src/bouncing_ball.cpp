@@ -87,9 +87,16 @@ double BB_update_position(void)
 
     if (BB_xx < 0.0)
     {
-        Serial.println("Bounce");
+        //Serial.println("Bounce");
         BB_xx = 0.0;
         BB_vv = BB_BOUNCE_COEF * fabs(BB_vv);
+        if((BB_xx <0.001) && (BB_vv < 0.35))
+        {
+            BB_vv = 0.0;
+        }
+        // Serial.print(BB_xx,6);
+        // Serial.print("\t");
+        // Serial.println(BB_vv);
     }
 
     return BB_xx;
@@ -101,9 +108,11 @@ uint16_t BB_get_strand_index_from_x(float x)
 
     // Note that this returns a signed LED index
     uint16_t strand_index = (uint16_t)floor((x / ((float)(BB_STRAND_LENGTH_M))) * (NUMPERSTRAND));
-    Serial.print(x);
-    Serial.print("\t");
-    Serial.println(strand_index);
+
+//    Serial.print(x);
+//    Serial.print("\t");
+//    Serial.println(strand_index);
+
     return strand_index;
 }
 
@@ -113,11 +122,18 @@ double BB_sent_last = 0.0;
 
 void BB_main_program(void)
 {
+
+
     uint16_t the_index = BB_get_strand_index_from_x(BB_update_position());
 
     strip.clear();
     COMMON_SetPixelByStrandIndex(the_index, BB_COLOR);
     strip.show();
+
+
+
+
+
     // uint32_t timet = millis();
     // if (timet - BB_sent_last > BB_send_interval)
     //{
