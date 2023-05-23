@@ -7,20 +7,7 @@
 
 Fix other button board, take as spare
 Make second board, load programs
-BRIGHTNESS
-Make gamma work.`
-
-// Make sure there are BRIGHTNESS_COUNT elements in the array.
-uint8_t brightness[BRIGHTNESS_COUNT] = {10, 15, 20, 40, 60,
-                                        100, 140, 180, 220, 240};
-
-
-
-
-uint8_t brightness[NUM_PROGRAMS][BRIGHTNESS_MAX_QUANTITY] = ALL_BRIGHTNESS_ARRAY;
-uint8_t brightnessIndex[NUM_PROGRAMS];
-
-
+// brightnes sstays per program
 */
 
 /*

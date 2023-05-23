@@ -121,9 +121,9 @@
 
 #define GLOBAL_BRIGHTNESS_LEVELS \
     {                            \
-        10, 20, 30, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 255           \
+        10, 100, 150, 255           \
     }
-#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 25
+#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 4
 
 #define DATAPIN 11
 #define CLOCKPIN 13
@@ -183,7 +183,7 @@
 // Green Fire parameters
 #define FIRE_COOLING 55
 #define FIRE_SPARKING 120
-#define FIRE_SPEEDDELAY 10
+#define FIRE_SPEEDDELAY 5
 
 #define FIRE_STYLE 4
 
@@ -192,7 +192,7 @@
 // If sparkliness > 0.01, it sparkles way too fast and flickers
 
 // 3 SETTLED
-// 4 s weep with glitter
+// 4 sweep with glitter
 #define SYNCRANDNUM_SPARKLINESS_SETT_0 0.01
 #define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
 #define SYNCRANDNUM_SCALE_SETT_0 1.0

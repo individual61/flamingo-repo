@@ -64,16 +64,8 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         break;
     }
 
-    case 2: // eh
-    {
-        color_hot = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 20, heatramp);
-        color_mid = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 200, heatramp);
-        color_cold = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 255, heatramp);
-        color_spark = strip.ColorHSV(0, 0, 255);
-        break;
-    }
 
-    case 3: // yes
+    case 2: // yes
     {
         hue_interval = 300;
 
@@ -95,7 +87,7 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         break;
     }
 
-    case 4: // yes
+    case 3: // yes
     {
         hue_interval = 50;
         hue_delay_count++;
