@@ -170,9 +170,15 @@ void SYNCRANDNUM_main_program(void)
         // Serial.print("\t");
         // Serial.println(adjusts[index]);
 
-        uint32_t the_color = strip.ColorHSV(color_h, color_s, 50);
-        //the_color = strip.gamma32(color_h);
+        uint32_t the_color = strip.ColorHSV(color_h, color_s, SYNCRANDNUM_MAX_BRIGHTNESS);
+        //Serial.print(the_color,HEX);
+        //the_color = strip.gamma32(the_color);
+        //Serial.print("\t");
+        //Serial.println(the_color,HEX);
+        
+        
         COMMON_SetPixelByStrandIndex(index, the_color);
+        
     }
     strip.show();
 }

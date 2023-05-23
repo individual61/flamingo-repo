@@ -15,7 +15,8 @@ void SPARKLE_main_program(void)
         for (int num_sparkles = 0; num_sparkles < SPARKLE_QUANTITY; num_sparkles++)
         {
             uint8_t the_index = random(0, NUMPERSTRAND);
-            COMMON_SetPixelByStrandIndex(the_index, SPARKLE_COLOR);
+
+            COMMON_SetPixelByStrandIndex(the_index, strip.ColorHSV(0, 0, SPARKLE_MAX_BRIGHTNESS));
         }
         strip.show();
     }

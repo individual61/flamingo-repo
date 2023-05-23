@@ -34,15 +34,7 @@
 
 ///////////////////////  LEDs  ///////////////////////
 
-#define NUM_STRANDS 1 // 1 or 3
-
-#define START_BRIGHTNESS 10
-
-#define ARRAY_SIZE 4
-#define GLOBAL_BRIGHTNESS_LEVELS {0, 10, 20, 30}
-#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 4
-
-    
+#define NUM_STRANDS 3 // 1 or 3
 
 // Flamingo
 #if NUM_STRANDS == 3
@@ -55,6 +47,83 @@
 #define NUMPIXELS 72    // Number of LEDs in strip
 #define NUMPERSTRAND 72 // This must match NUMPIXELS
 #endif
+
+#define START_BRIGHTNESS 10
+
+// SIngle-pixel programs can have a max val of 255.
+// Setting brightness scale to max of 600 mA.
+
+// DHO 255
+// BB 255
+// G Flash 30 is 600 mA, 50 is 800 mA
+// Syncrandnum 150
+// Fire 80
+// Sparkle 255
+
+#define DHO_MAX_BRIGHTNESS 255
+#define BB_MAX_BRIGHTNESS 255
+#define GFLASH_MAX_BRIGHTNESS 50
+#define SYNCRANDNUM_MAX_BRIGHTNESS 40
+#define FIRE_MAX_BRIGHTNESS 80
+#define SPARKLE_MAX_BRIGHTNESS 255
+
+// DHO @ 255 - 230 mA
+// Syncrandnum 70 is 600 mA
+
+// On Flamingo, full strip even color
+//  strip.ColorHSV(55000, 255, 255) with global brightness set to 
+//  30 -- 600 mA
+//  50 -- 800 mA
+//  60 -- 860 mA
+//  70 -- 930 mA
+//  80 -- 980 mA
+//  /
+// 0xFFFFFF
+//  30 -- 730 mA
+//  50 -- 940 mA
+//
+// Sync Rand num setting 0
+// 20 - 180
+// 30 - 210
+// 50 - 250
+// 60 - 280
+// 70 - 310
+// 80 - 330
+//
+// Green fire
+// 
+// 20 - 220
+// 30 - 310
+// 50 - 350
+// 60 - 510
+// 
+// Pink fire
+// 20 - 220
+// 30 - 250
+// 50 - 400
+// 60 - 450
+// 
+// Rainbow fire 1
+// 60 - 400
+//
+// Rainbow fire 2
+// 60 - 360
+// 
+// Rainbow Fire 3
+// 60 - 370
+//
+// Sparkle white qty 3
+// 20 - 170
+// 30 - 190
+// 50 - 220
+// 60 - 240
+// 70 - 250
+
+#define GLOBAL_BRIGHTNESS_LEVELS \
+    {                            \
+        10, 20, 30, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 255           \
+    }
+#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 25
 
 #define DATAPIN 11
 #define CLOCKPIN 13
@@ -72,7 +141,8 @@
 
 ///////////////////////  DHO  ///////////////////////
 
-#define DHO_COLOR 0x601040
+// #define DHO_COLOR 0x601040
+#define PINK_HUE 55000
 #define DHO_G_ACC_MAGNITUDE 9.81f
 #define DHO_SPRINGCONSTANT 160.0f
 #define DHO_DAMPING 1.7f
@@ -87,7 +157,7 @@
 
 ///////////////////////  BB  ///////////////////////
 
-#define BB_COLOR 0x601040
+//#define BB_COLOR 0x601040
 
 #define BB_G_ACC_MAGNITUDE 9.81f
 #define BB_MASS 1.0f
@@ -98,7 +168,7 @@
 
 ///////////////////////  SPARKLE  ///////////////////////
 
-#define SPARKLE_COLOR 0xffffff
+//#define SPARKLE_COLOR 0xffffff
 
 #define SPARKLE_QUANTITY 3
 #define SPARKLE_DURATION_MS 1
@@ -121,8 +191,6 @@
 
 // If sparkliness > 0.01, it sparkles way too fast and flickers
 
-
-
 // 3 SETTLED
 // 4 s weep with glitter
 #define SYNCRANDNUM_SPARKLINESS_SETT_0 0.01
@@ -135,31 +203,29 @@
 #define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
 #define SYNCRANDNUM_SCALE_SETT_1 1.0
 
-// 5 settled
+// 5 sparkles dont move??
 // Clear flowing of pattern, with some sparkles
 #define SYNCRANDNUM_SPARKLINESS_SETT_2 0.001
 #define SYNCRANDNUM_RAMP_PERIOD_SETT_2 8000
 #define SYNCRANDNUM_SCALE_SETT_2 1.0
 
-
 // Unused
 // 0 boring no noise
-//#define SYNCRANDNUM_SPARKLINESS_SETT_0 0.001
-//#define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
-//#define SYNCRANDNUM_SCALE_SETT_0 0.5
+// #define SYNCRANDNUM_SPARKLINESS_SETT_0 0.001
+// #define SYNCRANDNUM_RAMP_PERIOD_SETT_0 4000
+// #define SYNCRANDNUM_SCALE_SETT_0 0.5
 
 // 1 eh
 // Slow fading in of pixels with overall color theme
-//#define SYNCRANDNUM_SPARKLINESS_SETT_1 0.01
-//#define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
-//#define SYNCRANDNUM_SCALE_SETT_1 0.5
+// #define SYNCRANDNUM_SPARKLINESS_SETT_1 0.01
+// #define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
+// #define SYNCRANDNUM_SCALE_SETT_1 0.5
 
 // 2 too fast
 // 1 s sweep with glitter, maybe a bit too many colors close together
-//#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
-//#define SYNCRANDNUM_RAMP_PERIOD_SETT_2 1000
-//#define SYNCRANDNUM_SCALE_SETT_2 1.0
-
+// #define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
+// #define SYNCRANDNUM_RAMP_PERIOD_SETT_2 1000
+// #define SYNCRANDNUM_SCALE_SETT_2 1.0
 
 ///////////////////////  IMU  ///////////////////////
 
@@ -187,7 +253,7 @@
 #define GFLASH_COLOR 0x300030
 
 // Scale 0.5, thresh 2.0 reaches 1.0 at 3.4 G
-#define GFLASH_MAX 3.5
+#define GFLASH_MAX 2.5
 #define GFLASH_START 1.8
 
 /*

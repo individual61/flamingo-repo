@@ -70,6 +70,7 @@ void  GFLASH_main_program(void);
 
 extern uint32_t time_interval_us;
 extern uint32_t time_now_us; 
+extern float time_frequency_hz;
 
 void timing_update_variables(void);
 

@@ -1,7 +1,6 @@
 #include <parameters.h>
 #include <function_declarations_and_globals.h>
 
-
 uint16_t FIRE_HueIndexFromPixelIndex(uint16_t index, uint16_t hue_start, uint16_t num_leds)
 {
     uint16_t hue_index = hue_start + (index * FIRE_RAINBOW_HUE_REPS * 65536) / num_leds;
@@ -32,8 +31,12 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
     byte heatramp = t192 & 0x3F;
     // 0..63
 
-    heatramp <<= 2;
-    // scale up to 0..252
+    // Equivalent to heatramp * 4
+    heatramp <<= 2; // scale up to 0..252
+    
+    //we actually want to scale up to FIRE_MAX_BRIGHTNESS
+    float heatramp_scale = FIRE_MAX_BRIGHTNESS/252.0;
+    heatramp = heatramp_scale * heatramp;
 
     uint32_t color_hot = 0;
     uint32_t color_mid = 0;
@@ -61,7 +64,7 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         break;
     }
 
-    case 2:
+    case 2: // eh
     {
         color_hot = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 20, heatramp);
         color_mid = strip.ColorHSV(FIRE_HueIndexFromPixelIndex(Pixel, FIRE_RAINBOW_FIRST_HUE, 0.6 * NUMPIXELS), 200, heatramp);
@@ -70,7 +73,7 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         break;
     }
 
-    case 3:
+    case 3: // yes
     {
         hue_interval = 300;
 
@@ -92,7 +95,7 @@ void SetPixelByHeatColor(uint16_t Pixel, byte temperature, uint8_t style)
         break;
     }
 
-    case 4:
+    case 4: // yes
     {
         hue_interval = 50;
         hue_delay_count++;

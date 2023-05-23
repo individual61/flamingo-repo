@@ -111,7 +111,7 @@ void setup()
 
     strip.begin(); // Initialize pins for output
     strip.clear();
-    strip.setBrightness(START_BRIGHTNESS);
+    strip.setBrightness(brightnessArray[0]);
     strip.show(); // Turn all LEDs off ASAP
 
     //////////////////// Timing ////////////////////
@@ -119,11 +119,13 @@ void setup()
     timing_update_variables();
 }
 
+uint8_t counter = 0;
+
 void loop()
 {
-    //Serial.print(first_program_run);
-    //Serial.print("\t");
-    //Serial.println(imu_active);
+    // Serial.print(first_program_run);
+    // Serial.print("\t");
+    // Serial.println(imu_active);
     //////////////////// Buttons ////////////////////
 
     // This calls button_X_action() in buttons.cpp
@@ -173,10 +175,17 @@ void loop()
 
         DHO_main_program();
 
+        /* counter++;
+         if (counter == 0)
+         {
+             Serial.println(time_frequency_hz);
+         }
+         */
+
         break;
     };
 
-///////////////////////  BB  ///////////////////////
+        ///////////////////////  BB  ///////////////////////
     case 1:
     {
 
@@ -224,8 +233,7 @@ void loop()
         break;
     };
 
-
-///////////////////////  SYNCRANDNUM  ///////////////////////
+        ///////////////////////  SYNCRANDNUM  ///////////////////////
     case 3:
     {
 
@@ -249,7 +257,7 @@ void loop()
         break;
     };
 
-///////////////////////  FIRE  ///////////////////////
+        ///////////////////////  FIRE  ///////////////////////
     case 4:
     {
 
@@ -273,7 +281,7 @@ void loop()
         break;
     };
 
-///////////////////////  SPARKLE  ///////////////////////
+        ///////////////////////  SPARKLE  ///////////////////////
     case 5:
     {
 
@@ -282,7 +290,7 @@ void loop()
             Serial.println(F("In Case 5"));
 
             imu_active = 0;
-            imu_active = 0;
+            mag_active = 0;
             gflash_active = 0;
 
             settingIndex = 0;
@@ -297,6 +305,55 @@ void loop()
         break;
     };
 
+    ///////////////////////  Timing  ///////////////////////
+    /*
+    case 6:
+    {
+
+        if (first_program_run)
+        {
+            Serial.println(F("In Case 6"));
+
+            imu_active = 0;
+            mag_active = 0;
+            gflash_active = 0;
+
+            settingIndex = 0;
+
+            first_program_run = 0;
+
+            break;
+        }
+
+        Serial.print(DHO_COLOR);
+        Serial.print("\t");
+        uint32_t color_hue = strip.ColorHSV(55000, 255, 255);
+        Serial.println(color_hue);
+
+        strip.clear();
+        for (int i = 0; i < NUMPERSTRAND / 2.0; i++)
+        {
+            // uint32_t color = strip.ColorHSV(hue_angle, 255 -gflash_factor * 30.0, brightness);
+            // COMMON_SetPixelByStrandIndex(i, strip.ColorHSV(55000, 255, 255));
+            COMMON_SetPixelByStrandIndex(i, DHO_COLOR);
+        }
+        for (int i = NUMPERSTRAND / 2.0; i < NUMPERSTRAND; i++)
+        {
+            // uint32_t color = strip.ColorHSV(hue_angle, 255 -gflash_factor * 30.0, brightness);
+            // COMMON_SetPixelByStrandIndex(i, strip.ColorHSV(55000, 255, 255));
+            COMMON_SetPixelByStrandIndex(i, color_hue);
+        }
+        strip.show();
+
+        // counter++;
+        // if (counter == 0)
+        //{
+        //     Serial.println(time_interval_us);
+        // }
+
+        break;
+    };
+*/
     default:
     {
         Serial.print(F("We fell into default case, programIndex is "));

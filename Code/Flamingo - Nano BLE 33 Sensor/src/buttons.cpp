@@ -84,6 +84,8 @@ void button_C_action(void)
     brightnessIndex = 0;
   }
   strip.setBrightness(brightnessArray[brightnessIndex]);
+  Serial.print("Global brightness set to\t");
+  Serial.println(brightnessArray[brightnessIndex]);
 }
 
 void buttons_check_for_changes(void)

@@ -6,26 +6,31 @@
 float max_g = 0.0;
 
 uint8_t brightness = 0.0;
-float color_scale = 300.0;
+// float color_scale = 300.0;
 uint16_t hue_angle = 0;
 
-double elapsed_time_s = 0.0;
+//double elapsed_time_s = 0.0;
 void GFLASH_main_program(void)
 {
     if (first_program_run)
     {
         max_g = 0.0;
         gflash_factor = 0.0;
-        elapsed_time_s = 0.0;
+        //elapsed_time_s = 0.0;
         strip.clear();
     }
 
     // hue_angle = hue_angle + color_scale * gflash_factor;
 
-    brightness = 30 * gflash_factor;
-    //hue_angle = hue_angle + 25;
+    brightness = GFLASH_MAX_BRIGHTNESS * gflash_factor;
+    // hue_angle = hue_angle + 25;
     uint32_t color = strip.ColorHSV(55000, 255, brightness);
-    Serial.println(hue_angle);
+
+    //Serial.print(gflash_factor);
+    //Serial.print("\t");
+    //Serial.print(acc_g_z);
+    //Serial.print("\t");
+    //Serial.println(brightness);
 
     for (int i = 0; i < NUMPERSTRAND; i++)
     {
@@ -33,7 +38,7 @@ void GFLASH_main_program(void)
         COMMON_SetPixelByStrandIndex(i, color);
     }
 
-    elapsed_time_s = elapsed_time_s + time_interval_us / 1000000.0;
+    //elapsed_time_s = elapsed_time_s + time_interval_us / 1000000.0;
     // Serial.print(elapsed_time_s);
     // Serial.print("\t");
     // Serial.print(gflash_factor);

@@ -127,7 +127,7 @@ void BB_main_program(void)
     uint16_t the_index = BB_get_strand_index_from_x(BB_update_position());
 
     strip.clear();
-    COMMON_SetPixelByStrandIndex(the_index, BB_COLOR);
+    COMMON_SetPixelByStrandIndex(the_index, strip.ColorHSV(PINK_HUE, 255, BB_MAX_BRIGHTNESS));
     strip.show();
 
 
