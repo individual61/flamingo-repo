@@ -14,9 +14,9 @@ float time_ramp(float period)
         time_start = time_now;
     }
     float ramp = (float)time_interval / ((float)period);
-    // Serial.print(time_interval);
-    // Serial.print("\t");
-    // Serial.println(ramp);
+    //Serial.print(time_interval);
+    //Serial.print("\t");
+    //Serial.println(ramp);
     return ramp;
 }
 
@@ -122,6 +122,15 @@ void SYNCRANDNUM_main_program(void)
         break;
     };
 
+    case 3:
+    {
+        sparkliness = SYNCRANDNUM_SPARKLINESS_SETT_3;
+        scale = SYNCRANDNUM_SCALE_SETT_3;
+        period = SYNCRANDNUM_RAMP_PERIOD_SETT_3;
+        // Serial.println("Syncrandnum setting\t3");
+        break;
+    };
+
     default:
     {
         settingIndex = 0;
@@ -171,14 +180,12 @@ void SYNCRANDNUM_main_program(void)
         // Serial.println(adjusts[index]);
 
         uint32_t the_color = strip.ColorHSV(color_h, color_s, SYNCRANDNUM_MAX_BRIGHTNESS);
-        //Serial.print(the_color,HEX);
-        //the_color = strip.gamma32(the_color);
-        //Serial.print("\t");
-        //Serial.println(the_color,HEX);
-        
-        
+        // Serial.print(the_color,HEX);
+        // the_color = strip.gamma32(the_color);
+        // Serial.print("\t");
+        // Serial.println(the_color,HEX);
+
         COMMON_SetPixelByStrandIndex(index, the_color);
-        
     }
     strip.show();
 }

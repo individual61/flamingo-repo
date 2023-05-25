@@ -121,9 +121,9 @@
 
 #define GLOBAL_BRIGHTNESS_LEVELS \
     {                            \
-        10, 100, 150, 255           \
+        40, 100, 150, 210, 255           \
     }
-#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 4
+#define GLOBAL_BRIGHTNESS_LEVELS_NUMBER 5
 
 #define DATAPIN 11
 #define CLOCKPIN 13
@@ -203,11 +203,15 @@
 #define SYNCRANDNUM_RAMP_PERIOD_SETT_1 4000
 #define SYNCRANDNUM_SCALE_SETT_1 1.0
 
-// 5 sparkles dont move??
-// Clear flowing of pattern, with some sparkles
-#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.001
+#define SYNCRANDNUM_SPARKLINESS_SETT_2 0.01
 #define SYNCRANDNUM_RAMP_PERIOD_SETT_2 8000
 #define SYNCRANDNUM_SCALE_SETT_2 1.0
+
+// 5 sparkles dont move??
+// Clear flowing of pattern, with some sparkles
+#define SYNCRANDNUM_SPARKLINESS_SETT_3 0.001
+#define SYNCRANDNUM_RAMP_PERIOD_SETT_3 8000
+#define SYNCRANDNUM_SCALE_SETT_3 1.0
 
 // Unused
 // 0 boring no noise

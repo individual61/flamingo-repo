@@ -5,9 +5,9 @@
 
 /*   TODO
 
-Fix other button board, take as spare
-Make second board, load programs
-// brightnes sstays per program
+Fix bouncing ball at bottom
+Fix skip on syncrandnum
+maybe look into fire
 */
 
 /*
@@ -16,8 +16,11 @@ About 700 Hz with just 3-button polling and serial out.
 
 syncradnnum program, flowing or fast flowing rainbow, setting 3? max brightness.
 
- Attom Tech smaller 3000mAh     1723mAh, 2:31
- Kolumb 2500mAh                 1274 mAh, 1:48
+ Attom Tech smaller 3000mAh     255 brightness  1723mAh 2h 31
+                                150 brightness  1683mAh 3h 30
+ Kolumb 2500mAh                 255 brightness  1274mAh 1h 48
+
+
 HOW TO CONNECT EVERYTHING
 
 ********* Buttons *********
@@ -279,9 +282,9 @@ void loop()
         {
             Serial.println(F("In Case 5"));
 
-            imu_active = 0;
+            imu_active = 1;
             mag_active = 0;
-            gflash_active = 0;
+            gflash_active = 1;
 
             settingIndex = 0;
             SPARKLE_main_program();
