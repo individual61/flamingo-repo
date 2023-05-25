@@ -14,7 +14,10 @@ Make second board, load programs
 
 About 700 Hz with just 3-button polling and serial out.
 
+syncradnnum program, flowing or fast flowing rainbow, setting 3? max brightness.
 
+ Attom Tech smaller 3000mAh     1723mAh, 2:31
+ Kolumb 2500mAh                 1274 mAh, 1:48
 HOW TO CONNECT EVERYTHING
 
 ********* Buttons *********
