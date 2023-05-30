@@ -5,9 +5,10 @@
 
 /*   TODO
 
+Lowest brightness is perfectly adequate for  festival in general, might even consider a lower brightness?
 Fix bouncing ball at bottom
-Fix skip on syncrandnum
-maybe look into fire
+
+
 */
 
 /*
