@@ -1,4 +1,4 @@
-21744553920391420
+21742846869595521
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -63375,8 +63375,8 @@ Cap Tant 100uF 16V 2mm height F size Kyocera AVX TPSF107M016R0200
 
 
 0
-2
-2
+1
+1
 MyConnectors
 ISP_Header_Pogo_2x03_Pitch2.54mm
 Through hole straight pin header, 2x03, 2.54mm pitch, double rows, NO DRILL
@@ -63433,13 +63433,6 @@ MyHolesAndSlots
 0
 0
 0
-MyICs
-74AHCT125N - Th
-
-
-0
-14
-14
 MyLEDs
 LED_RGB_5050-6
 http://cdn.sparkfun.com/datasheets/Components/LED/5060BRG4.pdf
